@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		827C045421329228008998C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C045321329228008998C0 /* AppDelegate.swift */; };
+		827C045621329228008998C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C045521329228008998C0 /* ViewController.swift */; };
+		827C045921329228008998C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827C045721329228008998C0 /* Main.storyboard */; };
+		827C045B2132922B008998C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827C045A2132922B008998C0 /* Assets.xcassets */; };
+		827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827C045C2132922B008998C0 /* LaunchScreen.storyboard */; };
+		827C04692132922C008998C0 /* TurnBasedRPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C04682132922C008998C0 /* TurnBasedRPGTests.swift */; };
+		827C04742132922C008998C0 /* TurnBasedRPGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C04732132922C008998C0 /* TurnBasedRPGUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		827C04652132922C008998C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 827C044821329228008998C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 827C044F21329228008998C0;
+			remoteInfo = TurnBasedRPG;
+		};
+		827C04702132922C008998C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 827C044821329228008998C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 827C044F21329228008998C0;
+			remoteInfo = TurnBasedRPG;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		827C045021329228008998C0 /* TurnBasedRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurnBasedRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		827C045321329228008998C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		827C045521329228008998C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		827C045821329228008998C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		827C045A2132922B008998C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		827C045D2132922B008998C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		827C045F2132922B008998C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		827C04642132922C008998C0 /* TurnBasedRPGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurnBasedRPGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		827C04682132922C008998C0 /* TurnBasedRPGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnBasedRPGTests.swift; sourceTree = "<group>"; };
+		827C046A2132922C008998C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		827C046F2132922C008998C0 /* TurnBasedRPGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurnBasedRPGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		827C04732132922C008998C0 /* TurnBasedRPGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnBasedRPGUITests.swift; sourceTree = "<group>"; };
+		827C04752132922C008998C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		827C044D21329228008998C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		827C04612132922C008998C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		827C046C2132922C008998C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		827C044721329228008998C0 = {
+			isa = PBXGroup;
+			children = (
+				827C045221329228008998C0 /* TurnBasedRPG */,
+				827C04672132922C008998C0 /* TurnBasedRPGTests */,
+				827C04722132922C008998C0 /* TurnBasedRPGUITests */,
+				827C045121329228008998C0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		827C045121329228008998C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				827C045021329228008998C0 /* TurnBasedRPG.app */,
+				827C04642132922C008998C0 /* TurnBasedRPGTests.xctest */,
+				827C046F2132922C008998C0 /* TurnBasedRPGUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		827C045221329228008998C0 /* TurnBasedRPG */ = {
+			isa = PBXGroup;
+			children = (
+				827C045321329228008998C0 /* AppDelegate.swift */,
+				827C045521329228008998C0 /* ViewController.swift */,
+				827C045721329228008998C0 /* Main.storyboard */,
+				827C045A2132922B008998C0 /* Assets.xcassets */,
+				827C045C2132922B008998C0 /* LaunchScreen.storyboard */,
+				827C045F2132922B008998C0 /* Info.plist */,
+			);
+			path = TurnBasedRPG;
+			sourceTree = "<group>";
+		};
+		827C04672132922C008998C0 /* TurnBasedRPGTests */ = {
+			isa = PBXGroup;
+			children = (
+				827C04682132922C008998C0 /* TurnBasedRPGTests.swift */,
+				827C046A2132922C008998C0 /* Info.plist */,
+			);
+			path = TurnBasedRPGTests;
+			sourceTree = "<group>";
+		};
+		827C04722132922C008998C0 /* TurnBasedRPGUITests */ = {
+			isa = PBXGroup;
+			children = (
+				827C04732132922C008998C0 /* TurnBasedRPGUITests.swift */,
+				827C04752132922C008998C0 /* Info.plist */,
+			);
+			path = TurnBasedRPGUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		827C044F21329228008998C0 /* TurnBasedRPG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 827C04782132922C008998C0 /* Build configuration list for PBXNativeTarget "TurnBasedRPG" */;
+			buildPhases = (
+				827C044C21329228008998C0 /* Sources */,
+				827C044D21329228008998C0 /* Frameworks */,
+				827C044E21329228008998C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TurnBasedRPG;
+			productName = TurnBasedRPG;
+			productReference = 827C045021329228008998C0 /* TurnBasedRPG.app */;
+			productType = "com.apple.product-type.application";
+		};
+		827C04632132922C008998C0 /* TurnBasedRPGTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 827C047B2132922C008998C0 /* Build configuration list for PBXNativeTarget "TurnBasedRPGTests" */;
+			buildPhases = (
+				827C04602132922C008998C0 /* Sources */,
+				827C04612132922C008998C0 /* Frameworks */,
+				827C04622132922C008998C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				827C04662132922C008998C0 /* PBXTargetDependency */,
+			);
+			name = TurnBasedRPGTests;
+			productName = TurnBasedRPGTests;
+			productReference = 827C04642132922C008998C0 /* TurnBasedRPGTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		827C046E2132922C008998C0 /* TurnBasedRPGUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 827C047E2132922C008998C0 /* Build configuration list for PBXNativeTarget "TurnBasedRPGUITests" */;
+			buildPhases = (
+				827C046B2132922C008998C0 /* Sources */,
+				827C046C2132922C008998C0 /* Frameworks */,
+				827C046D2132922C008998C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				827C04712132922C008998C0 /* PBXTargetDependency */,
+			);
+			name = TurnBasedRPGUITests;
+			productName = TurnBasedRPGUITests;
+			productReference = 827C046F2132922C008998C0 /* TurnBasedRPGUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		827C044821329228008998C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Chris Phillips";
+				TargetAttributes = {
+					827C044F21329228008998C0 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					827C04632132922C008998C0 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 827C044F21329228008998C0;
+					};
+					827C046E2132922C008998C0 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 827C044F21329228008998C0;
+					};
+				};
+			};
+			buildConfigurationList = 827C044B21329228008998C0 /* Build configuration list for PBXProject "TurnBasedRPG" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 827C044721329228008998C0;
+			productRefGroup = 827C045121329228008998C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				827C044F21329228008998C0 /* TurnBasedRPG */,
+				827C04632132922C008998C0 /* TurnBasedRPGTests */,
+				827C046E2132922C008998C0 /* TurnBasedRPGUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		827C044E21329228008998C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */,
+				827C045B2132922B008998C0 /* Assets.xcassets in Resources */,
+				827C045921329228008998C0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		827C04622132922C008998C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		827C046D2132922C008998C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		827C044C21329228008998C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				827C045621329228008998C0 /* ViewController.swift in Sources */,
+				827C045421329228008998C0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		827C04602132922C008998C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				827C04692132922C008998C0 /* TurnBasedRPGTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		827C046B2132922C008998C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				827C04742132922C008998C0 /* TurnBasedRPGUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		827C04662132922C008998C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 827C044F21329228008998C0 /* TurnBasedRPG */;
+			targetProxy = 827C04652132922C008998C0 /* PBXContainerItemProxy */;
+		};
+		827C04712132922C008998C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 827C044F21329228008998C0 /* TurnBasedRPG */;
+			targetProxy = 827C04702132922C008998C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		827C045721329228008998C0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				827C045821329228008998C0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		827C045C2132922B008998C0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				827C045D2132922B008998C0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		827C04762132922C008998C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		827C04772132922C008998C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		827C04792132922C008998C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurnBasedRPG/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPG";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		827C047A2132922C008998C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurnBasedRPG/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPG";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		827C047C2132922C008998C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurnBasedRPGTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TurnBasedRPG.app/TurnBasedRPG";
+			};
+			name = Debug;
+		};
+		827C047D2132922C008998C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurnBasedRPGTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TurnBasedRPG.app/TurnBasedRPG";
+			};
+			name = Release;
+		};
+		827C047F2132922C008998C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurnBasedRPGUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TurnBasedRPG;
+			};
+			name = Debug;
+		};
+		827C04802132922C008998C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TurnBasedRPGUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TurnBasedRPG;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		827C044B21329228008998C0 /* Build configuration list for PBXProject "TurnBasedRPG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				827C04762132922C008998C0 /* Debug */,
+				827C04772132922C008998C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		827C04782132922C008998C0 /* Build configuration list for PBXNativeTarget "TurnBasedRPG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				827C04792132922C008998C0 /* Debug */,
+				827C047A2132922C008998C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		827C047B2132922C008998C0 /* Build configuration list for PBXNativeTarget "TurnBasedRPGTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				827C047C2132922C008998C0 /* Debug */,
+				827C047D2132922C008998C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		827C047E2132922C008998C0 /* Build configuration list for PBXNativeTarget "TurnBasedRPGUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				827C047F2132922C008998C0 /* Debug */,
+				827C04802132922C008998C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 827C044821329228008998C0 /* Project object */;
+}
