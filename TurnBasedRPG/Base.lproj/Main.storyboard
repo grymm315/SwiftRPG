@@ -1,24 +1,224 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHq-4K-3uT" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="461" y="241" width="106" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="-9" height="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldRasterize" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="swoop">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="d2K-j7-Qrn" kind="show" id="dBZ-tA-8Ir"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VnM-EV-MmP" customClass="Burst" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="65" y="174" width="398" height="174"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RLx-9W-EAr" customClass="Face" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="305" y="27" width="220" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.833583208395808" y="31.199999999999999"/>
+        </scene>
+        <!--Room View Controller-->
+        <scene sceneID="93f-40-oAK">
+            <objects>
+                <viewController id="d2K-j7-Qrn" customClass="RoomViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WSf-OQ-rmF">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-Nq-uFA" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="273" y="-1" width="121" height="50"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DRu-Rp-1aj"/>
+                                </constraints>
+                                <state key="normal" title="North">
+                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="moveNorth:" destination="d2K-j7-Qrn" eventType="touchUpInside" id="szS-iS-fMu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOB-oy-EYy" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="126" width="50" height="120"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="D1q-iu-1jx"/>
+                                </constraints>
+                                <state key="normal" title="West">
+                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="moveWest:" destination="d2K-j7-Qrn" eventType="touchUpInside" id="DLk-Al-Xwg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fve-Da-VmP" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="616" y="126" width="50" height="120"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="m2L-tB-Mc0"/>
+                                </constraints>
+                                <state key="normal" title="East">
+                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="moveEast:" destination="d2K-j7-Qrn" eventType="touchUpInside" id="Hfg-39-N6z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVP-xj-FEs" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="273" y="325" width="121" height="50"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vzH-3E-Rtu"/>
+                                </constraints>
+                                <state key="normal" title="South">
+                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="moveSouth:" destination="d2K-j7-Qrn" eventType="touchUpInside" id="EVG-Ng-S8e"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFk-TB-G8a">
+                                <rect key="frame" x="80" y="5" width="87" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="z8f-DW-qK7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OyS-j0-DHc">
+                                <rect key="frame" x="233" y="166" width="196" height="91"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCS-u1-bzW">
+                                <rect key="frame" x="197" y="57" width="274" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="ydF-XO-Z5s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rVP-xj-FEs" firstAttribute="centerX" secondItem="WSf-OQ-rmF" secondAttribute="centerX" id="5kt-HA-aEH"/>
+                            <constraint firstItem="jOB-oy-EYy" firstAttribute="leading" secondItem="WSf-OQ-rmF" secondAttribute="leading" id="DRM-3R-aea"/>
+                            <constraint firstItem="rVP-xj-FEs" firstAttribute="leading" secondItem="5gf-16-iim" secondAttribute="leading" constant="273" id="EsS-0j-Z4G"/>
+                            <constraint firstItem="OyS-j0-DHc" firstAttribute="top" secondItem="BCS-u1-bzW" secondAttribute="bottom" constant="34" id="G2C-bd-53o"/>
+                            <constraint firstItem="mFk-TB-G8a" firstAttribute="leading" secondItem="5gf-16-iim" secondAttribute="leading" constant="80" id="G47-10-gDg"/>
+                            <constraint firstItem="5gf-16-iim" firstAttribute="trailing" secondItem="fve-Da-VmP" secondAttribute="trailing" constant="1" id="Gva-ZS-k70"/>
+                            <constraint firstItem="jOB-oy-EYy" firstAttribute="top" secondItem="5gf-16-iim" secondAttribute="top" constant="126" id="Hsi-3d-3vF"/>
+                            <constraint firstItem="5gf-16-iim" firstAttribute="bottom" secondItem="mFk-TB-G8a" secondAttribute="bottom" constant="295" id="NP2-lC-L2H"/>
+                            <constraint firstItem="YGr-Nq-uFA" firstAttribute="trailing" secondItem="rVP-xj-FEs" secondAttribute="trailing" id="SqU-2f-lwp"/>
+                            <constraint firstItem="BCS-u1-bzW" firstAttribute="top" secondItem="YGr-Nq-uFA" secondAttribute="bottom" constant="8" symbolic="YES" id="Sr5-ZZ-1JQ"/>
+                            <constraint firstItem="mFk-TB-G8a" firstAttribute="top" secondItem="5gf-16-iim" secondAttribute="top" constant="5" id="VIg-Ps-55U"/>
+                            <constraint firstItem="OyS-j0-DHc" firstAttribute="leading" secondItem="WSf-OQ-rmF" secondAttribute="leading" constant="233" id="VtN-90-L61"/>
+                            <constraint firstItem="rVP-xj-FEs" firstAttribute="bottom" secondItem="5gf-16-iim" secondAttribute="bottom" id="XrE-vc-su9"/>
+                            <constraint firstItem="5gf-16-iim" firstAttribute="bottom" secondItem="jOB-oy-EYy" secondAttribute="bottom" constant="129" id="YQM-yR-ly5"/>
+                            <constraint firstItem="YGr-Nq-uFA" firstAttribute="leading" secondItem="rVP-xj-FEs" secondAttribute="leading" id="ZiC-l1-2Qe"/>
+                            <constraint firstItem="jOB-oy-EYy" firstAttribute="top" secondItem="fve-Da-VmP" secondAttribute="top" id="beb-Uy-ldd"/>
+                            <constraint firstItem="jOB-oy-EYy" firstAttribute="baseline" secondItem="fve-Da-VmP" secondAttribute="firstBaseline" id="eDs-Sv-WLS"/>
+                            <constraint firstItem="BCS-u1-bzW" firstAttribute="leading" secondItem="mFk-TB-G8a" secondAttribute="trailing" constant="30" id="fE3-Rt-t19"/>
+                            <constraint firstItem="rVP-xj-FEs" firstAttribute="top" secondItem="OyS-j0-DHc" secondAttribute="bottom" constant="68" id="foy-Ch-Gtn"/>
+                            <constraint firstAttribute="trailing" secondItem="OyS-j0-DHc" secondAttribute="trailing" constant="238" id="fqh-cm-gYh"/>
+                            <constraint firstItem="YGr-Nq-uFA" firstAttribute="centerX" secondItem="BCS-u1-bzW" secondAttribute="centerX" id="g1L-ee-rAO"/>
+                            <constraint firstItem="YGr-Nq-uFA" firstAttribute="top" secondItem="WSf-OQ-rmF" secondAttribute="topMargin" constant="-1" id="yBL-C7-hax"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5gf-16-iim"/>
+                    </view>
+                    <connections>
+                        <outlet property="mobStack" destination="OyS-j0-DHc" id="3LA-yE-Qf2"/>
+                        <outlet property="oEast" destination="fve-Da-VmP" id="E9g-Va-Xg3"/>
+                        <outlet property="oNorth" destination="YGr-Nq-uFA" id="6Jk-71-cZX"/>
+                        <outlet property="oSouth" destination="rVP-xj-FEs" id="cVy-WE-fa0"/>
+                        <outlet property="oWest" destination="jOB-oy-EYy" id="Zys-wU-WRE"/>
+                        <outlet property="roomName" destination="BCS-u1-bzW" id="63b-yf-AM3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mPP-Y3-dJR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="783.95802098950526" y="29.600000000000001"/>
         </scene>
     </scenes>
 </document>
