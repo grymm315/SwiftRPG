@@ -11,9 +11,13 @@ import UIKit
 @IBDesignable
 class HealthBar: UIView{
     
-    var currentHealth:CGFloat = 0.75
-    private var _maxHealth: Int = 100
-    private var _currentHealth: Int = 100
+    private var currentHealth:CGFloat {
+        get {
+            return CGFloat(_currentHealth) / CGFloat(_maxHealth)
+        }
+    }
+    var _maxHealth: Int = 100
+    var _currentHealth: Int = 100
     
     override func draw(_ rect: CGRect) {
         

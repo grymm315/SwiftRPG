@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol updateProtocol {
+    func updateLabel(name:String)
+    func updateTime(seconds:Int)
+}
+
 class RoomNode{
     
     enum direction {
@@ -28,7 +33,7 @@ class RoomNode{
         title = name
     }
     
-    /*Creates a 2 way link between rooms*/
+    /** Creates a 2 way link between rooms */
     func linkRoom(_ loc: direction, room: RoomNode){
         switch loc {
         case .north:
@@ -43,12 +48,8 @@ class RoomNode{
         case .west:
             self.west = room
             room.east = self
-        default:
-            print("make more directions")
+  
         }
-        
-        
-        
     }
     
 }

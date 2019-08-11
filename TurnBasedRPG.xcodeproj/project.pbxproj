@@ -14,10 +14,12 @@
 		8201509A21334097006A4B80 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8201509921334097006A4B80 /* RoomViewController.swift */; };
 		8201509C213345DD006A4B80 /* FirstArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8201509B213345DD006A4B80 /* FirstArea.swift */; };
 		820150A1213A8EEA006A4B80 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150A0213A8EEA006A4B80 /* Face.swift */; };
-		820150A3213A94F5006A4B80 /* Doodle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 820150A2213A94F5006A4B80 /* Doodle.xib */; };
 		820150A5213B308C006A4B80 /* Magic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150A4213B308C006A4B80 /* Magic.swift */; };
 		820150A7213B3894006A4B80 /* HealthBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150A6213B3894006A4B80 /* HealthBar.swift */; };
 		820150E8213D3C1C006A4B80 /* Doodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150E7213D3C1C006A4B80 /* Doodle.swift */; };
+		822C323A221E9FDC00ECFA9E /* WawaViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */; };
+		822C323C221EA0D000ECFA9E /* ScanLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822C323B221EA0D000ECFA9E /* ScanLine.swift */; };
+		822C323E221EA79900ECFA9E /* wawa.wav in Resources */ = {isa = PBXBuildFile; fileRef = 822C323D221EA79900ECFA9E /* wawa.wav */; };
 		823F4F04214CE26600A3573B /* Burst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F4F03214CE26600A3573B /* Burst.swift */; };
 		827C045421329228008998C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C045321329228008998C0 /* AppDelegate.swift */; };
 		827C045621329228008998C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C045521329228008998C0 /* ViewController.swift */; };
@@ -28,6 +30,9 @@
 		827C04742132922C008998C0 /* TurnBasedRPGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C04732132922C008998C0 /* TurnBasedRPGUITests.swift */; };
 		827C04822132928A008998C0 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C04812132928A008998C0 /* PopUp.swift */; };
 		827C0484213292B7008998C0 /* UIButtonGUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C0483213292B7008998C0 /* UIButtonGUI.swift */; };
+		82D72A2B216060C60081709D /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2A216060C60081709D /* BattleViewController.swift */; };
+		82D72A2D2161FC9E0081709D /* AreaGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2C2161FC9E0081709D /* AreaGenerator.swift */; };
+		9672DE8A22E413FA0080984F /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672DE8922E413FA0080984F /* RoomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +60,12 @@
 		8201509921334097006A4B80 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		8201509B213345DD006A4B80 /* FirstArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstArea.swift; sourceTree = "<group>"; };
 		820150A0213A8EEA006A4B80 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
-		820150A2213A94F5006A4B80 /* Doodle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Doodle.xib; sourceTree = "<group>"; };
 		820150A4213B308C006A4B80 /* Magic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magic.swift; sourceTree = "<group>"; };
 		820150A6213B3894006A4B80 /* HealthBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthBar.swift; sourceTree = "<group>"; };
 		820150E7213D3C1C006A4B80 /* Doodle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doodle.swift; sourceTree = "<group>"; };
+		822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WawaViewViewController.swift; sourceTree = "<group>"; };
+		822C323B221EA0D000ECFA9E /* ScanLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanLine.swift; sourceTree = "<group>"; };
+		822C323D221EA79900ECFA9E /* wawa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wawa.wav; sourceTree = "<group>"; };
 		823F4F03214CE26600A3573B /* Burst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Burst.swift; sourceTree = "<group>"; };
 		827C045021329228008998C0 /* TurnBasedRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurnBasedRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		827C045321329228008998C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +82,9 @@
 		827C04752132922C008998C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		827C04812132928A008998C0 /* PopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		827C0483213292B7008998C0 /* UIButtonGUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonGUI.swift; sourceTree = "<group>"; };
+		82D72A2A216060C60081709D /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
+		82D72A2C2161FC9E0081709D /* AreaGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaGenerator.swift; sourceTree = "<group>"; };
+		9672DE8922E413FA0080984F /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomView.swift; path = Doodles/RoomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +143,7 @@
 				820150A0213A8EEA006A4B80 /* Face.swift */,
 				820150E7213D3C1C006A4B80 /* Doodle.swift */,
 				823F4F03214CE26600A3573B /* Burst.swift */,
-				820150A2213A94F5006A4B80 /* Doodle.xib */,
+				822C323B221EA0D000ECFA9E /* ScanLine.swift */,
 			);
 			path = Doodles;
 			sourceTree = "<group>";
@@ -166,12 +176,17 @@
 				8201509F213A8DF7006A4B80 /* UIWidgets */,
 				820150932132CC2B006A4B80 /* Build.swift */,
 				8201509521332F7B006A4B80 /* RoomNode.swift */,
+				8201509921334097006A4B80 /* RoomViewController.swift */,
+				9672DE8922E413FA0080984F /* RoomView.swift */,
 				820150A6213B3894006A4B80 /* HealthBar.swift */,
 				823F4F02214463FB00A3573B /* Doodles */,
 				8201509721332FEA006A4B80 /* Mobile.swift */,
 				827C045521329228008998C0 /* ViewController.swift */,
-				8201509921334097006A4B80 /* RoomViewController.swift */,
+				82D72A2A216060C60081709D /* BattleViewController.swift */,
+				82D72A2C2161FC9E0081709D /* AreaGenerator.swift */,
 				820150912132C0FD006A4B80 /* Character.swift */,
+				822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */,
+				822C323D221EA79900ECFA9E /* wawa.wav */,
 				820150A4213B308C006A4B80 /* Magic.swift */,
 				827C045721329228008998C0 /* Main.storyboard */,
 				827C045A2132922B008998C0 /* Assets.xcassets */,
@@ -267,13 +282,16 @@
 				TargetAttributes = {
 					827C044F21329228008998C0 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					827C04632132922C008998C0 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 827C044F21329228008998C0;
 					};
 					827C046E2132922C008998C0 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 827C044F21329228008998C0;
 					};
 				};
@@ -303,7 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				820150A3213A94F5006A4B80 /* Doodle.xib in Resources */,
+				822C323E221EA79900ECFA9E /* wawa.wav in Resources */,
 				827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */,
 				827C045B2132922B008998C0 /* Assets.xcassets in Resources */,
 				827C045921329228008998C0 /* Main.storyboard in Resources */,
@@ -331,10 +349,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D72A2B216060C60081709D /* BattleViewController.swift in Sources */,
 				8201509621332F7B006A4B80 /* RoomNode.swift in Sources */,
 				827C045621329228008998C0 /* ViewController.swift in Sources */,
 				820150E8213D3C1C006A4B80 /* Doodle.swift in Sources */,
 				827C04822132928A008998C0 /* PopUp.swift in Sources */,
+				822C323C221EA0D000ECFA9E /* ScanLine.swift in Sources */,
+				822C323A221E9FDC00ECFA9E /* WawaViewViewController.swift in Sources */,
 				820150942132CC2B006A4B80 /* Build.swift in Sources */,
 				820150A7213B3894006A4B80 /* HealthBar.swift in Sources */,
 				820150922132C0FD006A4B80 /* Character.swift in Sources */,
@@ -343,7 +364,9 @@
 				820150A5213B308C006A4B80 /* Magic.swift in Sources */,
 				823F4F04214CE26600A3573B /* Burst.swift in Sources */,
 				8201509A21334097006A4B80 /* RoomViewController.swift in Sources */,
+				82D72A2D2161FC9E0081709D /* AreaGenerator.swift in Sources */,
 				827C0484213292B7008998C0 /* UIButtonGUI.swift in Sources */,
+				9672DE8A22E413FA0080984F /* RoomView.swift in Sources */,
 				8201509821332FEA006A4B80 /* Mobile.swift in Sources */,
 				820150A1213A8EEA006A4B80 /* Face.swift in Sources */,
 			);
@@ -451,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -505,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -527,7 +550,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -545,7 +568,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -556,6 +579,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8L898E2ZQE;
 				INFOPLIST_FILE = TurnBasedRPGTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -564,7 +588,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TurnBasedRPG.app/TurnBasedRPG";
 			};
@@ -576,6 +600,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8L898E2ZQE;
 				INFOPLIST_FILE = TurnBasedRPGTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -584,7 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TurnBasedRPG.app/TurnBasedRPG";
 			};
@@ -595,6 +620,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8L898E2ZQE;
 				INFOPLIST_FILE = TurnBasedRPGUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -603,7 +629,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TurnBasedRPG;
 			};
@@ -614,6 +640,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8L898E2ZQE;
 				INFOPLIST_FILE = TurnBasedRPGUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -622,7 +649,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TurnBasedRPG;
 			};

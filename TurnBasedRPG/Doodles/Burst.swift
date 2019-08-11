@@ -31,7 +31,7 @@ class Burst: UIView {
     
     override func draw(_ rect: CGRect) {
         
-      
+      //stride(from: 0, to: 10, by: 2).forEach()
         let concentricCircles = UIBezierPath()
       //  FaceShape.addArc(withCenter: middle, radius: 100, startAngle: 0, endAngle: 0.5 * CGFloat.pi, clockwise: true)
         for i in 1...5 {
@@ -45,9 +45,6 @@ class Burst: UIView {
         concentricCircles.lineWidth = 15
         concentricCircles.fill()
         concentricCircles.stroke()
-        
-        
-
     }
 
 }

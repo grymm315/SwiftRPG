@@ -25,7 +25,6 @@ class Character{
     var profession:classType = .warrior
     var sex:sexType = .male
     
-    //char *const npc_race[MAX_NPC_RACE] = {
     enum raceTypes: String{
         case human, elf, dwarf, halfling, pixie, halfogre, halforc,
     halftroll, halfelf, gith, drow, seaelf, vampire, demon,
@@ -65,15 +64,29 @@ class Character{
         "augurer", "paladin", "nephandi", "savage", "phantomer", "archer", "demon",
         "assassin", "angel", "werewolf", "licanthrope", "lich", "monger", "pirate",
         "baker", "butcher", "blacksmith", "mayor", "king", "queen"
-    ];
-    enum classType:Int {
+    ]
+    
+    enum classType:Int, CustomStringConvertible {
     case mage, cleric, thief, warrior, vampire, druid, ranger,
     augurer, paladin, nephandi, savage, phantomer, archer, demon,
     assassin, angel, werewolf, licanthrope, lich, monger, pirate,
     baker, butcher, blacksmith, mayor, king, queen
-    
         
-    };
+        var description: String {
+            switch self {
+            case .mage:
+                return "mage"
+            case .angel:
+                return "Angel"
+            case .archer:
+                return "Archer"
+            case .assassin:
+                return "Assassin"
+            default:
+                return "Dude"
+            }
+        }
+    }
     
     
 }

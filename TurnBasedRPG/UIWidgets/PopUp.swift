@@ -37,7 +37,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //tableView.
         
         cancel.frame = startFrame
-        cancel.setTitle("Cancel", for: UIControlState.normal)
+        cancel.setTitle("Cancel", for: UIControl.State.normal)
         cancel.setTitleColor(UIColor.white, for: .normal)
         cancel.isEnabled = true
         cancel.backgroundColor = UIColor.black
@@ -46,14 +46,14 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cancel.layer.borderColor = UIColor.lightGray.cgColor
         
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
         
         tableView.addSubview(refreshControl)
         
         self.view.addSubview(tableView)
         self.view.addSubview(cancel)
         cancel.addTarget(self, action: #selector(self.btn_Cancel(_:)), for: .touchUpInside)
-        tableView.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(connectionTimer), userInfo: nil, repeats: false)
     }
     
@@ -80,7 +80,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.cancel.frame = self.startFrame
             self.view.alpha = 0.2
         }, completion: {finish in
-            self.removeFromParentViewController()
+            self.removeFromParent()
             self.view.removeFromSuperview()
         })
     }
@@ -129,7 +129,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.removeFromParentViewController()
+        self.removeFromParent()
         self.view.removeFromSuperview()
     }
     
