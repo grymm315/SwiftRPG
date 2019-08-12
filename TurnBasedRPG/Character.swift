@@ -18,6 +18,7 @@ class Character{
     let charisma = 5
     let intelligence = 5
     let luck = 5
+    let agility = 5
     
     var level = 1
     var experience = 0

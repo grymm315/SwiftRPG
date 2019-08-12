@@ -20,6 +20,10 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var enemyHP: HealthBar!
     @IBOutlet weak var heroHP: HealthBar!
     
+    @IBOutlet weak var attkButton: UIButtonGUI!
+    var heroPOS = 0
+    var enemyPOS = 0
+    
     
     let counter = 0
     
@@ -39,25 +43,44 @@ class BattleViewController: UIViewController {
     
     func tick() {
         
+        if (heroHP._currentHealth < 0) {
+            print("You perished in combat")
+        }
         
-        
-    }
-    
-    //hero attacks enemy
-    @IBAction func attack(_ sender: Any) {
-        enemyHP._currentHealth -= 5
-        enemyHP.setNeedsDisplay()
-        
-    }
-    
-    func check () {
         if (enemyHP._currentHealth < 0) {
             print ("You won")
         }
         
-        if (heroHP._currentHealth < 0) {
-            print("You perished in combat")
+        if (heroPOS < enemyPOS) {
+            heroPOS += hero.agility
+            AIMove()
+        } else {
+            enemyPOS += enemy.agility
+            attkButton.isHidden = false
         }
     }
+    
+    func AIMove(){
+        heroHP._currentHealth -= Int.random(in: 1...10)
+        heroHP.setNeedsDisplay()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
+            self.tick()
+        })
+    }
+    
+    //hero attacks enemy
+    @IBAction func attack(_ sender: Any) {
+        attkButton.isHidden = true
+        
+        
+        enemyHP._currentHealth -= Int.random(in: 1...10)
+        enemyHP.setNeedsDisplay()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
+            self.tick()
+        })
+        
+    }
+    
+   
     
 }

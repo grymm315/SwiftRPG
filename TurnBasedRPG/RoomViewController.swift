@@ -8,7 +8,22 @@
 
 import UIKit
 
-class RoomViewController: UIViewController {
+class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath)
+        cell.backgroundColor = .red
+        cell.contentView.addSubview(Face(frame: cell.bounds))
+        
+        return cell
+        
+    }
+    
+ //   func coll
+    
     
     @IBOutlet weak var oNorth: UIButtonGUI!
     @IBOutlet weak var oSouth: UIButtonGUI!
@@ -16,6 +31,7 @@ class RoomViewController: UIViewController {
     @IBOutlet weak var oWest: UIButtonGUI!
     
     @IBOutlet weak var roomName: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var currentRoom:RoomNode?
    // let bg:RoomView = RoomView()
@@ -29,17 +45,14 @@ class RoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        bg.frame = self.view.frame
-//        self.view.addSubview(bg)
-//        self.view.sendSubviewToBack(bg)
-//        bg.reset()
         // Do any additional setup after loading the view, typically from a nib.
         originReturn = self.view.frame.origin
         moveRoom(to: dood.startRoom)
         print("From: \(self.view.frame.origin)")
         Gary.frame = CGRect(x: 200, y: 200, width: 75, height: 75)
-        self.view.addSubview(Gary)
-//        mobStack.addSubview(Gary)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        Gary.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1045858305)
 
     }
     

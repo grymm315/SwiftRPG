@@ -112,7 +112,7 @@ class Face:UIView {
         teeth.stroke()
         
         EyeShapeRight.move(to: CGPoint(x: EyePositionRight.x - size * 0.3, y: EyePositionRight.y - size * 0.1))
-        EyeShapeRight.addLine(to: CGPoint(x: EyePositionRight.x + 30, y: EyeShapeRight.currentPoint.y - size * 0.05))
+        EyeShapeRight.addLine(to: CGPoint(x: EyePositionRight.x + size * 0.1, y: EyeShapeRight.currentPoint.y - size * 0.05))
         EyeShapeRight.addQuadCurve(to: CGPoint(x: EyePositionRight.x - size * 0.3, y: EyePositionRight.y - size * 0.1), controlPoint: CGPoint(x: EyePositionRight.x - size * 0.05, y: EyePositionRight.y + size * 0.15))
         EyeShapeRight.lineCapStyle = .round
         EyeShapeRight.lineWidth = 3
@@ -122,7 +122,7 @@ class Face:UIView {
         EyeShapeRight.fill()
         
         EyeShapeLeft.move(to: CGPoint(x: EyePositionLeft.x + size * 0.3, y: EyePositionLeft.y - size * 0.1))
-        EyeShapeLeft.addLine(to: CGPoint(x: EyePositionLeft.x - 30, y: EyeShapeLeft.currentPoint.y - size * 0.05))
+        EyeShapeLeft.addLine(to: CGPoint(x: EyePositionLeft.x - size * 0.1, y: EyeShapeLeft.currentPoint.y - size * 0.05))
         EyeShapeLeft.addQuadCurve(to: CGPoint(x: EyePositionLeft.x + size * 0.3, y: EyePositionLeft.y - size * 0.1), controlPoint: CGPoint(x: EyePositionLeft.x + size * 0.05, y: EyePositionLeft.y + size * 0.15))
         //EyeShapeLeft.addArc(withCenter: EyePositionLeft, radius: size * 0.1, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         EyeShapeLeft.lineWidth = 3
