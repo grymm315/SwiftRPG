@@ -9,21 +9,6 @@
 import UIKit
 
 class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath)
-        cell.backgroundColor = .red
-        cell.contentView.addSubview(Face(frame: cell.bounds))
-        
-        return cell
-        
-    }
-    
- //   func coll
-    
     
     @IBOutlet weak var oNorth: UIButtonGUI!
     @IBOutlet weak var oSouth: UIButtonGUI!
@@ -75,6 +60,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin = self.originReturn!
             })
+        collectionView.reloadData()
     }
     
     func setWallView(_ exist: Bool, wall: UIButtonGUI){
@@ -134,6 +120,25 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.view.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
             self.moveRoom(to: (self.currentRoom?.east)!)
         })
+    }
+    ///// Collection view
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return currentRoom?.mob_list.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath)
+        cell.backgroundColor = .red
+        cell.contentView.addSubview(Face(frame: cell.bounds))
+        
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //let bvc = BattleViewController()
+       // self.present(bvc, animated: true, completion: nil)
+        self.performSegue(withIdentifier: "BattleView", sender: self)
     }
     
     

@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xj-Q0-HMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.833583208395808" y="-908"/>
+            <point key="canvasLocation" x="1482" y="-348"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -298,6 +298,7 @@
                         <outlet property="oSouth" destination="rVP-xj-FEs" id="cVy-WE-fa0"/>
                         <outlet property="oWest" destination="jOB-oy-EYy" id="Zys-wU-WRE"/>
                         <outlet property="roomName" destination="BCS-u1-bzW" id="63b-yf-AM3"/>
+                        <segue destination="59o-89-9o4" kind="showDetail" identifier="BattleView" id="SEy-ln-VA2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPP-Y3-dJR" userLabel="First Responder" sceneMemberID="firstResponder"/>

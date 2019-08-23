@@ -10,8 +10,8 @@ import UIKit
 
 class BattleViewController: UIViewController {
     
-    lazy var hero:Character = Character()
-    lazy var enemy:Character = Character()
+    var hero:Character = Character()
+    var enemy:Character = Character()
     
     
     
@@ -43,13 +43,16 @@ class BattleViewController: UIViewController {
     
     func tick() {
         
+        //lose condition
         if (heroHP._currentHealth < 0) {
             print("You perished in combat")
         }
-        
+        //win condition
         if (enemyHP._currentHealth < 0) {
             print ("You won")
+            self.dismiss(animated: true, completion: nil)
         }
+        
         
         if (heroPOS < enemyPOS) {
             heroPOS += hero.agility
@@ -78,6 +81,33 @@ class BattleViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
             self.tick()
         })
+    }
+    
+    func punches(){
+        
+    }
+    
+    func stab(){
+        
+    }
+    
+    func fireball(){
+        
+    }
+    
+    func roll(){
+        
+    }
+    
+    func rocketpunch(){
+        
+    }
+    
+    func kick(){
+        
+    }
+    
+    func slow(){
         
     }
     

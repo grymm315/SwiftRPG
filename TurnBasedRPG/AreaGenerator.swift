@@ -29,7 +29,10 @@ class AreaGenerator{
         
         for rrr in 0...50 {
             let newRoom = RoomNode(name: "Room# \(rrr)")
-            
+            let ra = Int.random(in: 0...2)
+            for _ in 0...ra {
+            newRoom.mob_list.append(Mobile())
+            }
             
             let selectedExit = Int.random(in: 1..<5)
             switch selectedExit {
