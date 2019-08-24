@@ -35,6 +35,8 @@
 		9672DE8A22E413FA0080984F /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672DE8922E413FA0080984F /* RoomView.swift */; };
 		9693FA3A2300DE0D00867915 /* Doodle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9693FA392300DE0D00867915 /* Doodle.xib */; };
 		9693FA3C230A168700867915 /* BattleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA3B230A168700867915 /* BattleMenu.swift */; };
+		9693FA3F230FAEF500867915 /* Eye.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA3E230FAEF500867915 /* Eye.swift */; };
+		9693FA41230FB3B600867915 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA40230FB3B600867915 /* FaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		9672DE8922E413FA0080984F /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomView.swift; path = Doodles/RoomView.swift; sourceTree = "<group>"; };
 		9693FA392300DE0D00867915 /* Doodle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doodle.xib; sourceTree = "<group>"; };
 		9693FA3B230A168700867915 /* BattleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleMenu.swift; sourceTree = "<group>"; };
+		9693FA3E230FAEF500867915 /* Eye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eye.swift; sourceTree = "<group>"; };
+		9693FA40230FB3B600867915 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				820150A0213A8EEA006A4B80 /* Face.swift */,
+				9693FA3E230FAEF500867915 /* Eye.swift */,
 				820150E7213D3C1C006A4B80 /* Doodle.swift */,
 				823F4F03214CE26600A3573B /* Burst.swift */,
+				9693FA40230FB3B600867915 /* FaceViewController.swift */,
 				9693FA392300DE0D00867915 /* Doodle.xib */,
 				822C323B221EA0D000ECFA9E /* ScanLine.swift */,
 			);
@@ -365,6 +371,7 @@
 				822C323A221E9FDC00ECFA9E /* WawaViewViewController.swift in Sources */,
 				820150942132CC2B006A4B80 /* Build.swift in Sources */,
 				820150A7213B3894006A4B80 /* HealthBar.swift in Sources */,
+				9693FA41230FB3B600867915 /* FaceViewController.swift in Sources */,
 				820150922132C0FD006A4B80 /* Character.swift in Sources */,
 				8201509C213345DD006A4B80 /* FirstArea.swift in Sources */,
 				827C045421329228008998C0 /* AppDelegate.swift in Sources */,
@@ -373,6 +380,7 @@
 				8201509A21334097006A4B80 /* RoomViewController.swift in Sources */,
 				82D72A2D2161FC9E0081709D /* AreaGenerator.swift in Sources */,
 				827C0484213292B7008998C0 /* UIButtonGUI.swift in Sources */,
+				9693FA3F230FAEF500867915 /* Eye.swift in Sources */,
 				9672DE8A22E413FA0080984F /* RoomView.swift in Sources */,
 				8201509821332FEA006A4B80 /* Mobile.swift in Sources */,
 				9693FA3C230A168700867915 /* BattleMenu.swift in Sources */,

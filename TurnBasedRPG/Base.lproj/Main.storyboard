@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YgQ-e9-xyo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -98,7 +98,63 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xj-Q0-HMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482" y="-348"/>
+            <point key="canvasLocation" x="1746" y="29"/>
+        </scene>
+        <!--Face View Controller-->
+        <scene sceneID="jfs-G3-x5Z">
+            <objects>
+                <viewController id="YgQ-e9-xyo" customClass="FaceViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tXy-5Q-DAa" customClass="FaceView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giS-Pw-aiT">
+                                <rect key="frame" x="23" y="139" width="287" height="177"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Face1"/>
+                                <connections>
+                                    <action selector="Button1:" destination="YgQ-e9-xyo" eventType="touchUpInside" id="WZo-Mk-VbF"/>
+                                </connections>
+                            </button>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDg-RN-FyR" customClass="Eye" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="79" y="156" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N9y-oq-ooR" customClass="Eye" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="187" y="156" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="-50" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wRb-Zf-H8l">
+                                <rect key="frame" x="89" y="377" width="175" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="AOj-Gu-dkU">
+                                <rect key="frame" x="89" y="468" width="175" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="P9I-IA-3SE">
+                                <rect key="frame" x="89" y="421" width="175" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <viewLayoutGuide key="safeArea" id="uvU-fa-s6r"/>
+                    </view>
+                    <connections>
+                        <outlet property="FaceButton1" destination="giS-Pw-aiT" id="0lM-B9-twD"/>
+                        <outlet property="eyeObject" destination="LDg-RN-FyR" id="ZdC-IP-Jrg"/>
+                        <outlet property="rightEyeObject" destination="N9y-oq-ooR" id="I6k-Ks-x02"/>
+                        <outlet property="slide1" destination="wRb-Zf-H8l" id="PDJ-Tu-W6r"/>
+                        <outlet property="slide2" destination="P9I-IA-3SE" id="iTD-S4-23w"/>
+                        <outlet property="slide3" destination="AOj-Gu-dkU" id="EfU-vG-hgB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="arf-pm-SLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-768.79999999999995" y="19.340329835082461"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -185,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.833583208395808" y="31.199999999999999"/>
+            <point key="canvasLocation" x="32.799999999999997" y="31.03448275862069"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="93f-40-oAK">
