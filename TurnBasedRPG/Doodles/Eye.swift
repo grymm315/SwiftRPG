@@ -23,7 +23,10 @@ class Eye: UIView {
     var lowerRight: CGPoint = CGPoint(x: 80, y: 40)
     var lowerArc: CGPoint = CGPoint(x: 40, y: 50)
     
+    var isRight: Bool = false
     
+    var top: CGFloat = 23.0
+
     lazy var middle = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
     @IBInspectable var size:CGFloat = 100
     
@@ -150,8 +153,11 @@ class Eye: UIView {
         
     }
     
-    func takeValue(_ value: CGFloat){
-        lowerArc = CGPoint(x: 40, y: value)
+    func takeValue(_ value1: CGFloat, _ value2: CGFloat, _ value3: CGFloat, _ value4: CGFloat, _ value5: CGFloat){
+        lowerArc = CGPoint(x: 40, y: value1)
+        lowerLeft = CGPoint(x: 0, y: value2)
+        lowerRight = CGPoint(x: 80, y: value3)
+        pupil.path = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: value4, y: 0), size: CGSize(width: value5, height: value5))).cgPath
         shapeLayer.path = customEye()
         eyeShift()
         borderLayer.path = shapeLayer.path
