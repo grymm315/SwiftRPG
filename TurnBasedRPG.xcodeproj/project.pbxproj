@@ -139,6 +139,7 @@
 		8201509F213A8DF7006A4B80 /* UIWidgets */ = {
 			isa = PBXGroup;
 			children = (
+				820150A6213B3894006A4B80 /* HealthBar.swift */,
 				827C0483213292B7008998C0 /* UIButtonGUI.swift */,
 				827C04812132928A008998C0 /* PopUp.swift */,
 				9693FA3B230A168700867915 /* BattleMenu.swift */,
@@ -190,7 +191,6 @@
 				8201509521332F7B006A4B80 /* RoomNode.swift */,
 				8201509921334097006A4B80 /* RoomViewController.swift */,
 				9672DE8922E413FA0080984F /* RoomView.swift */,
-				820150A6213B3894006A4B80 /* HealthBar.swift */,
 				823F4F02214463FB00A3573B /* Doodles */,
 				8201509721332FEA006A4B80 /* Mobile.swift */,
 				827C045521329228008998C0 /* ViewController.swift */,

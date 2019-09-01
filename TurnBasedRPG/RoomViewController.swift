@@ -35,6 +35,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         moveRoom(to: dood.startRoom)
         print("From: \(self.view.frame.origin)")
         Gary.frame = CGRect(x: 200, y: 200, width: 75, height: 75)
+        collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
         Gary.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1045858305)

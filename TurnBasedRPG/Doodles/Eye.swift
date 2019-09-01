@@ -134,8 +134,6 @@ class Eye: UIView {
         animation.autoreverses = true
         shapeLayer.add(animation, forKey: nil)
         maskLayer.add(animation, forKey: nil)
-        
-        
     }
     func eyeShift(){
         
