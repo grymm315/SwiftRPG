@@ -40,16 +40,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.layer.borderWidth = 2
         tableView.layer.borderColor = UIColor.lightGray.cgColor
         tableView.backgroundColor = UIColor.black
-        //tableView.
-        
-//        cancel.frame = startFrame
-//        cancel.setTitle("Cancel", for: UIControl.State.normal)
-//        cancel.setTitleColor(UIColor.white, for: .normal)
-//        cancel.isEnabled = true
-//        cancel.backgroundColor = UIColor.black
-//        cancel.layer.cornerRadius = 12
-//        cancel.layer.borderWidth = 0.5
-//        cancel.layer.borderColor = UIColor.lightGray.cgColor
+
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
@@ -57,8 +48,6 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.addSubview(refreshControl)
         
         self.view.addSubview(tableView)
-//        self.view.addSubview(cancel)
-//        cancel.addTarget(self, action: #selector(self.btn_Cancel(_:)), for: .touchUpInside)
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(connectionTimer), userInfo: nil, repeats: false)
     }
@@ -73,7 +62,6 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidAppear(true)
         UIView.animate(withDuration: 0.3, animations: {
             self.tableView.frame = self.tableFrame
-//            self.cancel.frame = CGRect(origin: CGPoint(x: self.tableFrame.origin.x, y: self.tableFrame.origin.y + self.tableFrame.height + 4), size: CGSize(width: self.tableFrame.width, height: 44))
             self.view.alpha = 1.0
         })
     }
@@ -82,7 +70,6 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         closing = true
         UIView.animate(withDuration: 0.3, animations: {
             self.tableView.frame = self.startFrame
-//            self.cancel.frame = self.startFrame
             self.view.alpha = 0.2
         }, completion: {finish in
             self.removeFromParent()
@@ -113,8 +100,6 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //let number = mData.count
-        
         return menuItems.count
     }
     

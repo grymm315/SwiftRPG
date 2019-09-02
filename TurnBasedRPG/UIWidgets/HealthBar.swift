@@ -49,6 +49,9 @@ class HealthBar: UIView{
     func heal(_ amt: Int){
         backBar.fillColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         _currentHealth = _currentHealth + amt
+        if (_currentHealth > _maxHealth){
+            _currentHealth = _maxHealth
+        }
         scale(path: backBar, duration: 0.2)
         scale(path: barCurrent, duration: 0.9)
     }

@@ -9,31 +9,8 @@
 import UIKit
 
 class BattleViewController: UIViewController, BattleMenuDelegate {
-    func chose(action: String) {
-        print("Chose: \(action)")
-        switch action {
-        case "Attack":
-        enemyHP.takeDamage(Int.random(in: 1...10))
-        //attack(action)
-        case "Magic":
-            heroHP.heal(10)
-//            menu.menuItems = ["Fire Bolt", "Flash", "Herpes"]
-//            menu.reloadInputViews()
-//            self.view.addSubview(menu.view)
-        case "Item":
-            print("Yet")
-        default:
-            print("Default")
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
-            self.tick()
-        })
-    }
-    
-    
-    var hero:Character = Character()
-    var enemy:Character = Character()
+    var hero:Character = Character(strength: 9, perception: 9, endurance: 9, charisma: 9, intelligence: 9, luck: 9, agility: 3)
+    var enemy:Character = Character(strength: 3, perception: 3, endurance: 3, charisma: 3, intelligence: 3, luck: 3, agility: 9 )
     
     let GR:CGFloat = 0.6180340
 
@@ -47,7 +24,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     var heroPOS = 0
     var enemyPOS = 0
     
-    
+    lazy var statusText: UILabel = UILabel()
     let counter = 0
     
     
@@ -67,18 +44,32 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         menu.startFrame = CGRect(x: 0, y: self.view.bounds.height, width: 20, height: 20)
         menu.delegate = self
         self.view.addSubview(menu.view)
-//        self.present(menu, animated: true, completion: nil)
         heroHP.frame.origin.x = 0
         heroHP.frame.origin.y = (UIScreen.main.bounds.height * (1 - GR))
-//        heroHP.frame = CGRect(x: 0, y: h + (UIScreen.main.bounds.height * (1 - GR)), width: w, height: h)
         heroHP._maxHealth = hero.maxHealth
         heroHP._currentHealth = hero.currentHealth
         heroName.text = hero.race.rawValue
-
+    }
+    
+    func popText(_ text:String){
+        statusText.text = text
+        statusText.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        statusText.textAlignment = .center
+        statusText.layer.backgroundColor = #colorLiteral(red: 0.1549019754, green: 0.1745098174, blue: 0.119607961, alpha: 1)
+        statusText.layer.cornerRadius = 12
+        statusText.layer.borderWidth = 2
+        statusText.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        statusText.frame = CGRect(x: 15, y: 50, width: UIScreen.main.bounds.width - 30, height: 50)
+        self.view.addSubview(statusText)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75, execute: {
+            self.statusText.removeFromSuperview()
+            })
+        
     }
     
     func tick() {
-        
         //lose condition
         if (heroHP._currentHealth < 0) {
             print("You perished in combat")
@@ -91,24 +82,44 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         
         
         if (heroPOS < enemyPOS) {
-            heroPOS += hero.agility
+            heroPOS += Int(hero.agility)
             AIMove()
         } else {
-            enemyPOS += enemy.agility
-//            attkButton.isHidden = false
+            enemyPOS += Int(enemy.agility)
             menu.menuItems = ["Attack", "Magic", "Item", "Escape"]
             self.view.addSubview(menu.view)
         }
     }
     
+    func chose(action: String) {
+        print("Chose: \(action)")
+        switch action {
+        case "Attack":
+            let hdmg = Int.random(in: 1...Int(hero.strength))
+            enemyHP.takeDamage(hdmg)
+            popText("You deal \(hdmg) dmg to \(enemy.race)")
+        case "Magic":
+            heroHP.heal(15)
+            popText("You heal for 15 points")
+            
+        case "Item":
+            print("Yet")
+        default:
+            print("Default")
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
+            self.tick()
+        })
+    }
+    
     func attacks(_ who:Character, attacks victim:Character){
-       // who.
     }
     
     func AIMove(){
-//        heroHP._currentHealth -= Int.random(in: 1...10)
-        heroHP.takeDamage(Int.random(in: 1...10))
-//        heroHP.setNeedsDisplay()
+        let edmg = Int.random(in: 1...Int(enemy.strength))
+        heroHP.takeDamage(edmg)
+        popText("\(enemy.race) attacks you for \(edmg) points")
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
             self.tick()
         })
@@ -116,9 +127,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     
     //hero attacks enemy
     @IBAction func attack(_ sender: Any) {
-   //     attkButton.isHidden = true
-        
-        
         enemyHP._currentHealth -= Int.random(in: 1...10)
         enemyHP.setNeedsDisplay()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
@@ -153,7 +161,4 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     func slow(){
         
     }
-    
-   
-    
 }

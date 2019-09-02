@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@IBDesignable
 class Eye: UIView {
 
     let shapeLayer = CAShapeLayer()
@@ -16,18 +16,26 @@ class Eye: UIView {
     var eyePath = UIBezierPath()
     let pupil = CAShapeLayer()
     
-    var upperLeft: CGPoint = CGPoint(x: 0, y: 0)
-    var upperRight: CGPoint = CGPoint(x: 80, y: 0)
-    var upperArc: CGPoint = CGPoint(x: 40, y: -10)
-    var lowerLeft: CGPoint = CGPoint(x: 0, y: 40)
-    var lowerRight: CGPoint = CGPoint(x: 80, y: 40)
-    var lowerArc: CGPoint = CGPoint(x: 40, y: 50)
+    let GR:CGFloat = 0.6180340
+    var height:CGFloat {return self.bounds.height}
+    var width:CGFloat {return self.bounds.width}
+    lazy var middle = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+    var midY: CGFloat { return self.bounds.midY}
+    
+    var modLu = CGPoint(x: 0.5, y: 0.5)
+    
+    var upperLeft: CGPoint {return CGPoint(x: 0, y: midY - (modLu.y * height))}
+    var upperRight: CGPoint {return CGPoint(x: width, y: 0)}
+    var upperArc: CGPoint {return CGPoint(x: width / 2, y: -10) }
+    
+    var lowerLeft: CGPoint {return CGPoint(x: 0, y: height) }
+    var lowerRight: CGPoint {return CGPoint(x: width, y: height)}
+    var lowerArc: CGPoint {return CGPoint(x: width / 2, y: height + 10)}
     
     var isRight: Bool = false
     
     var top: CGFloat = 23.0
 
-    lazy var middle = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
     @IBInspectable var size:CGFloat = 100
     
     func center(_ x:CGFloat, _ y:CGFloat)->CGPoint {
@@ -102,6 +110,17 @@ class Eye: UIView {
         
     }
     
+    func fdfs() -> CGPath {
+        let eyePath = UIBezierPath()
+        eyePath.move(to: upperLeft)
+        eyePath.addQuadCurve(to: upperRight, controlPoint: upperArc)
+        eyePath.addLine(to: lowerRight)
+        eyePath.addQuadCurve(to: lowerLeft, controlPoint: lowerArc)
+        eyePath.addLine(to: upperLeft)
+        return eyePath.cgPath
+        
+    }
+    
     func eyeShape(width: CGFloat, height: CGFloat) -> CGPath {
       //  let thing = UIBezierPath(rect: CGRect(x: 0, y: 0, width: bounds.width * width, height: bounds.height * height))
         let thing = UIBezierPath(rect: CGRect(origin: bounds.origin, size: CGSize(width: bounds.width * width, height: bounds.height * height)))
@@ -152,9 +171,9 @@ class Eye: UIView {
     }
     
     func takeValue(_ value1: CGFloat, _ value2: CGFloat, _ value3: CGFloat, _ value4: CGFloat, _ value5: CGFloat){
-        lowerArc = CGPoint(x: 40, y: value1)
-        lowerLeft = CGPoint(x: 0, y: value2)
-        lowerRight = CGPoint(x: 80, y: value3)
+//        lowerArc = CGPoint(x: 40, y: value1)
+//        lowerLeft = CGPoint(x: 0, y: value2)
+//        lowerRight = CGPoint(x: 80, y: value3)
         pupil.path = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: value4, y: 0), size: CGSize(width: value5, height: value5))).cgPath
         shapeLayer.path = customEye()
         eyeShift()

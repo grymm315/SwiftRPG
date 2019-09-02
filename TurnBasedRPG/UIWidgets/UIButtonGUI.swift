@@ -65,33 +65,9 @@ class UIButtonGUI:UIButton{
     }
     
     func nothing(){
-     //   swoop = swoop + 1
     }
     
-    ///override func
-    
-    //override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//      
-//        print("here \(swoop)")
-//        switch swoop {
-//        case 1:
-//            fromTop()
-//            swoop = 2
-//        case 2:
-//            fromRight()
-//            swoop = 3
-//        case 3:
-//            fromBottom()
-//            swoop = 4
-//        case 4:
-//            fromLeft()
-//            swoop = 1
-//        default:
-//            nothing()
-//        }
-//    }
-    
+
     
     
 }

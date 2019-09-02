@@ -9,16 +9,30 @@
 import Foundation
 
 class Character{
-    let maxHealth = 100
-    var currentHealth = 100
+    internal init(strength: UInt8, perception: UInt8, endurance: UInt8, charisma: UInt8, intelligence: UInt8, luck: UInt8, agility: UInt8) {
+        self.strength = strength
+        self.perception = perception
+        self.endurance = endurance
+        self.charisma = charisma
+        self.intelligence = intelligence
+        self.luck = luck
+        self.agility = agility
+    }
     
-    let strength = 5
-    let perception = 5
-    let endurance = 5
-    let charisma = 5
-    let intelligence = 5
-    let luck = 5
-    let agility = 5
+    
+    
+    var maxHealth: Int {
+        return Int(endurance * 10)
+    }
+    lazy var currentHealth: Int = Int(endurance * 10)
+    
+    var strength: UInt8
+    var perception: UInt8
+    var endurance: UInt8
+    var charisma:UInt8
+    var intelligence:UInt8
+    var luck:UInt8
+    var agility:UInt8
     
     var level = 1
     var experience = 0
