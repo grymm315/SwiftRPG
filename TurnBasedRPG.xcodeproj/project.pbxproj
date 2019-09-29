@@ -32,11 +32,14 @@
 		827C0484213292B7008998C0 /* UIButtonGUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C0483213292B7008998C0 /* UIButtonGUI.swift */; };
 		82D72A2B216060C60081709D /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2A216060C60081709D /* BattleViewController.swift */; };
 		82D72A2D2161FC9E0081709D /* AreaGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2C2161FC9E0081709D /* AreaGenerator.swift */; };
+		965644E0231DDF6800403EA9 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965644DF231DDF6800403EA9 /* FaceView.swift */; };
 		9672DE8A22E413FA0080984F /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672DE8922E413FA0080984F /* RoomView.swift */; };
 		9693FA3A2300DE0D00867915 /* Doodle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9693FA392300DE0D00867915 /* Doodle.xib */; };
 		9693FA3C230A168700867915 /* BattleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA3B230A168700867915 /* BattleMenu.swift */; };
 		9693FA3F230FAEF500867915 /* Eye.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA3E230FAEF500867915 /* Eye.swift */; };
 		9693FA41230FB3B600867915 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA40230FB3B600867915 /* FaceViewController.swift */; };
+		96CAA1402340A87F009C6A3B /* Mouth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAA13F2340A87F009C6A3B /* Mouth.swift */; };
+		96CAA1422340C0DB009C6A3B /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAA1412340C0DB009C6A3B /* SoundController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,11 +91,14 @@
 		827C0483213292B7008998C0 /* UIButtonGUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonGUI.swift; sourceTree = "<group>"; };
 		82D72A2A216060C60081709D /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		82D72A2C2161FC9E0081709D /* AreaGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaGenerator.swift; sourceTree = "<group>"; };
+		965644DF231DDF6800403EA9 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		9672DE8922E413FA0080984F /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomView.swift; path = Doodles/RoomView.swift; sourceTree = "<group>"; };
 		9693FA392300DE0D00867915 /* Doodle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doodle.xib; sourceTree = "<group>"; };
 		9693FA3B230A168700867915 /* BattleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleMenu.swift; sourceTree = "<group>"; };
 		9693FA3E230FAEF500867915 /* Eye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eye.swift; sourceTree = "<group>"; };
 		9693FA40230FB3B600867915 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
+		96CAA13F2340A87F009C6A3B /* Mouth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mouth.swift; sourceTree = "<group>"; };
+		96CAA1412340C0DB009C6A3B /* SoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				820150A0213A8EEA006A4B80 /* Face.swift */,
+				965644DF231DDF6800403EA9 /* FaceView.swift */,
 				9693FA3E230FAEF500867915 /* Eye.swift */,
+				96CAA13F2340A87F009C6A3B /* Mouth.swift */,
 				820150E7213D3C1C006A4B80 /* Doodle.swift */,
 				823F4F03214CE26600A3573B /* Burst.swift */,
 				9693FA40230FB3B600867915 /* FaceViewController.swift */,
@@ -190,6 +198,7 @@
 				820150932132CC2B006A4B80 /* Build.swift */,
 				8201509521332F7B006A4B80 /* RoomNode.swift */,
 				8201509921334097006A4B80 /* RoomViewController.swift */,
+				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
 				9672DE8922E413FA0080984F /* RoomView.swift */,
 				823F4F02214463FB00A3573B /* Doodles */,
 				8201509721332FEA006A4B80 /* Mobile.swift */,
@@ -371,8 +380,10 @@
 				822C323A221E9FDC00ECFA9E /* WawaViewViewController.swift in Sources */,
 				820150942132CC2B006A4B80 /* Build.swift in Sources */,
 				820150A7213B3894006A4B80 /* HealthBar.swift in Sources */,
+				96CAA1402340A87F009C6A3B /* Mouth.swift in Sources */,
 				9693FA41230FB3B600867915 /* FaceViewController.swift in Sources */,
 				820150922132C0FD006A4B80 /* Character.swift in Sources */,
+				965644E0231DDF6800403EA9 /* FaceView.swift in Sources */,
 				8201509C213345DD006A4B80 /* FirstArea.swift in Sources */,
 				827C045421329228008998C0 /* AppDelegate.swift in Sources */,
 				820150A5213B308C006A4B80 /* Magic.swift in Sources */,
@@ -383,6 +394,7 @@
 				9693FA3F230FAEF500867915 /* Eye.swift in Sources */,
 				9672DE8A22E413FA0080984F /* RoomView.swift in Sources */,
 				8201509821332FEA006A4B80 /* Mobile.swift in Sources */,
+				96CAA1422340C0DB009C6A3B /* SoundController.swift in Sources */,
 				9693FA3C230A168700867915 /* BattleMenu.swift in Sources */,
 				820150A1213A8EEA006A4B80 /* Face.swift in Sources */,
 			);

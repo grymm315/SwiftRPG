@@ -42,6 +42,15 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let clicked = sender as? UICollectionViewCell {
+            if let next = segue.destination as? BattleViewController {
+                next.enemyView = clicked.contentView
+                
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -130,7 +139,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath)
         cell.backgroundColor = .red
-        cell.contentView.addSubview(Face(frame: cell.bounds))
+        cell.backgroundView = Face(frame: cell.bounds)
+       // cell.contentView.addSubview(Face(frame: cell.bounds))
         
         return cell
         
@@ -139,7 +149,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let bvc = BattleViewController()
        // self.present(bvc, animated: true, completion: nil)
-        self.performSegue(withIdentifier: "BattleView", sender: self)
+        self.performSegue(withIdentifier: "BattleView", sender: collectionView.cellForItem(at: indexPath))
     }
     
     

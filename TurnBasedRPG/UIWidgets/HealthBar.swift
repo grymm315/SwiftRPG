@@ -28,6 +28,10 @@ class HealthBar: UIView{
         barFrame.fillColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         barFrame.strokeColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         barFrame.lineWidth = 2
+        barFrame.fillRule = .nonZero
+        
+//        barFrame.superlayer?.cornerRadius = 60
+      //   barCurrent.masksToBounds = true
         layer.addSublayer(barFrame)
         
         backBar.path = barFrame.path
@@ -35,7 +39,10 @@ class HealthBar: UIView{
         layer.addSublayer(backBar)
         barCurrent.path = currentPath().cgPath
         barCurrent.fillColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+//        barCurrent.superlayer?.cornerRadius = 120
+        //barCurrent.masksToBounds = true
         layer.addSublayer(barCurrent)
+        //layer.cornerRadius = 12
     }
     
     func takeDamage(_ dmg: Int){
@@ -83,7 +90,10 @@ class HealthBar: UIView{
     }
     
     func currentPath() -> UIBezierPath{
-       return UIBezierPath(rect: CGRect(origin: barFrame.bounds.origin, size: CGSize(width: self.bounds.width * currentHealth, height: self.bounds.height)))
+        
+        let path = UIBezierPath(rect: CGRect(origin: barFrame.bounds.origin, size: CGSize(width: self.bounds.width * currentHealth, height: self.bounds.height)))
+        
+        return path
     }
     
 //    override func draw(_ rect: CGRect) {

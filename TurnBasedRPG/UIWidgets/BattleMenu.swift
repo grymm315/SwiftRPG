@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol BattleMenuDelegate {
     func chose(action:String)
@@ -17,6 +18,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var tableView:UITableView = UITableView()
     public var mData:[String] = []
     public var startFrame:CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
+    
     var tableFrame:CGRect{
         get {
             return CGRect(origin: CGPoint(x: 0, y: UIScreen.main.bounds.height *  GR), size: CGSize(width: (UIScreen.main.bounds.width * (1 - GR)), height: (UIScreen.main.bounds.height * (1.0 - GR))))
@@ -24,6 +26,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     var delegate:BattleMenuDelegate?
     var menuItems = ["Attack", "Magic", "Item", "Escape"]
+
 //    var cancel:UIButton = UIButton()
     var closing:Bool = false
     
@@ -52,6 +55,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(connectionTimer), userInfo: nil, repeats: false)
     }
     
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         closing = false
@@ -126,6 +130,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
      
         switch command {
         case "Fight":
+
             print(command)
         case "Magic":
             print(command)
