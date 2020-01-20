@@ -19,8 +19,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     
     var currentRoom:RoomNode?
-   // let bg:RoomView = RoomView()
-    var dood: AreaGenerator = AreaGenerator(x: 5, y: 5)
+    var bg:RoomView?
+    var dood: AreaGenerator = AreaGenerator(size: 20)
     var originReturn:CGPoint?
     var transitSpeed:Double = 0.3
     
@@ -32,6 +32,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         originReturn = self.view.frame.origin
+        bg = RoomView(frame: CGRect(x: 0, y: 34, width: self.view.bounds.width, height: self.view.bounds.height - 80))
+        self.view.addSubview(bg!)
         moveRoom(to: dood.startRoom)
         print("From: \(self.view.frame.origin)")
         Gary.frame = CGRect(x: 200, y: 200, width: 75, height: 75)
@@ -53,17 +55,18 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
     /** This method allows the user to manually traverse the room Map Node Tree */
     func moveRoom(to: RoomNode){
         currentRoom = to
 
-        if ((currentRoom?.north) == nil){ oNorth.isHidden = false} else {oNorth.isHidden = true}
-        if ((currentRoom?.east) == nil){ oEast.isHidden = false} else {oEast.isHidden = true}
-        if ((currentRoom?.south) == nil){ oSouth.isHidden = false} else {oSouth.isHidden = true}
-        if ((currentRoom?.west) == nil){ oWest.isHidden = false} else {oWest.isHidden = true;}
+        bg?.changeView(to: currentRoom!)
+//        if ((currentRoom?.north) == nil){ oNorth.isHidden = false} else {oNorth.isHidden = true}
+//        if ((currentRoom?.east) == nil){ oEast.isHidden = false} else {oEast.isHidden = true}
+//        if ((currentRoom?.south) == nil){ oSouth.isHidden = false} else {oSouth.isHidden = true}
+//        if ((currentRoom?.west) == nil){ oWest.isHidden = false} else {oWest.isHidden = true;}
         
 
         roomName.text = currentRoom?.title
@@ -131,7 +134,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.moveRoom(to: (self.currentRoom?.east)!)
         })
     }
-    ///// Collection view
+    //Collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentRoom?.mob_list.count ?? 0
     }

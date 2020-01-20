@@ -32,21 +32,29 @@ class Face:UIView {
     var teeth: UIBezierPath = UIBezierPath()
     var ears: UIBezierPath = UIBezierPath()
     
-    lazy var health = HealthBar()
+    //lazy var health = HealthBar()
     var testView : UIView = UIView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 20, height: 20)))
    
+    override func didMoveToSuperview() {
+        
+    }
     
+    func getEyeShape() -> UIBezierPath{
+        let path = UIBezierPath()
+        
+        return path
+    }
     override init(frame: CGRect) {
        super.init(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        health.bounds = CGRect(x: 0, y: 0, width: self.bounds.width/2, height: 20)
-        health.frame.origin.x = self.bounds.width / 4
-        health.backgroundColor = UIColor.gray
-     //   self.backgroundColor = UIColor.clear
-        self.addSubview(health)
+//        health.bounds = CGRect(x: 0, y: 0, width: self.bounds.width/2, height: 20)
+//        health.frame.origin.x = self.bounds.width / 4
+//        health.backgroundColor = UIColor.gray
+        self.backgroundColor = UIColor.clear
+//        self.addSubview(health)
     }
     /* Returns a CGPoint that uses the center of the view as (0 ,0) which is helpful for using a trigonometric Unit circle*/
     func fromCenter(_ x:CGFloat, _ y:CGFloat)->CGPoint {
@@ -132,7 +140,8 @@ class Face:UIView {
         EyeShapeLeft.stroke()
         EyeShapeLeft.fill()
         self.backgroundColor = UIColor.clear
-        health.setNeedsDisplay()
+        self.layer.backgroundColor = UIColor.clear.cgColor
+   //     health.setNeedsDisplay()
         
     }
 }

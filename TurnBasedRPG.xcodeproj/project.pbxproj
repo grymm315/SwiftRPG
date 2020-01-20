@@ -32,6 +32,35 @@
 		827C0484213292B7008998C0 /* UIButtonGUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C0483213292B7008998C0 /* UIButtonGUI.swift */; };
 		82D72A2B216060C60081709D /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2A216060C60081709D /* BattleViewController.swift */; };
 		82D72A2D2161FC9E0081709D /* AreaGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2C2161FC9E0081709D /* AreaGenerator.swift */; };
+		9607315523CECC270070A869 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607315423CECC270070A869 /* Equipment.swift */; };
+		9607321023D017050070A869 /* haon.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731F323D017010070A869 /* haon.are */; };
+		9607321223D017050070A869 /* newgate.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731F523D017020070A869 /* newgate.are */; };
+		9607321323D017050070A869 /* manor.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731F623D017020070A869 /* manor.are */; };
+		9607321423D017050070A869 /* export.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731F723D017020070A869 /* export.are */; };
+		9607321523D017050070A869 /* midennir.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731F823D017020070A869 /* midennir.are */; };
+		9607321623D017050070A869 /* newdark.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731F923D017020070A869 /* newdark.are */; };
+		9607321723D017050070A869 /* srefuge.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731FA23D017020070A869 /* srefuge.are */; };
+		9607321823D017050070A869 /* grove.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731FB23D017020070A869 /* grove.are */; };
+		9607321923D017050070A869 /* limbo.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731FC23D017020070A869 /* limbo.are */; };
+		9607321A23D017050070A869 /* daycare.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731FD23D017020070A869 /* daycare.are */; };
+		9607321B23D017050070A869 /* newacad.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731FE23D017020070A869 /* newacad.are */; };
+		9607321C23D017050070A869 /* astral.are in Resources */ = {isa = PBXBuildFile; fileRef = 960731FF23D017030070A869 /* astral.are */; };
+		9607321D23D017050070A869 /* gallery.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320023D017030070A869 /* gallery.are */; };
+		9607321E23D017050070A869 /* redferne.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320123D017030070A869 /* redferne.are */; };
+		9607321F23D017050070A869 /* unholy.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320223D017030070A869 /* unholy.are */; };
+		9607322023D017050070A869 /* pixie.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320323D017030070A869 /* pixie.are */; };
+		9607322123D017050070A869 /* sewer.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320423D017030070A869 /* sewer.are */; };
+		9607322223D017050070A869 /* area.lst in Resources */ = {isa = PBXBuildFile; fileRef = 9607320523D017030070A869 /* area.lst */; };
+		9607322323D017050070A869 /* dwarven.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320623D017030070A869 /* dwarven.are */; };
+		9607322423D017050070A869 /* imc-help.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320723D017030070A869 /* imc-help.are */; };
+		9607322523D017050070A869 /* help.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320823D017040070A869 /* help.are */; };
+		9607322623D017050070A869 /* chapel.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320923D017040070A869 /* chapel.are */; };
+		9607322723D017050070A869 /* grave.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320A23D017040070A869 /* grave.are */; };
+		9607322823D017050070A869 /* limbo.are2 in Resources */ = {isa = PBXBuildFile; fileRef = 9607320B23D017040070A869 /* limbo.are2 */; };
+		9607322923D017050070A869 /* plains.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320C23D017040070A869 /* plains.are */; };
+		9607322A23D017050070A869 /* gods.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320D23D017040070A869 /* gods.are */; };
+		9607322B23D017050070A869 /* ice-help.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320E23D017040070A869 /* ice-help.are */; };
+		9607322C23D017050070A869 /* Build.are in Resources */ = {isa = PBXBuildFile; fileRef = 9607320F23D017050070A869 /* Build.are */; };
 		965644E0231DDF6800403EA9 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965644DF231DDF6800403EA9 /* FaceView.swift */; };
 		9672DE8A22E413FA0080984F /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672DE8922E413FA0080984F /* RoomView.swift */; };
 		9693FA3A2300DE0D00867915 /* Doodle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9693FA392300DE0D00867915 /* Doodle.xib */; };
@@ -40,6 +69,9 @@
 		9693FA41230FB3B600867915 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA40230FB3B600867915 /* FaceViewController.swift */; };
 		96CAA1402340A87F009C6A3B /* Mouth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAA13F2340A87F009C6A3B /* Mouth.swift */; };
 		96CAA1422340C0DB009C6A3B /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAA1412340C0DB009C6A3B /* SoundController.swift */; };
+		96CAE7CA23D3073F0017019E /* InventoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */; };
+		96CAE7CC23D452250017019E /* GameDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CB23D452250017019E /* GameDatabase.swift */; };
+		96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +123,35 @@
 		827C0483213292B7008998C0 /* UIButtonGUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonGUI.swift; sourceTree = "<group>"; };
 		82D72A2A216060C60081709D /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		82D72A2C2161FC9E0081709D /* AreaGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaGenerator.swift; sourceTree = "<group>"; };
+		9607315423CECC270070A869 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		960731F323D017010070A869 /* haon.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = haon.are; sourceTree = "<group>"; };
+		960731F523D017020070A869 /* newgate.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = newgate.are; sourceTree = "<group>"; };
+		960731F623D017020070A869 /* manor.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = manor.are; sourceTree = "<group>"; };
+		960731F723D017020070A869 /* export.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = export.are; sourceTree = "<group>"; };
+		960731F823D017020070A869 /* midennir.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = midennir.are; sourceTree = "<group>"; };
+		960731F923D017020070A869 /* newdark.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = newdark.are; sourceTree = "<group>"; };
+		960731FA23D017020070A869 /* srefuge.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = srefuge.are; sourceTree = "<group>"; };
+		960731FB23D017020070A869 /* grove.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grove.are; sourceTree = "<group>"; };
+		960731FC23D017020070A869 /* limbo.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = limbo.are; sourceTree = "<group>"; };
+		960731FD23D017020070A869 /* daycare.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = daycare.are; sourceTree = "<group>"; };
+		960731FE23D017020070A869 /* newacad.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = newacad.are; sourceTree = "<group>"; };
+		960731FF23D017030070A869 /* astral.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = astral.are; sourceTree = "<group>"; };
+		9607320023D017030070A869 /* gallery.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gallery.are; sourceTree = "<group>"; };
+		9607320123D017030070A869 /* redferne.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = redferne.are; sourceTree = "<group>"; };
+		9607320223D017030070A869 /* unholy.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unholy.are; sourceTree = "<group>"; };
+		9607320323D017030070A869 /* pixie.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pixie.are; sourceTree = "<group>"; };
+		9607320423D017030070A869 /* sewer.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sewer.are; sourceTree = "<group>"; };
+		9607320523D017030070A869 /* area.lst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = area.lst; sourceTree = "<group>"; };
+		9607320623D017030070A869 /* dwarven.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dwarven.are; sourceTree = "<group>"; };
+		9607320723D017030070A869 /* imc-help.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "imc-help.are"; sourceTree = "<group>"; };
+		9607320823D017040070A869 /* help.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = help.are; sourceTree = "<group>"; };
+		9607320923D017040070A869 /* chapel.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chapel.are; sourceTree = "<group>"; };
+		9607320A23D017040070A869 /* grave.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grave.are; sourceTree = "<group>"; };
+		9607320B23D017040070A869 /* limbo.are2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = limbo.are2; sourceTree = "<group>"; };
+		9607320C23D017040070A869 /* plains.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plains.are; sourceTree = "<group>"; };
+		9607320D23D017040070A869 /* gods.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gods.are; sourceTree = "<group>"; };
+		9607320E23D017040070A869 /* ice-help.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ice-help.are"; sourceTree = "<group>"; };
+		9607320F23D017050070A869 /* Build.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Build.are; sourceTree = "<group>"; };
 		965644DF231DDF6800403EA9 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		9672DE8922E413FA0080984F /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomView.swift; path = Doodles/RoomView.swift; sourceTree = "<group>"; };
 		9693FA392300DE0D00867915 /* Doodle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doodle.xib; sourceTree = "<group>"; };
@@ -99,6 +160,9 @@
 		9693FA40230FB3B600867915 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
 		96CAA13F2340A87F009C6A3B /* Mouth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mouth.swift; sourceTree = "<group>"; };
 		96CAA1412340C0DB009C6A3B /* SoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
+		96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewController.swift; sourceTree = "<group>"; };
+		96CAE7CB23D452250017019E /* GameDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDatabase.swift; sourceTree = "<group>"; };
+		96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +201,37 @@
 		8201509E213A8DBF006A4B80 /* Area */ = {
 			isa = PBXGroup;
 			children = (
+				8201509521332F7B006A4B80 /* RoomNode.swift */,
+				82D72A2C2161FC9E0081709D /* AreaGenerator.swift */,
 				8201509B213345DD006A4B80 /* FirstArea.swift */,
+				9607320523D017030070A869 /* area.lst */,
+				960731FF23D017030070A869 /* astral.are */,
+				9607320F23D017050070A869 /* Build.are */,
+				9607320923D017040070A869 /* chapel.are */,
+				960731FD23D017020070A869 /* daycare.are */,
+				9607320623D017030070A869 /* dwarven.are */,
+				960731F723D017020070A869 /* export.are */,
+				9607320023D017030070A869 /* gallery.are */,
+				9607320D23D017040070A869 /* gods.are */,
+				9607320A23D017040070A869 /* grave.are */,
+				960731FB23D017020070A869 /* grove.are */,
+				960731F323D017010070A869 /* haon.are */,
+				9607320823D017040070A869 /* help.are */,
+				9607320E23D017040070A869 /* ice-help.are */,
+				9607320723D017030070A869 /* imc-help.are */,
+				960731FC23D017020070A869 /* limbo.are */,
+				9607320B23D017040070A869 /* limbo.are2 */,
+				960731F623D017020070A869 /* manor.are */,
+				960731F823D017020070A869 /* midennir.are */,
+				960731FE23D017020070A869 /* newacad.are */,
+				960731F923D017020070A869 /* newdark.are */,
+				960731F523D017020070A869 /* newgate.are */,
+				9607320323D017030070A869 /* pixie.are */,
+				9607320C23D017040070A869 /* plains.are */,
+				9607320123D017030070A869 /* redferne.are */,
+				9607320423D017030070A869 /* sewer.are */,
+				960731FA23D017020070A869 /* srefuge.are */,
+				9607320223D017030070A869 /* unholy.are */,
 			);
 			path = Area;
 			sourceTree = "<group>";
@@ -156,6 +250,7 @@
 		823F4F02214463FB00A3573B /* Doodles */ = {
 			isa = PBXGroup;
 			children = (
+				822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */,
 				820150A0213A8EEA006A4B80 /* Face.swift */,
 				965644DF231DDF6800403EA9 /* FaceView.swift */,
 				9693FA3E230FAEF500867915 /* Eye.swift */,
@@ -196,19 +291,15 @@
 				8201509D213A8DA7006A4B80 /* Support Files */,
 				8201509F213A8DF7006A4B80 /* UIWidgets */,
 				820150932132CC2B006A4B80 /* Build.swift */,
-				8201509521332F7B006A4B80 /* RoomNode.swift */,
 				8201509921334097006A4B80 /* RoomViewController.swift */,
 				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
 				9672DE8922E413FA0080984F /* RoomView.swift */,
+				96CAE7CB23D452250017019E /* GameDatabase.swift */,
 				823F4F02214463FB00A3573B /* Doodles */,
-				8201509721332FEA006A4B80 /* Mobile.swift */,
 				827C045521329228008998C0 /* ViewController.swift */,
 				82D72A2A216060C60081709D /* BattleViewController.swift */,
-				82D72A2C2161FC9E0081709D /* AreaGenerator.swift */,
-				820150912132C0FD006A4B80 /* Character.swift */,
-				822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */,
+				96CAE7C823D301160017019E /* Character */,
 				822C323D221EA79900ECFA9E /* wawa.wav */,
-				820150A4213B308C006A4B80 /* Magic.swift */,
 				827C045721329228008998C0 /* Main.storyboard */,
 				827C045A2132922B008998C0 /* Assets.xcassets */,
 				827C045C2132922B008998C0 /* LaunchScreen.storyboard */,
@@ -233,6 +324,27 @@
 				827C04752132922C008998C0 /* Info.plist */,
 			);
 			path = TurnBasedRPGUITests;
+			sourceTree = "<group>";
+		};
+		96CAE7C723D301030017019E /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				9607315423CECC270070A869 /* Equipment.swift */,
+				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
+			);
+			path = Inventory;
+			sourceTree = "<group>";
+		};
+		96CAE7C823D301160017019E /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				820150A4213B308C006A4B80 /* Magic.swift */,
+				8201509721332FEA006A4B80 /* Mobile.swift */,
+				820150912132C0FD006A4B80 /* Character.swift */,
+				96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */,
+				96CAE7C723D301030017019E /* Inventory */,
+			);
+			path = Character;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,7 +415,7 @@
 				TargetAttributes = {
 					827C044F21329228008998C0 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1130;
 					};
 					827C04632132922C008998C0 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -342,11 +454,39 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9607321323D017050070A869 /* manor.are in Resources */,
+				9607322423D017050070A869 /* imc-help.are in Resources */,
+				9607321E23D017050070A869 /* redferne.are in Resources */,
 				822C323E221EA79900ECFA9E /* wawa.wav in Resources */,
 				827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */,
+				9607322823D017050070A869 /* limbo.are2 in Resources */,
+				9607321523D017050070A869 /* midennir.are in Resources */,
+				9607321023D017050070A869 /* haon.are in Resources */,
+				9607321223D017050070A869 /* newgate.are in Resources */,
+				9607322623D017050070A869 /* chapel.are in Resources */,
+				9607321723D017050070A869 /* srefuge.are in Resources */,
+				9607321923D017050070A869 /* limbo.are in Resources */,
+				9607322C23D017050070A869 /* Build.are in Resources */,
+				9607322223D017050070A869 /* area.lst in Resources */,
+				9607321423D017050070A869 /* export.are in Resources */,
+				9607321A23D017050070A869 /* daycare.are in Resources */,
 				827C045B2132922B008998C0 /* Assets.xcassets in Resources */,
+				9607321B23D017050070A869 /* newacad.are in Resources */,
+				9607321D23D017050070A869 /* gallery.are in Resources */,
+				9607322523D017050070A869 /* help.are in Resources */,
+				9607321823D017050070A869 /* grove.are in Resources */,
+				9607321623D017050070A869 /* newdark.are in Resources */,
+				9607321C23D017050070A869 /* astral.are in Resources */,
+				9607322023D017050070A869 /* pixie.are in Resources */,
+				9607322123D017050070A869 /* sewer.are in Resources */,
 				9693FA3A2300DE0D00867915 /* Doodle.xib in Resources */,
 				827C045921329228008998C0 /* Main.storyboard in Resources */,
+				9607322A23D017050070A869 /* gods.are in Resources */,
+				9607321F23D017050070A869 /* unholy.are in Resources */,
+				9607322923D017050070A869 /* plains.are in Resources */,
+				9607322723D017050070A869 /* grave.are in Resources */,
+				9607322323D017050070A869 /* dwarven.are in Resources */,
+				9607322B23D017050070A869 /* ice-help.are in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,14 +519,18 @@
 				822C323C221EA0D000ECFA9E /* ScanLine.swift in Sources */,
 				822C323A221E9FDC00ECFA9E /* WawaViewViewController.swift in Sources */,
 				820150942132CC2B006A4B80 /* Build.swift in Sources */,
+				9607315523CECC270070A869 /* Equipment.swift in Sources */,
 				820150A7213B3894006A4B80 /* HealthBar.swift in Sources */,
+				96CAE7CA23D3073F0017019E /* InventoryTableViewController.swift in Sources */,
 				96CAA1402340A87F009C6A3B /* Mouth.swift in Sources */,
 				9693FA41230FB3B600867915 /* FaceViewController.swift in Sources */,
 				820150922132C0FD006A4B80 /* Character.swift in Sources */,
 				965644E0231DDF6800403EA9 /* FaceView.swift in Sources */,
+				96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */,
 				8201509C213345DD006A4B80 /* FirstArea.swift in Sources */,
 				827C045421329228008998C0 /* AppDelegate.swift in Sources */,
 				820150A5213B308C006A4B80 /* Magic.swift in Sources */,
+				96CAE7CC23D452250017019E /* GameDatabase.swift in Sources */,
 				823F4F04214CE26600A3573B /* Burst.swift in Sources */,
 				8201509A21334097006A4B80 /* RoomViewController.swift in Sources */,
 				82D72A2D2161FC9E0081709D /* AreaGenerator.swift in Sources */,
@@ -569,6 +713,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8L898E2ZQE;
 				INFOPLIST_FILE = TurnBasedRPG/Info.plist;
@@ -578,6 +723,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -587,6 +736,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8L898E2ZQE;
 				INFOPLIST_FILE = TurnBasedRPG/Info.plist;
@@ -596,6 +746,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

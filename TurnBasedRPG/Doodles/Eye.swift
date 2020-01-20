@@ -64,13 +64,13 @@ class Eye: UIView {
         shapeLayer.strokeColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.3)
         shapeLayer.fillColor = UIColor.white.cgColor
         layer.addSublayer(shapeLayer)
-        pupil.path = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: 25, y: 0), size: CGSize(width: bounds.width * 0.3, height: bounds.width * 0.3 ))).cgPath
+        pupil.path = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: bounds.width * 0.08, y: 0), size: CGSize(width: bounds.width * 0.3, height: bounds.width * 0.3 ))).cgPath
         pupil.lineWidth = 10
         pupil.strokeColor = UIColor.blue.cgColor
         pupil.fillColor = UIColor.black.cgColor
         layer.addSublayer(pupil)
         borderLayer.path = shapeLayer.path
-        borderLayer.lineWidth = 10
+        borderLayer.lineWidth = 4
         borderLayer.strokeColor = UIColor.black.cgColor
         borderLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(borderLayer)

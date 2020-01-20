@@ -17,9 +17,20 @@ class Character{
         self.intelligence = intelligence
         self.luck = luck
         self.agility = agility
+        name = "Gary"
     }
     
+    var equiped: [Equipment] = []
     
+    lazy var stats: [String : UInt8] = [
+    "strength" : strength,
+    "perception" : perception,
+    "endurance" : endurance,
+    "charisma" : charisma,
+    "intelligence" : intelligence,
+    "luck" : luck,
+    "agility" : agility,
+    ]
     
     var maxHealth: Int {
         return Int(endurance * 10)
@@ -34,6 +45,7 @@ class Character{
     var luck:UInt8
     var agility:UInt8
     
+    var name: String
     var level = 1
     var experience = 0
     var race:raceTypes = .human

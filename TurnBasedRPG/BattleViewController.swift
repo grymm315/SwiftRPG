@@ -69,6 +69,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         menu.delegate = self
         self.view.addSubview(menu.view)
         heroHP.frame.origin.x = 0
+        heroView.addSubview(FaceView(frame: heroView.bounds))
       //  heroHP.frame.origin.y = (UIScreen.main.bounds.height / 2)
         heroHP._maxHealth = hero.maxHealth
         heroHP._currentHealth = hero.currentHealth
