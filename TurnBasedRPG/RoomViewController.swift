@@ -48,7 +48,6 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let clicked = sender as? UICollectionViewCell {
             if let next = segue.destination as? BattleViewController {
                 next.enemyView = clicked.contentView
-                
             }
         }
     }
@@ -61,14 +60,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     /** This method allows the user to manually traverse the room Map Node Tree */
     func moveRoom(to: RoomNode){
         currentRoom = to
-
         bg?.changeView(to: currentRoom!)
-//        if ((currentRoom?.north) == nil){ oNorth.isHidden = false} else {oNorth.isHidden = true}
-//        if ((currentRoom?.east) == nil){ oEast.isHidden = false} else {oEast.isHidden = true}
-//        if ((currentRoom?.south) == nil){ oSouth.isHidden = false} else {oSouth.isHidden = true}
-//        if ((currentRoom?.west) == nil){ oWest.isHidden = false} else {oWest.isHidden = true;}
-        
-
         roomName.text = currentRoom?.title
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin = self.originReturn!

@@ -20,7 +20,7 @@ class Character{
         name = "Gary"
     }
     
-    var equiped: [Equipment] = []
+    var inventory: [Equipment] = []
     
     lazy var stats: [String : UInt8] = [
     "strength" : strength,

@@ -8,6 +8,16 @@
 
 import UIKit
 
+class InventoryCell: UITableViewCell {
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var desc: UILabel!
+    
+    func configCell(item: Equipment) {
+        name.text = item.description ?? "--"
+        desc.text = "Wt. : \(item.weight ?? 0)"
+    }
+}
+
 class InventoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -24,18 +34,18 @@ class InventoryTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return GameDatabase.shared.hero.inventory.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! InventoryCell
+        
         // Configure the cell...
 
         return cell
