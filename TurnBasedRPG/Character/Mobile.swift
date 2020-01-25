@@ -20,10 +20,5 @@ class Mobile {
             from.mob_list.remove(at: removing)
             to.mob_list.append(self)
         }
-        
-        
-        
     }
-    
-    
 }

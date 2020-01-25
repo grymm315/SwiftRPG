@@ -9,8 +9,9 @@
 import Foundation
 
 class Magic {
+    // TODO: Add Resistance calculations etc
     
-    func castDirectDamage(caster:Character, target:Character, dmg:Int){
+    func castPhysicalDamage(caster:Character, target:Character, dmg:Int){
         target.currentHealth -= (dmg)
     }
     
@@ -30,9 +31,4 @@ class Magic {
         target.currentHealth -= (dmg)
     }
 
-    
-    
-    
-    
-    
 }

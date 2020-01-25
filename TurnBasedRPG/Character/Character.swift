@@ -37,6 +37,7 @@ class Character{
     }
     lazy var currentHealth: Int = Int(endurance * 10)
     
+    // Is this too Fallout?
     var strength: UInt8
     var perception: UInt8
     var endurance: UInt8
@@ -52,6 +53,8 @@ class Character{
     var profession:classType = .warrior
     var sex:sexType = .male
     
+    
+    // MARK: Random Data
     enum raceTypes: String{
         case human, elf, dwarf, halfling, pixie, halfogre, halforc,
     halftroll, halfelf, gith, drow, seaelf, vampire, demon,

@@ -27,7 +27,7 @@ class Weapon: Equipment {
     
     var type: WeaponType?
     var damage: UInt8?
-    
+    var speed: UInt8?
 }
 
 class Armor:Equipment {

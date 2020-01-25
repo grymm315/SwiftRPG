@@ -2,7 +2,7 @@
 //  Mouth.swift
 //  TurnBasedRPG
 //
-//  Created by TACTILIS on 9/29/19.
+//  Created by Grymm315 on 9/29/19.
 //  Copyright © 2019 Chris Phillips. All rights reserved.
 //
 

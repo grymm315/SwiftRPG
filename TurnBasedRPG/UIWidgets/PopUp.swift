@@ -1,9 +1,9 @@
 //
 //  PopUp.swift
-//  TactilisUI
+//  Grymm315UI
 //
-//  Created by TACTILIS on 8/14/18.
-//  Copyright © 2018 TACTILIS. All rights reserved.
+//  Created by Grymm315 on 8/14/18.
+//  Copyright © 2018 Grymm315. All rights reserved.
 //
 
 import UIKit

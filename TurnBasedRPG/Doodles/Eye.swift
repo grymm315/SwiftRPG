@@ -2,7 +2,7 @@
 //  Eye.swift
 //  TurnBasedRPG
 //
-//  Created by TACTILIS on 8/22/19.
+//  Created by Grymm315 on 8/22/19.
 //  Copyright © 2019 Chris Phillips. All rights reserved.
 //
 

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//** This is the main view controller for navigating the map*/
 class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var oNorth: UIButtonGUI!
@@ -19,10 +19,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     
     var currentRoom:RoomNode?
-    var bg:RoomView?
-    var dood: AreaGenerator = AreaGenerator(size: 20)
-    var originReturn:CGPoint?
-    var transitSpeed:Double = 0.3
+    var roomView: RoomView?
+    var map: AreaGenerator = AreaGenerator(size: 20)
+    var originReturn:CGPoint? //* */
+    
+    var transitSpeed:Double = 0.3 //** How fast the screen transitions
     
     @IBOutlet weak var mobStack: UIStackView!
     let Gary:Face = Face()
@@ -30,17 +31,21 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Setting the Origin Return to happen after the view did load
+        // this is important for screen animations while transiting
         originReturn = self.view.frame.origin
-        bg = RoomView(frame: CGRect(x: 0, y: 34, width: self.view.bounds.width, height: self.view.bounds.height - 80))
-        self.view.addSubview(bg!)
-        moveRoom(to: dood.startRoom)
-        print("From: \(self.view.frame.origin)")
+        
+        roomView = RoomView(frame: CGRect(x: 0, y: 34, width: self.view.bounds.width, height: self.view.bounds.height - 80))
+        self.view.addSubview(roomView!)
+        moveRoom(to: map.startRoom)
+        
+        //I forget why I put a random face here... maybe testing
         Gary.frame = CGRect(x: 200, y: 200, width: 75, height: 75)
+        Gary.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1045858305)
+
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-        Gary.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1045858305)
 
     }
     
@@ -54,20 +59,22 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
     }
     
     /** This method allows the user to manually traverse the room Map Node Tree */
     func moveRoom(to: RoomNode){
-        currentRoom = to
-        bg?.changeView(to: currentRoom!)
+        currentRoom = to // Moving our current room to the next room
+        roomView?.changeView(to: currentRoom!)
         roomName.text = currentRoom?.title
+        
+        //Moves the view back into view
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin = self.originReturn!
             })
         collectionView.reloadData()
     }
     
+    //** @Deprecated No longer use this*/
     func setWallView(_ exist: Bool, wall: UIButtonGUI){
         if (exist){
             wall.alpha = 0.1
@@ -76,9 +83,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             wall.alpha = 1
             wall.isEnabled = false
         }
-        
     }
     
+    /// Swipe Actions
     @IBAction func moveNorth(_ sender: Any) {
         if (currentRoom?.north == nil){
             print("Can't go North!")
@@ -126,6 +133,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.moveRoom(to: (self.currentRoom?.east)!)
         })
     }
+    
+    
     //Collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentRoom?.mob_list.count ?? 0

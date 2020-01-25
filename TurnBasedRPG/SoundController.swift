@@ -2,7 +2,7 @@
 //  SoundController.swift
 //  TurnBasedRPG
 //
-//  Created by TACTILIS on 9/29/19.
+//  Created by Grymm315 on 9/29/19.
 //  Copyright © 2019 Chris Phillips. All rights reserved.
 //
 
@@ -49,6 +49,7 @@ class SoundController {
     }
     
     func randomSong(){
+        // this was truly terrible
 //        if(music.isPaused){return}
 //        let elemnt = ((0...song.count).randomElement() ?? 0)
 //        let utterance = AVSpeechUtterance(string: song.randomElement() ?? "")

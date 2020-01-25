@@ -8,39 +8,6 @@
 
 import UIKit
 
-class BlurbCell: UITableViewCell {
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var level: UILabel!
-    @IBOutlet weak var xpBar: UISlider!
-    
-    func configCell(){
-        name.text = GameDatabase.shared.hero.name
-        level.text = "Lvl. \(GameDatabase.shared.hero.level)"
-        xpBar.value = 0.1
-    }
-    
-}
-
-class StatCell: UITableViewCell {
-    
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var value: UILabel!
-    
-    lazy var stat = GameDatabase.shared.hero.stats[name.text!]
-    
-    @IBAction func raiseStat(_ sender: Any) {
-        stat = stat! + 1
-    }
-    @IBAction func lowerStat(_ sender: Any) {
-        stat = stat! - 1
-    }
-    
-    func configCell(type: String){
-        name.text = type
-        value.text = "\(stat ?? 0)"
-    }
-}
-
 class CharacterSheetTableViewController: UITableViewController {
     
     let db: GameDatabase = GameDatabase.shared
@@ -48,12 +15,6 @@ class CharacterSheetTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -137,4 +98,37 @@ class CharacterSheetTableViewController: UITableViewController {
     }
     */
 
+}
+
+class BlurbCell: UITableViewCell {
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var level: UILabel!
+    @IBOutlet weak var xpBar: UISlider!
+    
+    func configCell(){
+        name.text = GameDatabase.shared.hero.name
+        level.text = "Lvl. \(GameDatabase.shared.hero.level)"
+        xpBar.value = 0.1
+    }
+    
+}
+
+class StatCell: UITableViewCell {
+    
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var value: UILabel!
+    
+    lazy var stat = GameDatabase.shared.hero.stats[name.text!]
+    
+    @IBAction func raiseStat(_ sender: Any) {
+        stat = stat! + 1
+    }
+    @IBAction func lowerStat(_ sender: Any) {
+        stat = stat! - 1
+    }
+    
+    func configCell(type: String){
+        name.text = type
+        value.text = "\(stat ?? 0)"
+    }
 }
