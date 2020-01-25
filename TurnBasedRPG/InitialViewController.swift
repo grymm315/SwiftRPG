@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class InitialViewController: UIViewController {
 
     @IBOutlet weak var status: UILabel!
     var numbers:[Int] = []

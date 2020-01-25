@@ -22,7 +22,7 @@
 		822C323E221EA79900ECFA9E /* wawa.wav in Resources */ = {isa = PBXBuildFile; fileRef = 822C323D221EA79900ECFA9E /* wawa.wav */; };
 		823F4F04214CE26600A3573B /* Burst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F4F03214CE26600A3573B /* Burst.swift */; };
 		827C045421329228008998C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C045321329228008998C0 /* AppDelegate.swift */; };
-		827C045621329228008998C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C045521329228008998C0 /* ViewController.swift */; };
+		827C045621329228008998C0 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C045521329228008998C0 /* InitialViewController.swift */; };
 		827C045921329228008998C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827C045721329228008998C0 /* Main.storyboard */; };
 		827C045B2132922B008998C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827C045A2132922B008998C0 /* Assets.xcassets */; };
 		827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827C045C2132922B008998C0 /* LaunchScreen.storyboard */; };
@@ -108,7 +108,7 @@
 		823F4F03214CE26600A3573B /* Burst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Burst.swift; sourceTree = "<group>"; };
 		827C045021329228008998C0 /* TurnBasedRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurnBasedRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		827C045321329228008998C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		827C045521329228008998C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		827C045521329228008998C0 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		827C045821329228008998C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		827C045A2132922B008998C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		827C045D2132922B008998C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		9607320E23D017040070A869 /* ice-help.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ice-help.are"; sourceTree = "<group>"; };
 		9607320F23D017050070A869 /* Build.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Build.are; sourceTree = "<group>"; };
 		965644DF231DDF6800403EA9 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
-		9672DE8922E413FA0080984F /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomView.swift; path = Doodles/RoomView.swift; sourceTree = "<group>"; };
+		9672DE8922E413FA0080984F /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		9693FA392300DE0D00867915 /* Doodle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doodle.xib; sourceTree = "<group>"; };
 		9693FA3B230A168700867915 /* BattleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleMenu.swift; sourceTree = "<group>"; };
 		9693FA3E230FAEF500867915 /* Eye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eye.swift; sourceTree = "<group>"; };
@@ -193,7 +193,11 @@
 		8201509D213A8DA7006A4B80 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				820150932132CC2B006A4B80 /* Build.swift */,
+				827C045A2132922B008998C0 /* Assets.xcassets */,
+				827C045C2132922B008998C0 /* LaunchScreen.storyboard */,
 				827C045321329228008998C0 /* AppDelegate.swift */,
+				822C323D221EA79900ECFA9E /* wawa.wav */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -201,9 +205,6 @@
 		8201509E213A8DBF006A4B80 /* Area */ = {
 			isa = PBXGroup;
 			children = (
-				8201509521332F7B006A4B80 /* RoomNode.swift */,
-				82D72A2C2161FC9E0081709D /* AreaGenerator.swift */,
-				8201509B213345DD006A4B80 /* FirstArea.swift */,
 				9607320523D017030070A869 /* area.lst */,
 				960731FF23D017030070A869 /* astral.are */,
 				9607320F23D017050070A869 /* Build.are */,
@@ -288,22 +289,17 @@
 			isa = PBXGroup;
 			children = (
 				8201509E213A8DBF006A4B80 /* Area */,
+				96CAE7C823D301160017019E /* Character */,
+				823F4F02214463FB00A3573B /* Doodles */,
+				963DFDE623DC182700485974 /* Room */,
 				8201509D213A8DA7006A4B80 /* Support Files */,
 				8201509F213A8DF7006A4B80 /* UIWidgets */,
-				820150932132CC2B006A4B80 /* Build.swift */,
-				8201509921334097006A4B80 /* RoomViewController.swift */,
 				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
-				9672DE8922E413FA0080984F /* RoomView.swift */,
 				96CAE7CB23D452250017019E /* GameDatabase.swift */,
-				823F4F02214463FB00A3573B /* Doodles */,
-				827C045521329228008998C0 /* ViewController.swift */,
+				827C045521329228008998C0 /* InitialViewController.swift */,
 				82D72A2A216060C60081709D /* BattleViewController.swift */,
-				96CAE7C823D301160017019E /* Character */,
-				822C323D221EA79900ECFA9E /* wawa.wav */,
-				827C045721329228008998C0 /* Main.storyboard */,
-				827C045A2132922B008998C0 /* Assets.xcassets */,
-				827C045C2132922B008998C0 /* LaunchScreen.storyboard */,
 				827C045F2132922B008998C0 /* Info.plist */,
+				827C045721329228008998C0 /* Main.storyboard */,
 			);
 			path = TurnBasedRPG;
 			sourceTree = "<group>";
@@ -324,6 +320,18 @@
 				827C04752132922C008998C0 /* Info.plist */,
 			);
 			path = TurnBasedRPGUITests;
+			sourceTree = "<group>";
+		};
+		963DFDE623DC182700485974 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				9672DE8922E413FA0080984F /* RoomView.swift */,
+				8201509521332F7B006A4B80 /* RoomNode.swift */,
+				82D72A2C2161FC9E0081709D /* AreaGenerator.swift */,
+				8201509B213345DD006A4B80 /* FirstArea.swift */,
+				8201509921334097006A4B80 /* RoomViewController.swift */,
+			);
+			path = Room;
 			sourceTree = "<group>";
 		};
 		96CAE7C723D301030017019E /* Inventory */ = {
@@ -513,7 +521,7 @@
 			files = (
 				82D72A2B216060C60081709D /* BattleViewController.swift in Sources */,
 				8201509621332F7B006A4B80 /* RoomNode.swift in Sources */,
-				827C045621329228008998C0 /* ViewController.swift in Sources */,
+				827C045621329228008998C0 /* InitialViewController.swift in Sources */,
 				820150E8213D3C1C006A4B80 /* Doodle.swift in Sources */,
 				827C04822132928A008998C0 /* PopUp.swift in Sources */,
 				822C323C221EA0D000ECFA9E /* ScanLine.swift in Sources */,

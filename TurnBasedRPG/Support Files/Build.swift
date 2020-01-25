@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//** This data was mined from SMAUG */
 class Build{
     
     let ex_pmisc:[String] =
