@@ -23,7 +23,7 @@ class SoundController {
         "Coo sew",
         "Ah",
         
-        ]
+    ]
     
     let painString = [
         "Ga",
@@ -32,8 +32,8 @@ class SoundController {
     ]
     
     let song = [
-    "do", "re", "Mi", "sew", "la", "ti"
-    
+        "do", "re", "Mi", "sew", "la", "ti"
+        
     ]
     
     func randomInsults(){
@@ -51,7 +51,7 @@ class SoundController {
     }
     
     func randomSong(){
-       
+        
     }
     
     func magic(){
@@ -72,7 +72,7 @@ class SoundController {
         
     }
     
-
+    
     
     
 }

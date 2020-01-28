@@ -12,7 +12,6 @@
 		8201509621332F7B006A4B80 /* RoomNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8201509521332F7B006A4B80 /* RoomNode.swift */; };
 		8201509821332FEA006A4B80 /* Mobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8201509721332FEA006A4B80 /* Mobile.swift */; };
 		8201509A21334097006A4B80 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8201509921334097006A4B80 /* RoomViewController.swift */; };
-		8201509C213345DD006A4B80 /* FirstArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8201509B213345DD006A4B80 /* FirstArea.swift */; };
 		820150A1213A8EEA006A4B80 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150A0213A8EEA006A4B80 /* Face.swift */; };
 		820150A5213B308C006A4B80 /* Magic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150A4213B308C006A4B80 /* Magic.swift */; };
 		820150A7213B3894006A4B80 /* HealthBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150A6213B3894006A4B80 /* HealthBar.swift */; };
@@ -96,7 +95,6 @@
 		8201509521332F7B006A4B80 /* RoomNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomNode.swift; sourceTree = "<group>"; };
 		8201509721332FEA006A4B80 /* Mobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile.swift; sourceTree = "<group>"; };
 		8201509921334097006A4B80 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
-		8201509B213345DD006A4B80 /* FirstArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstArea.swift; sourceTree = "<group>"; };
 		820150A0213A8EEA006A4B80 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
 		820150A4213B308C006A4B80 /* Magic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magic.swift; sourceTree = "<group>"; };
 		820150A6213B3894006A4B80 /* HealthBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthBar.swift; sourceTree = "<group>"; };
@@ -327,7 +325,6 @@
 				9672DE8922E413FA0080984F /* RoomView.swift */,
 				8201509521332F7B006A4B80 /* RoomNode.swift */,
 				82D72A2C2161FC9E0081709D /* AreaGenerator.swift */,
-				8201509B213345DD006A4B80 /* FirstArea.swift */,
 				8201509921334097006A4B80 /* RoomViewController.swift */,
 			);
 			path = Room;
@@ -426,12 +423,12 @@
 					};
 					827C04632132922C008998C0 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1130;
 						TestTargetID = 827C044F21329228008998C0;
 					};
 					827C046E2132922C008998C0 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1130;
 						TestTargetID = 827C044F21329228008998C0;
 					};
 				};
@@ -533,7 +530,6 @@
 				820150922132C0FD006A4B80 /* Character.swift in Sources */,
 				965644E0231DDF6800403EA9 /* FaceView.swift in Sources */,
 				96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */,
-				8201509C213345DD006A4B80 /* FirstArea.swift in Sources */,
 				827C045421329228008998C0 /* AppDelegate.swift in Sources */,
 				820150A5213B308C006A4B80 /* Magic.swift in Sources */,
 				96CAE7CC23D452250017019E /* GameDatabase.swift in Sources */,
@@ -721,19 +717,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L898E2ZQE;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = QX79LNB56B;
 				INFOPLIST_FILE = TurnBasedRPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPG";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Chris-Phillips.TurnBasedRPG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -744,18 +741,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L898E2ZQE;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = QX79LNB56B;
 				INFOPLIST_FILE = TurnBasedRPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPG";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Chris-Phillips.TurnBasedRPG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -766,7 +764,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L898E2ZQE;
+				DEVELOPMENT_TEAM = QX79LNB56B;
 				INFOPLIST_FILE = TurnBasedRPGTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -775,7 +773,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TurnBasedRPG.app/TurnBasedRPG";
 			};
@@ -787,7 +785,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L898E2ZQE;
+				DEVELOPMENT_TEAM = QX79LNB56B;
 				INFOPLIST_FILE = TurnBasedRPGTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -796,7 +794,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TurnBasedRPG.app/TurnBasedRPG";
 			};
@@ -807,7 +805,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L898E2ZQE;
+				DEVELOPMENT_TEAM = QX79LNB56B;
 				INFOPLIST_FILE = TurnBasedRPGUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -816,7 +814,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TurnBasedRPG;
 			};
@@ -836,7 +834,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Phillips.TurnBasedRPGUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TurnBasedRPG;
 			};

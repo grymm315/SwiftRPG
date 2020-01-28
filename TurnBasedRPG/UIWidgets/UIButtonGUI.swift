@@ -33,7 +33,7 @@ class UIButtonGUI:UIButton{
     @IBInspectable public var shouldRasterize: Bool = true {didSet {self.layer.shouldRasterize = (self.shouldRasterize )}}
     
     @IBInspectable public var swoop:Int = 0
-
+    
     func fromLeft(){
         let returnHere = self.frame.origin
         self.frame.origin = CGPoint(x: -self.frame.origin.x, y: self.frame.origin.y)
@@ -67,7 +67,7 @@ class UIButtonGUI:UIButton{
     func nothing(){
     }
     
-
+    
     
     
 }

@@ -9,12 +9,12 @@
 import UIKit
 
 class InitialViewController: UIViewController {
-
+    
     @IBOutlet weak var status: UILabel!
     var numbers:[Int] = []
     var power:[Int] = []
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         for num in 1...70 {
@@ -25,13 +25,13 @@ class InitialViewController: UIViewController {
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-  
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func refreshnumbers(_ sender: Any) {
         
         numbers.shuffle()

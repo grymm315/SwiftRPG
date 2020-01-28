@@ -18,14 +18,14 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return CGRect(origin: CGPoint(x: UIScreen.main.bounds.width * 0.2, y: UIScreen.main.bounds.height / 5), size: CGSize(width: (UIScreen.main.bounds.width * 0.6), height: (UIScreen.main.bounds.height / 2)))
         }
     }
-     var cancel:UIButton = UIButton()
+    var cancel:UIButton = UIButton()
     var closing:Bool = false
     
     override func viewDidLoad() {
-       // print("ViewDidLoad")
-       // super.viewDidLoad()
+        // print("ViewDidLoad")
+        // super.viewDidLoad()
         closing = false
-       
+        
         tableView.frame = startFrame
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "basic")
         tableView.dataSource = self
@@ -103,7 +103,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @objc func connectionTimer() {
         
-       
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         tableView.reloadData()
     }
@@ -113,7 +113,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       let number = mData.count
+        let number = mData.count
         
         return number
     }
@@ -128,7 +128,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cellThis
     }
     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.removeFromParent()
         self.view.removeFromSuperview()
     }

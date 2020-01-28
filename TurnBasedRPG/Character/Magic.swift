@@ -30,5 +30,5 @@ class Magic {
     func castPierceDamage(caster:Character, target:Character, dmg:Int){
         target.currentHealth -= (dmg)
     }
-
+    
 }
