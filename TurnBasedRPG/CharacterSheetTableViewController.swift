@@ -9,8 +9,7 @@
 import UIKit
 
 class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
-    
-    
+
     
     let db: GameDatabase = GameDatabase.shared
     lazy var keyring = db.hero.stats.keys.sorted()

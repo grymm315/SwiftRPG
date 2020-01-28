@@ -247,14 +247,12 @@
 		823F4F02214463FB00A3573B /* Doodles */ = {
 			isa = PBXGroup;
 			children = (
-				822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */,
 				820150A0213A8EEA006A4B80 /* Face.swift */,
 				965644DF231DDF6800403EA9 /* FaceView.swift */,
 				9693FA3E230FAEF500867915 /* Eye.swift */,
 				96CAA13F2340A87F009C6A3B /* Mouth.swift */,
 				820150E7213D3C1C006A4B80 /* Doodle.swift */,
 				823F4F03214CE26600A3573B /* Burst.swift */,
-				9693FA40230FB3B600867915 /* FaceViewController.swift */,
 				9693FA392300DE0D00867915 /* Doodle.xib */,
 				822C323B221EA0D000ECFA9E /* ScanLine.swift */,
 			);
@@ -285,15 +283,20 @@
 		827C045221329228008998C0 /* TurnBasedRPG */ = {
 			isa = PBXGroup;
 			children = (
+				96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */,
+				9693FA40230FB3B600867915 /* FaceViewController.swift */,
+				822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */,
+				8201509921334097006A4B80 /* RoomViewController.swift */,
+				82D72A2A216060C60081709D /* BattleViewController.swift */,
+				827C045521329228008998C0 /* InitialViewController.swift */,
+				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
 				8201509E213A8DBF006A4B80 /* Area */,
 				96CAE7C823D301160017019E /* Character */,
 				823F4F02214463FB00A3573B /* Doodles */,
 				963DFDE623DC182700485974 /* Room */,
 				8201509D213A8DA7006A4B80 /* Support Files */,
 				8201509F213A8DF7006A4B80 /* UIWidgets */,
-				82D72A2A216060C60081709D /* BattleViewController.swift */,
 				96CAE7CB23D452250017019E /* GameDatabase.swift */,
-				827C045521329228008998C0 /* InitialViewController.swift */,
 				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
 				827C045F2132922B008998C0 /* Info.plist */,
 				827C045721329228008998C0 /* Main.storyboard */,
@@ -325,7 +328,6 @@
 				9672DE8922E413FA0080984F /* RoomView.swift */,
 				8201509521332F7B006A4B80 /* RoomNode.swift */,
 				82D72A2C2161FC9E0081709D /* AreaGenerator.swift */,
-				8201509921334097006A4B80 /* RoomViewController.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -334,7 +336,6 @@
 			isa = PBXGroup;
 			children = (
 				9607315423CECC270070A869 /* Equipment.swift */,
-				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
 			);
 			path = Inventory;
 			sourceTree = "<group>";
@@ -345,7 +346,6 @@
 				820150A4213B308C006A4B80 /* Magic.swift */,
 				8201509721332FEA006A4B80 /* Mobile.swift */,
 				820150912132C0FD006A4B80 /* Character.swift */,
-				96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */,
 				96CAE7C723D301030017019E /* Inventory */,
 			);
 			path = Character;
