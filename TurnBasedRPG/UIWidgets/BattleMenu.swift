@@ -13,15 +13,17 @@ protocol BattleMenuDelegate {
     func chose(action:String)
 }
 
+
+//The Battle Menu will
 class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let GR:CGFloat = 0.6180340
-    var tableView:UITableView = UITableView()
-    public var mData:[String] = []
-    public var startFrame:CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
+    let grandRatio: CGFloat = 0.6180340
+    var tableView: UITableView = UITableView()
+    public var mData: [String] = []
+    public var startFrame: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
     
     var tableFrame:CGRect{
         get {
-            return CGRect(origin: CGPoint(x: 0, y: UIScreen.main.bounds.height *  GR), size: CGSize(width: (UIScreen.main.bounds.width * (1 - GR)), height: (UIScreen.main.bounds.height * (1.0 - GR))))
+            return CGRect(origin: CGPoint(x: 0, y: UIScreen.main.bounds.height *  grandRatio), size: CGSize(width: (UIScreen.main.bounds.width * (1 - grandRatio)), height: (UIScreen.main.bounds.height * (1.0 - grandRatio))))
         }
     }
     var delegate:BattleMenuDelegate?
@@ -47,7 +49,6 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
-        
         tableView.addSubview(refreshControl)
         
         self.view.addSubview(tableView)
@@ -82,19 +83,14 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-
         print("Refreshing")
-        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(connectionTimer), userInfo: nil, repeats: false)
         tableView.reloadData()
         refreshControl.endRefreshing()
     }
     
     @objc func connectionTimer() {
-        
-        
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         tableView.reloadData()
     }
@@ -108,29 +104,22 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cellThis = tableView.dequeueReusableCell(withIdentifier: "battle", for: indexPath as IndexPath)
         cellThis.backgroundColor = UIColor.black
         cellThis.textLabel?.textColor = UIColor.white
-        //cellThis.textLabel?.font.withSize(22)
         cellThis.textLabel?.text = menuItems[indexPath.row]
         
         return cellThis
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         stateMachine(command: tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "Unknown")
-//        self.removeFromParent()
-//        self.view.removeFromSuperview()
     }
     
     func stateMachine(command: String){
      
         switch command {
         case "Fight":
-
             print(command)
         case "Magic":
             print(command)
@@ -143,9 +132,5 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         btn_Cancel(self)
         delegate?.chose(action: command)
-        
     }
-    
-    
-    
 }

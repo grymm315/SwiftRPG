@@ -70,20 +70,14 @@ class HealthBar: UIView{
         animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = false
         path.add(animation, forKey: nil)
-        
-      //  animation.autoreverses = true
-//        shapeLayer.add(animation, forKey: nil)
-//        maskLayer.add(animation, forKey: nil)
     }
     
     func reAlign(path: CAShapeLayer){
         let animation = CABasicAnimation(keyPath: "path")
         animation.duration = 2
         
-        // Your new shape here
         animation.toValue = currentPath()
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-       // animation.
         
         path.add(animation, forKey: nil)
         

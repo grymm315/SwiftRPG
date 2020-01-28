@@ -19,7 +19,6 @@
 		820150E8213D3C1C006A4B80 /* Doodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150E7213D3C1C006A4B80 /* Doodle.swift */; };
 		822C323A221E9FDC00ECFA9E /* WawaViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */; };
 		822C323C221EA0D000ECFA9E /* ScanLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822C323B221EA0D000ECFA9E /* ScanLine.swift */; };
-		822C323E221EA79900ECFA9E /* wawa.wav in Resources */ = {isa = PBXBuildFile; fileRef = 822C323D221EA79900ECFA9E /* wawa.wav */; };
 		823F4F04214CE26600A3573B /* Burst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F4F03214CE26600A3573B /* Burst.swift */; };
 		827C045421329228008998C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C045321329228008998C0 /* AppDelegate.swift */; };
 		827C045621329228008998C0 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C045521329228008998C0 /* InitialViewController.swift */; };
@@ -104,7 +103,6 @@
 		820150E7213D3C1C006A4B80 /* Doodle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doodle.swift; sourceTree = "<group>"; };
 		822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WawaViewViewController.swift; sourceTree = "<group>"; };
 		822C323B221EA0D000ECFA9E /* ScanLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanLine.swift; sourceTree = "<group>"; };
-		822C323D221EA79900ECFA9E /* wawa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wawa.wav; sourceTree = "<group>"; };
 		823F4F03214CE26600A3573B /* Burst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Burst.swift; sourceTree = "<group>"; };
 		827C045021329228008998C0 /* TurnBasedRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurnBasedRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		827C045321329228008998C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +150,7 @@
 		9607320D23D017040070A869 /* gods.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gods.are; sourceTree = "<group>"; };
 		9607320E23D017040070A869 /* ice-help.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ice-help.are"; sourceTree = "<group>"; };
 		9607320F23D017050070A869 /* Build.are */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Build.are; sourceTree = "<group>"; };
+		963DFDE723E028EA00485974 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		965644DF231DDF6800403EA9 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		9672DE8922E413FA0080984F /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		9693FA392300DE0D00867915 /* Doodle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doodle.xib; sourceTree = "<group>"; };
@@ -197,7 +196,6 @@
 				827C045A2132922B008998C0 /* Assets.xcassets */,
 				827C045C2132922B008998C0 /* LaunchScreen.storyboard */,
 				827C045321329228008998C0 /* AppDelegate.swift */,
-				822C323D221EA79900ECFA9E /* wawa.wav */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -268,6 +266,7 @@
 		827C044721329228008998C0 = {
 			isa = PBXGroup;
 			children = (
+				963DFDE723E028EA00485974 /* Readme.md */,
 				827C045221329228008998C0 /* TurnBasedRPG */,
 				827C04672132922C008998C0 /* TurnBasedRPGTests */,
 				827C04722132922C008998C0 /* TurnBasedRPGUITests */,
@@ -294,10 +293,10 @@
 				963DFDE623DC182700485974 /* Room */,
 				8201509D213A8DA7006A4B80 /* Support Files */,
 				8201509F213A8DF7006A4B80 /* UIWidgets */,
-				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
+				82D72A2A216060C60081709D /* BattleViewController.swift */,
 				96CAE7CB23D452250017019E /* GameDatabase.swift */,
 				827C045521329228008998C0 /* InitialViewController.swift */,
-				82D72A2A216060C60081709D /* BattleViewController.swift */,
+				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
 				827C045F2132922B008998C0 /* Info.plist */,
 				827C045721329228008998C0 /* Main.storyboard */,
 			);
@@ -465,7 +464,6 @@
 				9607321323D017050070A869 /* manor.are in Resources */,
 				9607322423D017050070A869 /* imc-help.are in Resources */,
 				9607321E23D017050070A869 /* redferne.are in Resources */,
-				822C323E221EA79900ECFA9E /* wawa.wav in Resources */,
 				827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */,
 				9607322823D017050070A869 /* limbo.are2 in Resources */,
 				9607321523D017050070A869 /* midennir.are in Resources */,

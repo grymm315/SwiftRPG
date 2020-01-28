@@ -53,6 +53,15 @@ class Character{
     var profession:classType = .warrior
     var sex:sexType = .male
     
+    func raiseStat(_ name: String){
+        let initial = stats[name]
+        stats[name] = initial! + 1
+    }
+    
+    func lowerStat(_ stat: String){
+          let initial = stats[name]
+              stats[name] = initial! + 1
+    }
     
     // MARK: Random Data
     enum raceTypes: String{

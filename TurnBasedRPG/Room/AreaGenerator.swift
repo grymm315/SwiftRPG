@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Playing with some ways to randomly generate a map
 class AreaGenerator{
     
     let startRoom:RoomNode = RoomNode(name: "Begin")

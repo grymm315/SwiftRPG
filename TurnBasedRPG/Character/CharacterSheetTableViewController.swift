@@ -8,11 +8,16 @@
 
 import UIKit
 
-class CharacterSheetTableViewController: UITableViewController {
+class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
+  
+    
     
     let db: GameDatabase = GameDatabase.shared
     lazy var keyring = db.hero.stats.keys.sorted()
 
+    func reload() {
+          tableView.reloadData()
+      }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -48,6 +53,7 @@ class CharacterSheetTableViewController: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "statCell", for: indexPath) as! StatCell
             cell.configCell(type: keyring[indexPath.row])
+            cell.tableView = self
             return cell
         }
     }
@@ -113,18 +119,25 @@ class BlurbCell: UITableViewCell {
     
 }
 
+protocol ReloadProtocol {
+    func reload()
+}
+
 class StatCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var value: UILabel!
+    var tableView: ReloadProtocol?
     
     lazy var stat = GameDatabase.shared.hero.stats[name.text!]
     
     @IBAction func raiseStat(_ sender: Any) {
-        stat = stat! + 1
+        GameDatabase.shared.hero.raiseStat(name.text!)
+        tableView?.reload()
     }
     @IBAction func lowerStat(_ sender: Any) {
-        stat = stat! - 1
+        GameDatabase.shared.hero.lowerStat(name.text!)
+        tableView?.reload()
     }
     
     func configCell(type: String){

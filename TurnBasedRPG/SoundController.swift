@@ -15,6 +15,8 @@ class SoundController {
     let music = AVSpeechSynthesizer()
     let voice = AVSpeechSynthesisVoice(language: "en-IE")
     
+    let meep = AVPlayer()
+    
     let insults = [
         "Ye! YA!",
         "ARG",
@@ -49,23 +51,6 @@ class SoundController {
     }
     
     func randomSong(){
-        // this was truly terrible
-//        if(music.isPaused){return}
-//        let elemnt = ((0...song.count).randomElement() ?? 0)
-//        let utterance = AVSpeechUtterance(string: song.randomElement() ?? "")
-//        utterance.voice =  voice
-//        let types:[Float] = [0.5, 0.6, 0.6, 0.9, 0.618]
-//        let pause:[Float] = [0.1, 0.0, 0.05, 0.09, 0.001]
-//        utterance.rate = types.randomElement() ?? 1.0
-//        utterance.pitchMultiplier = 0.5 + (Float(elemnt) / Float(song.count))
-//        utterance.postUtteranceDelay = 0
-//        print("\(utterance.rate), \(utterance.pitchMultiplier)Saying: \(utterance.speechString)")
-//        music.speak(utterance)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute:{
-//           self.randomSong()
-//        }
-//
-//        )
        
     }
     
