@@ -42,11 +42,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //I forget why I put a random face here... maybe testing
         Gary.frame = CGRect(x: 200, y: 200, width: 75, height: 75)
         Gary.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1045858305)
-
+        
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,7 +70,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //Moves the view back into view
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin = self.originReturn!
-            })
+        })
         collectionView.reloadData()
     }
     
@@ -100,7 +100,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBAction func moveWest(_ sender: Any) {
         if (currentRoom?.west == nil){
-             print("Can't go West!")
+            print("Can't go West!")
             return}
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
@@ -112,7 +112,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBAction func moveSouth(_ sender: Any) {
         if (currentRoom?.south == nil){
-             print("Can't go South!")
+            print("Can't go South!")
             return}
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.y =  -self.view.frame.height
@@ -124,7 +124,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBAction func moveEast(_ sender: Any) {
         if (currentRoom?.east == nil){
-             print("Can't go East!")
+            print("Can't go East!")
             return}
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.x = -UIScreen.main.bounds.width
@@ -144,7 +144,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath)
         cell.backgroundColor = .red
         cell.backgroundView = Face(frame: cell.bounds)
-       // cell.contentView.addSubview(Face(frame: cell.bounds))
+        // cell.contentView.addSubview(Face(frame: cell.bounds))
         
         return cell
         
@@ -152,7 +152,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let bvc = BattleViewController()
-       // self.present(bvc, animated: true, completion: nil)
+        // self.present(bvc, animated: true, completion: nil)
         self.performSegue(withIdentifier: "BattleView", sender: collectionView.cellForItem(at: indexPath))
     }
     

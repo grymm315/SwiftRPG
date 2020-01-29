@@ -28,8 +28,8 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     var delegate:BattleMenuDelegate?
     var menuItems = ["Attack", "Magic", "Item", "Escape"]
-
-//    var cancel:UIButton = UIButton()
+    
+    //    var cancel:UIButton = UIButton()
     var closing:Bool = false
     
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.layer.borderWidth = 2
         tableView.layer.borderColor = UIColor.lightGray.cgColor
         tableView.backgroundColor = UIColor.black
-
+        
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
@@ -56,7 +56,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(connectionTimer), userInfo: nil, repeats: false)
     }
     
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         closing = false
@@ -117,7 +117,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func stateMachine(command: String){
-     
+        
         switch command {
         case "Fight":
             print(command)

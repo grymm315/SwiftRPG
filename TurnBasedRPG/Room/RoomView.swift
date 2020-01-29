@@ -34,7 +34,7 @@ class RoomView: UIView {
     }
     
     //* */
-
+    
     required init?(coder aDecoder: NSCoder) {
         north = NorthWall(coder: aDecoder)!
         east = EastWall(coder: aDecoder)!
@@ -45,9 +45,9 @@ class RoomView: UIView {
         self.addSubview(south)
         self.addSubview(east)
         self.addSubview(west)
-       
+        
     }
-
+    
     func reset()
     {
         north.frame = self.frame
@@ -112,36 +112,36 @@ class SouthWall:Wall{
         path.addLine(to: CGPoint(x:wallHeight, y: self.bounds.height - wallHeight))
         path.addLine(to: CGPoint(x:self.bounds.width - wallHeight, y: self.bounds.height - wallHeight))
         path.addLine(to: CGPoint(x: self.bounds.width, y: self.bounds.height))
-                return path.cgPath
-}
+        return path.cgPath
+    }
 }
 //* */
 class EastWall: Wall {
     
     override func getPath() -> CGPath {
         let path = UIBezierPath()
-
+        
         path.move(to: CGPoint(x: self.bounds.width, y: self.bounds.height))
         path.addLine(to: CGPoint(x: self.bounds.width - wallHeight, y: self.bounds.height - wallHeight))
         path.addLine(to: CGPoint(x: self.bounds.width - wallHeight, y: wallHeight))
         path.addLine(to: CGPoint(x: self.bounds.width, y: 0))
-      return path.cgPath
-
-}
+        return path.cgPath
+        
+    }
 }
 //* */
 class WestWall: Wall{
     
     
-     //override func draw(_ rect: CGRect) {
-        override func getPath() -> CGPath {
-            let path = UIBezierPath()
-
-    path.move(to: CGPoint(x: 0, y: 0))
-    path.addLine(to: CGPoint(x:wallHeight, y:wallHeight))
-    path.addLine(to: CGPoint(x:wallHeight, y: self.bounds.height - wallHeight))
+    //override func draw(_ rect: CGRect) {
+    override func getPath() -> CGPath {
+        let path = UIBezierPath()
+        
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x:wallHeight, y:wallHeight))
+        path.addLine(to: CGPoint(x:wallHeight, y: self.bounds.height - wallHeight))
         path.addLine(to: CGPoint(x: 0, y: self.bounds.height))
-            return path.cgPath
-
+        return path.cgPath
+        
     }
-    }
+}

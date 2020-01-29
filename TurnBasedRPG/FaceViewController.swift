@@ -37,7 +37,10 @@ class FaceViewController: UIViewController {
         eyeObject.blink()
        self.view.sendSubviewToBack(FaceButton1)
         rightEyeObject.blink()
-        print(slide1)
+        
+        if let slide1 = slide1 {
+            print(slide1)
+        }
         
         l1.text = "Arc::\(slide1.value)"
         l2.text = "Outter:\(slide2.value)"

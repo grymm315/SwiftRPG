@@ -27,17 +27,17 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         "Coo sew",
         "Ah",
         
-        ]
+    ]
     
     let painString = [
-    "Ga",
-    "Aaaa",
-    "sh",
-    "Fuck"
-    
+        "Ga",
+        "Aaaa",
+        "sh",
+        "Fuck"
+        
     ]
     let GR:CGFloat = 0.6180340
-
+    
     let menu:BattleMenu = BattleMenu()
     @IBOutlet weak var heroName: UILabel!
     @IBOutlet weak var enemyName: UILabel!
@@ -59,8 +59,8 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     }
     
     override func viewDidLoad() {
-        let h = UIScreen.main.bounds.width * (GR * GR * GR)
-        let w = UIScreen.main.bounds.width * GR
+//        let h = UIScreen.main.bounds.width * (GR * GR * GR)
+//        let w = UIScreen.main.bounds.width * GR
         enemy.race = .goblin
         enemyHP._maxHealth = enemy.maxHealth
         enemyHP._currentHealth = enemy.currentHealth
@@ -71,7 +71,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         self.view.addSubview(menu.view)
         heroHP.frame.origin.x = 0
         heroView.addSubview(FaceView(frame: heroView.bounds))
-      //  heroHP.frame.origin.y = (UIScreen.main.bounds.height / 2)
+        //  heroHP.frame.origin.y = (UIScreen.main.bounds.height / 2)
         heroHP._maxHealth = hero.maxHealth
         heroHP._currentHealth = hero.currentHealth
         heroName.text = hero.race.rawValue
@@ -92,31 +92,31 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75, execute: {
             self.statusText.removeFromSuperview()
-            })
+        })
         
     }
-//
-//    func randomInsults(){
-//        let utterance = AVSpeechUtterance(string: insults.randomElement() ?? "Oh Shit")
-//        utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
-//        utterance.rate = 0.55
-//        utterance.pitchMultiplier = 0.6
-//        print("Saying: \(utterance.speechString)")
-//        synth.speak(utterance)
-//        
-//    }
-//    
-//    func painNoise(){
-//        let utterance = AVSpeechUtterance(string: painString.randomElement() ?? "Oh Shit")
-//        utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
-//        utterance.rate = 0.77
-//        utterance.pitchMultiplier = 0.5
-//        print("Saying: \(utterance.speechString)")
-//        synth.speak(utterance)
-//        
-//    }
-//    
-//    
+    //
+    //    func randomInsults(){
+    //        let utterance = AVSpeechUtterance(string: insults.randomElement() ?? "Oh Shit")
+    //        utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
+    //        utterance.rate = 0.55
+    //        utterance.pitchMultiplier = 0.6
+    //        print("Saying: \(utterance.speechString)")
+    //        synth.speak(utterance)
+    //        
+    //    }
+    //    
+    //    func painNoise(){
+    //        let utterance = AVSpeechUtterance(string: painString.randomElement() ?? "Oh Shit")
+    //        utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
+    //        utterance.rate = 0.77
+    //        utterance.pitchMultiplier = 0.5
+    //        print("Saying: \(utterance.speechString)")
+    //        synth.speak(utterance)
+    //        
+    //    }
+    //    
+    //    
     func tick() {
         //lose condition
         if (heroHP._currentHealth < 0) {
@@ -131,7 +131,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         
         if (heroPOS < enemyPOS) {
             heroPOS += Int(hero.agility)
-           // sound.randomInsults()
+            // sound.randomInsults()
             AIMove()
         } else {
             enemyPOS += Int(enemy.agility)

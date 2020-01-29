@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class HealthBar: UIView{
+class HealthBar: UIView {
     
     let barFrame = CAShapeLayer()
     let barCurrent = CAShapeLayer()
@@ -30,16 +30,16 @@ class HealthBar: UIView{
         barFrame.lineWidth = 2
         barFrame.fillRule = .nonZero
         
-//        barFrame.superlayer?.cornerRadius = 60
-      //   barCurrent.masksToBounds = true
+        //        barFrame.superlayer?.cornerRadius = 60
+        //   barCurrent.masksToBounds = true
         layer.addSublayer(barFrame)
         
         backBar.path = barFrame.path
-//        backBar.fillColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        //        backBar.fillColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
         layer.addSublayer(backBar)
         barCurrent.path = currentPath().cgPath
         barCurrent.fillColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-//        barCurrent.superlayer?.cornerRadius = 120
+        //        barCurrent.superlayer?.cornerRadius = 120
         //barCurrent.masksToBounds = true
         layer.addSublayer(barCurrent)
         //layer.cornerRadius = 12
@@ -90,20 +90,20 @@ class HealthBar: UIView{
         return path
     }
     
-//    override func draw(_ rect: CGRect) {
-//
-//        let maxHealth: UIBezierPath = UIBezierPath(rect: self.bounds)
-//        UIColor.black.setFill()
-//        UIColor.white.setStroke()
-//        maxHealth.lineWidth = 2
-//        maxHealth.fill()
-//        maxHealth.stroke()
-//
-//        let hp:UIBezierPath = UIBezierPath(rect: CGRect(origin: maxHealth.bounds.origin, size: CGSize(width: self.bounds.width * currentHealth, height: self.bounds.height)))
-//
-//        UIColor.white.setFill()
-//        hp.fill()
-//    }
+    //    override func draw(_ rect: CGRect) {
+    //
+    //        let maxHealth: UIBezierPath = UIBezierPath(rect: self.bounds)
+    //        UIColor.black.setFill()
+    //        UIColor.white.setStroke()
+    //        maxHealth.lineWidth = 2
+    //        maxHealth.fill()
+    //        maxHealth.stroke()
+    //
+    //        let hp:UIBezierPath = UIBezierPath(rect: CGRect(origin: maxHealth.bounds.origin, size: CGSize(width: self.bounds.width * currentHealth, height: self.bounds.height)))
+    //
+    //        UIColor.white.setFill()
+    //        hp.fill()
+    //    }
     
     
 }

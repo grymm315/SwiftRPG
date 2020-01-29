@@ -13,7 +13,7 @@ protocol updateProtocol {
     func updateTime(seconds:Int)
 }
 
-class RoomNode{
+class RoomNode {
     
     enum direction {
         case north, south, east, west
@@ -27,7 +27,7 @@ class RoomNode{
     var east:RoomNode?
     var west:RoomNode?
     
-    var mob_list:[Mobile] = []
+    var mob_list:[Creature] = []
     
     init(name:String) {
         title = name
@@ -35,7 +35,7 @@ class RoomNode{
     
     /** Creates a 2 way link between rooms */
     func linkRoom(_ loc: direction, room: RoomNode){
-      
+        
         switch loc {
         case .north:
             self.north = room
@@ -53,7 +53,7 @@ class RoomNode{
             self.west = room
             room.east = self
             print("Created newRoom to the West")
-  
+            
         }
     }
     

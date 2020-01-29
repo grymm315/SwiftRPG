@@ -15,14 +15,14 @@ class AreaGenerator{
     let endRoom:RoomNode = RoomNode(name: "Finish")
     let room3:RoomNode = RoomNode(name: "Walk before run")
     
-   
+    
     
     let PossibleExits = [ "n", "s", "e", "w", "ns", "ne", "nw", "nse", "nsw", "new", "sew", "ew"] //12d
     var map: [[RoomNode]] = []
     var zone :[RoomNode] = []
     
     init(size: Int){
-        var currentRoom: RoomNode = startRoom
+        let currentRoom: RoomNode = startRoom
         let second: RoomNode = RoomNode(name: "A portal")
         currentRoom.linkRoom(.north, room: second)
         for rrr in 0...size {
@@ -30,11 +30,11 @@ class AreaGenerator{
             let ra = Int.random(in: 0...10)
             switch (ra){
             case 3:
-                newRoom.mob_list.append(Mobile())
+                newRoom.mob_list.append(Creature())
             case 1:
-                newRoom.mob_list.append(Mobile())
+                newRoom.mob_list.append(Creature())
             case 5:
-                newRoom.mob_list.append(Mobile())
+                newRoom.mob_list.append(Creature())
             default:
                 break
             }
@@ -60,14 +60,14 @@ class AreaGenerator{
                 findRandomEmptyNode(current.east!, newRoom)
             }
         case 3:
-                if current.south == nil{
-                    current.linkRoom(.south, room: newRoom)} else {
-                    findRandomEmptyNode(current.south!, newRoom)
+            if current.south == nil{
+                current.linkRoom(.south, room: newRoom)} else {
+                findRandomEmptyNode(current.south!, newRoom)
             }
         case 4:
-                    if current.west == nil{
-                        current.linkRoom(.west, room: newRoom)} else {
-                       findRandomEmptyNode(current.west!, newRoom)
+            if current.west == nil{
+                current.linkRoom(.west, room: newRoom)} else {
+                findRandomEmptyNode(current.west!, newRoom)
             }
         default:
             print("No Selections")
@@ -83,7 +83,7 @@ class AreaGenerator{
             let newRoom = RoomNode(name: "Room# \(rrr)")
             let ra = Int.random(in: 0...2)
             for _ in 0...ra {
-            newRoom.mob_list.append(Mobile())
+                newRoom.mob_list.append(Creature())
             }
             
             let selectedExit = Int.random(in: 1..<5)
