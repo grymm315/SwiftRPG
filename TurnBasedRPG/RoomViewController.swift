@@ -25,7 +25,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var transitSpeed:Double = 0.3 //** How fast the screen transitions
     
-    @IBOutlet weak var mobStack: UIStackView!
+//    @IBOutlet weak var mobStack: UIStackView!
     let Gary:Face = Face()
     //let GaryHP:HealthBar = HealthBar()
     
@@ -33,9 +33,10 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         // Setting the Origin Return to happen after the view did load
         // this is important for screen animations while transiting
-        originReturn = self.view.frame.origin
+//        originReturn = self.view.bounds.origin
         
-        roomView = RoomView(frame: CGRect(x: 0, y: 34, width: self.view.bounds.width, height: self.view.bounds.height - 80))
+        roomView = RoomView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height - 80))
+        originReturn = CGRect(x: 0, y: 44, width: self.view.bounds.width, height: self.view.bounds.height - 44).origin
         self.view.addSubview(roomView!)
         moveRoom(to: map.startRoom)
         
@@ -141,20 +142,37 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath)
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath) as! EnemyCell
         cell.backgroundColor = .red
         cell.backgroundView = Face(frame: cell.bounds)
+        cell.isUserInteractionEnabled = true
         // cell.contentView.addSubview(Face(frame: cell.bounds))
         
         return cell
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        print("????")
+
+        return true
+    }
+        
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let bvc = BattleViewController()
         // self.present(bvc, animated: true, completion: nil)
+        print("BATTLE TIME!!")
         self.performSegue(withIdentifier: "BattleView", sender: collectionView.cellForItem(at: indexPath))
     }
     
     
+}
+
+class EnemyCell: UICollectionViewCell {
+    
+    @IBOutlet weak var pressedButton: UIButton!
+    @IBAction func doPress(_ sender: Any) {
+        print("at least something happened")
+    }
 }

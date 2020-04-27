@@ -11,11 +11,13 @@ import UIKit
 class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
 
     
-    let db: GameDatabase = GameDatabase.shared
-    lazy var keyring = db.hero.stats.keys.sorted()
+//    let db: GameDatabase = GameDatabase.shared
+    lazy var keyring = GameDatabase.shared.hero.stats.keys.sorted()
     
     func reload() {
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +58,11 @@ class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
             cell.tableView = self
             return cell
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.section == 0) {return 115.0}
+        return 50.0
     }
     
     
@@ -110,10 +117,12 @@ class BlurbCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var level: UILabel!
     @IBOutlet weak var xpBar: UISlider!
+    @IBOutlet weak var ptsAvail: UILabel!
     
     func configCell(){
         name.text = GameDatabase.shared.hero.name
         level.text = "Lvl. \(GameDatabase.shared.hero.level)"
+        ptsAvail.text = "\(GameDatabase.shared.hero.getLevelUpsAvailable()) PTS."
         xpBar.value = 0.1
     }
     
@@ -133,15 +142,23 @@ class StatCell: UITableViewCell {
     
     @IBAction func raiseStat(_ sender: Any) {
         GameDatabase.shared.hero.raiseStat(name.text!)
-        tableView?.reload()
+        DispatchQueue.main.async {
+            self.value.text = "\(self.getStat())"
+            self.tableView?.reload()
+        }
     }
     @IBAction func lowerStat(_ sender: Any) {
         GameDatabase.shared.hero.lowerStat(name.text!)
+        value.text = "\(getStat())"
         tableView?.reload()
     }
     
     func configCell(type: String){
         name.text = type
-        value.text = "\(stat ?? 0)"
+        value.text = "\(getStat())"
+    }
+    
+    func getStat() -> UInt8 {
+        return GameDatabase.shared.hero.stats[name.text!] ?? 0
     }
 }

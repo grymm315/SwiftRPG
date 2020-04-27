@@ -14,6 +14,6 @@ class GameDatabase {
     // Access a singleton anywhere from the project with GameDatabase.shared.hero ect..
     static let shared: GameDatabase = GameDatabase()
     
-    var hero:Character = Character(strength: 9, perception: 9, endurance: 9, charisma: 9, intelligence: 9, luck: 9, agility: 3)
+    var hero:Character = Character(strength: 1, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 1)
     
 }

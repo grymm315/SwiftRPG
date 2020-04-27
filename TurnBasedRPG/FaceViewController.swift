@@ -19,6 +19,7 @@ class FaceViewController: UIViewController {
     @IBOutlet weak var slide4: UISlider!
     @IBOutlet weak var slide5: UISlider!
     
+    @IBOutlet weak var mMouth: Mouth!
     @IBOutlet weak var l1: UILabel!
     @IBOutlet weak var l2: UILabel!
     @IBOutlet weak var l3: UILabel!
@@ -33,6 +34,7 @@ class FaceViewController: UIViewController {
     
     @IBAction func Button1(_ sender: Any) {
         eyeObject.takeValue(CGFloat(slide1.value), CGFloat(slide2.value), CGFloat(slide3.value), CGFloat(slide4.value),CGFloat(slide5.value))
+        
         rightEyeObject.takeValue(CGFloat(slide1.value), CGFloat(slide3.value), CGFloat(slide2.value), CGFloat(slide4.value),CGFloat(slide5.value))
         eyeObject.blink()
        self.view.sendSubviewToBack(FaceButton1)

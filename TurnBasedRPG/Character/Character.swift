@@ -55,12 +55,25 @@ class Character {
     
     func raiseStat(_ name: String){
         let initial = stats[name]
+        if (getLevelUpsAvailable() > 0){
         stats[name] = initial! + 1
+        }
     }
     
-    func lowerStat(_ stat: String){
+    func lowerStat(_ name: String){
         let initial = stats[name]
-        stats[name] = initial! + 1
+        if (initial! > 1){
+        stats[name] = initial! - 1
+        }
+    }
+    
+    func getLevelUpsAvailable() -> Int {
+        return 20 - getAllStats()
+    }
+    
+    func getAllStats() -> Int {
+        let total = stats.values.reduce(0, +)
+        return Int(total)
     }
     
     // MARK: Random Data

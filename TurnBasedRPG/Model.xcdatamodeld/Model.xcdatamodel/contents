@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BPS" representedClassName="BPS" syncable="YES" codeGenerationType="class"/>
+    <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
+    <entity name="Percent" representedClassName="Percent" syncable="YES" codeGenerationType="class"/>
+    <elements>
+        <element name="Percent" positionX="-63" positionY="-18" width="128" height="43"/>
+        <element name="BPS" positionX="-54" positionY="-9" width="128" height="43"/>
+        <element name="Entity" positionX="-36" positionY="9" width="128" height="43"/>
+    </elements>
+</model>
