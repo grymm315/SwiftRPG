@@ -25,12 +25,19 @@ class RoomView: UIView {
         east = EastWall(frame: frame)
         west = WestWall(frame: frame)
         south = SouthWall(frame: frame)
+        
         super.init(frame: frame)
-        self.addSubview(north)
-        self.addSubview(south)
-        self.addSubview(east)
-        self.addSubview(west)
+        self.isUserInteractionEnabled = false
+        addWall(south)
+        addWall(east)
+        addWall(west)
+        addWall(north)
         //      self.backgroundColor = UIColor.black
+    }
+    
+    func addWall(_ wall: UIView){
+        wall.isUserInteractionEnabled = false
+        self.addSubview(wall)
     }
     
     //* */

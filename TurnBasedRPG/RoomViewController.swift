@@ -8,8 +8,20 @@
 
 import UIKit
 //** This is the main view controller for navigating the map*/
-class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        print("touching \(touch.view)")
+        if ((touch.view?.isKind(of: UIButton.self))!) {
+                return false
+            }
+            return true
+        }
+    
+    @IBOutlet var tappers: [UISwipeGestureRecognizer]!
+    
+    
+    //o is for outlet
     @IBOutlet weak var oNorth: UIButtonGUI!
     @IBOutlet weak var oSouth: UIButtonGUI!
     @IBOutlet weak var oEast: UIButtonGUI!
@@ -44,9 +56,15 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         Gary.frame = CGRect(x: 200, y: 200, width: 75, height: 75)
         Gary.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1045858305)
         
+        // for all the gesture recognizers
+        for tip in tappers {
+            tip.delegate = self
+        }
+        
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(EnemyCell.self, forCellWithReuseIdentifier: "enemy")
         
     }
     
@@ -138,13 +156,13 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //Collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return currentRoom?.mob_list.count ?? 0
+        return 3//currentRoom?.mob_list.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath) as! EnemyCell
         cell.backgroundColor = .red
-        cell.backgroundView = Face(frame: cell.bounds)
+//        cell.backgroundView = Face(frame: cell.bounds)
         cell.isUserInteractionEnabled = true
         // cell.contentView.addSubview(Face(frame: cell.bounds))
         
