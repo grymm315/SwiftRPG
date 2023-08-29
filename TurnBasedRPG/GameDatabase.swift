@@ -16,4 +16,14 @@ class GameDatabase {
     
     var hero:Character = Character(strength: 1, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 1)
     
+    var canEditStats:Bool = true
+    
+    var musicOn = true
+    var soundOn = true
+    
+    var musicVolume = 1.0
+    var soundVolume = 1.0
+    
+    var gameSpped = 1.0
+    
 }

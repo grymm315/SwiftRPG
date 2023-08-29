@@ -21,6 +21,11 @@ class Character {
     }
     
     var inventory: [Equipment] = []
+    var headEquipmentSlot: Armor?
+    var chestEquipmentSlot: Armor?
+    var pantsEquipmentSlot: Armor?
+    
+    
     
     lazy var stats: [String : UInt8] = [
         "strength" : strength,
@@ -76,7 +81,7 @@ class Character {
         return Int(total)
     }
     
-    // MARK: Random Data
+    // MARK: Random Data... remove this from the class
     enum raceTypes: String{
         case human, elf, dwarf, halfling, pixie, halfogre, halforc,
         halftroll, halfelf, gith, drow, seaelf, vampire, demon,

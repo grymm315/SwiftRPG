@@ -16,13 +16,14 @@ class Equipment {
     var bulk: UInt8?
     var value: Int?
     
+    var name: String?
     var description: String?
     
 }
 
 class Weapon: Equipment {
     enum WeaponType {
-        case Sword, Club, Claw, Unarmed, Gun
+        case Sword, Club, Claw, Unarmed, Gun, FireWand, IceWand, GreenWand
     }
     
     var type: WeaponType?
@@ -33,13 +34,15 @@ class Weapon: Equipment {
 class Armor:Equipment {
     
     enum ArmorType {
-    case Arm, Head, Chest, Legs
+    case Arm, Head, Chest, Legs, Shoes
     }
     var damageResist: Int8?
     var magicResist: Int8?
     var shockResist: Int8?
     var frostResist: Int8?
     var fireResist: Int8?
+    var chemicalResist: Int8?
+
 }
 
 class Usable:Equipment {
