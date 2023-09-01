@@ -10,14 +10,20 @@ import Foundation
 
 
 class Equipment {
-    var count: Int?
+    var count: Int = 0
     var level: UInt8?
     var weight: UInt8?
     var bulk: UInt8?
     var value: Int?
     
-    var name: String?
+    var name: String = ""
     var description: String?
+    
+    init(name: String, description:String) {
+        self.name = name
+        self.description = description
+    }
+    
     
 }
 

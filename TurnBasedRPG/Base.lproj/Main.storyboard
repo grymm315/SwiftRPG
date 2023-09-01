@@ -285,7 +285,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="description" destination="ngX-ey-Sua" id="y7F-Jk-Wn0"/>
+                                    <outlet property="desc" destination="ngX-ey-Sua" id="oe7-yG-YMI"/>
                                     <outlet property="name" destination="wyC-g1-po4" id="r2P-Jb-MKy"/>
                                 </connections>
                             </tableViewCell>
@@ -391,6 +391,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXn-7I-Sb8" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                                             <rect key="frame" x="194" y="5" width="40" height="40"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" secondItem="ZXn-7I-Sb8" secondAttribute="height" multiplier="1:1" id="MBd-dv-rg9"/>
                                                 <constraint firstAttribute="width" constant="40" id="UdS-vR-uzY"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="27"/>
@@ -420,6 +421,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sa-k9-JY8" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                                             <rect key="frame" x="311" y="5" width="40" height="40"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" secondItem="4sa-k9-JY8" secondAttribute="height" multiplier="1:1" id="T8d-NR-3ko"/>
                                                 <constraint firstAttribute="width" constant="40" id="vbF-cu-R8v"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -465,36 +467,34 @@
                                     <outlet property="value" destination="bO1-ot-pZg" id="69U-PJ-Kjx"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="traitCell" translatesAutoresizingMaskIntoConstraints="NO" id="M89-5b-Pyf" customClass="TraitCell" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="183" width="375" height="40"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="traitCell" rowHeight="126" translatesAutoresizingMaskIntoConstraints="NO" id="M89-5b-Pyf" customClass="TraitCell" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="183" width="375" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M89-5b-Pyf" id="uuE-Nq-hMT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="126"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Big Boned" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jn-W7-heE">
-                                            <rect key="frame" x="16" y="8" width="126" height="24"/>
+                                            <rect key="frame" x="16" y="8" width="351" height="25"/>
                                             <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="25"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" misplaced="YES" text="You are more durable, but you are also fat." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AB-bC-4Bn">
-                                            <rect key="frame" x="16" y="41" width="343" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="343" id="4Ev-OK-F2h"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" text="You are more durable, but you are also fat." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AB-bC-4Bn">
+                                            <rect key="frame" x="16" y="41" width="351" height="61"/>
                                             <fontDescription key="fontDescription" name="Rockwell-Italic" family="Rockwell" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="8Jn-W7-heE" firstAttribute="top" secondItem="uuE-Nq-hMT" secondAttribute="top" constant="8" id="Tla-4p-eBx"/>
-                                        <constraint firstItem="8AB-bC-4Bn" firstAttribute="top" secondItem="8Jn-W7-heE" secondAttribute="bottom" constant="8" symbolic="YES" id="cBc-u3-rzv"/>
-                                        <constraint firstItem="8AB-bC-4Bn" firstAttribute="leading" secondItem="uuE-Nq-hMT" secondAttribute="leading" constant="16" id="dnd-vy-bUu"/>
-                                        <constraint firstAttribute="bottom" secondItem="8AB-bC-4Bn" secondAttribute="bottom" constant="11" id="kwj-LR-h1j"/>
+                                        <constraint firstItem="8AB-bC-4Bn" firstAttribute="top" secondItem="8Jn-W7-heE" secondAttribute="bottom" constant="8" symbolic="YES" id="B8K-6P-bMd"/>
+                                        <constraint firstItem="8AB-bC-4Bn" firstAttribute="leading" secondItem="uuE-Nq-hMT" secondAttribute="leading" constant="16" id="GGO-qL-XjD"/>
+                                        <constraint firstAttribute="trailing" secondItem="8AB-bC-4Bn" secondAttribute="trailing" constant="8" id="GYt-4K-OX8"/>
+                                        <constraint firstAttribute="bottom" secondItem="8AB-bC-4Bn" secondAttribute="bottom" constant="24" id="SQf-DA-gdb"/>
+                                        <constraint firstItem="8Jn-W7-heE" firstAttribute="top" secondItem="uuE-Nq-hMT" secondAttribute="top" constant="8" id="Stf-jz-JSr"/>
+                                        <constraint firstAttribute="trailing" secondItem="8Jn-W7-heE" secondAttribute="trailing" constant="8" id="U6t-0X-wd7"/>
                                         <constraint firstItem="8Jn-W7-heE" firstAttribute="leading" secondItem="uuE-Nq-hMT" secondAttribute="leading" constant="16" id="kxm-Wj-N1X"/>
-                                        <constraint firstItem="8Jn-W7-heE" firstAttribute="centerY" secondItem="uuE-Nq-hMT" secondAttribute="centerY" id="usV-gq-mHZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="darkTextColor"/>
@@ -653,8 +653,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOB-oy-EYy" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOB-oy-EYy" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                                 <rect key="frame" x="20.5" y="45" width="30" height="578"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal">
                                     <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
@@ -665,8 +666,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fve-Da-VmP" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fve-Da-VmP" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                                 <rect key="frame" x="324.5" y="272" width="30" height="351"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal">
                                     <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
@@ -677,8 +679,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVP-xj-FEs" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVP-xj-FEs" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                                 <rect key="frame" x="172.5" y="573" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal">
                                     <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
@@ -689,8 +692,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-Nq-uFA" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-Nq-uFA" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="374" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal">
                                     <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
@@ -701,18 +705,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="32" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCS-u1-bzW">
-                                <rect key="frame" x="75" y="87" width="224" height="65"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-k1-VDO">
-                                <rect key="frame" x="67.5" y="160" width="240" height="364"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="364" id="Om6-df-nXO"/>
-                                    <constraint firstAttribute="width" constant="240" id="RXm-TF-q2Q"/>
-                                </constraints>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-k1-VDO">
+                                <rect key="frame" x="68" y="393" width="240" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H3P-FP-rXd">
                                     <size key="itemSize" width="167" height="173"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -749,21 +744,29 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxQ-Bn-6aM">
+                                <rect key="frame" x="58" y="102" width="294" height="259"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCS-u1-bzW">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="32.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BCS-u1-bzW" firstAttribute="leading" secondItem="R4G-lH-hR0" secondAttribute="leading" id="SSG-Tf-fe2"/>
+                                    <constraint firstItem="BCS-u1-bzW" firstAttribute="trailing" secondItem="R4G-lH-hR0" secondAttribute="trailing" id="fZs-OQ-Zr3"/>
+                                    <constraint firstItem="BCS-u1-bzW" firstAttribute="top" secondItem="R4G-lH-hR0" secondAttribute="top" id="iOJ-i7-TtA"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="uL2-NM-JYB"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="R4G-lH-hR0"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5gf-16-iim"/>
                         <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="rVP-xj-FEs" firstAttribute="top" secondItem="JNO-k1-VDO" secondAttribute="bottom" constant="49" id="2LA-S2-cVP"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="centerX" secondItem="BCS-u1-bzW" secondAttribute="centerX" id="4MV-I7-CRt"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="centerX" secondItem="WSf-OQ-rmF" secondAttribute="centerX" id="I93-TN-XR1"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="top" secondItem="BCS-u1-bzW" secondAttribute="bottom" constant="8" id="SIc-cu-4Db"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="centerX" secondItem="YGr-Nq-uFA" secondAttribute="centerX" id="UEe-A3-bZF"/>
-                            <constraint firstItem="fve-Da-VmP" firstAttribute="leading" secondItem="JNO-k1-VDO" secondAttribute="trailing" constant="17" id="bBx-Vq-6Ep"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="top" secondItem="WSf-OQ-rmF" secondAttribute="top" constant="160" id="dkb-QE-e1Y"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="leading" secondItem="jOB-oy-EYy" secondAttribute="trailing" constant="17" id="muc-hl-slP"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="centerX" secondItem="rVP-xj-FEs" secondAttribute="centerX" id="yuw-Mb-bIT"/>
-                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="W3T-ZV-PV2" appends="YES" id="wh4-3s-esp"/>
                             <outletCollection property="gestureRecognizers" destination="cgk-6S-Izg" appends="YES" id="dWr-vp-dHY"/>

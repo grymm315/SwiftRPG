@@ -59,8 +59,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     }
     
     override func viewDidLoad() {
-//        let h = UIScreen.main.bounds.width * (GR * GR * GR)
-//        let w = UIScreen.main.bounds.width * GR
         enemy.race = .goblin
         enemyHP._maxHealth = enemy.maxHealth
         enemyHP._currentHealth = enemy.currentHealth
@@ -116,7 +114,9 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     //        
     //    }
     //    
-    //    
+    //
+    
+    
     func tick() {
         //lose condition
         if (heroHP._currentHealth < 0) {

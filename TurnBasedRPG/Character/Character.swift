@@ -58,6 +58,18 @@ class Character {
     var profession:classType = .warrior
     var sex:sexType = .male
     
+    func rewardRandomItem() {
+        let rewardPool:[Equipment] = [
+        Armor(name: "Wool Hat", description: "Spun of yarn, this hat protects from cold"),
+            Armor(name: "Magic Sword", description: "This sword possess the magic of friendship"),
+            Equipment(name: "A Gem", description: "A small blue gem. It might be a piece of glass")
+        ]
+        GameDatabase.shared.hero.inventory.append(rewardPool.randomElement()!)
+    }
+    func receives() {
+        
+    }
+    
     func raiseStat(_ name: String){
         let initial = stats[name]
         if (getLevelUpsAvailable() > 0){

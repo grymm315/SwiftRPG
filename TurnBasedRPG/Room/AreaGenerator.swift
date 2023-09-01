@@ -12,11 +12,7 @@ import Foundation
 class AreaGenerator{
     
     let startRoom:RoomNode = RoomNode(name: """
- The ship lay in darkness, devoid of any signs of life. The occasional creak echoed through the empty vessel as the wind shifted and caused parts of the ship to flex. Its age was apparent, with the sails in tatters from constant exposure to the elements, leaving only a few fragments hanging by a thread. Once more, the old ship groaned, having been undisturbed for what seemed like an eternity. The decks had not seen a human footstep in a long time.
-        
-        The ship hovered in the sky at the very edge of the world. One half of the vessel faced a stunning expanse of crystal blue waters stretching out to the horizon, adorned with a handful of picturesque islands. The other half of the ship was exposed to the void, an endless sea of black nothingness. Gazing out from the front or back of the ship revealed the stark contrast between the sea of water and the sea of nothing, where the two met in a visible divide.
-
-        The water fell off the edge and turned to mist and clouds. But if you continued to look down into the black void of nothing, deep into the darkness, sometimes the darkness would stare back up at you. A sane person would not tempt the attention of the things down there, for they might crawl up the side of the world and deliver oblivion in their wake.
+ The ship lay in darkness, devoid of any signs of life. The occasional creak echoed through the empty vessel as the wind shifted and caused parts of the ship to flex.
 """)
     let endRoom:RoomNode = RoomNode(name: "Finish")
     let room3:RoomNode = RoomNode(name: "Walk before run")

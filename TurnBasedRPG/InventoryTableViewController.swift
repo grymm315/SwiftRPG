@@ -13,8 +13,8 @@ class InventoryCell: UITableViewCell {
     @IBOutlet weak var desc: UILabel!
     
     func configCell(item: Equipment) {
-        name.text = item.description ?? "--"
-        desc.text = "Wt. : \(item.weight ?? 0)"
+        name.text = item.name ?? "--"
+        desc.text = item.description ?? "Oopsie"
     }
 }
 
@@ -22,6 +22,8 @@ class InventoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Loaded Inventory: Total: \(GameDatabase.shared.hero.inventory.count)")
+        print("\(GameDatabase.shared.hero.inventory)")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,6 +47,11 @@ class InventoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! InventoryCell
+//        print(GameDatabase.shared.hero.inventory[indexPath.row].name)
+//        print(GameDatabase.shared.hero.inventory[indexPath.row].description)
+//
+//
+        cell.configCell(item: GameDatabase.shared.hero.inventory[indexPath.row])
         
         // Configure the cell...
 
