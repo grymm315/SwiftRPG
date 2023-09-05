@@ -653,6 +653,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cockpit" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-yK-3kp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="a5V-yK-3kp" secondAttribute="height" multiplier="1:1" id="zcw-rK-sML"/>
+                                </constraints>
+                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOB-oy-EYy" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                                 <rect key="frame" x="20.5" y="45" width="30" height="578"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -767,6 +773,11 @@
                         <viewLayoutGuide key="safeArea" id="5gf-16-iim"/>
                         <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="a5V-yK-3kp" firstAttribute="top" secondItem="5gf-16-iim" secondAttribute="top" id="krL-vB-MBb"/>
+                            <constraint firstItem="a5V-yK-3kp" firstAttribute="leading" secondItem="5gf-16-iim" secondAttribute="leading" id="md5-Xd-H18"/>
+                            <constraint firstItem="5gf-16-iim" firstAttribute="trailing" secondItem="a5V-yK-3kp" secondAttribute="trailing" id="zCW-x4-4iL"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="W3T-ZV-PV2" appends="YES" id="wh4-3s-esp"/>
                             <outletCollection property="gestureRecognizers" destination="cgk-6S-Izg" appends="YES" id="dWr-vp-dHY"/>
@@ -788,6 +799,7 @@
                         <outlet property="oSouth" destination="rVP-xj-FEs" id="cVy-WE-fa0"/>
                         <outlet property="oWest" destination="jOB-oy-EYy" id="Zys-wU-WRE"/>
                         <outlet property="roomName" destination="BCS-u1-bzW" id="63b-yf-AM3"/>
+                        <outlet property="roomimage" destination="a5V-yK-3kp" id="5OT-DL-elY"/>
                         <outletCollection property="tappers" destination="W3T-ZV-PV2" collectionClass="NSMutableArray" id="seY-OG-Hjh"/>
                         <segue destination="59o-89-9o4" kind="showDetail" identifier="BattleView" id="SEy-ln-VA2"/>
                     </connections>
@@ -878,6 +890,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="Cockpit" width="514" height="508"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

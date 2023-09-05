@@ -27,12 +27,13 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var oEast: UIButtonGUI!
     @IBOutlet weak var oWest: UIButtonGUI!
     
+    @IBOutlet weak var roomimage: UIImageView!
     @IBOutlet weak var roomName: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var currentRoom:RoomNode?
-    var roomView: RoomView?
-    var map: AreaGenerator = AreaGenerator(size: 20)
+//    var roomView: RoomView?
+    var map: AreaGenerator = AreaGenerator(name: "adrift")
     var originReturn:CGPoint? //* */
     
     var transitSpeed:Double = 0.3 //** How fast the screen transitions
@@ -47,9 +48,10 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // this is important for screen animations while transiting
 //        originReturn = self.view.bounds.origin
         
-        roomView = RoomView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height - 80))
+//        roomView = RoomView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height - 80))
         originReturn = CGRect(x: 0, y: 44, width: self.view.bounds.width, height: self.view.bounds.height - 44).origin
-        self.view.addSubview(roomView!)
+        
+//        self.view.addSubview(roomView!)
         moveRoom(to: map.startRoom)
         
         //I forget why I put a random face here... maybe testing
@@ -83,9 +85,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     /** This method allows the user to manually traverse the room Map Node Tree */
     func moveRoom(to: RoomNode){
         currentRoom = to // Moving our current room to the next room
-        roomView?.changeView(to: currentRoom!)
-        roomName.text = currentRoom?.title
-        
+//        roomView?.changeView(to: currentRoom!)
+        if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
+            roomimage.image = tImage
+        }
+
         //Moves the view back into view
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin = self.originReturn!

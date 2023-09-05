@@ -17,14 +17,19 @@ class Character {
         self.intelligence = intelligence
         self.luck = luck
         self.agility = agility
-        name = "Gary"
+        name = "Grymmenthald"
+        
+        equippedSlot = Weapon.init(name: "Bare-Hands", description: "Ordinary hands. 10 fingers and 2 thumbs on each hand.")
+        chestEquipmentSlot = Armor.init(name: "Black T-Shirt", description: "100% Cotton. Machine wash cold.")
+        legsEquipmentSlot = Armor.init(name: "Jeans", description: "Blue denim. Formal wear of the Candian Empire")
+        
     }
     
     var inventory: [Equipment] = []
     var headEquipmentSlot: Armor?
     var chestEquipmentSlot: Armor?
-    var pantsEquipmentSlot: Armor?
-    
+    var legsEquipmentSlot: Armor?
+    var equippedSlot: Weapon?
     
     
     lazy var stats: [String : UInt8] = [

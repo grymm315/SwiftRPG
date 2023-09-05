@@ -11,17 +11,25 @@ import Foundation
 //Playing with some ways to randomly generate a map
 class AreaGenerator{
     
-    let startRoom:RoomNode = RoomNode(name: """
- The ship lay in darkness, devoid of any signs of life. The occasional creak echoed through the empty vessel as the wind shifted and caused parts of the ship to flex.
-""")
-    let endRoom:RoomNode = RoomNode(name: "Finish")
-    let room3:RoomNode = RoomNode(name: "Walk before run")
+    let startRoom:RoomNode = RoomNode(name: "Cockpit")
+    let endRoom:RoomNode = RoomNode(name: "ReactorRoom")
+    let street1:RoomNode = RoomNode(name: "Street1")
+    let street2:RoomNode = RoomNode(name: "Street2")
+    let flightdeck:RoomNode = RoomNode(name: "Flightdeck")
     
     
     
     let PossibleExits = [ "n", "s", "e", "w", "ns", "ne", "nw", "nse", "nsw", "new", "sew", "ew"] //12d
     var map: [[RoomNode]] = []
     var zone :[RoomNode] = []
+    
+    // For something not random
+    init(name: String){
+        startRoom.linkRoom(.south, room: flightdeck)
+        flightdeck.linkRoom(.east, room: street1)
+        street1.linkRoom(.east, room: street2)
+        flightdeck.linkRoom(.west, room: endRoom)
+    }
     
     init(size: Int){
         let currentRoom: RoomNode = startRoom
@@ -40,9 +48,6 @@ class AreaGenerator{
             default:
                 break
             }
-            
-            
-            
             findRandomEmptyNode(currentRoom, newRoom)
         }
         

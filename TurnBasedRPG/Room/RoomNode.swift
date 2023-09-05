@@ -21,6 +21,7 @@ class RoomNode {
     
     var title:String = "A Room"
     var Description:String = "A Generic Room"
+    var imgName:String?
     
     var north:RoomNode?
     var south:RoomNode?
