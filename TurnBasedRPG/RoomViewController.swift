@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
+
 //** This is the main view controller for navigating the map*/
 class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        print("touching \(touch.view)")
+        print("touching \(String(describing: touch.view))")
         if ((touch.view?.isKind(of: UIButton.self))!) {
                 return false
             }
@@ -30,6 +32,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var roomimage: UIImageView!
     @IBOutlet weak var roomName: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    let soundController = SoundController()
     
     var currentRoom:RoomNode?
 //    var roomView: RoomView?
@@ -63,10 +67,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             tip.delegate = self
         }
         
-        collectionView.backgroundColor = .clear
+//        collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(EnemyCell.self, forCellWithReuseIdentifier: "enemy")
+        self.view.bringSubviewToFront(collectionView)
         
     }
     
@@ -108,14 +113,24 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    func walkSound(){
+        let tiptoe: SystemSoundID = 1055
+        AudioServicesPlaySystemSound(tiptoe)
+    }
+    
+    func noExitSound(){
+        soundController.tock()
+    }
     /// Swipe Actions
     @IBAction func moveNorth(_ sender: Any) {
         if (currentRoom?.north == nil){
             print("Can't go North!")
+            soundController.tock()
             return}
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
         }, completion: {(finished:Bool) in
+            self.soundController.whoosh()
             self.view.frame.origin.y =  -self.view.frame.height
             self.moveRoom(to: (self.currentRoom?.north)!)
         })
@@ -124,10 +139,12 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func moveWest(_ sender: Any) {
         if (currentRoom?.west == nil){
             print("Can't go West!")
+            self.noExitSound()
             return}
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
         }, completion: {(finished:Bool) in
+            self.soundController.whoosh()
             self.view.frame.origin.x =  -self.view.frame.width
             self.moveRoom(to: (self.currentRoom?.west)!)
         })
@@ -136,10 +153,12 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func moveSouth(_ sender: Any) {
         if (currentRoom?.south == nil){
             print("Can't go South!")
+            self.noExitSound()
             return}
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.y =  -self.view.frame.height
         }, completion: {(finished:Bool) in
+            self.soundController.whoosh()
             self.view.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
             self.moveRoom(to: (self.currentRoom?.south)!)
         })
@@ -148,10 +167,12 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func moveEast(_ sender: Any) {
         if (currentRoom?.east == nil){
             print("Can't go East!")
+            self.noExitSound()
             return}
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.x = -UIScreen.main.bounds.width
         }, completion: {(finished:Bool) in
+            self.soundController.whoosh()
             self.view.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
             self.moveRoom(to: (self.currentRoom?.east)!)
         })
@@ -185,6 +206,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //let bvc = BattleViewController()
         // self.present(bvc, animated: true, completion: nil)
         print("BATTLE TIME!!")
+        let suspense: SystemSoundID = 1032
+        AudioServicesPlaySystemSound(suspense)
+        
         self.performSegue(withIdentifier: "BattleView", sender: collectionView.cellForItem(at: indexPath))
     }
     

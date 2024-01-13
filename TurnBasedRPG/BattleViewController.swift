@@ -18,6 +18,8 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     @IBOutlet weak var enemyView: UIView!
     @IBOutlet weak var heroView: UIView!
     
+    var isPaused:Bool = false
+    
     let synth = AVSpeechSynthesizer()
     let insults = [
         "Ye! YA!",
@@ -93,28 +95,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         })
         
     }
-    //
-    //    func randomInsults(){
-    //        let utterance = AVSpeechUtterance(string: insults.randomElement() ?? "Oh Shit")
-    //        utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
-    //        utterance.rate = 0.55
-    //        utterance.pitchMultiplier = 0.6
-    //        print("Saying: \(utterance.speechString)")
-    //        synth.speak(utterance)
-    //        
-    //    }
-    //    
-    //    func painNoise(){
-    //        let utterance = AVSpeechUtterance(string: painString.randomElement() ?? "Oh Shit")
-    //        utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
-    //        utterance.rate = 0.77
-    //        utterance.pitchMultiplier = 0.5
-    //        print("Saying: \(utterance.speechString)")
-    //        synth.speak(utterance)
-    //        
-    //    }
-    //    
-    //
     
     
     func tick() {
@@ -125,6 +105,9 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         //win condition
         if (enemyHP._currentHealth < 0) {
             print ("You won")
+            isPaused = true
+            let fanfare: SystemSoundID = 1025
+            AudioServicesPlaySystemSound(fanfare)
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -142,6 +125,8 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     
     func chose(action: String) {
         print("Chose: \(action)")
+        let tock: SystemSoundID = 1103
+        AudioServicesPlaySystemSound(tock)
         switch action {
         case "Attack":
             let hdmg = Int.random(in: 1...Int(hero.strength))

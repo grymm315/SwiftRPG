@@ -40,11 +40,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G5b-e0-NXW">
-                                <rect key="frame" x="259" y="283" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8s8-BI-Jzr" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                                 <rect key="frame" x="16" y="219" width="40" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -92,6 +87,11 @@
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G5b-e0-NXW">
+                                <rect key="frame" x="259" y="341" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jZa-s1-vVy"/>
                         <color key="backgroundColor" systemColor="darkTextColor"/>
@@ -110,138 +110,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xj-Q0-HMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2570" y="376"/>
-        </scene>
-        <!--FaceBuilder-->
-        <scene sceneID="jfs-G3-x5Z">
-            <objects>
-                <viewController id="YgQ-e9-xyo" customClass="FaceViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tXy-5Q-DAa" customClass="FaceView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDg-RN-FyR" customClass="Eye" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="79" y="156" width="100" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="lightTextColor"/>
-                            </view>
-                            <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N9y-oq-ooR" customClass="Eye" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="187" y="156" width="100" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="lightTextColor"/>
-                            </view>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minValue="0.0" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="P9I-IA-3SE">
-                                <rect key="frame" x="37" y="410" width="300" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="AOj-Gu-dkU">
-                                <rect key="frame" x="37" y="457" width="300" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="-10" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="6x3-oE-MTu">
-                                <rect key="frame" x="37" y="500" width="300" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="40" minValue="-10" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="igq-Ar-LCd">
-                                <rect key="frame" x="37" y="543" width="300" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsk-Ki-D9b">
-                                <rect key="frame" x="58" y="388" width="267" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9L-Nm-cyG">
-                                <rect key="frame" x="58" y="429" width="267" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyT-dv-Vxt">
-                                <rect key="frame" x="58" y="465" width="267" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czf-Fn-HCv">
-                                <rect key="frame" x="58" y="508" width="277" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rI4-2U-9Wg">
-                                <rect key="frame" x="58" y="551" width="277" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="-50" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wRb-Zf-H8l">
-                                <rect key="frame" x="37" y="380" width="300" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="giS-Pw-aiT">
-                                <rect key="frame" x="57" y="76" width="260" height="260"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="&lt;--">
-                                            <attributes>
-                                                <color key="NSColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="0.88864511989999995" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" metaFont="system" size="34"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="130"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="Button1:" destination="YgQ-e9-xyo" eventType="touchUpInside" id="WZo-Mk-VbF"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfn-OF-uJj" customClass="Mouth" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="67" y="215" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="uvU-fa-s6r"/>
-                        <color key="backgroundColor" systemColor="darkTextColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="FaceBuilder" id="7gG-S3-f2U">
-                        <barButtonItem key="rightBarButtonItem" title="Inventory" id="Csa-vm-8FO"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="FaceButton1" destination="giS-Pw-aiT" id="0lM-B9-twD"/>
-                        <outlet property="eyeObject" destination="LDg-RN-FyR" id="ZdC-IP-Jrg"/>
-                        <outlet property="l1" destination="Fsk-Ki-D9b" id="wsu-H2-ssT"/>
-                        <outlet property="l2" destination="q9L-Nm-cyG" id="uU7-Wa-FWv"/>
-                        <outlet property="l3" destination="OyT-dv-Vxt" id="3tE-Ab-CTS"/>
-                        <outlet property="l4" destination="Czf-Fn-HCv" id="eWJ-yy-qYt"/>
-                        <outlet property="l5" destination="rI4-2U-9Wg" id="adP-kP-GNR"/>
-                        <outlet property="mMouth" destination="Wfn-OF-uJj" id="5qq-MQ-1Uz"/>
-                        <outlet property="rightEyeObject" destination="N9y-oq-ooR" id="I6k-Ks-x02"/>
-                        <outlet property="slide1" destination="wRb-Zf-H8l" id="PDJ-Tu-W6r"/>
-                        <outlet property="slide2" destination="P9I-IA-3SE" id="iTD-S4-23w"/>
-                        <outlet property="slide3" destination="AOj-Gu-dkU" id="EfU-vG-hgB"/>
-                        <outlet property="slide4" destination="6x3-oE-MTu" id="ept-NH-EDh"/>
-                        <outlet property="slide5" destination="igq-Ar-LCd" id="n78-cc-LNv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="arf-pm-SLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3348" y="-583"/>
         </scene>
         <!--Inventory Table View Controller-->
         <scene sceneID="hv0-Oh-wGC">
@@ -511,18 +379,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="SOY-uj-h3J">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Inventory" id="rSk-0j-Z5k">
-                                <connections>
-                                    <segue destination="jCu-eM-89m" kind="show" id="tYk-g6-afe"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Face" id="X9I-EA-f4k">
-                                <connections>
-                                    <segue destination="YgQ-e9-xyo" kind="show" id="sQQ-TW-aYz"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Inventory" id="rSk-0j-Z5k">
+                            <connections>
+                                <segue destination="jCu-eM-89m" kind="show" id="tYk-g6-afe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbu-4c-oSN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -653,27 +514,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cockpit" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-yK-3kp">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="a5V-yK-3kp" secondAttribute="height" multiplier="1:1" id="zcw-rK-sML"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cockpit" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-yK-3kp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="513"/>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOB-oy-EYy" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="20.5" y="45" width="30" height="578"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="17"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fve-Da-VmP" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="324.5" y="272" width="30" height="351"/>
+                                <rect key="frame" x="308" y="369" width="51" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal">
@@ -685,77 +530,60 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVP-xj-FEs" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="172.5" y="573" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="17"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-Nq-uFA" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="374" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="17"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-k1-VDO">
-                                <rect key="frame" x="68" y="393" width="240" height="131"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H3P-FP-rXd">
-                                    <size key="itemSize" width="167" height="173"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-k1-VDO">
+                                <rect key="frame" x="0.0" y="513" width="375" height="110"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="T8f-NS-A8Y"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H3P-FP-rXd">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="estimatedItemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="10"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="enemy" id="WN1-ko-9gJ" customClass="EnemyCell" customModule="TurnBasedRPG" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="114" height="102"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="enemy" id="WN1-ko-9gJ" customClass="EnemyCell" customModule="TurnBasedRPG" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10" width="104" height="104"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cvq-8W-Eoj">
-                                            <rect key="frame" x="0.0" y="0.0" width="114" height="102"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cvq-8W-Eoj">
+                                            <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APC-cG-Pfu">
-                                                    <rect key="frame" x="34" y="8" width="72" height="58"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APC-cG-Pfu">
+                                                    <rect key="frame" x="6" y="8" width="90" height="85"/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Button" image="Flightdeck"/>
                                                     <connections>
                                                         <action selector="doPress:" destination="WN1-ko-9gJ" eventType="touchUpInside" id="H5i-a4-elo"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="centerY" secondItem="cvq-8W-Eoj" secondAttribute="centerY" id="7EY-4C-Wkf"/>
-                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="centerX" secondItem="cvq-8W-Eoj" secondAttribute="centerX" id="8Ck-HW-egO"/>
-                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="top" secondItem="cvq-8W-Eoj" secondAttribute="topMargin" constant="28" id="NYm-xe-Zhy"/>
-                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="leading" secondItem="cvq-8W-Eoj" secondAttribute="leadingMargin" constant="26" id="axk-09-Tk4"/>
+                                                <constraint firstAttribute="bottom" secondItem="APC-cG-Pfu" secondAttribute="bottom" constant="11" id="cks-xG-CiN"/>
+                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="top" secondItem="cvq-8W-Eoj" secondAttribute="topMargin" id="oMA-MZ-Z7W"/>
+                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="leading" secondItem="cvq-8W-Eoj" secondAttribute="leading" constant="6" id="rXB-n5-mhm"/>
+                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="trailing" secondItem="cvq-8W-Eoj" secondAttribute="trailingMargin" id="yea-5k-v0C"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="104" height="104"/>
                                         <connections>
                                             <outlet property="pressedButton" destination="APC-cG-Pfu" id="Nm8-xZ-lgZ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1eJ-yt-Hl2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxQ-Bn-6aM">
                                 <rect key="frame" x="58" y="102" width="294" height="259"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCS-u1-bzW">
-                                        <rect key="frame" x="0.0" y="0.0" width="294" height="32.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCS-u1-bzW">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -769,14 +597,58 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="uL2-NM-JYB"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="R4G-lH-hR0"/>
                             </scrollView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOB-oy-EYy" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="16" y="372" width="50" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-Nq-uFA" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="157" y="0.0" width="60" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVP-xj-FEs" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                <rect key="frame" x="209" y="558" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5gf-16-iim"/>
                         <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="a5V-yK-3kp" firstAttribute="top" secondItem="5gf-16-iim" secondAttribute="top" id="krL-vB-MBb"/>
-                            <constraint firstItem="a5V-yK-3kp" firstAttribute="leading" secondItem="5gf-16-iim" secondAttribute="leading" id="md5-Xd-H18"/>
-                            <constraint firstItem="5gf-16-iim" firstAttribute="trailing" secondItem="a5V-yK-3kp" secondAttribute="trailing" id="zCW-x4-4iL"/>
+                            <constraint firstItem="a5V-yK-3kp" firstAttribute="trailing" secondItem="5gf-16-iim" secondAttribute="trailing" id="37R-BJ-PXC"/>
+                            <constraint firstItem="JNO-k1-VDO" firstAttribute="trailing" secondItem="5gf-16-iim" secondAttribute="trailing" id="8zI-fS-695"/>
+                            <constraint firstItem="JNO-k1-VDO" firstAttribute="top" secondItem="a5V-yK-3kp" secondAttribute="bottom" id="9tL-pP-OZT"/>
+                            <constraint firstItem="JNO-k1-VDO" firstAttribute="leading" secondItem="5gf-16-iim" secondAttribute="leading" id="PID-gG-mqh"/>
+                            <constraint firstItem="JNO-k1-VDO" firstAttribute="bottom" secondItem="5gf-16-iim" secondAttribute="bottom" id="cQC-WT-VyK"/>
+                            <constraint firstItem="a5V-yK-3kp" firstAttribute="top" secondItem="5gf-16-iim" secondAttribute="top" id="pi7-lK-MVc"/>
+                            <constraint firstItem="a5V-yK-3kp" firstAttribute="leading" secondItem="5gf-16-iim" secondAttribute="leading" id="rN4-4N-avq"/>
+                            <constraint firstItem="JNO-k1-VDO" firstAttribute="bottom" secondItem="5gf-16-iim" secondAttribute="bottom" id="wo0-Dd-MSZ"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="W3T-ZV-PV2" appends="YES" id="wh4-3s-esp"/>
@@ -891,20 +763,15 @@
     </designables>
     <resources>
         <image name="Cockpit" width="514" height="508"/>
+        <image name="Flightdeck" width="512" height="501"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="lightTextColor">
-            <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="scrollViewTexturedBackgroundColor">
             <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
