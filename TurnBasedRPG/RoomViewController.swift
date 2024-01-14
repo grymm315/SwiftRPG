@@ -181,12 +181,28 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //Collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3//currentRoom?.mob_list.count ?? 0
+        return 1//currentRoom?.mob_list.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath) as! EnemyCell
-        cell.backgroundColor = .red
+        let cell: EnemyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath) as! EnemyCell
+        cell.backgroundColor = .blue
+        cell.layer.cornerRadius = 20.0
+        cell.layer.borderWidth = 10
+        cell.layer.borderColor = UIColor.white.cgColor
+        
+        let label = UILabel(frame: cell.bounds)
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.text = "Explore"
+        
+        cell.contentView.addSubview(label)
+        
+        
+        
+        
+        
+        
 //        cell.backgroundView = Face(frame: cell.bounds)
         cell.isUserInteractionEnabled = true
         // cell.contentView.addSubview(Face(frame: cell.bounds))

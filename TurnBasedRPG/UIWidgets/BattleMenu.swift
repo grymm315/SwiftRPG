@@ -14,7 +14,7 @@ protocol BattleMenuDelegate {
 }
 
 
-//The Battle Menu will
+//The Battle Menu will show up
 class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let grandRatio: CGFloat = 0.6180340
     var tableView: UITableView = UITableView()
