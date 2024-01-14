@@ -8,11 +8,18 @@
 
 import UIKit
 
+class Command {
+    public var name:String!
+    public var action:String!
+}
+
 class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView:UITableView = UITableView()
-    public var mData:[String] = []
+    public var options:[String] = []
     public var startFrame:CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
+    
+    
     var tableFrame:CGRect{
         get {
             return CGRect(origin: CGPoint(x: UIScreen.main.bounds.width * 0.2, y: UIScreen.main.bounds.height / 5), size: CGSize(width: (UIScreen.main.bounds.width * 0.6), height: (UIScreen.main.bounds.height / 2)))
@@ -22,8 +29,6 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var closing:Bool = false
     
     override func viewDidLoad() {
-        // print("ViewDidLoad")
-        // super.viewDidLoad()
         closing = false
         
         tableView.frame = startFrame
@@ -113,7 +118,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let number = mData.count
+        let number = options.count
         
         return number
     }
@@ -123,7 +128,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cellThis = tableView.dequeueReusableCell(withIdentifier: "basic", for: indexPath as IndexPath)
         cellThis.backgroundColor = UIColor.black
         cellThis.textLabel?.textColor = UIColor.white
-        cellThis.textLabel?.text = mData[indexPath.row]
+        cellThis.textLabel?.text = options[indexPath.row]
         
         return cellThis
     }

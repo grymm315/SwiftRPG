@@ -20,24 +20,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     
     var isPaused:Bool = false
     
-    let synth = AVSpeechSynthesizer()
-    let insults = [
-        "Ye! YA!",
-        "You'll never leave here alive!",
-        "Is this an enemy that approaches?",
-        "Prepare to Die",
-        "Coo sew",
-        "Ah",
-        
-    ]
-    
-    let painString = [
-        "Ga",
-        "Aaaa",
-        "sh",
-        "Fuck"
-        
-    ]
     let GR:CGFloat = 0.6180340
     
     let menu:BattleMenu = BattleMenu()
@@ -87,7 +69,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         statusText.layer.borderWidth = 2
         statusText.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
-        statusText.frame = CGRect(x: 15, y: 50, width: UIScreen.main.bounds.width - 30, height: 50)
+        statusText.frame = CGRect(x: 15, y: 80, width: UIScreen.main.bounds.width - 30, height: 50)
         self.view.addSubview(statusText)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75, execute: {

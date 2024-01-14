@@ -44,10 +44,18 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
 //    @IBOutlet weak var mobStack: UIStackView!
     let Gary:Face = Face()
+    let randomEventMenu:PopUp = PopUp()
     //let GaryHP:HealthBar = HealthBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        randomEventMenu.options.append("Encounter Gremlin")
+        randomEventMenu.options.append("Find Mushrooms")
+        randomEventMenu.options.append("Get bored and take a nap")
+        randomEventMenu.options.append("Find a shiny rock")
+
+        randomEventMenu.startFrame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height, width: 20, height: 20)
+
         // Setting the Origin Return to happen after the view did load
         // this is important for screen animations while transiting
 
@@ -219,10 +227,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //let bvc = BattleViewController()
         // self.present(bvc, animated: true, completion: nil)
         print("BATTLE TIME!!")
-        let suspense: SystemSoundID = 1032
-        AudioServicesPlaySystemSound(suspense)
+        SoundController.shared.suspense()
+        view.addSubview(randomEventMenu.view)
         
-        self.performSegue(withIdentifier: "BattleView", sender: collectionView.cellForItem(at: indexPath))
+        
+//        self.performSegue(withIdentifier: "BattleView", sender: collectionView.cellForItem(at: indexPath))
     }
     
     
