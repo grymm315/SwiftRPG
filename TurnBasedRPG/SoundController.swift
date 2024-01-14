@@ -71,14 +71,17 @@ class SoundController {
         
     ]
     
+    func speak(_ text: String){
+                let utterance = AVSpeechUtterance(string: text)
+                utterance.voice = voice
+                utterance.rate = 0.55
+                utterance.pitchMultiplier = 0.6
+                print("Saying: \(utterance.speechString)")
+                synth.speak(utterance)
+    }
+    
     func randomInsults(){
-        let utterance = AVSpeechUtterance(string: insults.randomElement() ?? "Oh Shit")
-        utterance.voice = voice
-        utterance.rate = 0.55
-        utterance.pitchMultiplier = 0.6
-        print("Saying: \(utterance.speechString)")
-        synth.speak(utterance)
-        
+        tink()
     }
     
     func pauseMusic() {
@@ -98,12 +101,7 @@ class SoundController {
     }
     
     func painNoise(){
-        let utterance = AVSpeechUtterance(string: painString.randomElement() ?? "Oh Shit")
-        utterance.voice = voice
-        utterance.rate = 0.77
-        utterance.pitchMultiplier = 0.5
-        print("Saying: \(utterance.speechString)")
-        synth.speak(utterance)
+        tock()
         
     }
     

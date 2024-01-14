@@ -42,9 +42,9 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.layer.masksToBounds = true
         tableView.layer.cornerRadius = 12
-        tableView.layer.borderWidth = 2
+        tableView.layer.borderWidth = 8
         tableView.layer.borderColor = UIColor.lightGray.cgColor
-        tableView.backgroundColor = UIColor.black
+        tableView.backgroundColor = UIColor.blue
         
         
         let refreshControl = UIRefreshControl()
@@ -105,7 +105,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellThis = tableView.dequeueReusableCell(withIdentifier: "battle", for: indexPath as IndexPath)
-        cellThis.backgroundColor = UIColor.black
+        cellThis.backgroundColor = UIColor.blue
         cellThis.textLabel?.textColor = UIColor.white
         cellThis.textLabel?.text = menuItems[indexPath.row]
         
