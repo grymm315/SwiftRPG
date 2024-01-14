@@ -50,12 +50,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         // Setting the Origin Return to happen after the view did load
         // this is important for screen animations while transiting
-//        originReturn = self.view.bounds.origin
-        
-//        roomView = RoomView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height - 80))
+
         originReturn = CGRect(x: 0, y: 44, width: self.view.bounds.width, height: self.view.bounds.height - 44).origin
         
-//        self.view.addSubview(roomView!)
         moveRoom(to: map.startRoom)
         
         //I forget why I put a random face here... maybe testing

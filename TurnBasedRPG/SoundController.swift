@@ -11,7 +11,9 @@ import AVFoundation
 
 class SoundController {
     
-    // Adding generic system sounds
+    static let shared:SoundController = SoundController()
+    
+    // Adding generic system sounds so I don't need a lookup chart
     func playVoicemail(){AudioServicesPlaySystemSound(1002)}
     func receivedMessage(){AudioServicesPlaySystemSound(1003)}
     func alarm(){AudioServicesPlaySystemSound(1005)}
@@ -53,24 +55,6 @@ class SoundController {
     
     let meep = AVPlayer()
     
-    let insults = [
-        "Ye! YA!",
-        "ARG",
-        "Coo sew",
-        "Ah",
-    ]
-    
-    let painString = [
-        "Ga",
-        "Aaaa",
-        "Fuh"
-    ]
-    
-    let song = [
-        "do", "re", "Mi", "sew", "la", "ti"
-        
-    ]
-    
     func speak(_ text: String){
                 let utterance = AVSpeechUtterance(string: text)
                 utterance.voice = voice
@@ -93,11 +77,7 @@ class SoundController {
     }
     
     func magic(){
-        let ma = AVSpeechUtterance(string: "DDD")
-        ma.voice = voice
-        ma.rate = 1.09
-        ma.pitchMultiplier = 1.5
-        synth.speak(ma)
+       spell()
     }
     
     func painNoise(){

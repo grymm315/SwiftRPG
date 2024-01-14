@@ -44,6 +44,7 @@
 		96CAE7CA23D3073F0017019E /* InventoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */; };
 		96CAE7CC23D452250017019E /* GameDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CB23D452250017019E /* GameDatabase.swift */; };
 		96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */; };
+		F06AE1DE2B539F5E0058F215 /* MegaMillions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewController.swift; sourceTree = "<group>"; };
 		96CAE7CB23D452250017019E /* GameDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDatabase.swift; sourceTree = "<group>"; };
 		96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetTableViewController.swift; sourceTree = "<group>"; };
+		F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MegaMillions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				8201509921334097006A4B80 /* RoomViewController.swift */,
 				82D72A2A216060C60081709D /* BattleViewController.swift */,
 				827C045521329228008998C0 /* InitialViewController.swift */,
+				F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */,
 				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
 				96CAE7C823D301160017019E /* Character */,
 				823F4F02214463FB00A3573B /* Doodles */,
@@ -431,6 +434,7 @@
 				96CAA1422340C0DB009C6A3B /* SoundController.swift in Sources */,
 				9693FA3C230A168700867915 /* BattleMenu.swift in Sources */,
 				820150A1213A8EEA006A4B80 /* Face.swift in Sources */,
+				F06AE1DE2B539F5E0058F215 /* MegaMillions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

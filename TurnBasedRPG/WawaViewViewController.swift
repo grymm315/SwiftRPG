@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+
+//This is a class I wrote to make a fake scanner to annoy friends and loved ones
 class WawaViewViewController: UIViewController {
 
     @IBOutlet weak var scanLine: ScanLine!

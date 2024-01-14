@@ -27,7 +27,7 @@ class AreaGenerator{
     init(name: String){
         startRoom.linkRoom(.south, room: flightdeck)
         flightdeck.linkRoom(.east, room: street1)
-        street1.linkRoom(.east, room: street2)
+        street1.linkRoom(.north, room: street2)
         flightdeck.linkRoom(.west, room: endRoom)
     }
     
