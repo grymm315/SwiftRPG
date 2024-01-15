@@ -58,6 +58,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         heroHP._currentHealth = hero.currentHealth
         heroName.text = hero.race.rawValue
         sound.randomSong()
+        SoundController.shared.speak("You are attacked by a ferocious goblin.")
     }
     
     func popText(_ text:String){
@@ -122,6 +123,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         case "Item":
             print("Yet")
         case "Escape":
+            SoundController.shared.speak("You ran away like a cow-word!")
             self.dismiss(animated: true, completion: nil)
         default:
             print("Default")

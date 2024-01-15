@@ -37,11 +37,13 @@ class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
+        SoundController.shared.speak("Wow. These stats don't look good. Maybe you should do something about that")
     }
     
     // MARK: - Table view data source
@@ -92,8 +94,6 @@ class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if (indexPath.section == headingSection) {return 115.0}
-//        else if (indexPath.section == statSection) {return 50.0}
         return UITableView.automaticDimension//275.0
     }
     

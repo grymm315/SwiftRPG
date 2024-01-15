@@ -89,6 +89,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             tip.delegate = self
         }
         
+        soundController.speak("Swipe to move.")
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(EnemyCell.self, forCellWithReuseIdentifier: "enemy")
@@ -204,7 +206,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: EnemyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath) as! EnemyCell
         cell.backgroundColor = .blue
-        cell.layer.cornerRadius = 20.0
+        cell.layer.cornerRadius = 10.0
         cell.layer.borderWidth = 10
         cell.layer.borderColor = UIColor.white.cgColor
         
