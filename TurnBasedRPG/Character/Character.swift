@@ -69,8 +69,8 @@ class Character {
             Armor(name: "Magic Sword", description: "This sword possess the magic of friendship"),
             Equipment(name: "A Gem", description: "A small blue gem. It might be a piece of glass")
         ]
-        GameDatabase.shared.hero.inventory.append(rewardPool.randomElement()!)
     }
+    
     func receives() {
         
     }

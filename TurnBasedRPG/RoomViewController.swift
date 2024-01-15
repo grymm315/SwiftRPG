@@ -13,7 +13,6 @@ import AVFoundation
 class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        print("touching \(String(describing: touch.view))")
         if ((touch.view?.isKind(of: UIButton.self))!) {
                 return false
             }
@@ -40,19 +39,37 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var map: AreaGenerator = AreaGenerator(name: "adrift")
     var originReturn:CGPoint? //* */
     
-    var transitSpeed:Double = 0.3 //** How fast the screen transitions
+    var transitSpeed:Double = 0.16 //** How fast the screen transitions
     
 //    @IBOutlet weak var mobStack: UIStackView!
     let Gary:Face = Face()
     let randomEventMenu:PopUp = PopUp()
-    //let GaryHP:HealthBar = HealthBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        randomEventMenu.options.append("Encounter Gremlin")
-        randomEventMenu.options.append("Find Mushrooms")
-        randomEventMenu.options.append("Get bored and take a nap")
-        randomEventMenu.options.append("Find a shiny rock")
+        
+        // These commands should be in a separate file
+        // Hardcoding this for quick ideation
+        let gremlin:Command = Command("Encounter Gremlin", completionHandler: {
+            print("Encountered gremlin")
+            self.performSegue(withIdentifier: "BattleView", sender: self)
+        })
+        let mushroom:Command = Command("Find Mushrooms", completionHandler: {
+            print("Find Mushrooms")
+            GameDatabase.shared.hero.inventory.append(Equipment(name: "Mushroom", description: "A mouldy a mushroom"))
+        })
+        let nothing:Command = Command("Nothing happens", completionHandler: {
+            SoundController.shared.speak("You spend some time exploring but you find nothing")
+        })
+        let rock:Command = Command("Find Rock", completionHandler: {
+            print("Find Rock")
+            GameDatabase.shared.hero.inventory.append(Equipment(name: "Rock", description: "In an intelligence contest, this thing would have you beat"))
+        })
+        
+        randomEventMenu.options.append(gremlin)
+        randomEventMenu.options.append(mushroom)
+        randomEventMenu.options.append(nothing)
+        randomEventMenu.options.append(rock)
 
         randomEventMenu.startFrame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height, width: 20, height: 20)
 
@@ -72,7 +89,6 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             tip.delegate = self
         }
         
-//        collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(EnemyCell.self, forCellWithReuseIdentifier: "enemy")
@@ -118,10 +134,6 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    func walkSound(){
-        let tiptoe: SystemSoundID = 1055
-        AudioServicesPlaySystemSound(tiptoe)
-    }
     
     func noExitSound(){
         soundController.tock()
@@ -199,26 +211,21 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let label = UILabel(frame: cell.bounds)
         label.textColor = UIColor.white
         label.textAlignment = .center
-        label.text = "Explore"
-        
+        label.text =
+"""
+Force
+Event
+"""
+        label.numberOfLines = 2
         cell.contentView.addSubview(label)
         
-        
-        
-        
-        
-        
-//        cell.backgroundView = Face(frame: cell.bounds)
         cell.isUserInteractionEnabled = true
-        // cell.contentView.addSubview(Face(frame: cell.bounds))
         
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        print("????")
-
         return true
     }
         
@@ -226,8 +233,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let bvc = BattleViewController()
         // self.present(bvc, animated: true, completion: nil)
-        print("BATTLE TIME!!")
-        SoundController.shared.suspense()
+        SoundController.shared.ussd()
         view.addSubview(randomEventMenu.view)
         
         

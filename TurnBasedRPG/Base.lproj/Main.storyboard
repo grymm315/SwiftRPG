@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gzZ-Qr-gSU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gzZ-Qr-gSU">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -122,7 +122,7 @@
                         <color key="sectionIndexBackgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="equipmentSlot" id="Klx-Yp-pUS" customClass="InventoryCell" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="58.5"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="58.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Klx-Yp-pUS" id="SDB-vZ-iwy">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
@@ -180,7 +180,7 @@
                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="blurbCell" rowHeight="105" id="oze-gX-dKX" customClass="BlurbCell" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="105"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oze-gX-dKX" id="g0E-bM-hvP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
@@ -240,7 +240,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="statCell" rowHeight="50" id="36M-uK-fjd" customClass="StatCell" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="133" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="155" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="36M-uK-fjd" id="9wc-9g-G6b">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -336,7 +336,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="traitCell" rowHeight="126" translatesAutoresizingMaskIntoConstraints="NO" id="M89-5b-Pyf" customClass="TraitCell" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="183" width="375" height="126"/>
+                                <rect key="frame" x="0.0" y="205" width="375" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M89-5b-Pyf" id="uuE-Nq-hMT">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="126"/>
@@ -481,7 +481,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cockpit" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-yK-3kp">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="513"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fve-Da-VmP" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                                 <rect key="frame" x="308" y="369" width="51" height="52"/>
@@ -496,54 +496,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-k1-VDO">
-                                <rect key="frame" x="0.0" y="513" width="375" height="110"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="T8f-NS-A8Y"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H3P-FP-rXd">
-                                    <size key="itemSize" width="100" height="100"/>
-                                    <size key="estimatedItemSize" width="100" height="100"/>
-                                    <size key="headerReferenceSize" width="0.0" height="10"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="enemy" id="WN1-ko-9gJ" customClass="EnemyCell" customModule="TurnBasedRPG" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="104" height="104"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cvq-8W-Eoj">
-                                            <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APC-cG-Pfu">
-                                                    <rect key="frame" x="6" y="8" width="90" height="85"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Button" image="Flightdeck"/>
-                                                    <connections>
-                                                        <action selector="doPress:" destination="WN1-ko-9gJ" eventType="touchUpInside" id="H5i-a4-elo"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="APC-cG-Pfu" secondAttribute="bottom" constant="11" id="cks-xG-CiN"/>
-                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="top" secondItem="cvq-8W-Eoj" secondAttribute="topMargin" id="oMA-MZ-Z7W"/>
-                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="leading" secondItem="cvq-8W-Eoj" secondAttribute="leading" constant="6" id="rXB-n5-mhm"/>
-                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="trailing" secondItem="cvq-8W-Eoj" secondAttribute="trailingMargin" id="yea-5k-v0C"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="104" height="104"/>
-                                        <connections>
-                                            <outlet property="pressedButton" destination="APC-cG-Pfu" id="Nm8-xZ-lgZ"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1eJ-yt-Hl2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
-                            </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxQ-Bn-6aM">
                                 <rect key="frame" x="58" y="102" width="294" height="259"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -602,6 +554,54 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-k1-VDO">
+                                <rect key="frame" x="0.0" y="513" width="375" height="110"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="T8f-NS-A8Y"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H3P-FP-rXd">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="estimatedItemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="10"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="enemy" id="WN1-ko-9gJ" customClass="EnemyCell" customModule="TurnBasedRPG" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10" width="104" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cvq-8W-Eoj">
+                                            <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="APC-cG-Pfu">
+                                                    <rect key="frame" x="6" y="8" width="90" height="85"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="doPress:" destination="WN1-ko-9gJ" eventType="touchUpInside" id="H5i-a4-elo"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="APC-cG-Pfu" secondAttribute="bottom" constant="11" id="cks-xG-CiN"/>
+                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="top" secondItem="cvq-8W-Eoj" secondAttribute="topMargin" id="oMA-MZ-Z7W"/>
+                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="leading" secondItem="cvq-8W-Eoj" secondAttribute="leading" constant="6" id="rXB-n5-mhm"/>
+                                                <constraint firstItem="APC-cG-Pfu" firstAttribute="trailing" secondItem="cvq-8W-Eoj" secondAttribute="trailingMargin" id="yea-5k-v0C"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="104" height="104"/>
+                                        <connections>
+                                            <outlet property="pressedButton" destination="APC-cG-Pfu" id="Nm8-xZ-lgZ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1eJ-yt-Hl2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5gf-16-iim"/>
                         <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
@@ -609,8 +609,8 @@
                         <constraints>
                             <constraint firstItem="a5V-yK-3kp" firstAttribute="trailing" secondItem="5gf-16-iim" secondAttribute="trailing" id="37R-BJ-PXC"/>
                             <constraint firstItem="JNO-k1-VDO" firstAttribute="trailing" secondItem="5gf-16-iim" secondAttribute="trailing" id="8zI-fS-695"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="top" secondItem="a5V-yK-3kp" secondAttribute="bottom" id="9tL-pP-OZT"/>
                             <constraint firstItem="JNO-k1-VDO" firstAttribute="leading" secondItem="5gf-16-iim" secondAttribute="leading" id="PID-gG-mqh"/>
+                            <constraint firstItem="5gf-16-iim" firstAttribute="bottom" secondItem="a5V-yK-3kp" secondAttribute="bottom" id="USS-av-LkB"/>
                             <constraint firstItem="JNO-k1-VDO" firstAttribute="bottom" secondItem="5gf-16-iim" secondAttribute="bottom" id="cQC-WT-VyK"/>
                             <constraint firstItem="a5V-yK-3kp" firstAttribute="top" secondItem="5gf-16-iim" secondAttribute="top" id="pi7-lK-MVc"/>
                             <constraint firstItem="a5V-yK-3kp" firstAttribute="leading" secondItem="5gf-16-iim" secondAttribute="leading" id="rN4-4N-avq"/>
@@ -703,7 +703,7 @@
             <size key="intrinsicContentSize" width="101" height="58"/>
         </designable>
         <designable name="NHq-4K-3uT">
-            <size key="intrinsicContentSize" width="78" height="58"/>
+            <size key="intrinsicContentSize" width="79" height="58"/>
         </designable>
         <designable name="YGr-Nq-uFA">
             <size key="intrinsicContentSize" width="30" height="30"/>
@@ -726,7 +726,6 @@
     </designables>
     <resources>
         <image name="Cockpit" width="514" height="508"/>
-        <image name="Flightdeck" width="512" height="501"/>
         <image name="Street1" width="510" height="511"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

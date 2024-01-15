@@ -36,7 +36,6 @@ class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
     }
     
     override func viewDidLoad() {
-        GameDatabase.shared.hero.rewardRandomItem()
         super.viewDidLoad()
     }
     
@@ -84,7 +83,6 @@ class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
             cell.tableView = self
             return cell
         } else {
-            
             //This cell takes 2 parameters
             let cell = tableView.dequeueReusableCell(withIdentifier: "traitCell", for: indexPath) as! TraitCell
             cell.configCell(title: "Toast", subtitle: "Slightly crunchy and bland as fuck. You need somebody to butter your bread.")

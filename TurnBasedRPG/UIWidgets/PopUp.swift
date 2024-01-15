@@ -10,13 +10,18 @@ import UIKit
 
 class Command {
     public var name:String!
-    public var action:String!
+    public var action:() -> Void
+    
+    init(_ text:String, completionHandler:@escaping () -> Void){
+        name = text
+        action = completionHandler
+    }
 }
 
 class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView:UITableView = UITableView()
-    public var options:[String] = []
+    public var options:[Command] = []
     public var startFrame:CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
     
     
@@ -33,6 +38,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.frame = startFrame
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "basic")
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.layer.masksToBounds = true
         tableView.layer.cornerRadius = 12
@@ -70,7 +76,8 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, animations: {
+//        UIView.animate(withDuration: 0.6, animations: {
             self.tableView.frame = self.tableFrame
             self.cancel.frame = CGRect(origin: CGPoint(x: self.tableFrame.origin.x, y: self.tableFrame.origin.y + self.tableFrame.height + 4), size: CGSize(width: self.tableFrame.width, height: 44))
             self.view.alpha = 1.0
@@ -78,7 +85,6 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func btn_Cancel(_ sender: Any?){
-        print("Should remove")
         closing = true
         UIView.animate(withDuration: 0.3, animations: {
             self.tableView.frame = self.startFrame
@@ -93,12 +99,8 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
         // Fetch more objects from a web service, for example...
-        print("Refreshing")
-        
-        //self.tableView.reloadData()
-        
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    print("Refreshing")
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(connectionTimer), userInfo: nil, repeats: false)
         
@@ -128,12 +130,19 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cellThis = tableView.dequeueReusableCell(withIdentifier: "basic", for: indexPath as IndexPath)
         cellThis.backgroundColor = UIColor.black
         cellThis.textLabel?.textColor = UIColor.white
-        cellThis.textLabel?.text = options[indexPath.row]
+        cellThis.textLabel?.text = options[indexPath.row].name
         
         return cellThis
     }
     
+    func selectedAction(action:Command){
+        print("You selected \(action.name ?? "unknown")")
+        action.action()
+        btn_Cancel(self)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        options[indexPath.row].action()
         self.removeFromParent()
         self.view.removeFromSuperview()
     }
