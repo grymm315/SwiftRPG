@@ -56,14 +56,14 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         })
         let mushroom:Command = Command("Find Mushrooms", completionHandler: {
             print("Find Mushrooms")
-            GameDatabase.shared.hero.inventory.append(Equipment(name: "Mushroom", description: "A mouldy a mushroom"))
+            GameDatabase.shared.hero.rewardItem(Equipment(name: "Mushroom", description: "A mouldy a mushroom"))
         })
         let nothing:Command = Command("Nothing happens", completionHandler: {
             SoundController.shared.speak("You spend some time exploring but you find nothing")
         })
         let rock:Command = Command("Find Rock", completionHandler: {
             print("Find Rock")
-            GameDatabase.shared.hero.inventory.append(Equipment(name: "Rock", description: "In an intelligence contest, this thing would have you beat"))
+            GameDatabase.shared.hero.rewardItem(Equipment(name: "Rock", description: "In an intelligence contest, this thing would have you beat"))
         })
         
         randomEventMenu.options.append(gremlin)
@@ -204,10 +204,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //This button used to have just enemies. It now pops a quick menu
         let cell: EnemyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath) as! EnemyCell
         cell.backgroundColor = .blue
         cell.layer.cornerRadius = 10.0
-        cell.layer.borderWidth = 10
+        cell.layer.borderWidth = 8
         cell.layer.borderColor = UIColor.white.cgColor
         
         let label = UILabel(frame: cell.bounds)
@@ -235,7 +236,7 @@ Event
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let bvc = BattleViewController()
         // self.present(bvc, animated: true, completion: nil)
-        SoundController.shared.ussd()
+        SoundController.shared.whoohn()
         view.addSubview(randomEventMenu.view)
         
         

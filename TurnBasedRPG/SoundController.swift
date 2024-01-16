@@ -35,7 +35,7 @@ class SoundController {
     func tiptoes(){AudioServicesPlaySystemSound(1034)}
     func typewriters(){AudioServicesPlaySystemSound(1035)}
     func updates(){AudioServicesPlaySystemSound(1036)}
-    func ussd(){AudioServicesPlaySystemSound(1050)}
+    func whoohn(){AudioServicesPlaySystemSound(1050)}
     func lock(){AudioServicesPlaySystemSound(1100)}
     func unlock(){AudioServicesPlaySystemSound(1101)}
     func failUnlock(){AudioServicesPlaySystemSound(1102)}

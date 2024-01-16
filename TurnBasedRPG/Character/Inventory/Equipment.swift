@@ -23,8 +23,6 @@ class Equipment {
         self.name = name
         self.description = description
     }
-    
-    
 }
 
 class Weapon: Equipment {

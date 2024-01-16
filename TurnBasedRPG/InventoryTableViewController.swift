@@ -18,7 +18,9 @@ class InventoryCell: UITableViewCell {
     }
 }
 
-class InventoryTableViewController: UITableViewController {
+class InventoryTableViewController: UITableViewController, ReloadProtocol {
+    
+    
 
     var equipedSlot: Int = 0
     var headSlot: Int = 1
@@ -35,6 +37,12 @@ class InventoryTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    func reload() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 5
@@ -47,7 +55,7 @@ class InventoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if (section == generalSection){
-        return GameDatabase.shared.hero.inventory.count
+        return GameDatabase.shared.hero.getInventory().count
         } else {
             return 1
         }
@@ -57,16 +65,52 @@ class InventoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! InventoryCell
         if (indexPath.section == generalSection){
-            cell.configCell(item: GameDatabase.shared.hero.inventory[indexPath.row])
+            cell.configCell(item: GameDatabase.shared.hero.getInventory()[indexPath.row])
         } else if (indexPath.section == headSlot){
-            cell.configCell(item: GameDatabase.shared.hero.headEquipmentSlot ?? Armor(name: "empty", description: ""))
+            cell.configCell(item: GameDatabase.shared.hero.getHead() ?? Armor(name: "empty", description: ""))
         } else if (indexPath.section == armorSlot){
-            cell.configCell(item: GameDatabase.shared.hero.chestEquipmentSlot ?? Armor(name: "empty", description: ""))
+            cell.configCell(item: GameDatabase.shared.hero.getChest() ?? Armor(name: "empty", description: ""))
         } else if (indexPath.section == legSlot){
-            cell.configCell(item: GameDatabase.shared.hero.legsEquipmentSlot ?? Armor(name: "empty", description: ""))
+            cell.configCell(item: GameDatabase.shared.hero.getLegs() ?? Armor(name: "your junk is swinging in the breeze", description: ""))
         } else if (indexPath.section == equipedSlot){
-            cell.configCell(item: GameDatabase.shared.hero.equippedSlot ?? Weapon(name: "empty", description: ""))
+            cell.configCell(item: GameDatabase.shared.hero.getWeapo() ?? Weapon(name: "empty", description: ""))
         }
         return cell
     }
+        
+    func getSwipeConfig(indexPath: IndexPath) -> UISwipeActionsConfiguration?{
+        print("Swipe detected")
+        var actionArray:[UIContextualAction] = []
+        if (indexPath.section == generalSection){
+            let drop = UIContextualAction(style: .destructive, title: "drop", handler: {_,_,_ in
+              
+                GameDatabase.shared.hero.dropItemFromRow(indexPath.row)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+            actionArray.append(drop)
+            
+        } else if (indexPath.section == headSlot){
+//            GameDatabase.shared.hero.headEquipmentSlot
+        } else if (indexPath.section == armorSlot){
+//             GameDatabase.shared.hero.chestEquipmentSlot
+        } else if (indexPath.section == legSlot){
+//            GameDatabase.shared.hero.legsEquipmentSlot
+        } else if (indexPath.section == equipedSlot){
+//            GameDatabase.shared.hero.equippedSlot
+        }
+        
+        let config = UISwipeActionsConfiguration(actions: actionArray)
+        return config
+        
+    }
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return getSwipeConfig(indexPath: indexPath)
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return getSwipeConfig(indexPath: indexPath)
+    }
+    
 }

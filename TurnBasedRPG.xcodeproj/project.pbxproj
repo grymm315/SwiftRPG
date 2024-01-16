@@ -45,6 +45,7 @@
 		96CAE7CC23D452250017019E /* GameDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CB23D452250017019E /* GameDatabase.swift */; };
 		96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */; };
 		F06AE1DE2B539F5E0058F215 /* MegaMillions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */; };
+		F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		96CAE7CB23D452250017019E /* GameDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDatabase.swift; sourceTree = "<group>"; };
 		96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetTableViewController.swift; sourceTree = "<group>"; };
 		F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MegaMillions.swift; sourceTree = "<group>"; };
+		F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumeratedFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				827C045521329228008998C0 /* InitialViewController.swift */,
 				F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */,
 				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
+				F0B0907E2B563EC0000ACCDC /* Enum */,
 				96CAE7C823D301160017019E /* Character */,
 				823F4F02214463FB00A3573B /* Doodles */,
 				963DFDE623DC182700485974 /* Room */,
@@ -266,6 +269,14 @@
 				96CAE7C723D301030017019E /* Inventory */,
 			);
 			path = Character;
+			sourceTree = "<group>";
+		};
+		F0B0907E2B563EC0000ACCDC /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +425,7 @@
 				9607315523CECC270070A869 /* Equipment.swift in Sources */,
 				96C75F7F24405D0E00150CDE /* LineTree.swift in Sources */,
 				820150A7213B3894006A4B80 /* HealthBar.swift in Sources */,
+				F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */,
 				96CAE7CA23D3073F0017019E /* InventoryTableViewController.swift in Sources */,
 				96CAA1402340A87F009C6A3B /* Mouth.swift in Sources */,
 				9693FA41230FB3B600867915 /* FaceViewController.swift in Sources */,

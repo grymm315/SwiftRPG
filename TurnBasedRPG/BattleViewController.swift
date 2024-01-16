@@ -11,7 +11,7 @@ import AVFoundation
 
 // TODO: This needs refactored
 class BattleViewController: UIViewController, BattleMenuDelegate {
-    var hero:Character = Character(strength: 9, perception: 9, endurance: 9, charisma: 9, intelligence: 9, luck: 9, agility: 3)
+    var hero:Character = GameDatabase.shared.hero
     var enemy:Character = Character(strength: 3, perception: 3, endurance: 3, charisma: 3, intelligence: 3, luck: 3, agility: 9 )
     let sound = SoundController()
     

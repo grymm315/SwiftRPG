@@ -25,12 +25,42 @@ class Character {
         
     }
     
-    var inventory: [Equipment] = []
-    var headEquipmentSlot: Armor?
-    var chestEquipmentSlot: Armor?
-    var legsEquipmentSlot: Armor?
-    var equippedSlot: Weapon?
+    private var inventory: [Equipment] = []
     
+    private var headEquipmentSlot: Armor?
+    private var chestEquipmentSlot: Armor?
+    private var legsEquipmentSlot: Armor?
+    private var equippedSlot: Weapon?
+    
+    func getInventory() -> [Equipment] { return inventory}
+    func getHead() -> Armor? { return headEquipmentSlot}
+    func getChest() -> Armor? { return chestEquipmentSlot}
+    func getLegs() -> Armor? { return legsEquipmentSlot}
+    func getWeapo() -> Weapon? { return equippedSlot}
+
+    func getItemFromRow(_ index:IndexPath) -> Equipment {
+        return inventory[index.row]
+    }
+    func rewardItem(_ item: Equipment){
+        inventory.append(item)
+    }
+    func dropItemFromRow(_ index:Int){
+        inventory.remove(at: index)
+    }
+    func getItem(_ item: Equipment){
+        if let index = inventory.firstIndex(where: {$0.name == item.name}) {
+           //found item
+        } else {
+            //did not find item
+        }
+    }
+    
+    func removeHeadPiece(){
+        if (headEquipmentSlot != nil){
+            inventory.append(headEquipmentSlot!)
+            headEquipmentSlot = nil
+        }
+    }
     
     lazy var stats: [String : UInt8] = [
         "strength" : strength,
@@ -63,7 +93,7 @@ class Character {
     var profession:classType = .warrior
     var sex:sexType = .male
     
-    func rewardRandomItem() {
+    func reward () {
         let rewardPool:[Equipment] = [
         Armor(name: "Wool Hat", description: "Spun of yarn, this hat protects from cold"),
             Armor(name: "Magic Sword", description: "This sword possess the magic of friendship"),

@@ -86,6 +86,9 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @objc func btn_Cancel(_ sender: Any?){
         closing = true
+        DispatchQueue.main.async {
+            SoundController.shared.whoosh()
+        }
         UIView.animate(withDuration: 0.3, animations: {
             self.tableView.frame = self.startFrame
             self.cancel.frame = self.startFrame
@@ -135,15 +138,9 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cellThis
     }
     
-    func selectedAction(action:Command){
-        print("You selected \(action.name ?? "unknown")")
-        action.action()
-        btn_Cancel(self)
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         options[indexPath.row].action()
-        self.removeFromParent()
+        btn_Cancel(self)
         self.view.removeFromSuperview()
     }
     
