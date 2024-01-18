@@ -115,7 +115,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
             let hdmg = Int.random(in: 1...Int(hero.strength))
             enemyHP.takeDamage(hdmg)
             popText("You deal \(hdmg) dmg to \(enemy.race)")
-            sound.randomInsults()
+            sound.painNoise()
         case "Magic":
             heroHP.heal(15)
             sound.magic()

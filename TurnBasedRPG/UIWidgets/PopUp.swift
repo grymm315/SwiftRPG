@@ -41,19 +41,22 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.layer.masksToBounds = true
+        
         tableView.layer.cornerRadius = 12
-        tableView.layer.borderWidth = 0.5
-        tableView.layer.borderColor = UIColor.lightGray.cgColor
-        tableView.backgroundColor = UIColor.black
+        tableView.layer.borderWidth = 8
+        tableView.layer.borderColor = UIColor.white.cgColor
+        tableView.backgroundColor = UIColor.blue
+        
+
         //tableView.
         
         cancel.frame = startFrame
         cancel.setTitle("Cancel", for: UIControl.State.normal)
         cancel.setTitleColor(UIColor.white, for: .normal)
         cancel.isEnabled = true
-        cancel.backgroundColor = UIColor.black
+        cancel.backgroundColor = UIColor.blue
         cancel.layer.cornerRadius = 12
-        cancel.layer.borderWidth = 0.5
+        cancel.layer.borderWidth = 8
         cancel.layer.borderColor = UIColor.lightGray.cgColor
         
         let refreshControl = UIRefreshControl()
@@ -62,7 +65,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.addSubview(refreshControl)
         
         self.view.addSubview(tableView)
-        self.view.addSubview(cancel)
+//        self.view.addSubview(cancel)
         cancel.addTarget(self, action: #selector(self.btn_Cancel(_:)), for: .touchUpInside)
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(connectionTimer), userInfo: nil, repeats: false)
@@ -87,13 +90,14 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func btn_Cancel(_ sender: Any?){
         closing = true
         DispatchQueue.main.async {
-            SoundController.shared.whoosh()
+            SoundController.shared.roomChangeSound()
         }
         UIView.animate(withDuration: 0.3, animations: {
             self.tableView.frame = self.startFrame
             self.cancel.frame = self.startFrame
             self.view.alpha = 0.2
         }, completion: {finish in
+            Haptics.shared.longTouch()
             self.removeFromParent()
             self.view.removeFromSuperview()
         })
@@ -131,7 +135,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellThis = tableView.dequeueReusableCell(withIdentifier: "basic", for: indexPath as IndexPath)
-        cellThis.backgroundColor = UIColor.black
+        cellThis.backgroundColor = UIColor.blue
         cellThis.textLabel?.textColor = UIColor.white
         cellThis.textLabel?.text = options[indexPath.row].name
         

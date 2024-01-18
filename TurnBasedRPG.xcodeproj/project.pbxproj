@@ -46,6 +46,8 @@
 		96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */; };
 		F06AE1DE2B539F5E0058F215 /* MegaMillions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */; };
 		F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */; };
+		F0B090842B5797CB000ACCDC /* DesignablePlayground.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B090832B5797CB000ACCDC /* DesignablePlayground.xib */; };
+		F0B090992B579BC6000ACCDC /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B090982B579BC6000ACCDC /* Haptics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,8 @@
 		96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetTableViewController.swift; sourceTree = "<group>"; };
 		F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MegaMillions.swift; sourceTree = "<group>"; };
 		F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumeratedFile.swift; sourceTree = "<group>"; };
+		F0B090832B5797CB000ACCDC /* DesignablePlayground.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignablePlayground.xib; sourceTree = "<group>"; };
+		F0B090982B579BC6000ACCDC /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,25 +205,27 @@
 		827C045221329228008998C0 /* TurnBasedRPG */ = {
 			isa = PBXGroup;
 			children = (
+				827C045F2132922B008998C0 /* Info.plist */,
+				82D72A2A216060C60081709D /* BattleViewController.swift */,
 				96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */,
 				9693FA40230FB3B600867915 /* FaceViewController.swift */,
-				96799E8123E557CA0036E794 /* Model.xcdatamodeld */,
-				822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */,
-				8201509921334097006A4B80 /* RoomViewController.swift */,
-				82D72A2A216060C60081709D /* BattleViewController.swift */,
+				96CAE7CB23D452250017019E /* GameDatabase.swift */,
 				827C045521329228008998C0 /* InitialViewController.swift */,
-				F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */,
 				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
-				F0B0907E2B563EC0000ACCDC /* Enum */,
+				F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */,
+				8201509921334097006A4B80 /* RoomViewController.swift */,
+				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
+				822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */,
+				F0B090982B579BC6000ACCDC /* Haptics.swift */,
 				96CAE7C823D301160017019E /* Character */,
 				823F4F02214463FB00A3573B /* Doodles */,
+				F0B0907E2B563EC0000ACCDC /* Enum */,
+				827C045721329228008998C0 /* Main.storyboard */,
+				F0B090832B5797CB000ACCDC /* DesignablePlayground.xib */,
+				96799E8123E557CA0036E794 /* Model.xcdatamodeld */,
 				963DFDE623DC182700485974 /* Room */,
 				8201509D213A8DA7006A4B80 /* Support Files */,
 				8201509F213A8DF7006A4B80 /* UIWidgets */,
-				96CAE7CB23D452250017019E /* GameDatabase.swift */,
-				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
-				827C045F2132922B008998C0 /* Info.plist */,
-				827C045721329228008998C0 /* Main.storyboard */,
 			);
 			path = TurnBasedRPG;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0B090842B5797CB000ACCDC /* DesignablePlayground.xib in Resources */,
 				827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */,
 				827C045B2132922B008998C0 /* Assets.xcassets in Resources */,
 				9693FA3A2300DE0D00867915 /* Doodle.xib in Resources */,
@@ -425,6 +432,7 @@
 				9607315523CECC270070A869 /* Equipment.swift in Sources */,
 				96C75F7F24405D0E00150CDE /* LineTree.swift in Sources */,
 				820150A7213B3894006A4B80 /* HealthBar.swift in Sources */,
+				F0B090992B579BC6000ACCDC /* Haptics.swift in Sources */,
 				F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */,
 				96CAE7CA23D3073F0017019E /* InventoryTableViewController.swift in Sources */,
 				96CAA1402340A87F009C6A3B /* Mouth.swift in Sources */,

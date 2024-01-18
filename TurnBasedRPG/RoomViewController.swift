@@ -45,9 +45,23 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let Gary:Face = Face()
     let randomEventMenu:PopUp = PopUp()
     
+    var forceActionMenu:[Command] = []
+    
+    func setCommandMenu() {
+        forceActionMenu.append(contentsOf: [
+            Command("Explore", completionHandler: {self.popMenu()}),
+            Command("Patrol", completionHandler: {self.popMenu()}),
+            Command("Sneak", completionHandler: {self.popMenu()}),
+                                           ])
+    }
+    func popMenu() {
+        SoundController.shared.whoohn()
+            view.addSubview(randomEventMenu.view)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setCommandMenu()
         // These commands should be in a separate file
         // Hardcoding this for quick ideation
         let gremlin:Command = Command("Encounter Gremlin", completionHandler: {
@@ -90,7 +104,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         soundController.speak("Swipe to move.")
-        
+//        self.collectionView.registerClass(CollectionViewCell.self, forCellReuseIdentifier: "collectionViewCell")
+
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(EnemyCell.self, forCellWithReuseIdentifier: "enemy")
@@ -149,7 +164,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
         }, completion: {(finished:Bool) in
-            self.soundController.whoosh()
+            self.soundController.roomChangeSound()
             self.view.frame.origin.y =  -self.view.frame.height
             self.moveRoom(to: (self.currentRoom?.north)!)
         })
@@ -163,7 +178,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
         }, completion: {(finished:Bool) in
-            self.soundController.whoosh()
+            self.soundController.roomChangeSound()
             self.view.frame.origin.x =  -self.view.frame.width
             self.moveRoom(to: (self.currentRoom?.west)!)
         })
@@ -177,7 +192,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.y =  -self.view.frame.height
         }, completion: {(finished:Bool) in
-            self.soundController.whoosh()
+            self.soundController.roomChangeSound()
             self.view.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
             self.moveRoom(to: (self.currentRoom?.south)!)
         })
@@ -191,7 +206,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.x = -UIScreen.main.bounds.width
         }, completion: {(finished:Bool) in
-            self.soundController.whoosh()
+            self.soundController.roomChangeSound()
             self.view.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
             self.moveRoom(to: (self.currentRoom?.east)!)
         })
@@ -200,30 +215,19 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //Collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1//currentRoom?.mob_list.count ?? 0
+        return forceActionMenu.count//currentRoom?.mob_list.count ?? 0
     }
+    
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//
+//    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //This button used to have just enemies. It now pops a quick menu
-        let cell: EnemyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "enemy", for: indexPath) as! EnemyCell
-        cell.backgroundColor = .blue
-        cell.layer.cornerRadius = 10.0
-        cell.layer.borderWidth = 8
-        cell.layer.borderColor = UIColor.white.cgColor
-        
-        let label = UILabel(frame: cell.bounds)
-        label.textColor = UIColor.white
-        label.textAlignment = .center
-        label.text =
-"""
-Force
-Event
-"""
-        label.numberOfLines = 2
-        cell.contentView.addSubview(label)
-        
-        cell.isUserInteractionEnabled = true
-        
+        let cell: EnemyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCommand", for: indexPath) as! EnemyCell
+       
+        cell.visualize(forceActionMenu[indexPath.row].name)
         return cell
         
     }
@@ -236,8 +240,8 @@ Event
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let bvc = BattleViewController()
         // self.present(bvc, animated: true, completion: nil)
-        SoundController.shared.whoohn()
-        view.addSubview(randomEventMenu.view)
+        forceActionMenu[indexPath.row].action
+        
         
         
 //        self.performSegue(withIdentifier: "BattleView", sender: collectionView.cellForItem(at: indexPath))
@@ -247,9 +251,33 @@ Event
 }
 
 class EnemyCell: UICollectionViewCell {
+
+    @IBOutlet weak var cLabel: UILabel!
     
-    @IBOutlet weak var pressedButton: UIButton!
-    @IBAction func doPress(_ sender: Any) {
-        print("at least something happened")
+    override init(frame: CGRect) {
+           super.init(frame: frame)
+        self.backgroundColor = .blue
+        self.layer.cornerRadius = 20.0
+        self.layer.borderWidth = 8
+        self.layer.borderColor = UIColor.white.cgColor
+        self.isUserInteractionEnabled = true
+        
+        cLabel = UILabel(frame: self.bounds)
+       }
+    
+       required init?(coder: NSCoder) {
+           super.init(coder: coder)
+           self.backgroundColor = .blue
+           self.layer.cornerRadius = 20.0
+           self.layer.borderWidth = 8
+           self.layer.borderColor = UIColor.white.cgColor
+           self.isUserInteractionEnabled = true
+       }
+    func visualize(_ text:String) {
+        self.cLabel.textColor = UIColor.white
+        self.cLabel.textAlignment = .center
+        self.cLabel.text = text
+        self.cLabel.numberOfLines = 2
+        
     }
 }

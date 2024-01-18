@@ -48,7 +48,6 @@ class SoundController {
     func whoosh(){AudioServicesPlaySystemSound(1055)}
 
     
-    
     let synth = AVSpeechSynthesizer()
     let music = AVSpeechSynthesizer()
     let voice = AVSpeechSynthesisVoice(language: "en-IE")
@@ -64,8 +63,14 @@ class SoundController {
                 synth.speak(utterance)
     }
     
+    
+    func roomChangeSound(){
+        Haptics.shared.trillTouch()
+    }
+    
     func randomInsults(){
         tink()
+        Haptics.shared.longTouch()
     }
     
     func pauseMusic() {
@@ -77,12 +82,11 @@ class SoundController {
     }
     
     func magic(){
-       spell()
     }
     
     func painNoise(){
-        tock()
-        
+        tink()
+        Haptics.shared.longTouch()
     }
     
     
