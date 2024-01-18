@@ -31,9 +31,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var roomimage: UIImageView!
     @IBOutlet weak var roomName: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    let soundController = SoundController()
-    
+        
     var currentRoom:RoomNode?
 //    var roomView: RoomView?
     var map: AreaGenerator = AreaGenerator(name: "adrift")
@@ -42,8 +40,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var transitSpeed:Double = 0.16 //** How fast the screen transitions
     
 //    @IBOutlet weak var mobStack: UIStackView!
-    let Gary:Face = Face()
-    let randomEventMenu:PopUp = PopUp()
+    let exploreEventMenu:PopUp = PopUp()
+    let patrolEventMenu:PopUp = PopUp()
+    let sneakEventMenu:PopUp = PopUp()
     
     var forceActionMenu:[Command] = []
     
@@ -55,8 +54,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                            ])
     }
     func popMenu() {
-        SoundController.shared.whoohn()
-            view.addSubview(randomEventMenu.view)
+        SoundController.shared.roomChangeSound()
+            view.addSubview(exploreEventMenu.view)
         
     }
     override func viewDidLoad() {
@@ -80,12 +79,12 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             GameDatabase.shared.hero.rewardItem(Equipment(name: "Rock", description: "In an intelligence contest, this thing would have you beat"))
         })
         
-        randomEventMenu.options.append(gremlin)
-        randomEventMenu.options.append(mushroom)
-        randomEventMenu.options.append(nothing)
-        randomEventMenu.options.append(rock)
+        patrolEventMenu.options.append(gremlin)
+        exploreEventMenu.options.append(mushroom)
+        sneakEventMenu.options.append(nothing)
+        exploreEventMenu.options.append(rock)
 
-        randomEventMenu.startFrame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height, width: 20, height: 20)
+        exploreEventMenu.startFrame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height, width: 20, height: 20)
 
         // Setting the Origin Return to happen after the view did load
         // this is important for screen animations while transiting
@@ -93,17 +92,13 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         originReturn = CGRect(x: 0, y: 44, width: self.view.bounds.width, height: self.view.bounds.height - 44).origin
         
         moveRoom(to: map.startRoom)
-        
-        //I forget why I put a random face here... maybe testing
-        Gary.frame = CGRect(x: 200, y: 200, width: 75, height: 75)
-        Gary.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1045858305)
-        
+                
         // for all the gesture recognizers
         for tip in tappers {
             tip.delegate = self
         }
         
-        soundController.speak("Swipe to move.")
+        SoundController.shared.speak("Swipe to move.")
 //        self.collectionView.registerClass(CollectionViewCell.self, forCellReuseIdentifier: "collectionViewCell")
 
         collectionView.delegate = self
@@ -151,20 +146,18 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    
-    func noExitSound(){
-        soundController.tock()
-    }
+
     /// Swipe Actions
     @IBAction func moveNorth(_ sender: Any) {
         if (currentRoom?.north == nil){
             print("Can't go North!")
-            soundController.tock()
-            return}
+            SoundController.shared.noPassage()
+            return
+        }
+        SoundController.shared.roomChangeSound()
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
         }, completion: {(finished:Bool) in
-            self.soundController.roomChangeSound()
             self.view.frame.origin.y =  -self.view.frame.height
             self.moveRoom(to: (self.currentRoom?.north)!)
         })
@@ -173,12 +166,14 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func moveWest(_ sender: Any) {
         if (currentRoom?.west == nil){
             print("Can't go West!")
-            self.noExitSound()
-            return}
+            SoundController.shared.noPassage()
+            return
+        }
+        SoundController.shared.roomChangeSound()
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
         }, completion: {(finished:Bool) in
-            self.soundController.roomChangeSound()
+            SoundController.shared.roomChangeSound()
             self.view.frame.origin.x =  -self.view.frame.width
             self.moveRoom(to: (self.currentRoom?.west)!)
         })
@@ -187,12 +182,13 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func moveSouth(_ sender: Any) {
         if (currentRoom?.south == nil){
             print("Can't go South!")
-            self.noExitSound()
+            SoundController.shared.noPassage()
             return}
+        SoundController.shared.roomChangeSound()
+
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.y =  -self.view.frame.height
         }, completion: {(finished:Bool) in
-            self.soundController.roomChangeSound()
             self.view.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
             self.moveRoom(to: (self.currentRoom?.south)!)
         })
@@ -201,12 +197,14 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func moveEast(_ sender: Any) {
         if (currentRoom?.east == nil){
             print("Can't go East!")
-            self.noExitSound()
+            SoundController.shared.noPassage()
             return}
+        SoundController.shared.roomChangeSound()
+
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin.x = -UIScreen.main.bounds.width
         }, completion: {(finished:Bool) in
-            self.soundController.roomChangeSound()
+            SoundController.shared.roomChangeSound()
             self.view.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
             self.moveRoom(to: (self.currentRoom?.east)!)
         })
@@ -217,11 +215,6 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return forceActionMenu.count//currentRoom?.mob_list.count ?? 0
     }
-    
-    
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//
-//    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //This button used to have just enemies. It now pops a quick menu
@@ -240,7 +233,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let bvc = BattleViewController()
         // self.present(bvc, animated: true, completion: nil)
-        forceActionMenu[indexPath.row].action
+        forceActionMenu[indexPath.row].action()
         
         
         

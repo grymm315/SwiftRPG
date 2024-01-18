@@ -19,11 +19,20 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let grandRatio: CGFloat = 0.6180340
     var tableView: UITableView = UITableView()
     public var mData: [String] = []
-    public var startFrame: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
     
-    var tableFrame:CGRect{
+    var leftStartFrame: CGRect = CGRect(x: 0, y: UIScreen.main.bounds.height, width: 0, height: 0)
+    var rightStartFrame: CGRect = CGRect(x: UIScreen.main.bounds.width, y: UIScreen.main.bounds.height, width: 0, height: 0)
+
+    
+    var leftHandedTableFrame:CGRect{
         get {
             return CGRect(origin: CGPoint(x: 0, y: UIScreen.main.bounds.height *  grandRatio), size: CGSize(width: (UIScreen.main.bounds.width * (1 - grandRatio)), height: (UIScreen.main.bounds.height * (1.0 - grandRatio))))
+        }
+    }
+    
+    var rightHandedTableFrame:CGRect{
+        get {
+            return CGRect(origin: CGPoint(x: UIScreen.main.bounds.width - UIScreen.main.bounds.width * (1 - grandRatio), y: UIScreen.main.bounds.height *  grandRatio), size: CGSize(width: (UIScreen.main.bounds.width * (1 - grandRatio)), height: (UIScreen.main.bounds.height * (1.0 - grandRatio))))
         }
     }
     var delegate:BattleMenuDelegate?
@@ -36,7 +45,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         closing = false
         
-        tableView.frame = startFrame
+        tableView.frame = rightStartFrame
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "battle")
         tableView.dataSource = self
         tableView.delegate = self
@@ -66,7 +75,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         UIView.animate(withDuration: 0.3, animations: {
-            self.tableView.frame = self.tableFrame
+            self.tableView.frame = self.rightHandedTableFrame
             self.view.alpha = 1.0
         })
     }
@@ -74,7 +83,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func btn_Cancel(_ sender: Any?){
         closing = true
         UIView.animate(withDuration: 0.3, animations: {
-            self.tableView.frame = self.startFrame
+            self.tableView.frame = self.rightStartFrame
             self.view.alpha = 0.2
         }, completion: {finish in
             self.removeFromParent()
@@ -84,14 +93,12 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         print("Refreshing")
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(connectionTimer), userInfo: nil, repeats: false)
         tableView.reloadData()
         refreshControl.endRefreshing()
     }
     
     @objc func connectionTimer() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         tableView.reloadData()
     }
     

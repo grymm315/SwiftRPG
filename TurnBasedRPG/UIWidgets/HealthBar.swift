@@ -34,7 +34,7 @@ class HealthBar: UIView {
         //   barCurrent.masksToBounds = true
         layer.addSublayer(barFrame)
         
-        backBar.path = barFrame.path
+//        backBar.path = barFrame.path
         //        backBar.fillColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
         layer.addSublayer(backBar)
         barCurrent.path = currentPath().cgPath

@@ -46,7 +46,6 @@
 		96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */; };
 		F06AE1DE2B539F5E0058F215 /* MegaMillions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */; };
 		F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */; };
-		F0B090842B5797CB000ACCDC /* DesignablePlayground.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B090832B5797CB000ACCDC /* DesignablePlayground.xib */; };
 		F0B090992B579BC6000ACCDC /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B090982B579BC6000ACCDC /* Haptics.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,7 +113,6 @@
 		96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetTableViewController.swift; sourceTree = "<group>"; };
 		F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MegaMillions.swift; sourceTree = "<group>"; };
 		F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumeratedFile.swift; sourceTree = "<group>"; };
-		F0B090832B5797CB000ACCDC /* DesignablePlayground.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignablePlayground.xib; sourceTree = "<group>"; };
 		F0B090982B579BC6000ACCDC /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,7 +219,6 @@
 				823F4F02214463FB00A3573B /* Doodles */,
 				F0B0907E2B563EC0000ACCDC /* Enum */,
 				827C045721329228008998C0 /* Main.storyboard */,
-				F0B090832B5797CB000ACCDC /* DesignablePlayground.xib */,
 				96799E8123E557CA0036E794 /* Model.xcdatamodeld */,
 				963DFDE623DC182700485974 /* Room */,
 				8201509D213A8DA7006A4B80 /* Support Files */,
@@ -392,7 +389,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0B090842B5797CB000ACCDC /* DesignablePlayground.xib in Resources */,
 				827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */,
 				827C045B2132922B008998C0 /* Assets.xcassets in Resources */,
 				9693FA3A2300DE0D00867915 /* Doodle.xib in Resources */,

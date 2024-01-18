@@ -90,7 +90,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func btn_Cancel(_ sender: Any?){
         closing = true
         DispatchQueue.main.async {
-            SoundController.shared.roomChangeSound()
+            SoundController.shared.tapSound()
         }
         UIView.animate(withDuration: 0.3, animations: {
             self.tableView.frame = self.startFrame
