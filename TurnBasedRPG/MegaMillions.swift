@@ -10,7 +10,7 @@ import Foundation
 
 class MegaMillions {
     var numbers:[Int] = []
-    var power:[Int] = []
+    var powerball:[Int] = []
     var winningNumbers:String = ""
     
     func setup() {
@@ -18,9 +18,9 @@ class MegaMillions {
         for num in 1...70 {
             numbers.append(num)
         }
-        //The power number is between 1 and 25
+        //The powerball number is between 1 and 25
         for pnum in 1...25 {
-            power.append(pnum)
+            powerball.append(pnum)
         }
     }
     
@@ -29,9 +29,9 @@ class MegaMillions {
         numbers.shuffle()
         numbers.shuffle()
         numbers.shuffle()
-        power.shuffle()
+        powerball.shuffle()
         
-        let winner:String = "\(numbers[1...5]) Mega: \(power.randomElement() ?? 13))"
+        let winner:String = "\(numbers[1...5]) Mega: \(powerball.randomElement() ?? 13))"
         print(winner)
         winningNumbers = winner
         
