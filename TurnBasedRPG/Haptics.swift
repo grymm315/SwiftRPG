@@ -98,6 +98,8 @@ class Haptics {
     }
     
     func initializeHaptics() {
+        guard supportsHaptics else { return }
+        
         let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
         let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
         
@@ -143,11 +145,12 @@ class Haptics {
     }
    
     
-    func feel(_ pattern: CHHapticPatternPlayer) {
+    func feel(_ pattern: CHHapticPatternPlayer?) {
+        if (pattern == nil) {return}
         guard supportsHaptics else { return }
         do {
             try startHapticEngineIfNecessary()
-            try pattern.start(atTime: CHHapticTimeImmediate)
+            try pattern!.start(atTime: CHHapticTimeImmediate)
         } catch let error {
             print("Error starting haptic player: \(error)")
         }
