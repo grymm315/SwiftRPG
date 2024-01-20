@@ -10,54 +10,31 @@ import UIKit
 import AVFoundation
 
 //** This is the main view controller for navigating the map*/
+
 class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if ((touch.view?.isKind(of: UIButton.self))!) {
-                return false
-            }
-            return true
-        }
-    
-    @IBOutlet var tappers: [UISwipeGestureRecognizer]!
-    
-    
-    //o is for outlet
-    @IBOutlet weak var oNorth: UIButtonGUI!
-    @IBOutlet weak var oSouth: UIButtonGUI!
-    @IBOutlet weak var oEast: UIButtonGUI!
-    @IBOutlet weak var oWest: UIButtonGUI!
-    
-    @IBOutlet weak var roomimage: UIImageView!
-    @IBOutlet weak var roomName: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var roomView: UIImageView!
+    @IBOutlet weak var commandMenu: UICollectionView!
         
-    var currentRoom:RoomNode?
-//    var roomView: RoomView?
-    var map: AreaGenerator = AreaGenerator(name: "adrift")
-    var originReturn:CGPoint? //* */
+    @IBOutlet var tappers: [UISwipeGestureRecognizer]!
+    // This moves lines up Command + ALT + [
+    // This moves lines down Command + ALT + ]
     
+    // This is where our map starts during animation
+    var originReturn:CGPoint? //* */
     var transitSpeed:Double = 0.16 //** How fast the screen transitions
     
-//    @IBOutlet weak var mobStack: UIStackView!
+    //The map hold all our RoomNodes
+    var map: AreaGenerator = AreaGenerator(name: "adrift")
+    //Where we currently are
+    var currentRoom:RoomNode?
+    
     let exploreEventMenu:PopUp = PopUp()
     let patrolEventMenu:PopUp = PopUp()
     let sneakEventMenu:PopUp = PopUp()
     
     var forceActionMenu:[Command] = []
     
-    func setCommandMenu() {
-        forceActionMenu.append(contentsOf: [
-            Command("Explore", completionHandler: {self.popMenu()}),
-            Command("Patrol", completionHandler: {self.popMenu()}),
-            Command("Sneak", completionHandler: {self.popMenu()}),
-                                           ])
-    }
-    func popMenu() {
-        SoundController.shared.roomChangeSound()
-            view.addSubview(exploreEventMenu.view)
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setCommandMenu()
@@ -99,12 +76,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         SoundController.shared.speak("Swipe to move.")
-//        self.collectionView.registerClass(CollectionViewCell.self, forCellReuseIdentifier: "collectionViewCell")
 
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(EnemyCell.self, forCellWithReuseIdentifier: "enemy")
-        self.view.bringSubviewToFront(collectionView)
+        commandMenu.delegate = self
+        commandMenu.dataSource = self
+        commandMenu.register(EnemyCell.self, forCellWithReuseIdentifier: "enemy")
+        self.view.bringSubviewToFront(commandMenu)
         
     }
     
@@ -116,37 +92,42 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    //This Adds commands to the menu
+    func setCommandMenu() {
+        forceActionMenu.append(contentsOf: [
+            Command("Explore", completionHandler: {self.popMenu()}),
+            Command("Patrol", completionHandler: {self.popMenu()}),
+            Command("Sneak", completionHandler: {self.popMenu()}),
+                                           ])
     }
+    //This displays the command popup
+    func popMenu() {
+        SoundController.shared.roomChangeSound()
+            view.addSubview(exploreEventMenu.view)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if ((touch.view?.isKind(of: UIButton.self))!) {
+                return false
+            }
+            return true
+        }
     
     /** This method allows the user to manually traverse the room Map Node Tree */
     func moveRoom(to: RoomNode){
         currentRoom = to // Moving our current room to the next room
 //        roomView?.changeView(to: currentRoom!)
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
-            roomimage.image = tImage
+            roomView.image = tImage
         }
 
         //Moves the view back into view
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin = self.originReturn!
         })
-        collectionView.reloadData()
+        commandMenu.reloadData()
     }
     
-    //** @Deprecated No longer use this*/
-    func setWallView(_ exist: Bool, wall: UIButtonGUI){
-        if (exist){
-            wall.alpha = 0.1
-            wall.isEnabled = true
-        } else {
-            wall.alpha = 1
-            wall.isEnabled = false
-        }
-    }
-    
-
     /// Swipe Actions
     @IBAction func moveNorth(_ sender: Any) {
         if (currentRoom?.north == nil){
@@ -234,13 +215,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //let bvc = BattleViewController()
         // self.present(bvc, animated: true, completion: nil)
         forceActionMenu[indexPath.row].action()
-        
-        
-        
-//        self.performSegue(withIdentifier: "BattleView", sender: collectionView.cellForItem(at: indexPath))
     }
-    
-    
 }
 
 class EnemyCell: UICollectionViewCell {
