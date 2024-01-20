@@ -10,12 +10,18 @@ import UIKit
 
 class InitialViewController: UIViewController {
     
-    @IBOutlet weak var status: UILabel!
-  
+    @IBOutlet weak var startButton: UIButtonGUI!
+    @IBOutlet weak var creditButton: UIButtonGUI!
     
+    
+    @IBAction func creditAction(_ sender: Any) {
+        print("Roll the credits")
+    }
     
     override func viewDidLoad() {
-        SoundController.shared.speak("Welcome back. I missed you.")
+        startButton.fromRight()
+        creditButton.fromRight()
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
