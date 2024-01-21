@@ -100,10 +100,11 @@ class Haptics {
     func initializeHaptics() {
         guard supportsHaptics else { return }
         
-        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.5)
         let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
+        let decay = CHHapticEventParameter(parameterID: .attackTime, value: 0.25)
         
-        let long2 = CHHapticEvent(eventType: .hapticContinuous, parameters: [], relativeTime: 1.2, duration: 0.5)
+        let long2 = CHHapticEvent(eventType: .hapticContinuous, parameters: [decay, intensity], relativeTime: 0.1, duration: 0.25)
 
         let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 0)
         

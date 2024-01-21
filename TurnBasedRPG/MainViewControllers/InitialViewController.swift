@@ -19,11 +19,17 @@ class InitialViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        startButton.fromBottom()
-        creditButton.fromBottom()
+        
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        startButton.fromBottom()
+        creditButton.fromBottom()
+        creditButton.fadeIn(1.0)
+        startButton.fadeIn(1.0)
     }
     
     

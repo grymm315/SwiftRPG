@@ -209,26 +209,20 @@
 		827C045221329228008998C0 /* TurnBasedRPG */ = {
 			isa = PBXGroup;
 			children = (
-				827C045F2132922B008998C0 /* Info.plist */,
-				82D72A2A216060C60081709D /* BattleViewController.swift */,
-				96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */,
-				9693FA40230FB3B600867915 /* FaceViewController.swift */,
-				96CAE7CB23D452250017019E /* GameDatabase.swift */,
-				827C045521329228008998C0 /* InitialViewController.swift */,
-				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
-				F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */,
-				8201509921334097006A4B80 /* RoomViewController.swift */,
-				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
-				822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */,
-				F0B090982B579BC6000ACCDC /* Haptics.swift */,
 				96CAE7C823D301160017019E /* Character */,
 				823F4F02214463FB00A3573B /* Doodles */,
 				F0B0907E2B563EC0000ACCDC /* Enum */,
-				827C045721329228008998C0 /* Main.storyboard */,
-				96799E8123E557CA0036E794 /* Model.xcdatamodeld */,
 				963DFDE623DC182700485974 /* Room */,
+				F04F8AFB2B5DD94D00B3727F /* Misc */,
+				F04F8AFA2B5DD8F200B3727F /* MainViewControllers */,
 				8201509D213A8DA7006A4B80 /* Support Files */,
 				8201509F213A8DF7006A4B80 /* UIWidgets */,
+				827C045F2132922B008998C0 /* Info.plist */,
+				96CAE7CB23D452250017019E /* GameDatabase.swift */,
+				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
+				F0B090982B579BC6000ACCDC /* Haptics.swift */,
+				827C045721329228008998C0 /* Main.storyboard */,
+				96799E8123E557CA0036E794 /* Model.xcdatamodeld */,
 			);
 			path = TurnBasedRPG;
 			sourceTree = "<group>";
@@ -278,6 +272,28 @@
 				96CAE7C723D301030017019E /* Inventory */,
 			);
 			path = Character;
+			sourceTree = "<group>";
+		};
+		F04F8AFA2B5DD8F200B3727F /* MainViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				827C045521329228008998C0 /* InitialViewController.swift */,
+				8201509921334097006A4B80 /* RoomViewController.swift */,
+				96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */,
+				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
+				82D72A2A216060C60081709D /* BattleViewController.swift */,
+			);
+			path = MainViewControllers;
+			sourceTree = "<group>";
+		};
+		F04F8AFB2B5DD94D00B3727F /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA40230FB3B600867915 /* FaceViewController.swift */,
+				F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */,
+				822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		F0B0907E2B563EC0000ACCDC /* Enum */ = {
