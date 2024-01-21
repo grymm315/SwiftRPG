@@ -79,9 +79,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
         commandMenu.delegate = self
         commandMenu.dataSource = self
-        commandMenu.register(EnemyCell.self, forCellWithReuseIdentifier: "enemy")
+        //For some reason this is causing the Cell not to register
+//        commandMenu.register(CommandCell.self, forCellWithReuseIdentifier: "collectionCommand")
         self.view.bringSubviewToFront(commandMenu)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,14 +96,24 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func setCommandMenu() {
         forceActionMenu.append(contentsOf: [
             Command("Explore", completionHandler: {self.popMenu()}),
-            Command("Patrol", completionHandler: {self.popMenu()}),
+            Command("Patrol", completionHandler: {self.showPatrolMenu()}),
             Command("Sneak", completionHandler: {self.popMenu()}),
                                            ])
     }
     //This displays the command popup
     func popMenu() {
-        SoundController.shared.roomChangeSound()
+        SoundController.shared.menuOpen()
             view.addSubview(exploreEventMenu.view)
+    }
+    
+    func showPatrolMenu() {
+        SoundController.shared.menuOpen()
+            view.addSubview(patrolEventMenu.view)
+    }
+    
+    func showSneakMenu() {
+        SoundController.shared.menuOpen()
+            view.addSubview(sneakEventMenu.view)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -116,16 +126,29 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     /** This method allows the user to manually traverse the room Map Node Tree */
     func moveRoom(to: RoomNode){
         currentRoom = to // Moving our current room to the next room
-//        roomView?.changeView(to: currentRoom!)
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
             roomView.image = tImage
         }
 
-        //Moves the view back into view
         UIView.animate(withDuration: transitSpeed, animations: {
             self.view.frame.origin = self.originReturn!
         })
-        commandMenu.reloadData()
+    }
+    
+    func hideCommandMenu() {
+        UIView.animate(withDuration: transitSpeed, animations: {
+            self.commandMenu.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
+        }, completion: {(finished:Bool) in
+            self.commandMenu.frame.origin.y =  -self.view.frame.height
+        })
+    }
+    
+    func showCommandMenu() {
+        
+    }
+    
+    func dockMenuBottom() {
+        
     }
     
     /// Swipe Actions
@@ -133,13 +156,14 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if (currentRoom?.north == nil){
             print("Can't go North!")
             SoundController.shared.noPassage()
+            self.view.shakeVertical(-10)
             return
         }
         SoundController.shared.roomChangeSound()
         UIView.animate(withDuration: transitSpeed, animations: {
-            self.view.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
+            self.roomView.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
         }, completion: {(finished:Bool) in
-            self.view.frame.origin.y =  -self.view.frame.height
+            self.roomView.frame.origin.y =  -self.view.frame.height
             self.moveRoom(to: (self.currentRoom?.north)!)
         })
     }
@@ -147,15 +171,16 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func moveWest(_ sender: Any) {
         if (currentRoom?.west == nil){
             print("Can't go West!")
+            self.view.shakeHorizontal()
             SoundController.shared.noPassage()
             return
         }
         SoundController.shared.roomChangeSound()
         UIView.animate(withDuration: transitSpeed, animations: {
-            self.view.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
+            self.roomView.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
         }, completion: {(finished:Bool) in
             SoundController.shared.roomChangeSound()
-            self.view.frame.origin.x =  -self.view.frame.width
+            self.roomView.frame.origin.x =  -self.view.frame.width
             self.moveRoom(to: (self.currentRoom?.west)!)
         })
     }
@@ -163,14 +188,15 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func moveSouth(_ sender: Any) {
         if (currentRoom?.south == nil){
             print("Can't go South!")
+            self.view.shakeVertical()
             SoundController.shared.noPassage()
             return}
         SoundController.shared.roomChangeSound()
 
         UIView.animate(withDuration: transitSpeed, animations: {
-            self.view.frame.origin.y =  -self.view.frame.height
+            self.roomView.frame.origin.y =  -self.view.frame.height
         }, completion: {(finished:Bool) in
-            self.view.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
+            self.roomView.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
             self.moveRoom(to: (self.currentRoom?.south)!)
         })
     }
@@ -179,14 +205,15 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if (currentRoom?.east == nil){
             print("Can't go East!")
             SoundController.shared.noPassage()
+            self.view.shakeHorizontal(-10)
             return}
         SoundController.shared.roomChangeSound()
 
         UIView.animate(withDuration: transitSpeed, animations: {
-            self.view.frame.origin.x = -UIScreen.main.bounds.width
+            self.roomView.frame.origin.x = -UIScreen.main.bounds.width
         }, completion: {(finished:Bool) in
             SoundController.shared.roomChangeSound()
-            self.view.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
+            self.roomView.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
             self.moveRoom(to: (self.currentRoom?.east)!)
         })
     }
@@ -199,7 +226,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //This button used to have just enemies. It now pops a quick menu
-        let cell: EnemyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCommand", for: indexPath) as! EnemyCell
+        let cell: CommandCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCommand", for: indexPath) as! CommandCell
        
         cell.visualize(forceActionMenu[indexPath.row].name)
         return cell
@@ -218,34 +245,4 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 }
 
-class EnemyCell: UICollectionViewCell {
 
-    @IBOutlet weak var cLabel: UILabel!
-    
-    override init(frame: CGRect) {
-           super.init(frame: frame)
-        self.backgroundColor = .blue
-        self.layer.cornerRadius = 20.0
-        self.layer.borderWidth = 8
-        self.layer.borderColor = UIColor.white.cgColor
-        self.isUserInteractionEnabled = true
-        
-        cLabel = UILabel(frame: self.bounds)
-       }
-    
-       required init?(coder: NSCoder) {
-           super.init(coder: coder)
-           self.backgroundColor = .blue
-           self.layer.cornerRadius = 20.0
-           self.layer.borderWidth = 8
-           self.layer.borderColor = UIColor.white.cgColor
-           self.isUserInteractionEnabled = true
-       }
-    func visualize(_ text:String) {
-        self.cLabel.textColor = UIColor.white
-        self.cLabel.textAlignment = .center
-        self.cLabel.text = text
-        self.cLabel.numberOfLines = 2
-        
-    }
-}

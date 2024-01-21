@@ -19,8 +19,8 @@ class InitialViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        startButton.fromRight()
-        creditButton.fromRight()
+        startButton.fromBottom()
+        creditButton.fromBottom()
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

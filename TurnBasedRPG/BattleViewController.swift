@@ -83,7 +83,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     func tick() {
         //lose condition
         if (gameOver) {
-            print("You perished in combat")
+            print("The Battle is over")
             return
         }
         //win condition
@@ -109,7 +109,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     }
     
     func chose(action: String) {
-        print("Chose: \(action)")
+        //print("Chose: \(action)")
         SoundController.shared.tapSound()
         switch action {
         case "Attack":
