@@ -516,11 +516,11 @@
             </objects>
             <point key="canvasLocation" x="972" y="31.03448275862069"/>
         </scene>
-        <!--View Controller-->
+        <!--Credits View Controller-->
         <scene sceneID="Hdh-eQ-UF9">
             <objects>
-                <viewController id="khA-HM-s1d" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5yS-54-rVo">
+                <viewController id="khA-HM-s1d" customClass="CreditsViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5yS-54-rVo" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -594,8 +594,16 @@
                             <constraint firstItem="Pzu-8b-IQN" firstAttribute="top" secondItem="JPF-iQ-ZPr" secondAttribute="top" constant="8" id="lvX-jH-EKl"/>
                             <constraint firstItem="JPF-iQ-ZPr" firstAttribute="trailing" secondItem="Pzu-8b-IQN" secondAttribute="trailing" constant="8" id="oDA-Fz-tay"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="animationSpeed">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="KMx-Yq-6kH"/>
+                    <connections>
+                        <outlet property="creditView" destination="5yS-54-rVo" id="wXG-kw-uSj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7LT-YW-QXJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
