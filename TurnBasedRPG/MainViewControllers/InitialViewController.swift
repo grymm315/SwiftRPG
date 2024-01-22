@@ -12,7 +12,8 @@ class InitialViewController: UIViewController {
     
     @IBOutlet weak var startButton: UIButtonGUI!
     @IBOutlet weak var creditButton: UIButtonGUI!
-    
+    @IBOutlet weak var settingsButton: UIButtonGUI!
+    @IBOutlet weak var shareButton: UIButtonGUI!
     
     @IBAction func creditAction(_ sender: Any) {
         print("Roll the credits")
@@ -28,8 +29,12 @@ class InitialViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         startButton.fromBottom()
         creditButton.fromBottom()
-        creditButton.fadeIn(1.0)
+        settingsButton.fromBottom()
+        shareButton.fromBottom()
         startButton.fadeIn(1.0)
+        creditButton.fadeIn(1.2)
+        settingsButton.fadeIn(1.4)
+        shareButton.fadeIn(1.6)
     }
     
     

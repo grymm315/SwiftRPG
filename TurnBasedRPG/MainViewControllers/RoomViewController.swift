@@ -161,7 +161,6 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     /// Swipe Actions
     @IBAction func moveNorth(_ sender: Any) {
         if (currentRoom?.north == nil){
-            print("Can't go North!")
             SoundController.shared.noPassage()
             self.view.shakeVertical(-10)
             return
@@ -177,8 +176,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBAction func moveWest(_ sender: Any) {
         if (currentRoom?.west == nil){
-            print("Can't go West!")
-            self.view.shakeHorizontal()
+            self.view.nudgeHorizontal()
             SoundController.shared.noPassage()
             return
         }
@@ -212,7 +210,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if (currentRoom?.east == nil){
             print("Can't go East!")
             SoundController.shared.noPassage()
-            self.view.shakeHorizontal(-10)
+            self.view.nudgeHorizontal(-10)
             return}
         SoundController.shared.roomChangeSound()
 

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func shakeHorizontal(_ intensity:Double = 10){
+    func shake(_ intensity:Double = 10){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.15
         animation.repeatCount = 0
@@ -20,13 +20,23 @@ extension UIView {
         self.layer.add(animation, forKey: "position")
     }
     
+    func nudgeHorizontal(_ intensity:Double = 10){
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.15
+        animation.repeatCount = 0
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x, y: self.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + intensity, y: self.center.y))
+        self.layer.add(animation, forKey: "position")
+    }
+    
     func shakeVertical(_ intensity:Double = 10){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.15
         animation.repeatCount = 0
         animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x, y: self.center.y - intensity))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x, y: self.center.y + intensity))
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x, y: self.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x, y: self.center.y - intensity))
         self.layer.add(animation, forKey: "position")
     }
     func fadeOut(_ duration:Double = 2){
