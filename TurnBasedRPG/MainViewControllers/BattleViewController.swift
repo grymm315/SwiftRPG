@@ -11,7 +11,7 @@ import AVFoundation
 
 // TODO: This needs refactored
 class BattleViewController: UIViewController, BattleMenuDelegate {
-    var hero:Character = Character(strength: 9, perception: 9, endurance: 9, charisma: 9, intelligence: 9, luck: 9, agility: 3)
+    var hero:Character = GameDatabase.shared.hero
     var enemy:Character = Character(strength: 3, perception: 3, endurance: 3, charisma: 3, intelligence: 3, luck: 3, agility: 9 )
     let sound = SoundController()
     
@@ -19,6 +19,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     @IBOutlet weak var heroView: UIView!
     
     var isPaused:Bool = false
+    var gameOver:Bool = false
     
     let GR:CGFloat = 0.6180340
     
@@ -48,16 +49,15 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         enemyHP._currentHealth = enemy.currentHealth
         enemyName.text = enemy.race.rawValue
         enemyView.addSubview(Face(frame: enemyView.bounds))
-        menu.startFrame = CGRect(x: 0, y: self.view.bounds.height, width: 20, height: 20)
+
         menu.delegate = self
         self.view.addSubview(menu.view)
-        heroHP.frame.origin.x = 0
+//        heroHP.frame.origin.x = 0
         heroView.addSubview(FaceView(frame: heroView.bounds))
         //  heroHP.frame.origin.y = (UIScreen.main.bounds.height / 2)
         heroHP._maxHealth = hero.maxHealth
         heroHP._currentHealth = hero.currentHealth
         heroName.text = hero.race.rawValue
-        sound.randomSong()
         SoundController.shared.speak("You are attacked by a ferocious goblin.")
     }
     
@@ -82,8 +82,9 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     
     func tick() {
         //lose condition
-        if (heroHP._currentHealth < 0) {
-            print("You perished in combat")
+        if (gameOver) {
+            print("The Battle is over")
+            return
         }
         //win condition
         if (enemyHP._currentHealth < 0) {
@@ -91,6 +92,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
             isPaused = true
             let fanfare: SystemSoundID = 1025
             AudioServicesPlaySystemSound(fanfare)
+            gameOver = true
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -107,15 +109,14 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     }
     
     func chose(action: String) {
-        print("Chose: \(action)")
-        let tock: SystemSoundID = 1103
-        AudioServicesPlaySystemSound(tock)
+        //print("Chose: \(action)")
+        SoundController.shared.tapSound()
         switch action {
         case "Attack":
             let hdmg = Int.random(in: 1...Int(hero.strength))
             enemyHP.takeDamage(hdmg)
             popText("You deal \(hdmg) dmg to \(enemy.race)")
-            sound.randomInsults()
+            sound.painNoise()
         case "Magic":
             heroHP.heal(15)
             sound.magic()

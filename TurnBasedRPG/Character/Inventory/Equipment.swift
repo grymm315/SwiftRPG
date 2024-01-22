@@ -23,8 +23,6 @@ class Equipment {
         self.name = name
         self.description = description
     }
-    
-    
 }
 
 class Weapon: Equipment {
@@ -42,12 +40,18 @@ class Armor:Equipment {
     enum ArmorType {
     case Arm, Head, Chest, Legs, Shoes
     }
-    var damageResist: Int8?
-    var magicResist: Int8?
-    var shockResist: Int8?
-    var frostResist: Int8?
-    var fireResist: Int8?
-    var chemicalResist: Int8?
+    var type: ArmorType
+    var damageResist: Int8 = 0
+    var magicResist: Int8 = 0
+    var shockResist: Int8 = 0
+    var frostResist: Int8 = 0
+    var fireResist: Int8 = 0
+    var chemicalResist: Int8 = 0
+    
+    init(name: String, description:String, type:ArmorType) {
+        self.type = type
+        super.init(name: name, description: description)
+    }
 
 }
 
