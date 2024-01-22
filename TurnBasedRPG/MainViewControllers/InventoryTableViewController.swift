@@ -87,7 +87,7 @@ class InventoryTableViewController: UITableViewController, ReloadProtocol {
                 DispatchQueue.main.async { self.tableView.reloadData() }
             })
             let useItem = UIContextualAction(style: .normal, title: "use", handler: {_,_,_ in
-                GameDatabase.shared.hero.dropItemFromRow(indexPath.row)
+                GameDatabase.shared.hero.equipItemFromRow(index: indexPath.row)
                 DispatchQueue.main.async { self.tableView.reloadData() }
             })
             actionArray.append(drop)

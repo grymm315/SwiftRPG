@@ -55,11 +55,18 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print("Find Rock")
             GameDatabase.shared.hero.rewardItem(Equipment(name: "Rock", description: "In an intelligence contest, this thing would have you beat"))
         })
+        let crown:Command = Command("Steal Crown", completionHandler: {
+            print("Steal Crown")
+            GameDatabase.shared.hero.rewardItem(Armor(name: "Saphire Crown", description: "It glitters and sparkles", type: .Head))
+        })
         
         patrolEventMenu.options.append(gremlin)
-        exploreEventMenu.options.append(mushroom)
+        sneakEventMenu.options.append(crown)
         sneakEventMenu.options.append(nothing)
+
         exploreEventMenu.options.append(rock)
+        exploreEventMenu.options.append(mushroom)
+
 
         exploreEventMenu.startFrame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height, width: 20, height: 20)
 
@@ -97,7 +104,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         forceActionMenu.append(contentsOf: [
             Command("Explore", completionHandler: {self.popMenu()}),
             Command("Patrol", completionHandler: {self.showPatrolMenu()}),
-            Command("Sneak", completionHandler: {self.popMenu()}),
+            Command("Sneak", completionHandler: {self.showSneakMenu()}),
                                            ])
     }
     //This displays the command popup

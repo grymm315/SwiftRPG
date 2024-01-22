@@ -20,10 +20,31 @@ class Character {
         name = "Grymmenthald"
         
         equippedSlot = Weapon.init(name: "Bare-Hands", description: "Ordinary hands. 10 fingers and 2 thumbs on each hand.")
-        chestEquipmentSlot = Armor.init(name: "Black T-Shirt", description: "100% Cotton. Machine wash cold.")
-        legsEquipmentSlot = Armor.init(name: "Jeans", description: "Blue denim. Formal wear of the Candian Empire")
+        chestEquipmentSlot = Armor.init(name: "Black T-Shirt", description: "100% Cotton. Machine wash cold.", type: .Chest)
+        legsEquipmentSlot = Armor.init(name: "Jeans", description: "Blue denim. Formal wear of the Candian Empire", type: .Legs)
         
     }
+    
+    var maxHealth: Int {
+        return Int(endurance * 10)
+    }
+    lazy var currentHealth: Int = Int(endurance * 10)
+    
+    // Is this too Fallout?
+    var strength: UInt8
+    var perception: UInt8
+    var endurance: UInt8
+    var charisma:UInt8
+    var intelligence:UInt8
+    var luck:UInt8
+    var agility:UInt8
+    
+    var name: String
+    var level = 1
+    var experience = 0
+    var race:raceTypes = .human
+    var profession:classType = .warrior
+    var sex:sexType = .male
     
     private var inventory: [Equipment] = []
     
@@ -37,6 +58,8 @@ class Character {
     func getChest() -> Armor? { return chestEquipmentSlot}
     func getLegs() -> Armor? { return legsEquipmentSlot}
     func getWeapo() -> Weapon? { return equippedSlot}
+    
+   
 
     func getItemFromRow(_ index:IndexPath) -> Equipment {
         return inventory[index.row]
@@ -55,36 +78,58 @@ class Character {
         }
     }
     
-    func equipEquipment(_ item: Equipment){
+    private func equipToHead(index:Int){
+        removeHeadPiece()
+        headEquipmentSlot = inventory.remove(at: index) as! Armor
+    }
+    
+    private func equipPants(index:Int){
+        removeLegPiece()
+        legsEquipmentSlot = inventory.remove(at: index) as! Armor
+    }
+    
+    private func equipShirt(index:Int){
+        removeChestPiece()
+        chestEquipmentSlot = inventory.remove(at: index) as! Armor
+    }
+    
+    private func equipWeapon(index:Int){
+        removeEquipedItem()
+        equippedSlot = inventory.remove(at: index) as! Weapon
+    }
+    
+    func equipItemFromRow(index: Int){
+        let item = inventory[index]
+        if item is Armor {
+            if let thisArmor = item as? Armor{
+                switch (thisArmor.type) {
+                case .Arm:
+                    equipToHead(index: index)
+                case .Head:
+                    equipToHead(index: index)
+                case .Chest:
+                    equipShirt(index: index)
+                case .Legs:
+                    equipPants(index: index)
+                case .Shoes:
+                    equipToHead(index: index)
+                }
+            } else {
+                print("Armor isn't Armor")
+            }
+        } else if item is Weapon {
+            equipWeapon(index: index)
+        } else {
+            print("I don't know what the fuck you're trying to equip")
+        }
+        
+        
+    }
+    
+    func equip(_ item: Equipment){
         let swapping = item
         
         if let index = inventory.firstIndex(where: {$0.name == item.name}) {
-            if item is Armor {
-                if let thisArmor = item as? Armor{
-                    switch (thisArmor.type) {
-                    case .none:
-                        print("none")
-                    case .some(.Arm):
-                        print("Arm")
-                    case .some(.Chest):
-                        removeChestPiece()
-                        chestEquipmentSlot = swapping as? Armor
-                        print("chest")
-                    case .some(.Legs):
-                        print("legs")
-                        removeLegPiece()
-                        legsEquipmentSlot = swapping as? Armor
-                    case .some(.Shoes):
-                        print("shoes")
-                    case .some(.Head):
-                        print("Head")
-                        removeHeadPiece()
-                        headEquipmentSlot = swapping as? Armor
-                        
-                    }
-                }
-                
-            }
             
         } else {
     print("Did not find item")
@@ -130,31 +175,10 @@ class Character {
         "agility" : agility,
     ]
     
-    var maxHealth: Int {
-        return Int(endurance * 10)
-    }
-    lazy var currentHealth: Int = Int(endurance * 10)
-    
-    // Is this too Fallout?
-    var strength: UInt8
-    var perception: UInt8
-    var endurance: UInt8
-    var charisma:UInt8
-    var intelligence:UInt8
-    var luck:UInt8
-    var agility:UInt8
-    
-    var name: String
-    var level = 1
-    var experience = 0
-    var race:raceTypes = .human
-    var profession:classType = .warrior
-    var sex:sexType = .male
-    
     func reward () {
         let rewardPool:[Equipment] = [
-        Armor(name: "Wool Hat", description: "Spun of yarn, this hat protects from cold"),
-            Armor(name: "Magic Sword", description: "This sword possess the magic of friendship"),
+            Armor(name: "Wool Hat", description: "Spun of yarn, this hat protects from cold", type: .Head),
+            Armor(name: "Magic Sword", description: "This sword possess the magic of friendship", type: .Arm),
             Equipment(name: "A Gem", description: "A small blue gem. It might be a piece of glass")
         ]
     }
@@ -178,7 +202,7 @@ class Character {
     }
     
     func getLevelUpsAvailable() -> Int {
-        return 20 - getAllStats()
+        return 36 - getAllStats()
     }
     
     func getAllStats() -> Int {
