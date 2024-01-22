@@ -55,12 +55,70 @@ class Character {
         }
     }
     
+    func equipEquipment(_ item: Equipment){
+        let swapping = item
+        
+        if let index = inventory.firstIndex(where: {$0.name == item.name}) {
+            if item is Armor {
+                if let thisArmor = item as? Armor{
+                    switch (thisArmor.type) {
+                    case .none:
+                        print("none")
+                    case .some(.Arm):
+                        print("Arm")
+                    case .some(.Chest):
+                        removeChestPiece()
+                        chestEquipmentSlot = swapping as? Armor
+                        print("chest")
+                    case .some(.Legs):
+                        print("legs")
+                        removeLegPiece()
+                        legsEquipmentSlot = swapping as? Armor
+                    case .some(.Shoes):
+                        print("shoes")
+                    case .some(.Head):
+                        print("Head")
+                        removeHeadPiece()
+                        headEquipmentSlot = swapping as? Armor
+                        
+                    }
+                }
+                
+            }
+            
+        } else {
+    print("Did not find item")
+        }
+    }
+    
     func removeHeadPiece(){
         if (headEquipmentSlot != nil){
             inventory.append(headEquipmentSlot!)
             headEquipmentSlot = nil
         }
     }
+    
+    func removeChestPiece(){
+        if (chestEquipmentSlot != nil){
+            inventory.append(chestEquipmentSlot!)
+            chestEquipmentSlot = nil
+        }
+    }
+    
+    func removeLegPiece(){
+        if (legsEquipmentSlot != nil){
+            inventory.append(legsEquipmentSlot!)
+            legsEquipmentSlot = nil
+        }
+    }
+    
+    func removeEquipedItem(){
+        if (equippedSlot != nil){
+            inventory.append(equippedSlot!)
+            equippedSlot = nil
+        }
+    }
+
     
     lazy var stats: [String : UInt8] = [
         "strength" : strength,

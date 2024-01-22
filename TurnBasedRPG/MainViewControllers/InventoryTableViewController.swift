@@ -12,9 +12,9 @@ class InventoryCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var desc: UILabel!
     
-    func configCell(item: Equipment) {
-        name.text = item.name ?? "--"
-        desc.text = item.description ?? "--"
+    func configCell(item: Equipment?) {
+        name.text = item?.name ?? "* empty *"
+        desc.text = item?.description ?? ""
     }
 }
 
@@ -67,13 +67,13 @@ class InventoryTableViewController: UITableViewController, ReloadProtocol {
         if (indexPath.section == generalSection){
             cell.configCell(item: GameDatabase.shared.hero.getInventory()[indexPath.row])
         } else if (indexPath.section == headSlot){
-            cell.configCell(item: GameDatabase.shared.hero.getHead() ?? Armor(name: "empty", description: ""))
+            cell.configCell(item: GameDatabase.shared.hero.getHead())
         } else if (indexPath.section == armorSlot){
-            cell.configCell(item: GameDatabase.shared.hero.getChest() ?? Armor(name: "empty", description: ""))
+            cell.configCell(item: GameDatabase.shared.hero.getChest())
         } else if (indexPath.section == legSlot){
-            cell.configCell(item: GameDatabase.shared.hero.getLegs() ?? Armor(name: "your junk is swinging in the breeze", description: ""))
+            cell.configCell(item: GameDatabase.shared.hero.getLegs())
         } else if (indexPath.section == equipedSlot){
-            cell.configCell(item: GameDatabase.shared.hero.getWeapo() ?? Weapon(name: "empty", description: ""))
+            cell.configCell(item: GameDatabase.shared.hero.getWeapo())
         }
         return cell
     }
@@ -83,23 +83,39 @@ class InventoryTableViewController: UITableViewController, ReloadProtocol {
         var actionArray:[UIContextualAction] = []
         if (indexPath.section == generalSection){
             let drop = UIContextualAction(style: .destructive, title: "drop", handler: {_,_,_ in
-              
                 GameDatabase.shared.hero.dropItemFromRow(indexPath.row)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                DispatchQueue.main.async { self.tableView.reloadData() }
+            })
+            let useItem = UIContextualAction(style: .normal, title: "use", handler: {_,_,_ in
+                GameDatabase.shared.hero.dropItemFromRow(indexPath.row)
+                DispatchQueue.main.async { self.tableView.reloadData() }
             })
             actionArray.append(drop)
-            
+            actionArray.append(useItem)
         } else if (indexPath.section == headSlot){
-//            GameDatabase.shared.hero.headEquipmentSlot
+            let remove = UIContextualAction(style: .destructive, title: "remove", handler: {_,_,_ in
+                GameDatabase.shared.hero.removeHeadPiece()
+                DispatchQueue.main.async {self.tableView.reloadData()}
+            })
+            actionArray.append(remove)
         } else if (indexPath.section == armorSlot){
-//             GameDatabase.shared.hero.chestEquipmentSlot
+            let remove = UIContextualAction(style: .destructive, title: "remove", handler: {_,_,_ in
+                GameDatabase.shared.hero.removeChestPiece()
+                DispatchQueue.main.async {self.tableView.reloadData()}
+            })
+            actionArray.append(remove)
         } else if (indexPath.section == legSlot){
-//            GameDatabase.shared.hero.legsEquipmentSlot
+            let remove = UIContextualAction(style: .destructive, title: "remove", handler: {_,_,_ in
+                GameDatabase.shared.hero.removeLegPiece()
+                DispatchQueue.main.async {self.tableView.reloadData()}
+            })
+            actionArray.append(remove)
         } else if (indexPath.section == equipedSlot){
-//            GameDatabase.shared.hero.equippedSlot
-        }
+            let remove = UIContextualAction(style: .destructive, title: "remove", handler: {_,_,_ in
+                GameDatabase.shared.hero.removeEquipedItem()
+                DispatchQueue.main.async {self.tableView.reloadData()}
+            })
+            actionArray.append(remove)        }
         
         let config = UISwipeActionsConfiguration(actions: actionArray)
         return config

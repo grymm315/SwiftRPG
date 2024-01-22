@@ -40,6 +40,7 @@ class Armor:Equipment {
     enum ArmorType {
     case Arm, Head, Chest, Legs, Shoes
     }
+    var type: ArmorType?
     var damageResist: Int8?
     var magicResist: Int8?
     var shockResist: Int8?
