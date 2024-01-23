@@ -45,6 +45,7 @@
 		96CAE7CC23D452250017019E /* GameDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CB23D452250017019E /* GameDatabase.swift */; };
 		96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */; };
 		F04F8AFD2B5DDA9900B3727F /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */; };
+		F04F8AFF2B5F34CC00B3727F /* DefaultSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F8AFE2B5F34CC00B3727F /* DefaultSwitch.swift */; };
 		F06AE1DE2B539F5E0058F215 /* MegaMillions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */; };
 		F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */; };
 		F0B090992B579BC6000ACCDC /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B090982B579BC6000ACCDC /* Haptics.swift */; };
@@ -115,6 +116,7 @@
 		96CAE7CB23D452250017019E /* GameDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDatabase.swift; sourceTree = "<group>"; };
 		96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetTableViewController.swift; sourceTree = "<group>"; };
 		F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		F04F8AFE2B5F34CC00B3727F /* DefaultSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSwitch.swift; sourceTree = "<group>"; };
 		F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MegaMillions.swift; sourceTree = "<group>"; };
 		F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumeratedFile.swift; sourceTree = "<group>"; };
 		F0B090982B579BC6000ACCDC /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				827C0483213292B7008998C0 /* UIButtonGUI.swift */,
 				827C04812132928A008998C0 /* PopUp.swift */,
 				9693FA3B230A168700867915 /* BattleMenu.swift */,
+				F04F8AFE2B5F34CC00B3727F /* DefaultSwitch.swift */,
 			);
 			path = UIWidgets;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				827C045421329228008998C0 /* AppDelegate.swift in Sources */,
 				96799E8323E557CA0036E794 /* Model.xcdatamodeld in Sources */,
 				F04F8AFD2B5DDA9900B3727F /* CreditsViewController.swift in Sources */,
+				F04F8AFF2B5F34CC00B3727F /* DefaultSwitch.swift in Sources */,
 				820150A5213B308C006A4B80 /* Magic.swift in Sources */,
 				96CAE7CC23D452250017019E /* GameDatabase.swift in Sources */,
 				823F4F04214CE26600A3573B /* Burst.swift in Sources */,
