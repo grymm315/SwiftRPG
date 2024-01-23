@@ -21,7 +21,7 @@ class CreditsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        creditView.fromBottom()
+        creditView.fromBottom(6.0)
     }
     
     

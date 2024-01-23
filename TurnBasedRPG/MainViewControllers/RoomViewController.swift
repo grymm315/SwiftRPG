@@ -68,7 +68,13 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         exploreEventMenu.options.append(mushroom)
 
 
-        exploreEventMenu.startFrame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height, width: 20, height: 20)
+        exploreEventMenu.startFrame = commandMenu.frame
+        sneakEventMenu.startFrame = commandMenu.frame
+        patrolEventMenu.startFrame = commandMenu.frame
+        commandMenu.backgroundColor = UIColor.blue
+        commandMenu.layer.borderColor = UIColor.white.cgColor
+        commandMenu.layer.borderWidth = 4.0
+        commandMenu.layer.cornerRadius = 20
 
         // Setting the Origin Return to happen after the view did load
         // this is important for screen animations while transiting
@@ -162,7 +168,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func moveNorth(_ sender: Any) {
         if (currentRoom?.north == nil){
             SoundController.shared.noPassage()
-            self.view.shakeVertical(-10)
+            self.view.nudgeVertical(-10)
             return
         }
         SoundController.shared.roomChangeSound()
@@ -193,7 +199,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func moveSouth(_ sender: Any) {
         if (currentRoom?.south == nil){
             print("Can't go South!")
-            self.view.shakeVertical()
+            self.view.nudgeVertical()
             SoundController.shared.noPassage()
             return}
         SoundController.shared.roomChangeSound()
@@ -246,6 +252,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let bvc = BattleViewController()
         // self.present(bvc, animated: true, completion: nil)
+        collectionView.cellForItem(at: indexPath)?.shrink()
+        SoundController.shared.tapSound()
         forceActionMenu[indexPath.row].action()
     }
 }

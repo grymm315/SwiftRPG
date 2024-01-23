@@ -27,14 +27,15 @@ class InitialViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        startButton.fromBottom()
-        creditButton.fromBottom()
-        settingsButton.fromBottom()
-        shareButton.fromBottom()
-        startButton.fadeIn(1.0)
-        creditButton.fadeIn(1.2)
-        settingsButton.fadeIn(1.4)
-        shareButton.fadeIn(1.6)
+        startButton.fromBottom(startButton.animationSpeed)
+        settingsButton.fromBottom(settingsButton.animationSpeed)
+        creditButton.fromBottom(creditButton.animationSpeed)
+        shareButton.fromBottom(shareButton.animationSpeed)
+        
+        startButton.fadeIn(startButton.animationSpeed)
+        settingsButton.fadeIn(settingsButton.animationSpeed)
+        creditButton.fadeIn(creditButton.animationSpeed)
+        shareButton.fadeIn(shareButton.animationSpeed)
     }
     
     

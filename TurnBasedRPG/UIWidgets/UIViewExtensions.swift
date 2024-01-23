@@ -30,7 +30,7 @@ extension UIView {
         self.layer.add(animation, forKey: "position")
     }
     
-    func shakeVertical(_ intensity:Double = 10){
+    func nudgeVertical(_ intensity:Double = 10){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.15
         animation.repeatCount = 0
@@ -74,7 +74,16 @@ extension UIView {
         let animation = CABasicAnimation(keyPath: "transform.scale")
         animation.fromValue = 1
         animation.toValue = 2
-        self.layer.add(animation, forKey: "opacity")
+        self.layer.add(animation, forKey: "transform.scale")
+    }
+    
+    func shrink(){
+        let animation = CABasicAnimation(keyPath: "transform.scale")
+        animation.fromValue = 1
+        animation.toValue = 0.75
+        animation.autoreverses = true
+        animation.duration = 0.1
+        self.layer.add(animation, forKey: "transform.scale")
     }
     
     func animateBorderWidth(toValue: CGFloat, duration: Double = 0.3) {
@@ -98,5 +107,37 @@ extension UIView {
         anim1.fillMode = CAMediaTimingFillMode.forwards
     
         self.layer.add(anim1, forKey: "line")
+    }
+    
+    func fromBottom(_ animationSpeed: CGFloat){
+        let returnHere = self.frame.origin
+        self.frame.origin = CGPoint(x: self.frame.origin.x, y: self.frame.origin.y + UIScreen.main.bounds.height)
+        UIView.animate(withDuration: animationSpeed, animations: {
+            self.frame.origin = returnHere
+        })
+    }
+    
+    
+    func fromLeft(_ animationSpeed: CGFloat){
+        let returnHere = self.frame.origin
+        self.frame.origin = CGPoint(x: -self.frame.origin.x, y: self.frame.origin.y)
+        UIView.animate(withDuration: animationSpeed, animations: {
+            self.frame.origin = returnHere
+        })
+    }
+    
+    func fromRight(_ animationSpeed: CGFloat){
+        let returnHere = self.frame.origin
+        self.frame.origin = CGPoint(x: self.frame.origin.x + UIScreen.main.bounds.width, y: self.frame.origin.y)
+        UIView.animate(withDuration: animationSpeed, animations: {
+            self.frame.origin = returnHere
+        })
+    }
+    func fromTop(_ animationSpeed: CGFloat){
+        let returnHere = self.frame.origin
+        self.frame.origin = CGPoint(x: self.frame.origin.x, y: -self.frame.origin.y)
+        UIView.animate(withDuration: animationSpeed, animations: {
+            self.frame.origin = returnHere
+        })
     }
 }

@@ -97,7 +97,6 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.cancel.frame = self.startFrame
             self.view.alpha = 0.2
         }, completion: {finish in
-            Haptics.shared.longTouch()
             self.removeFromParent()
             self.view.removeFromSuperview()
         })
@@ -145,7 +144,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         options[indexPath.row].action()
         btn_Cancel(self)
-        self.view.removeFromSuperview()
+//        self.view.removeFromSuperview()
     }
     
 }

@@ -34,37 +34,10 @@ class UIButtonGUI:UIButton{
     
     @IBInspectable public var animationSpeed: CGFloat = 1.0
     
-    func fromLeft(){
-        let returnHere = self.frame.origin
-        self.frame.origin = CGPoint(x: -self.frame.origin.x, y: self.frame.origin.y)
-        UIView.animate(withDuration: animationSpeed, animations: {
-            self.frame.origin = returnHere
-        })
-    }
-    
-    func fromRight(){
-        let returnHere = self.frame.origin
-        self.frame.origin = CGPoint(x: self.frame.origin.x + UIScreen.main.bounds.width, y: self.frame.origin.y)
-        UIView.animate(withDuration: animationSpeed, animations: {
-            self.frame.origin = returnHere
-        })
-    }
-    func fromTop(){
-        let returnHere = self.frame.origin
-        self.frame.origin = CGPoint(x: self.frame.origin.x, y: -self.frame.origin.y)
-        UIView.animate(withDuration: animationSpeed, animations: {
-            self.frame.origin = returnHere
-        })
-    }
-    func fromBottom(){
-        let returnHere = self.frame.origin
-        self.frame.origin = CGPoint(x: self.frame.origin.x, y: self.frame.origin.y + UIScreen.main.bounds.height)
-        UIView.animate(withDuration: animationSpeed, animations: {
-            self.frame.origin = returnHere
-        })
-    }
-    
-    func nothing(){
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        SoundController.shared.tapSound()
+        self.shrink()
     }
     
     

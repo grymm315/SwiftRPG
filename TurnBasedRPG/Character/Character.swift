@@ -70,13 +70,13 @@ class Character {
     func dropItemFromRow(_ index:Int){
         inventory.remove(at: index)
     }
-    func getItem(_ item: Equipment){
-        if let index = inventory.firstIndex(where: {$0.name == item.name}) {
-           //found item
-        } else {
-            //did not find item
-        }
-    }
+//    func getItem(_ item: Equipment){
+//        if let index = inventory.firstIndex(where: {$0.name == item.name}) {
+//           //found item
+//        } else {
+//            //did not find item
+//        }
+//    }
     
     private func equipToHead(index:Int){
         removeHeadPiece()
@@ -126,15 +126,15 @@ class Character {
         
     }
     
-    func equip(_ item: Equipment){
-        let swapping = item
-        
-        if let index = inventory.firstIndex(where: {$0.name == item.name}) {
-            
-        } else {
-    print("Did not find item")
-        }
-    }
+//    func equip(_ item: Equipment){
+//        let swapping = item
+//
+//        if let index = inventory.firstIndex(where: {$0.name == item.name}) {
+//
+//        } else {
+//    print("Did not find item")
+//        }
+//    }
     
     func removeHeadPiece(){
         if (headEquipmentSlot != nil){
