@@ -106,7 +106,6 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Do some reloading of data and update the table view's data source
         // Fetch more objects from a web service, for example...
     print("Refreshing")
-    UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(connectionTimer), userInfo: nil, repeats: false)
         
@@ -115,9 +114,6 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func connectionTimer() {
-        
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         tableView.reloadData()
     }
     
