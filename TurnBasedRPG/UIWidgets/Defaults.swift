@@ -10,28 +10,23 @@ import UIKit
 
 class DefaultSwitch: UISwitch {
     
-    @IBInspectable var keyValue: String = "defaultSwitch"
+    @IBInspectable var keyRing: String = "defaultSwitch"
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initialSetup()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
         initialSetup()
     }
     
     func initialSetup(){
         let defaults = UserDefaults.standard
-        let check = defaults.bool(forKey: keyValue)
-        print("Switch: \(keyValue) is \(check)")
+        let check = defaults.bool(forKey: keyRing)
+        print("Switch: \(keyRing) is \(check)")
         setOn(check, animated: true)
         self.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
     }
     func setPreference(_ isOn:Bool){
         let defaults = UserDefaults.standard
-        defaults.set(isOn, forKey: keyValue)
+        defaults.set(isOn, forKey: keyRing)
     }
     @objc func valueChanged(){
         setPreference(self.isOn)
@@ -42,13 +37,8 @@ class DefaultSlider: UISlider {
     
     @IBInspectable var keyValue: String = "defaultSlider"
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initialSetup()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
         initialSetup()
     }
     
@@ -86,18 +76,19 @@ class DefaultTextfield: UITextField {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        initialSetup()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    override func layoutSubviews() {
         initialSetup()
     }
     
     func initialSetup(){
         let defaults = UserDefaults.standard
         let string = defaults.string(forKey: keyValue)
-        print("TextField: \(keyValue) is \(string!)")
+        print("TextField: \(keyValue) is \(string ?? "nil")")
         text = string
         self.addTarget(self, action: #selector(textEditingDidEnd), for: .editingDidEnd)
         self.addTarget(self, action: #selector(textEditingChanged), for: .editingChanged)

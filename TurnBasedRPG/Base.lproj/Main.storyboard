@@ -19,36 +19,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Goblin" translatesAutoresizingMaskIntoConstraints="NO" id="99K-Er-UyK">
+                                <rect key="frame" x="0.0" y="0.0" width="373" height="647"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNR-Lf-8a4" customClass="HealthBar" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="124" y="20" width="250" height="41"/>
+                                <rect key="frame" x="124" y="20" width="249" height="41"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VjL-nI-0Mu" customClass="HealthBar" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="-7" y="584" width="252" height="40"/>
+                                <rect key="frame" x="-8" y="583" width="252" height="41"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKK-OI-Hzk">
-                                <rect key="frame" x="16" y="512" width="235" height="58"/>
+                                <rect key="frame" x="16" y="512" width="235" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="32"/>
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G5b-e0-NXW">
-                                <rect key="frame" x="252" y="522" width="102" height="102"/>
+                                <rect key="frame" x="251" y="522" width="102" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3A-Cp-74s">
-                                <rect key="frame" x="109" y="69" width="237" height="51"/>
+                                <rect key="frame" x="108" y="69" width="238" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="32"/>
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35O-iS-15e">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35O-iS-15e">
                                 <rect key="frame" x="16" y="20" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,6 +64,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="6C1-F1-j49"/>
                     <connections>
                         <outlet property="enemyHP" destination="RNR-Lf-8a4" id="dOi-gH-OtB"/>
+                        <outlet property="enemyImage" destination="99K-Er-UyK" id="mGH-3O-XgL"/>
                         <outlet property="enemyName" destination="x3A-Cp-74s" id="YZy-NV-wj6"/>
                         <outlet property="enemyView" destination="35O-iS-15e" id="5VA-Mp-e22"/>
                         <outlet property="heroHP" destination="VjL-nI-0Mu" id="7Js-Ty-4uN"/>
@@ -355,7 +360,7 @@
         <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="InitialViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="BYZ-38-t0r" customClass="InitialViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -410,7 +415,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHq-4K-3uT" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="221" y="356" width="138" height="43"/>
+                                <rect key="frame" x="220" y="355" width="138" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="34"/>
@@ -451,7 +456,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2V-Ch-QNc" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="221" y="455" width="138" height="44"/>
+                                <rect key="frame" x="220" y="454" width="138" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="35"/>
@@ -488,11 +493,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="khA-HM-s1d" kind="show" id="qb2-dN-CS2"/>
+                                    <segue destination="khA-HM-s1d" kind="show" id="6pl-73-nmF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1iI-6d-Rhs" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="221" y="407" width="138" height="40"/>
+                                <rect key="frame" x="220" y="407" width="138" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -537,10 +542,11 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="creditAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KLe-Th-Gxe"/>
+                                    <segue destination="mzZ-pF-ewO" kind="show" id="94v-fZ-2Jg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skp-y7-bH2" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="16" y="506" width="112" height="49"/>
+                                <rect key="frame" x="16" y="506" width="112" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="38"/>
@@ -578,6 +584,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="creditAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1cn-Yd-bMC"/>
+                                    <action selector="shareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I6t-AQ-Qvq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -602,16 +609,104 @@
             </objects>
             <point key="canvasLocation" x="972" y="31.03448275862069"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="msj-c0-xVf">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" id="mzZ-pF-ewO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LgA-fM-ypX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gIZ-OX-lDc">
+                                <rect key="frame" x="8" y="8" width="359" height="199"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbG-cl-QSF">
+                                        <rect key="frame" x="92" y="0.0" width="175.5" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xB-gz-qdm">
+                                        <rect key="frame" x="151" y="72" width="57" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4Bv-X1-arb" customClass="DefaultSlider" customModule="TurnBasedRPG" customModuleProvider="target">
+                                        <rect key="frame" x="40.5" y="104.5" width="278" height="31"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="keyValue" value="Volume"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </slider>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Tce-gU-l9g">
+                                        <rect key="frame" x="117" y="146.5" width="125.5" height="52.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="U1r-6R-cwp">
+                                                <rect key="frame" x="0.0" y="0.0" width="58.5" height="52.5"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="omJ-GI-fqH" customClass="DefaultSwitch" customModule="TurnBasedRPG" customModuleProvider="target">
+                                                        <rect key="frame" x="4.5" y="0.0" width="51" height="31"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="keyRing" value="Haptic"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haptics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOf-3C-dFc">
+                                                        <rect key="frame" x="0.0" y="32" width="58.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="QGi-NE-cdk">
+                                                <rect key="frame" x="76.5" y="0.0" width="49" height="52.5"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I9s-Rw-gfe" customClass="DefaultSwitch" customModule="TurnBasedRPG" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="keyRing" value="Sound"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tym-9x-G3C">
+                                                        <rect key="frame" x="0.0" y="32" width="49" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4Bv-X1-arb" firstAttribute="leading" secondItem="gIZ-OX-lDc" secondAttribute="leading" constant="42.5" id="IkZ-pS-00M"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oF8-eH-W51"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gIZ-OX-lDc" firstAttribute="leading" secondItem="oF8-eH-W51" secondAttribute="leading" constant="8" id="1LY-9U-qop"/>
+                            <constraint firstItem="gIZ-OX-lDc" firstAttribute="top" secondItem="oF8-eH-W51" secondAttribute="top" constant="8" id="Lpv-Gs-TOQ"/>
+                            <constraint firstItem="oF8-eH-W51" firstAttribute="trailing" secondItem="gIZ-OX-lDc" secondAttribute="trailing" constant="8" id="X1H-PQ-Pbu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OgE-Dp-lBO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BFI-xx-Lbl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="796" y="798.35082458770626"/>
+        </scene>
         <!--Credits View Controller-->
         <scene sceneID="Hdh-eQ-UF9">
             <objects>
-                <viewController id="khA-HM-s1d" customClass="CreditsViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="khA-HM-s1d" customClass="CreditsViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5yS-54-rVo" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pzu-8b-IQN">
-                                <rect key="frame" x="8" y="8" width="359" height="174"/>
+                                <rect key="frame" x="8" y="8" width="359" height="595.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5F-7Q-Fwm">
                                         <rect key="frame" x="103" y="0.0" width="153" height="60"/>
@@ -670,6 +765,19 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponsored by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSG-DH-awN">
+                                        <rect key="frame" x="33" y="182" width="293" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqC-qh-mXm">
+                                        <rect key="frame" x="0.0" y="250" width="359" height="345.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="Flippin-Toys" imagePlacement="top" title=" ">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                        </buttonConfiguration>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -693,7 +801,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7LT-YW-QXJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="970.39999999999998" y="820.83958020989508"/>
+            <point key="canvasLocation" x="1642" y="800"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="93f-40-oAK">
@@ -707,45 +815,41 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-k1-VDO">
-                                <rect key="frame" x="0.0" y="513" width="375" height="110"/>
+                                <rect key="frame" x="82.5" y="583" width="210" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="T8f-NS-A8Y"/>
+                                    <constraint firstAttribute="height" constant="40" id="Kcj-QA-Fcj"/>
+                                    <constraint firstAttribute="width" constant="210" id="tHf-gK-XN9"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H3P-FP-rXd">
-                                    <size key="itemSize" width="100" height="61"/>
-                                    <size key="estimatedItemSize" width="100" height="61"/>
-                                    <size key="headerReferenceSize" width="0.0" height="10"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="JLU-R1-pIK">
+                                    <size key="itemSize" width="70" height="40"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="collectionCommand" id="WN1-ko-9gJ" customClass="CommandCell" customModule="TurnBasedRPG" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="104" height="104"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cvq-8W-Eoj">
-                                            <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patrol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fkh-cF-rY7">
-                                                    <rect key="frame" x="12" y="15" width="80" height="75"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patrol" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fkh-cF-rY7">
+                                                    <rect key="frame" x="12" y="15" width="46" height="11"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="104" height="104"/>
+                                        <size key="customSize" width="70" height="40"/>
                                         <connections>
                                             <outlet property="cLabel" destination="fkh-cF-rY7" id="l5o-KR-eth"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="collectionCommand" id="1eJ-yt-Hl2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5gf-16-iim"/>
@@ -753,13 +857,11 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="a5V-yK-3kp" firstAttribute="trailing" secondItem="5gf-16-iim" secondAttribute="trailing" id="37R-BJ-PXC"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="trailing" secondItem="5gf-16-iim" secondAttribute="trailing" id="8zI-fS-695"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="leading" secondItem="5gf-16-iim" secondAttribute="leading" id="PID-gG-mqh"/>
+                            <constraint firstItem="JNO-k1-VDO" firstAttribute="centerX" secondItem="a5V-yK-3kp" secondAttribute="centerX" id="6KA-g4-B3F"/>
                             <constraint firstItem="5gf-16-iim" firstAttribute="bottom" secondItem="a5V-yK-3kp" secondAttribute="bottom" id="USS-av-LkB"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="bottom" secondItem="5gf-16-iim" secondAttribute="bottom" id="cQC-WT-VyK"/>
                             <constraint firstItem="a5V-yK-3kp" firstAttribute="top" secondItem="5gf-16-iim" secondAttribute="top" id="pi7-lK-MVc"/>
                             <constraint firstItem="a5V-yK-3kp" firstAttribute="leading" secondItem="5gf-16-iim" secondAttribute="leading" id="rN4-4N-avq"/>
-                            <constraint firstItem="JNO-k1-VDO" firstAttribute="bottom" secondItem="5gf-16-iim" secondAttribute="bottom" id="wo0-Dd-MSZ"/>
+                            <constraint firstItem="JNO-k1-VDO" firstAttribute="bottom" secondItem="5gf-16-iim" secondAttribute="bottom" id="yGA-nN-PeY"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="W3T-ZV-PV2" appends="YES" id="wh4-3s-esp"/>
@@ -839,6 +941,8 @@
     </scenes>
     <resources>
         <image name="Cockpit" width="514" height="508"/>
+        <image name="Flippin-Toys" width="448" height="311"/>
+        <image name="Goblin" width="513" height="510"/>
         <image name="Street1" width="510" height="511"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

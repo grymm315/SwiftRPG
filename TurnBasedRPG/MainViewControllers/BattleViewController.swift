@@ -11,37 +11,39 @@ import AVFoundation
 
 // TODO: This needs refactored
 class BattleViewController: UIViewController, BattleMenuDelegate {
-    var hero:Character = GameDatabase.shared.hero
-    var enemy:Character = Character(strength: 3, perception: 3, endurance: 3, charisma: 3, intelligence: 3, luck: 3, agility: 9 )
-    let sound = SoundController()
     
     @IBOutlet weak var enemyView: UIView!
     @IBOutlet weak var heroView: UIView!
-    
-    var isPaused:Bool = false
-    var gameOver:Bool = false
-    
-    let GR:CGFloat = 0.6180340
-    
-    let menu:BattleMenu = BattleMenu()
+    @IBOutlet weak var enemyImage: UIImageView!
     @IBOutlet weak var heroName: UILabel!
     @IBOutlet weak var enemyName: UILabel!
     @IBOutlet weak var enemyHP: HealthBar!
     @IBOutlet weak var heroHP: HealthBar!
     
     @IBOutlet weak var attkButton: UIButtonGUI!
+    
+    var isPaused:Bool = false
+    var gameOver:Bool = false
+    
+    let goldenRatio:CGFloat = 0.6180340
+    
+    let menu:BattleMenu = BattleMenu()
     var heroPOS = 0
     var enemyPOS = 0
     
-    lazy var statusText: UILabel = UILabel()
     let counter = 0
-    
     
     var tableFrame:CGRect{
         get {
-            return CGRect(origin: CGPoint(x: 0, y: UIScreen.main.bounds.height *  GR), size: CGSize(width: (UIScreen.main.bounds.width * (1 - GR)), height: (UIScreen.main.bounds.height * (1.0 - GR))))
+            return CGRect(origin: CGPoint(x: 0, y: UIScreen.main.bounds.height *  goldenRatio), size: CGSize(width: (UIScreen.main.bounds.width * (1 - goldenRatio)), height: (UIScreen.main.bounds.height * (1.0 - goldenRatio))))
         }
     }
+
+    
+    var hero:Character = GameDatabase.shared.hero
+    var enemy:Character = Character(strength: 1, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 1 )
+    let sound = SoundController()
+    
     
     override func viewDidLoad() {
         enemy.race = .goblin
@@ -62,20 +64,30 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     }
     
     func popText(_ text:String){
+        lazy var statusText: UILabel = UILabel()
+
         statusText.text = text
+        statusText.layer.opacity = 1.0
         statusText.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         statusText.textAlignment = .center
-        statusText.layer.backgroundColor = #colorLiteral(red: 0.1549019754, green: 0.1745098174, blue: 0.119607961, alpha: 1)
+        statusText.layer.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
         statusText.layer.cornerRadius = 12
         statusText.layer.borderWidth = 2
         statusText.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
-        statusText.frame = CGRect(x: 15, y: 80, width: UIScreen.main.bounds.width - 30, height: 50)
+        statusText.frame = CGRect(x: 15, y: 120, width: UIScreen.main.bounds.width - 30, height: 50)
         self.view.addSubview(statusText)
+        statusText.fromTop(0.1)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75, execute: {
-            self.statusText.removeFromSuperview()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.50, execute: {
+            statusText.fadeOut(0.5)
+//            self.statusText.removeFromSuperview()
         })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            statusText.removeFromSuperview()
+        })
+        
         
     }
     
@@ -87,13 +99,21 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
             return
         }
         //win condition
-        if (enemyHP._currentHealth < 0) {
+        if (enemyHP._currentHealth <= 0) {
             print ("You won")
-            isPaused = true
             let fanfare: SystemSoundID = 1025
             AudioServicesPlaySystemSound(fanfare)
             gameOver = true
-            self.dismiss(animated: true, completion: nil)
+            isPaused = true
+            popText("You have defeated \(enemy.name)!!")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+                self.popText("You have gained 10 XP!!")
+            })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+                self.dismiss(animated: true, completion: nil)
+                
+            })
+         
         }
         
         
@@ -109,12 +129,13 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     }
     
     func chose(action: String) {
-        //print("Chose: \(action)")
+            //print("Chose: \(action)")
         SoundController.shared.tapSound()
         switch action {
         case "Attack":
             let hdmg = Int.random(in: 1...Int(hero.strength))
             enemyHP.takeDamage(hdmg)
+            enemyImage.shake()
             popText("You deal \(hdmg) dmg to \(enemy.race)")
             sound.painNoise()
         case "Magic":
@@ -140,6 +161,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     
     func AIMove(){
         let edmg = Int.random(in: 1...Int(enemy.strength))
+        enemyImage.nudgeVertical(-70)
         heroHP.takeDamage(edmg)
         popText("\(enemy.race) attacks you for \(edmg) points")
         sound.painNoise()

@@ -29,6 +29,7 @@ class HealthBar: UIView {
         barFrame.strokeColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         barFrame.lineWidth = 2
         barFrame.fillRule = .nonZero
+        barFrame.cornerRadius = 20
         
         //        barFrame.superlayer?.cornerRadius = 60
         //   barCurrent.masksToBounds = true
@@ -37,6 +38,7 @@ class HealthBar: UIView {
 //        backBar.path = barFrame.path
         //        backBar.fillColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
         layer.addSublayer(backBar)
+        barCurrent.cornerRadius = 20
         barCurrent.path = currentPath().cgPath
         barCurrent.fillColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         //        barCurrent.superlayer?.cornerRadius = 120
@@ -47,7 +49,11 @@ class HealthBar: UIView {
     
     func takeDamage(_ dmg: Int){
         backBar.fillColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
-        _currentHealth = _currentHealth - dmg
+        if (dmg < _currentHealth) {
+            _currentHealth = _currentHealth - dmg }
+        else {
+            _currentHealth = 0
+        }
         scale(path: barCurrent, duration: 0.2)
         scale(path: backBar, duration: 0.9)
         

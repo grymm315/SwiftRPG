@@ -71,6 +71,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         exploreEventMenu.startFrame = commandMenu.frame
         sneakEventMenu.startFrame = commandMenu.frame
         patrolEventMenu.startFrame = commandMenu.frame
+        
         commandMenu.backgroundColor = UIColor.blue
         commandMenu.layer.borderColor = UIColor.white.cgColor
         commandMenu.layer.borderWidth = 4.0
