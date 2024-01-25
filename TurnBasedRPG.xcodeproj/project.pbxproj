@@ -45,6 +45,7 @@
 		96CAE7CC23D452250017019E /* GameDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CB23D452250017019E /* GameDatabase.swift */; };
 		96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */; };
 		F02B57A12B61B54B003B53B5 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02B57A02B61B54B003B53B5 /* UIApplicationExtension.swift */; };
+		F02B57A32B61FDA0003B53B5 /* NPCDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02B57A22B61FDA0003B53B5 /* NPCDialogViewController.swift */; };
 		F04F8AFD2B5DDA9900B3727F /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */; };
 		F04F8AFF2B5F34CC00B3727F /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F8AFE2B5F34CC00B3727F /* Defaults.swift */; };
 		F06AE1DE2B539F5E0058F215 /* MegaMillions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */; };
@@ -117,6 +118,7 @@
 		96CAE7CB23D452250017019E /* GameDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDatabase.swift; sourceTree = "<group>"; };
 		96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetTableViewController.swift; sourceTree = "<group>"; };
 		F02B57A02B61B54B003B53B5 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		F02B57A22B61FDA0003B53B5 /* NPCDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPCDialogViewController.swift; sourceTree = "<group>"; };
 		F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		F04F8AFE2B5F34CC00B3727F /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MegaMillions.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */,
 				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
 				82D72A2A216060C60081709D /* BattleViewController.swift */,
+				F02B57A22B61FDA0003B53B5 /* NPCDialogViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				822C323C221EA0D000ECFA9E /* ScanLine.swift in Sources */,
 				822C323A221E9FDC00ECFA9E /* WawaViewViewController.swift in Sources */,
 				820150942132CC2B006A4B80 /* Build.swift in Sources */,
+				F02B57A32B61FDA0003B53B5 /* NPCDialogViewController.swift in Sources */,
 				9607315523CECC270070A869 /* Equipment.swift in Sources */,
 				F02B57A12B61B54B003B53B5 /* UIApplicationExtension.swift in Sources */,
 				96C75F7F24405D0E00150CDE /* LineTree.swift in Sources */,
