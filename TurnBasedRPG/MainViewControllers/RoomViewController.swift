@@ -16,6 +16,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var roomView: UIImageView!
     @IBOutlet weak var commandMenu: UICollectionView!
         
+    @IBOutlet weak var dayNight: UIImageView!
     @IBOutlet var tappers: [UISwipeGestureRecognizer]!
     // This moves lines up Command + ALT + [
     // This moves lines down Command + ALT + ]
@@ -60,6 +61,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             GameDatabase.shared.hero.rewardItem(Armor(name: "Saphire Crown", description: "It glitters and sparkles", type: .Head))
         })
         
+        dayNight.rotate()
+        
         patrolEventMenu.options.append(gremlin)
         sneakEventMenu.options.append(crown)
         sneakEventMenu.options.append(nothing)
@@ -80,7 +83,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Setting the Origin Return to happen after the view did load
         // this is important for screen animations while transiting
 
-        originReturn = CGRect(x: 0, y: 44, width: self.view.bounds.width, height: self.view.bounds.height - 44).origin
+        originReturn = self.view.frame.origin
+        print("Self1: \(originReturn?.y)")
         
         moveRoom(to: map.startRoom)
                 
@@ -96,6 +100,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //For some reason this is causing the Cell not to register
 //        commandMenu.register(CommandCell.self, forCellWithReuseIdentifier: "collectionCommand")
         self.view.bringSubviewToFront(commandMenu)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("Self2: \(originReturn?.y)")
+        originReturn = self.view.frame.origin
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

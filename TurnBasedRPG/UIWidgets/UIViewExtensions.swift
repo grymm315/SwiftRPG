@@ -39,6 +39,7 @@ extension UIView {
         animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x, y: self.center.y - intensity))
         self.layer.add(animation, forKey: "position")
     }
+    
     func fadeOut(_ duration:Double = 2){
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.duration = duration
@@ -47,6 +48,15 @@ extension UIView {
         animation.toValue = 0
         self.layer.add(animation, forKey: "opacity")
     }
+    
+    func rotate() {
+           let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+           rotation.toValue = NSNumber(value: Double.pi * -2)
+           rotation.duration = 60
+           rotation.isCumulative = true
+           rotation.repeatCount = Float.greatestFiniteMagnitude
+           self.layer.add(rotation, forKey: "rotationAnimation")
+       }
     
     func fadeIn(_ duration:Double = 2){
         let animation = CABasicAnimation(keyPath: "opacity")
