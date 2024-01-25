@@ -46,6 +46,7 @@
 		96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */; };
 		F02B57A12B61B54B003B53B5 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02B57A02B61B54B003B53B5 /* UIApplicationExtension.swift */; };
 		F02B57A32B61FDA0003B53B5 /* NPCDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02B57A22B61FDA0003B53B5 /* NPCDialogViewController.swift */; };
+		F02B57A52B62482D003B53B5 /* NewGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F02B57A42B62482D003B53B5 /* NewGame.storyboard */; };
 		F04F8AFD2B5DDA9900B3727F /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */; };
 		F04F8AFF2B5F34CC00B3727F /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F8AFE2B5F34CC00B3727F /* Defaults.swift */; };
 		F06AE1DE2B539F5E0058F215 /* MegaMillions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */; };
@@ -119,6 +120,7 @@
 		96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetTableViewController.swift; sourceTree = "<group>"; };
 		F02B57A02B61B54B003B53B5 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		F02B57A22B61FDA0003B53B5 /* NPCDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPCDialogViewController.swift; sourceTree = "<group>"; };
+		F02B57A42B62482D003B53B5 /* NewGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewGame.storyboard; sourceTree = "<group>"; };
 		F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		F04F8AFE2B5F34CC00B3727F /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MegaMillions.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
 				F0B090982B579BC6000ACCDC /* Haptics.swift */,
 				827C045721329228008998C0 /* Main.storyboard */,
+				F02B57A42B62482D003B53B5 /* NewGame.storyboard */,
 				96799E8123E557CA0036E794 /* Model.xcdatamodeld */,
 			);
 			path = TurnBasedRPG;
@@ -426,6 +429,7 @@
 				827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */,
 				827C045B2132922B008998C0 /* Assets.xcassets in Resources */,
 				9693FA3A2300DE0D00867915 /* Doodle.xib in Resources */,
+				F02B57A52B62482D003B53B5 /* NewGame.storyboard in Resources */,
 				827C045921329228008998C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
