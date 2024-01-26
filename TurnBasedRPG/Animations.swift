@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension UIView {
+    /** This will cause the view to shake left and right.*/
     func shake(_ intensity:Double = 10){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.15
@@ -20,6 +21,7 @@ extension UIView {
         self.layer.add(animation, forKey: "position")
     }
     
+    /** This will move the view up or down. and then the view will return to position*/
     func nudgeHorizontal(_ intensity:Double = 10){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.15
@@ -30,6 +32,7 @@ extension UIView {
         self.layer.add(animation, forKey: "position")
     }
     
+    /** This will move the view left or right. and then the view will return to position*/
     func nudgeVertical(_ intensity:Double = 10){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.15
@@ -40,6 +43,7 @@ extension UIView {
         self.layer.add(animation, forKey: "position")
     }
     
+    /** This will cause the view to fade out over a duration*/
     func fadeOut(_ duration:Double = 2){
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.duration = duration
@@ -48,7 +52,7 @@ extension UIView {
         animation.toValue = 0
         self.layer.add(animation, forKey: "opacity")
     }
-    
+    /** This will cause the view to continiously rotate*/
     func rotate() {
            let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
            rotation.toValue = NSNumber(value: Double.pi * -2)
@@ -58,6 +62,7 @@ extension UIView {
            self.layer.add(rotation, forKey: "rotationAnimation")
        }
     
+    /** This will cause the view to fade in over a duration*/
     func fadeIn(_ duration:Double = 2){
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.duration = duration
@@ -66,6 +71,7 @@ extension UIView {
         self.layer.add(animation, forKey: "opacity")
     }
     
+    /** This will stretch the view */
     func stretchHorizontal(){
         let animation = CABasicAnimation(keyPath: "transform.scale.x")
         animation.fromValue = 1
@@ -73,6 +79,7 @@ extension UIView {
         self.layer.add(animation, forKey: "transform.scale.x")
     }
     
+    /** This will stretch the view */
     func stretchVertical(){
         let animation = CABasicAnimation(keyPath: "transform.scale.y")
         animation.fromValue = 1
@@ -105,6 +112,7 @@ extension UIView {
         layer.borderWidth = toValue
       }
     
+    // This is broken... may need to be applied directly to a UIBezierPath
     func animateStrokeEnd(_ duration:CGFloat = 4.0){
         let anim1 = CABasicAnimation(keyPath: "strokeEnd")
         anim1.fromValue         = 0.0

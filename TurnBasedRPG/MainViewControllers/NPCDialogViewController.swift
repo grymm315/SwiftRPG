@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NPCDialogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NpcDialogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var npcImage: UIImageView!
     @IBOutlet weak var dialogList: UITableView!
     @IBOutlet weak var npcSpeechBubble: UILabel!
@@ -18,7 +18,7 @@ class NPCDialogViewController: UIViewController, UITableViewDelegate, UITableVie
     var dialogOptions:[String] = [
     "OK- So your not going to believe me but I see subtitles when people talk and I'm just reading the subtitles. Seriously.",
     "Pardon me, I'm looking for some cream",
-    "I don't know what to do with myself anymore. It feels like I've been all over the world but nothing seems to make me happy."]
+    "I don't know what to do with myself anymore. It feels like I've been all over the this world but nothing seems to spark joy."]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,8 @@ class NPCDialogViewController: UIViewController, UITableViewDelegate, UITableVie
         print("Screen: \(UIScreen.main.bounds.width), \(UIScreen.main.bounds.height)")
         print("Image should be \(getImageFrame().width) , \(getImageFrame().height)")
     }
+    
+    // When constraints ain't cutting it we will forcefully set frames
     func getImageFrame() -> CGRect{
         var rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.39)
         

@@ -25,7 +25,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
     var isPaused:Bool = false
     var gameOver:Bool = false
     
-    let goldenRatio:CGFloat = 0.6180340
+//    let goldenRatio:CGFloat = 0.6180340
     
     let menu:BattleMenu = BattleMenu()
     var heroPOS = 0

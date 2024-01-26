@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		820150922132C0FD006A4B80 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150912132C0FD006A4B80 /* Character.swift */; };
-		820150942132CC2B006A4B80 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150932132CC2B006A4B80 /* Build.swift */; };
+		820150942132CC2B006A4B80 /* SmaugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820150932132CC2B006A4B80 /* SmaugData.swift */; };
 		8201509621332F7B006A4B80 /* RoomNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8201509521332F7B006A4B80 /* RoomNode.swift */; };
 		8201509821332FEA006A4B80 /* Mobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8201509721332FEA006A4B80 /* Mobile.swift */; };
 		8201509A21334097006A4B80 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8201509921334097006A4B80 /* RoomViewController.swift */; };
@@ -44,8 +44,8 @@
 		96CAE7CA23D3073F0017019E /* InventoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */; };
 		96CAE7CC23D452250017019E /* GameDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CB23D452250017019E /* GameDatabase.swift */; };
 		96CAE7CE23D455E00017019E /* CharacterSheetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */; };
-		F02B57A12B61B54B003B53B5 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02B57A02B61B54B003B53B5 /* UIApplicationExtension.swift */; };
-		F02B57A32B61FDA0003B53B5 /* NPCDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02B57A22B61FDA0003B53B5 /* NPCDialogViewController.swift */; };
+		F02B57A12B61B54B003B53B5 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02B57A02B61B54B003B53B5 /* Application.swift */; };
+		F02B57A32B61FDA0003B53B5 /* NpcDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02B57A22B61FDA0003B53B5 /* NpcDialogViewController.swift */; };
 		F02B57A52B62482D003B53B5 /* NewGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F02B57A42B62482D003B53B5 /* NewGame.storyboard */; };
 		F04F8AFD2B5DDA9900B3727F /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */; };
 		F04F8AFF2B5F34CC00B3727F /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F8AFE2B5F34CC00B3727F /* Defaults.swift */; };
@@ -53,7 +53,7 @@
 		F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */; };
 		F0B090992B579BC6000ACCDC /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B090982B579BC6000ACCDC /* Haptics.swift */; };
 		F0D0C8C22B5B9A0100D00B23 /* CommandMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D0C8C12B5B9A0100D00B23 /* CommandMenu.swift */; };
-		F0D0C8C42B5C754F00D00B23 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D0C8C32B5C754F00D00B23 /* UIViewExtensions.swift */; };
+		F0D0C8C42B5C754F00D00B23 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D0C8C32B5C754F00D00B23 /* Animations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,7 @@
 
 /* Begin PBXFileReference section */
 		820150912132C0FD006A4B80 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		820150932132CC2B006A4B80 /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
+		820150932132CC2B006A4B80 /* SmaugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmaugData.swift; sourceTree = "<group>"; };
 		8201509521332F7B006A4B80 /* RoomNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomNode.swift; sourceTree = "<group>"; };
 		8201509721332FEA006A4B80 /* Mobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile.swift; sourceTree = "<group>"; };
 		8201509921334097006A4B80 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 		96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewController.swift; sourceTree = "<group>"; };
 		96CAE7CB23D452250017019E /* GameDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDatabase.swift; sourceTree = "<group>"; };
 		96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetTableViewController.swift; sourceTree = "<group>"; };
-		F02B57A02B61B54B003B53B5 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
-		F02B57A22B61FDA0003B53B5 /* NPCDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPCDialogViewController.swift; sourceTree = "<group>"; };
+		F02B57A02B61B54B003B53B5 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		F02B57A22B61FDA0003B53B5 /* NpcDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcDialogViewController.swift; sourceTree = "<group>"; };
 		F02B57A42B62482D003B53B5 /* NewGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewGame.storyboard; sourceTree = "<group>"; };
 		F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		F04F8AFE2B5F34CC00B3727F /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumeratedFile.swift; sourceTree = "<group>"; };
 		F0B090982B579BC6000ACCDC /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		F0D0C8C12B5B9A0100D00B23 /* CommandMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandMenu.swift; sourceTree = "<group>"; };
-		F0D0C8C32B5C754F00D00B23 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		F0D0C8C32B5C754F00D00B23 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,30 +155,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8201509D213A8DA7006A4B80 /* Support Files */ = {
+		8201509F213A8DF7006A4B80 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				820150932132CC2B006A4B80 /* Build.swift */,
-				827C045A2132922B008998C0 /* Assets.xcassets */,
-				827C045C2132922B008998C0 /* LaunchScreen.storyboard */,
-				827C045321329228008998C0 /* AppDelegate.swift */,
+				F02B57A72B637974003B53B5 /* Menus */,
+				F02B57A62B637949003B53B5 /* Storyboard */,
 			);
-			path = "Support Files";
-			sourceTree = "<group>";
-		};
-		8201509F213A8DF7006A4B80 /* UIWidgets */ = {
-			isa = PBXGroup;
-			children = (
-				F0D0C8C12B5B9A0100D00B23 /* CommandMenu.swift */,
-				F0D0C8C32B5C754F00D00B23 /* UIViewExtensions.swift */,
-				F02B57A02B61B54B003B53B5 /* UIApplicationExtension.swift */,
-				820150A6213B3894006A4B80 /* HealthBar.swift */,
-				827C0483213292B7008998C0 /* UIButtonGUI.swift */,
-				827C04812132928A008998C0 /* PopUp.swift */,
-				9693FA3B230A168700867915 /* BattleMenu.swift */,
-				F04F8AFE2B5F34CC00B3727F /* Defaults.swift */,
-			);
-			path = UIWidgets;
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		823F4F02214463FB00A3573B /* Doodles */ = {
@@ -222,16 +205,19 @@
 			isa = PBXGroup;
 			children = (
 				96CAE7C823D301160017019E /* Character */,
-				823F4F02214463FB00A3573B /* Doodles */,
 				F0B0907E2B563EC0000ACCDC /* Enum */,
 				963DFDE623DC182700485974 /* Room */,
 				F04F8AFB2B5DD94D00B3727F /* Misc */,
 				F04F8AFA2B5DD8F200B3727F /* MainViewControllers */,
-				8201509D213A8DA7006A4B80 /* Support Files */,
-				8201509F213A8DF7006A4B80 /* UIWidgets */,
+				8201509F213A8DF7006A4B80 /* Widgets */,
 				827C045F2132922B008998C0 /* Info.plist */,
+				827C045A2132922B008998C0 /* Assets.xcassets */,
+				827C045C2132922B008998C0 /* LaunchScreen.storyboard */,
+				827C045321329228008998C0 /* AppDelegate.swift */,
+				F02B57A02B61B54B003B53B5 /* Application.swift */,
 				96CAE7CB23D452250017019E /* GameDatabase.swift */,
 				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
+				F0D0C8C32B5C754F00D00B23 /* Animations.swift */,
 				F0B090982B579BC6000ACCDC /* Haptics.swift */,
 				827C045721329228008998C0 /* Main.storyboard */,
 				F02B57A42B62482D003B53B5 /* NewGame.storyboard */,
@@ -287,6 +273,26 @@
 			path = Character;
 			sourceTree = "<group>";
 		};
+		F02B57A62B637949003B53B5 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				827C0483213292B7008998C0 /* UIButtonGUI.swift */,
+				820150A6213B3894006A4B80 /* HealthBar.swift */,
+				F04F8AFE2B5F34CC00B3727F /* Defaults.swift */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		F02B57A72B637974003B53B5 /* Menus */ = {
+			isa = PBXGroup;
+			children = (
+				F0D0C8C12B5B9A0100D00B23 /* CommandMenu.swift */,
+				827C04812132928A008998C0 /* PopUp.swift */,
+				9693FA3B230A168700867915 /* BattleMenu.swift */,
+			);
+			path = Menus;
+			sourceTree = "<group>";
+		};
 		F04F8AFA2B5DD8F200B3727F /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,7 +302,7 @@
 				96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */,
 				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
 				82D72A2A216060C60081709D /* BattleViewController.swift */,
-				F02B57A22B61FDA0003B53B5 /* NPCDialogViewController.swift */,
+				F02B57A22B61FDA0003B53B5 /* NpcDialogViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 		F04F8AFB2B5DD94D00B3727F /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				823F4F02214463FB00A3573B /* Doodles */,
 				9693FA40230FB3B600867915 /* FaceViewController.swift */,
 				F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */,
 				822C3239221E9FDC00ECFA9E /* WawaViewViewController.swift */,
@@ -314,6 +321,7 @@
 		F0B0907E2B563EC0000ACCDC /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				820150932132CC2B006A4B80 /* SmaugData.swift */,
 				F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */,
 			);
 			path = Enum;
@@ -462,10 +470,10 @@
 				827C04822132928A008998C0 /* PopUp.swift in Sources */,
 				822C323C221EA0D000ECFA9E /* ScanLine.swift in Sources */,
 				822C323A221E9FDC00ECFA9E /* WawaViewViewController.swift in Sources */,
-				820150942132CC2B006A4B80 /* Build.swift in Sources */,
-				F02B57A32B61FDA0003B53B5 /* NPCDialogViewController.swift in Sources */,
+				820150942132CC2B006A4B80 /* SmaugData.swift in Sources */,
+				F02B57A32B61FDA0003B53B5 /* NpcDialogViewController.swift in Sources */,
 				9607315523CECC270070A869 /* Equipment.swift in Sources */,
-				F02B57A12B61B54B003B53B5 /* UIApplicationExtension.swift in Sources */,
+				F02B57A12B61B54B003B53B5 /* Application.swift in Sources */,
 				96C75F7F24405D0E00150CDE /* LineTree.swift in Sources */,
 				820150A7213B3894006A4B80 /* HealthBar.swift in Sources */,
 				F0B090992B579BC6000ACCDC /* Haptics.swift in Sources */,
@@ -493,7 +501,7 @@
 				96CAA1422340C0DB009C6A3B /* SoundController.swift in Sources */,
 				9693FA3C230A168700867915 /* BattleMenu.swift in Sources */,
 				820150A1213A8EEA006A4B80 /* Face.swift in Sources */,
-				F0D0C8C42B5C754F00D00B23 /* UIViewExtensions.swift in Sources */,
+				F0D0C8C42B5C754F00D00B23 /* Animations.swift in Sources */,
 				F06AE1DE2B539F5E0058F215 /* MegaMillions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

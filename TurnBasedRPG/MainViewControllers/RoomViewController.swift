@@ -45,6 +45,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print("Encountered gremlin")
             self.performSegue(withIdentifier: "BattleView", sender: self)
         })
+        let bobaGirl:Command = Command("Talk to Boba Girl", completionHandler: {
+            self.performSegue(withIdentifier: "NpcDialog", sender: self)
+        })
         let mushroom:Command = Command("Find Mushrooms", completionHandler: {
             print("Find Mushrooms")
             GameDatabase.shared.hero.rewardItem(Equipment(name: "Mushroom", description: "A mouldy a mushroom"))
@@ -64,8 +67,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         dayNight.rotate()
         
         patrolEventMenu.options.append(gremlin)
-        sneakEventMenu.options.append(crown)
-        sneakEventMenu.options.append(nothing)
+        exploreEventMenu.options.append(crown)
+        sneakEventMenu.options.append(bobaGirl)
 
         exploreEventMenu.options.append(rock)
         exploreEventMenu.options.append(mushroom)
@@ -118,9 +121,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //This Adds commands to the menu
     func setCommandMenu() {
         forceActionMenu.append(contentsOf: [
-            Command("Explore", completionHandler: {self.popMenu()}),
-            Command("Patrol", completionHandler: {self.showPatrolMenu()}),
-            Command("Sneak", completionHandler: {self.showSneakMenu()}),
+            Command("Find", completionHandler: {self.popMenu()}),
+            Command("Fight", completionHandler: {self.showPatrolMenu()}),
+            Command("Speak", completionHandler: {self.showSneakMenu()}),
                                            ])
     }
     //This displays the command popup
@@ -166,14 +169,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         })
     }
     
-    func showCommandMenu() {
-        
-    }
-    
-    func dockMenuBottom() {
-        
-    }
-    
+
     /// Swipe Actions
     @IBAction func moveNorth(_ sender: Any) {
         if (currentRoom?.north == nil){

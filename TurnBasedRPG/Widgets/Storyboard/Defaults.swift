@@ -8,6 +8,13 @@
 
 import UIKit
 
+
+/** This view is intended to be applied to the storyboard in a set it and forget it manner.
+ From the storyboard, set the UISwitch to DefaultSwitch and then set the "keyRing".
+ 
+ To retrieve this value from anywhere in the app use:
+ UserDefaults.standard.bool(forKey: "WhateverValueYouAssignedFromTheStoryboard")
+ */
 class DefaultSwitch: UISwitch {
     
     @IBInspectable var keyRing: String = "defaultSwitch"
@@ -18,8 +25,7 @@ class DefaultSwitch: UISwitch {
     }
     
     func initialSetup(){
-        let defaults = UserDefaults.standard
-        let check = defaults.bool(forKey: keyRing)
+        let check = UserDefaults.standard.bool(forKey: keyRing)
         print("Switch: \(keyRing) is \(check)")
         setOn(check, animated: true)
         self.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
@@ -33,6 +39,13 @@ class DefaultSwitch: UISwitch {
     }
 }
 
+/** This view is intended to be applied to the storyboard in a set it and forget it manner.
+ From the storyboard, set the UISlider to DefaultSlider and then set the "keyRing" from the inspector pane
+ on the storyboard..
+ 
+ To retrieve this value from anywhere in the app use:
+ UserDefaults.standard.float(forKey: "WhateverValueYouAssignedFromTheStoryboard")
+ */
 class DefaultSlider: UISlider {
     
     @IBInspectable var keyValue: String = "defaultSlider"
@@ -70,6 +83,13 @@ class DefaultSlider: UISlider {
     }
 }
 
+/** This view is intended to be applied to the storyboard in a set it and forget it manner.
+ From the storyboard, set the UISlider to DefaultSlider and then set the "keyRing" from the inspector pane
+ on the storyboard..
+ 
+ To retrieve this value from anywhere in the app use:
+ UserDefaults.standard.float(forKey: "WhateverValueYouAssignedFromTheStoryboard")
+ */
 class DefaultTextfield: UITextField {
     
     @IBInspectable var keyValue: String = "defaultText"

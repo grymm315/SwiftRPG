@@ -361,7 +361,7 @@
         <!--Boba Girl-->
         <scene sceneID="t6d-ZM-neg">
             <objects>
-                <viewController id="rrl-vE-8M7" customClass="NPCDialogViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rrl-vE-8M7" customClass="NpcDialogViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UjG-Kr-aPX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -421,7 +421,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOd-Kn-LKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949.60000000000002" y="-680.5097451274363"/>
+            <point key="canvasLocation" x="2569" y="1081"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -439,16 +439,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grymm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oR-Dx-v7M">
-                                        <rect key="frame" x="20" y="20" width="197" height="99"/>
+                                        <rect key="frame" x="20" y="34" width="197" height="99"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="64"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S3-dg-Yia">
-                                        <rect key="frame" x="22" y="81" width="164" height="99"/>
+                                        <rect key="frame" x="128" y="96" width="82" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="64"/>
+                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -689,9 +689,6 @@
                                         <real key="value" value="1.6000000000000001"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="rrl-vE-8M7" kind="show" id="aMP-sd-0Fu"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -994,6 +991,7 @@
                         <outlet property="roomView" destination="a5V-yK-3kp" id="5OT-DL-elY"/>
                         <outletCollection property="tappers" destination="W3T-ZV-PV2" collectionClass="NSMutableArray" id="seY-OG-Hjh"/>
                         <segue destination="59o-89-9o4" kind="showDetail" identifier="BattleView" id="SEy-ln-VA2"/>
+                        <segue destination="rrl-vE-8M7" kind="show" identifier="NpcDialog" id="mbo-Ts-Nbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPP-Y3-dJR" userLabel="First Responder" sceneMemberID="firstResponder"/>
