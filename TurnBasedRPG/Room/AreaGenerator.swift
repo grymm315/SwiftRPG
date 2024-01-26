@@ -11,11 +11,24 @@ import Foundation
 //Playing with some ways to randomly generate a map
 class AreaGenerator{
     
-    let startRoom:RoomNode = RoomNode(name: "Cockpit")
-    let endRoom:RoomNode = RoomNode(name: "ReactorRoom")
+    let startRoom:RoomNode = RoomNode(name: "ReactorRoom")
+    let reactorRoom:RoomNode = RoomNode(name: "ReactorRoom")
+    
+    let cityRoad1:RoomNode = RoomNode(name: "CityRoad1")
+    let diningRoom:RoomNode = RoomNode(name: "DiningRoom")
+    let downtown4:RoomNode = RoomNode(name: "Downtown4")
+    let downtown5:RoomNode = RoomNode(name: "Downtown5")
+    let downtownSheriff:RoomNode = RoomNode(name: "DowntownSheriff")
+    let flightdeck:RoomNode = RoomNode(name: "Flightdeck")
+    let furnaceInside:RoomNode = RoomNode(name: "FurnaceInside")
+    let furnaceOutside:RoomNode = RoomNode(name: "FurnaceOutside")
+    let gateOpening:RoomNode = RoomNode(name: "GateOpening")
     let street1:RoomNode = RoomNode(name: "Street1")
     let street2:RoomNode = RoomNode(name: "Street2")
-    let flightdeck:RoomNode = RoomNode(name: "Flightdeck")
+    let toriiGate2:RoomNode = RoomNode(name: "ToriiGate2")
+    let toriiGate1:RoomNode = RoomNode(name: "TorriGate1")
+    let roadToTower:RoomNode = RoomNode(name: "RoadToTower")
+    let street3:RoomNode = RoomNode(name: "Street3")
     
     
     
@@ -25,11 +38,21 @@ class AreaGenerator{
     
     // For something not random
     init(name: String){
-        flightdeck.linkRoom(.east, room: street2)
-        flightdeck.linkRoom(.west, room: endRoom)
+        flightdeck.linkRoom(.east, room: diningRoom)
+        flightdeck.linkRoom(.west, room: furnaceOutside)
         flightdeck.linkRoom(.north, room: startRoom)
-        street2.linkRoom(.east, room: endRoom)
+        
+        diningRoom.linkRoom(.east, room: street3)
+        street3.linkRoom(.north, room: downtown5)
+        //The new images are not rendering when linked together
+        //However going through one of the older images will always
+        //reset the view correctly
+        street2.linkRoom(.east, room: furnaceOutside)
         street1.linkRoom(.north, room: street2)
+        street1.linkRoom(.south, room: roadToTower)
+        roadToTower.linkRoom(.south, room: toriiGate1)
+        roadToTower.linkRoom(.east, room: toriiGate2)
+        toriiGate1.linkRoom(.east, room: downtown4)
     }
     
     init(size: Int){

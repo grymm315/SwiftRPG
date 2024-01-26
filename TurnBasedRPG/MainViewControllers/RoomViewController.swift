@@ -153,11 +153,15 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func moveRoom(to: RoomNode){
         currentRoom = to // Moving our current room to the next room
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
+            print("Image named: \(tImage)")
             roomView.image = tImage
         }
 
         UIView.animate(withDuration: transitSpeed, animations: {
-            self.view.frame.origin = self.originReturn!
+//            self.view.frame.origin = self.originReturn!
+            self.roomView.frame.origin = self.originReturn!
+
+            print("Moving \(self.roomView.frame) to \(self.originReturn)")
         })
     }
     
