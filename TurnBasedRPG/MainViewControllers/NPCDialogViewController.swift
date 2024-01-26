@@ -13,6 +13,8 @@ class NPCDialogViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var dialogList: UITableView!
     @IBOutlet weak var npcSpeechBubble: UILabel!
     
+//    @IBOutlet weak var scrollView: UIScrollView!
+    
     var dialogOptions:[String] = [
     "OK- So your not going to believe me but I see subtitles when people talk and I'm just reading the subtitles. Seriously.",
     "Pardon me, I'm looking for some cream",
@@ -22,14 +24,51 @@ class NPCDialogViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         dialogList.delegate = self
         dialogList.dataSource = self
-        npcSpeechBubble.layer.borderWidth = 2
-        npcSpeechBubble.layer.borderColor = UIColor.white.cgColor
-        npcSpeechBubble.layer.cornerRadius = 10
-        npcSpeechBubble.layer.masksToBounds = true
+        npcSpeechBubble.text = "What are you looking at? Do I have something on my shirt?"
         
-        npcSpeechBubble.text = "  Cindy: What are you looking at? Do I have something on my shirt?"
-       
     }
+    func reportScreen(){
+        print("Screen: \(UIScreen.main.bounds.width), \(UIScreen.main.bounds.height)")
+        print("Image should be \(getImageFrame().width) , \(getImageFrame().height)")
+    }
+    func getImageFrame() -> CGRect{
+        var rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.39)
+        
+        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
+            rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.39, height: UIScreen.main.bounds.height)
+        }
+        return rect
+    }
+    
+    func getSpeechFrame() -> CGRect{
+        var rect = CGRect(x: 8, y: UIScreen.main.bounds.height * 0.24, width: UIScreen.main.bounds.width - 16, height: 10)
+        
+        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
+            rect = CGRect(x: 8, y: UIScreen.main.bounds.width * 0.24, width: ((UIScreen.main.bounds.width * 0.39) - 16), height: 10)
+        }
+        return rect
+    }
+    func getTableFrame() -> CGRect{
+        //Portrait
+        var rect = CGRect(x: 0, y: getImageFrame().height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.61)
+        //Landscape
+        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
+            rect = CGRect(x: getImageFrame().width, y: 0, width: UIScreen.main.bounds.width * 0.61, height: UIScreen.main.bounds.height)
+        }
+        return rect
+    }
+    
+
+    
+    override func viewDidLayoutSubviews() {
+        npcImage.frame = getImageFrame()
+        dialogList.frame = getTableFrame()
+        npcSpeechBubble.frame = getSpeechFrame()
+        npcSpeechBubble.sizeToFit()
+
+        reportScreen()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dialogOptions.count
     }
@@ -41,18 +80,20 @@ class NPCDialogViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var speech = ""
         if (indexPath.row == 0) {
-            npcSpeechBubble.text = "Oh. Teeheehee. Sorry there are a bunch of creepos out there. Did you know that you can tap on text bubbles and wierd things might happen? Oh. Teeheehee. Sorry there are a bunch of creepos out there. Did you know that you can tap on text bubbles and wierd things might happen?Oh. Teeheehee. Sorry there are a bunch of creepos out there. Did you know that you can tap on text bubbles and wierd things might happen?"
+            speech = "Teeheehee. Sorry there are a bunch of creepos out there. Did you know that you can tap on text bubbles and wierd things might happen?"
         } else if (indexPath.row == 1) {
-            npcSpeechBubble.text = "You can check over at Millie's general store. I think she said she was bottling man milk. It's milk for men."
+            speech = "You can check over at Millie's general store. I think she said she was bottling man milk. It's milk for men."
         } else if (indexPath.row == 2) {
-            npcSpeechBubble.text = "Unfortunately there is a finite game world at this time. Please help contribute to the making of this game."
+            speech = "Unfortunately there is a finite game world at this time. Please help contribute to the making of this game."
+        } else {
+            speech = "I don't speak stupid"
         }
+        dialogOptions[0] = speech
+        npcSpeechBubble.text = speech
+        npcSpeechBubble.sizeToFit()
     }
-    
-
-    
-    
 }
 
 class DialogCell: UITableViewCell {
