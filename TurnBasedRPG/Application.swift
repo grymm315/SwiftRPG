@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let goldenRatio:CGFloat = 0.6180340
+
 extension UIApplication {
     class var topViewController: UIViewController? { return getTopViewController() }
     private class func getTopViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
@@ -37,5 +39,26 @@ extension UIApplication {
                      applicationActivities: [UIActivity]? = nil,
                      setupViewControllerCompletion: ((UIActivityViewController) -> Void)? = nil) {
         _share(data, applicationActivities: applicationActivities, setupViewControllerCompletion: setupViewControllerCompletion)
+    }
+}
+
+extension UIScreen {
+    // When constraints ain't cutting it we will forcefully set frames
+    func goldenSmallTopFrame() -> CGRect{
+        var rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * (1 - goldenRatio))
+        
+        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
+            rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * (1 - goldenRatio), height: UIScreen.main.bounds.height)
+        }
+        return rect
+    }
+    func goldenLargeLowerFrame() -> CGRect{
+        //Portrait
+        var rect = CGRect(x: 0, y: UIScreen.main.bounds.height * (1 - goldenRatio), width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * goldenRatio)
+        //Landscape
+        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
+            rect = CGRect(x: UIScreen.main.bounds.width * (1 - goldenRatio), y: 0, width: UIScreen.main.bounds.width * goldenRatio, height: UIScreen.main.bounds.height)
+        }
+        return rect
     }
 }

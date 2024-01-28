@@ -39,8 +39,53 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         setCommandMenu()
+       
+      
+        // Setting the Origin Return to happen after the view did load
+        // this is important for screen animations while transiting
+        dayNight.rotate()
+        roomView.frame = self.view.frame
+        originReturn = CGPoint(x: 0, y: 0)//self.view.frame.origin
+        
+        moveRoom(to: map.startRoom)
+                
+        // for all the gesture recognizers
+        for tip in tappers {
+            tip.delegate = self
+        }
+        
+        SoundController.shared.speak("Swipe to move.")
+
+        commandMenu.delegate = self
+        commandMenu.dataSource = self
+        //For some reason this is causing the Cell not to register
+//        commandMenu.register(CommandCell.self, forCellWithReuseIdentifier: "collectionCommand")
+        self.view.bringSubviewToFront(commandMenu)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("Self2: \(originReturn?.y)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let clicked = sender as? UICollectionViewCell {
+            if let next = segue.destination as? BattleViewController {
+                next.enemyView = clicked.contentView
+            }
+        }
+    }
+    
+    //This Adds commands to the menu
+    func setCommandMenu() {
         // These commands should be in a separate file
         // Hardcoding this for quick ideation
+        
+        forceActionMenu.append(contentsOf: [
+            Command("Find", completionHandler: {self.popMenu()}),
+            Command("Fight", completionHandler: {self.showPatrolMenu()}),
+            Command("Speak", completionHandler: {self.showSneakMenu()}),
+        ])
+        
         let gremlin:Command = Command("Encounter Gremlin", completionHandler: {
             print("Encountered gremlin")
             self.performSegue(withIdentifier: "BattleView", sender: self)
@@ -64,7 +109,6 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             GameDatabase.shared.hero.rewardItem(Armor(name: "Saphire Crown", description: "It glitters and sparkles", type: .Head))
         })
         
-        dayNight.rotate()
         
         patrolEventMenu.options.append(gremlin)
         exploreEventMenu.options.append(crown)
@@ -83,48 +127,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         commandMenu.layer.borderWidth = 4.0
         commandMenu.layer.cornerRadius = 20
 
-        // Setting the Origin Return to happen after the view did load
-        // this is important for screen animations while transiting
-
-        originReturn = self.view.frame.origin
-        print("Self1: \(originReturn?.y)")
         
-        moveRoom(to: map.startRoom)
-                
-        // for all the gesture recognizers
-        for tip in tappers {
-            tip.delegate = self
-        }
-        
-        SoundController.shared.speak("Swipe to move.")
-
-        commandMenu.delegate = self
-        commandMenu.dataSource = self
-        //For some reason this is causing the Cell not to register
-//        commandMenu.register(CommandCell.self, forCellWithReuseIdentifier: "collectionCommand")
-        self.view.bringSubviewToFront(commandMenu)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print("Self2: \(originReturn?.y)")
-        originReturn = self.view.frame.origin
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let clicked = sender as? UICollectionViewCell {
-            if let next = segue.destination as? BattleViewController {
-                next.enemyView = clicked.contentView
-            }
-        }
-    }
-    
-    //This Adds commands to the menu
-    func setCommandMenu() {
-        forceActionMenu.append(contentsOf: [
-            Command("Find", completionHandler: {self.popMenu()}),
-            Command("Fight", completionHandler: {self.showPatrolMenu()}),
-            Command("Speak", completionHandler: {self.showSneakMenu()}),
-                                           ])
     }
     //This displays the command popup
     func popMenu() {
@@ -153,15 +156,14 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func moveRoom(to: RoomNode){
         currentRoom = to // Moving our current room to the next room
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
-            print("Image named: \(tImage)")
+            print("Entered room \(currentRoom?.title ?? "!ERROR!")")
             roomView.image = tImage
         }
 
         UIView.animate(withDuration: transitSpeed, animations: {
 //            self.view.frame.origin = self.originReturn!
             self.roomView.frame.origin = self.originReturn!
-
-            print("Moving \(self.roomView.frame) to \(self.originReturn)")
+            
         })
     }
     
@@ -208,12 +210,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBAction func moveSouth(_ sender: Any) {
         if (currentRoom?.south == nil){
-            print("Can't go South!")
             self.view.nudgeVertical()
             SoundController.shared.noPassage()
             return}
+        
         SoundController.shared.roomChangeSound()
-
         UIView.animate(withDuration: transitSpeed, animations: {
             self.roomView.frame.origin.y =  -self.view.frame.height
         }, completion: {(finished:Bool) in
@@ -224,12 +225,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBAction func moveEast(_ sender: Any) {
         if (currentRoom?.east == nil){
-            print("Can't go East!")
             SoundController.shared.noPassage()
             self.view.nudgeHorizontal(-10)
             return}
+        
         SoundController.shared.roomChangeSound()
-
         UIView.animate(withDuration: transitSpeed, animations: {
             self.roomView.frame.origin.x = -UIScreen.main.bounds.width
         }, completion: {(finished:Bool) in

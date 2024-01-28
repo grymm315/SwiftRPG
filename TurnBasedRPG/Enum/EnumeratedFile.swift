@@ -8,4 +8,4 @@
 
 import Foundation
 
-let goldenRatio:CGFloat = 0.6180340
+
