@@ -10,8 +10,18 @@ import UIKit
 
 /// The Character sheet will be the primary view for examing stats
 
-class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
-//    let db: GameDatabase = GameDatabase.shared
+class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ReloadProtocol {
+   
+    @IBOutlet weak var heroView: UIView!
+    @IBOutlet weak var listView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var listPicker: UISegmentedControl!
+    
+    @IBAction func listChanged(_ sender: Any) {
+        reload()
+    }
+    //    let db: GameDatabase = GameDatabase.shared
     
     // The KeyRing uses a sorted Key Value pair.
     // But more simply "Strength" is the Key, 8 is the value
@@ -23,9 +33,22 @@ class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
     // Defining these variables for readability,
     // Notice they are set to private because other classes don't need to modify this convenience code
     // Changing order of sections is done here as well
-    private var headingSection: Int = 0
-    private var statSection: Int = 1
-    private var traitsSection: Int = 2
+    private var headingSection: Int = 20
+    private let statSection: Int = 0
+    private let traitsSection: Int = 1
+    
+    private let statsSectionTitles:[String] = ["Stats", "Traits"]
+    private let statsList: Int = 0
+    private let inventoryList: Int = 1
+    
+    private let equipedSlot: Int = 0
+    private let headSlot: Int = 1
+    private let armorSlot: Int = 2
+    private let legSlot:Int = 3
+    private let generalSection:Int = 4
+    
+    private let inventorySectionTitles:[String] = ["Equipped", "Head", "Armor", "Legs", "General"]
+    
     
     // Reload is defined as a method so it can be tied to the storyboard
     // and so we can throw in random extra stuff during a reload or to stop a reload
@@ -37,7 +60,14 @@ class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         
+    }
+    
+    override func viewDidLayoutSubviews() {
+        heroView.frame = UIScreen.main.goldenSmallTopFrame()
+        listView.frame = UIScreen.main.goldenLargeLowerFrame()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,62 +78,100 @@ class CharacterSheetTableViewController: UITableViewController, ReloadProtocol {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if (section == headingSection) {
-            //We only need 1 heading
-            return 1} else if (section == statSection) {
-                // We are showing all the stats in the keyring
-                return statKeyring.count
-            } else if (section == traitsSection) {
-                // Just 1 trait for now as it is mocked up
-                return 1
-            } else {
-                return 0
-            }
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Look at the storyboard to see what cells are being referenced
-        // Each cell type is defined as a class
-        
-        
-        if (indexPath.section == headingSection){
-            //This cell configures itself
-            let cell = tableView.dequeueReusableCell(withIdentifier: "blurbCell", for: indexPath) as! BlurbCell
-            cell.configCell()
-            return cell
-        } else if (indexPath.section == statSection){
-            //This cell is configured by passing in a parameter, in this case the indexPath of the StatKeyRing
-            let cell = tableView.dequeueReusableCell(withIdentifier: "statCell", for: indexPath) as! StatCell
-            cell.configCell(type: statKeyring[indexPath.row])
-            cell.tableView = self
-            return cell
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if (listPicker.selectedSegmentIndex == statsList){
+            return 2
+        } else if (listPicker.selectedSegmentIndex == inventoryList) {
+                return 5
         } else {
-            //This cell takes 2 parameters
-            let cell = tableView.dequeueReusableCell(withIdentifier: "traitCell", for: indexPath) as! TraitCell
-            cell.configCell(title: "Toast", subtitle: "Slightly crunchy and bland as fuck. You need somebody to butter your bread.")
-            cell.tableView = self
-            return cell
+            return 1
         }
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension//275.0
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (listPicker.selectedSegmentIndex == statsList){
+            if (section == headingSection) {
+                //We only need 1 heading
+                return 1
+            } else if (section == statSection) {
+                    // We are showing all the stats in the keyring
+                    return statKeyring.count
+            } else if (section == traitsSection) {
+                    // Just 1 trait for now as it is mocked up
+                    return 1
+            } else {
+                    return 0
+            }
+        } else if (listPicker.selectedSegmentIndex == inventoryList){
+            if (section == generalSection){
+            return GameDatabase.shared.hero.getInventory().count
+            } else {
+                return 1
+            }
+        } else {
+            return 1
+        }
+    }
+
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Look at the storyboard to see what cells are being referenced
+        // Each cell type is defined as a class
+        if (listPicker.selectedSegmentIndex == statsList){
+            if (indexPath.section == headingSection){
+                //This cell configures itself
+                let cell = tableView.dequeueReusableCell(withIdentifier: "blurbCell", for: indexPath) as! BlurbCell
+                cell.configCell()
+                return cell
+            } else if (indexPath.section == statSection){
+                //This cell is configured by passing in a parameter, in this case the indexPath of the StatKeyRing
+                let cell = tableView.dequeueReusableCell(withIdentifier: "statCell", for: indexPath) as! StatCell
+                cell.configCell(type: statKeyring[indexPath.row])
+                cell.tableView = self
+                return cell
+            } else if (indexPath.section == traitsSection){
+                //This cell takes 2 parameters
+                let cell = tableView.dequeueReusableCell(withIdentifier: "traitCell", for: indexPath) as! TraitCell
+                cell.configCell(title: "Toast", subtitle: "Slightly crunchy and bland as fuck. You need somebody to butter your bread.")
+                cell.tableView = self
+                return cell
+            }
+        } else if (listPicker.selectedSegmentIndex == inventoryList){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! InventoryCell
+            if (indexPath.section == generalSection){
+                cell.configCell(item: GameDatabase.shared.hero.getInventory()[indexPath.row])
+            } else if (indexPath.section == headSlot){
+                cell.configCell(item: GameDatabase.shared.hero.getHead())
+            } else if (indexPath.section == armorSlot){
+                cell.configCell(item: GameDatabase.shared.hero.getChest())
+            } else if (indexPath.section == legSlot){
+                cell.configCell(item: GameDatabase.shared.hero.getLegs())
+            } else if (indexPath.section == equipedSlot){
+                cell.configCell(item: GameDatabase.shared.hero.getWeapo())
+            }
+            return cell
+        }
+        return UITableViewCell()
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (section == headingSection){
-            return "General Info"
-        } else if (section == statSection){
-            return "Stats"
-        } else if (section == traitsSection){
-            return "Traits"
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 14
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension//275.0
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (listPicker.selectedSegmentIndex == statsList){
+            return statsSectionTitles[section]
+        } else if (listPicker.selectedSegmentIndex == inventoryList) {
+            return inventorySectionTitles[section]
         } else {
             return ""
         }
@@ -188,5 +256,16 @@ class StatCell: UITableViewCell {
     
     func getStat() -> UInt8 {
         return GameDatabase.shared.hero.stats[name.text!] ?? 0
+    }
+}
+
+class InventoryCell: UITableViewCell {
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var desc: UILabel!
+    
+    func configCell(item: Equipment?) {
+        name.text = item?.name ?? "* empty *"
+        desc.text = item?.description ?? ""
+        desc.sizeToFit()
     }
 }

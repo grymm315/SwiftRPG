@@ -8,15 +8,7 @@
 
 import UIKit
 
-class InventoryCell: UITableViewCell {
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var desc: UILabel!
-    
-    func configCell(item: Equipment?) {
-        name.text = item?.name ?? "* empty *"
-        desc.text = item?.description ?? ""
-    }
-}
+
 
 class InventoryTableViewController: UITableViewController, ReloadProtocol {
     
