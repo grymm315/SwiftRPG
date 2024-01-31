@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "4smith_hammer.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

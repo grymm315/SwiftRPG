@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "buggy.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

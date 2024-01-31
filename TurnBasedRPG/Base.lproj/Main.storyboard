@@ -7,6 +7,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -89,10 +90,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BobaGirl" translatesAutoresizingMaskIntoConstraints="NO" id="0pw-ov-Jtc">
-                                        <rect key="frame" x="8" y="8" width="180" height="180"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ob5-1E-Qzg">
                                         <rect key="frame" x="196" y="0.0" width="218" height="188"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
@@ -144,6 +141,66 @@
                                             </stackView>
                                         </subviews>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BobaGirl" translatesAutoresizingMaskIntoConstraints="NO" id="0pw-ov-Jtc">
+                                        <rect key="frame" x="8" y="8" width="180" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ypq-Oq-MiW" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                        <rect key="frame" x="21" y="207" width="84" height="76"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <menu key="menu" title="item" identifier="whoop" id="QxU-9o-4Ag">
+                                            <children>
+                                                <command title="Unequip" id="WD3-Pt-GfH"/>
+                                                <command title="inspect" id="sXY-FL-E2m"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Equiped"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="4" height="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzd-UE-mrD" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                        <rect key="frame" x="114" y="207" width="84" height="76"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <menu key="menu" id="Oik-a2-h8Y">
+                                            <children>
+                                                <command title="Item 1" id="AJP-XB-Inb"/>
+                                                <command title="Item 2" id="KkN-ww-buQ"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Head"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gay-ad-yPS" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                                        <rect key="frame" x="206" y="207" width="84" height="76"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <menu key="menu" id="Oty-ql-cEF">
+                                            <children>
+                                                <command title="Item 1" id="f5y-Ga-K9r"/>
+                                                <command title="Item 2" id="ie0-9m-gYW"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Chest"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                             </view>
@@ -943,7 +1000,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cockpit" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-yK-3kp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cockpit" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-yK-3kp">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-k1-VDO">
