@@ -27,35 +27,13 @@ class NpcDialogViewController: UIViewController, UITableViewDelegate, UITableVie
         npcSpeechBubble.text = "What are you looking at? Do I have something on my shirt?"
         
     }
-    func reportScreen(){
-        print("Screen: \(UIScreen.main.bounds.width), \(UIScreen.main.bounds.height)")
-        print("Image should be \(getImageFrame().width) , \(getImageFrame().height)")
-    }
-    
-    // When constraints ain't cutting it we will forcefully set frames
-    func getImageFrame() -> CGRect{
-        var rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.39)
-        
-        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
-            rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.39, height: UIScreen.main.bounds.height)
-        }
-        return rect
-    }
-    
+  
+    // We're g
     func getSpeechFrame() -> CGRect{
         var rect = CGRect(x: 8, y: UIScreen.main.bounds.height * 0.24, width: UIScreen.main.bounds.width - 16, height: 10)
         
         if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
-            rect = CGRect(x: 8, y: UIScreen.main.bounds.width * 0.24, width: ((UIScreen.main.bounds.width * 0.39) - 16), height: 10)
-        }
-        return rect
-    }
-    func getTableFrame() -> CGRect{
-        //Portrait
-        var rect = CGRect(x: 0, y: getImageFrame().height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.61)
-        //Landscape
-        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
-            rect = CGRect(x: getImageFrame().width, y: 0, width: UIScreen.main.bounds.width * 0.61, height: UIScreen.main.bounds.height)
+            rect = CGRect(x: 8, y: UIScreen.main.bounds.width * 0.24, width: ((UIScreen.main.bounds.width * (1 - goldenRatio)) - 16), height: 10)
         }
         return rect
     }
@@ -63,12 +41,10 @@ class NpcDialogViewController: UIViewController, UITableViewDelegate, UITableVie
 
     
     override func viewDidLayoutSubviews() {
-        npcImage.frame = getImageFrame()
-        dialogList.frame = getTableFrame()
+        npcImage.frame = UIScreen.main.goldenSmallTopFrame()
+        dialogList.frame = UIScreen.main.goldenLargeLowerFrame()
         npcSpeechBubble.frame = getSpeechFrame()
         npcSpeechBubble.sizeToFit()
-
-        reportScreen()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

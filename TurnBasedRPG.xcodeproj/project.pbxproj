@@ -310,6 +310,7 @@
 		F04F8AFB2B5DD94D00B3727F /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				820150932132CC2B006A4B80 /* SmaugData.swift */,
 				823F4F02214463FB00A3573B /* Doodles */,
 				9693FA40230FB3B600867915 /* FaceViewController.swift */,
 				F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */,
@@ -321,7 +322,6 @@
 		F0B0907E2B563EC0000ACCDC /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				820150932132CC2B006A4B80 /* SmaugData.swift */,
 				F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */,
 			);
 			path = Enum;

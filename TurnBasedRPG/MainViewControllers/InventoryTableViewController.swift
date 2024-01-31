@@ -55,7 +55,7 @@ class InventoryTableViewController: UITableViewController, ReloadProtocol {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! InventoryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! NameDescriptionCell
         if (indexPath.section == generalSection){
             cell.configCell(item: GameDatabase.shared.hero.getInventory()[indexPath.row])
         } else if (indexPath.section == headSlot){

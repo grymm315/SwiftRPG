@@ -54,12 +54,21 @@ extension UIView {
     }
     /** This will cause the view to continiously rotate*/
     func rotate() {
-           let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-           rotation.toValue = NSNumber(value: Double.pi * -2)
-           rotation.duration = 60
-           rotation.isCumulative = true
-           rotation.repeatCount = Float.greatestFiniteMagnitude
-           self.layer.add(rotation, forKey: "rotationAnimation")
+        UIView.animate(withDuration: 2, delay: 0, animations: {
+            self.transform = self.transform.rotated(by: -20.0 * 3.14/180.0)
+          })
+//           let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+//            print()
+////        rotation.fromValue = rotation.val
+//        rotation.toValue = CGFloat(.pi * -0.2)
+//           rotation.duration = 1
+//           rotation.isCumulative = true
+//            rotation.isRemovedOnCompletion = false
+//        rotation.isAdditive = false
+//        rotation.fillMode = CAMediaTimingFillMode.forwards
+////        rotation
+////           rotation.repeatCount = Float.greatestFiniteMagnitude
+//           self.layer.add(rotation, forKey: "rotationAnimation")
        }
     
     /** This will cause the view to fade in over a duration*/

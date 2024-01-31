@@ -43,11 +43,10 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
       
         // Setting the Origin Return to happen after the view did load
         // this is important for screen animations while transiting
-        dayNight.rotate()
         roomView.frame = self.view.frame
         originReturn = CGPoint(x: 0, y: 0)//self.view.frame.origin
         
-        moveRoom(to: map.startRoom)
+        moveRoom(to: map.downtown5)
                 
         // for all the gesture recognizers
         for tip in tappers {
@@ -63,10 +62,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.view.bringSubviewToFront(commandMenu)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("Self2: \(originReturn?.y)")
-    }
-    
+//    override func viewDidAppear(_ animated: Bool) {
+//    }
+//
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let clicked = sender as? UICollectionViewCell {
             if let next = segue.destination as? BattleViewController {
@@ -160,6 +158,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             roomView.image = tImage
         }
 
+        dayNight.rotate()
         UIView.animate(withDuration: transitSpeed, animations: {
 //            self.view.frame.origin = self.originReturn!
             self.roomView.frame.origin = self.originReturn!

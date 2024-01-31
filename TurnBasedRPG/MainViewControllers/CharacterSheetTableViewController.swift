@@ -29,25 +29,27 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     
     // There could certainly be a better solution for this... but this is *good enough*
     lazy var statKeyring = GameDatabase.shared.hero.stats.keys.sorted()
+    lazy var questKeyring = GameDatabase.shared.quests.keys.sorted()
     
     // Defining these variables for readability,
     // Notice they are set to private because other classes don't need to modify this convenience code
     // Changing order of sections is done here as well
+    private let statsSectionTitles:[String] = ["Stats", "Traits"]
     private var headingSection: Int = 20
     private let statSection: Int = 0
     private let traitsSection: Int = 1
     
-    private let statsSectionTitles:[String] = ["Stats", "Traits"]
     private let statsList: Int = 0
     private let inventoryList: Int = 1
+    private let questList: Int = 2
     
+    private let inventorySectionTitles:[String] = ["Equipped", "Head", "Armor", "Legs", "General"]
     private let equipedSlot: Int = 0
     private let headSlot: Int = 1
     private let armorSlot: Int = 2
     private let legSlot:Int = 3
     private let generalSection:Int = 4
     
-    private let inventorySectionTitles:[String] = ["Equipped", "Head", "Armor", "Legs", "General"]
     
     
     // Reload is defined as a method so it can be tied to the storyboard
@@ -108,6 +110,8 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
             } else {
                 return 1
             }
+        }else if (listPicker.selectedSegmentIndex == questList){
+            return GameDatabase.shared.quests.count
         } else {
             return 1
         }
@@ -137,7 +141,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
                 return cell
             }
         } else if (listPicker.selectedSegmentIndex == inventoryList){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! InventoryCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! NameDescriptionCell
             if (indexPath.section == generalSection){
                 cell.configCell(item: GameDatabase.shared.hero.getInventory()[indexPath.row])
             } else if (indexPath.section == headSlot){
@@ -149,6 +153,10 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
             } else if (indexPath.section == equipedSlot){
                 cell.configCell(item: GameDatabase.shared.hero.getWeapo())
             }
+            return cell
+        } else if (listPicker.selectedSegmentIndex == questList){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! NameDescriptionCell
+            cell.configQuest(questName: questKeyring[indexPath.row])
             return cell
         }
         return UITableViewCell()
@@ -173,7 +181,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
         } else if (listPicker.selectedSegmentIndex == inventoryList) {
             return inventorySectionTitles[section]
         } else {
-            return ""
+            return "Active"
         }
     }
 
@@ -259,7 +267,7 @@ class StatCell: UITableViewCell {
     }
 }
 
-class InventoryCell: UITableViewCell {
+class NameDescriptionCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var desc: UILabel!
     
@@ -267,5 +275,17 @@ class InventoryCell: UITableViewCell {
         name.text = item?.name ?? "* empty *"
         desc.text = item?.description ?? ""
         desc.sizeToFit()
+    }
+    
+    func configQuest(questName:String){
+        print("Quest: \(questName)")
+        name.text = "\(questName)"
+        desc.text = GameDatabase.shared.quests[questName] ?? "Unknown"
+        self.backgroundColor = UIColor.black
+        desc.sizeToFit()
+    }
+    
+    func getDetails() -> String {
+        return GameDatabase.shared.quests[name.text!] ?? "Unknown"
     }
 }
