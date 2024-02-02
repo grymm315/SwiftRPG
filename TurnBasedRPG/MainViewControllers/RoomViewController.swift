@@ -17,9 +17,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var commandMenu: UICollectionView!
         
     @IBOutlet weak var dayNight: UIImageView!
-    @IBOutlet var tappers: [UISwipeGestureRecognizer]!
-    // This moves lines up Command + ALT + [
-    // This moves lines down Command + ALT + ]
+    @IBOutlet var gestures: [UISwipeGestureRecognizer]!
+
+    @IBOutlet weak var hpBar: HealthBar!
+    @IBOutlet weak var mpBar: HealthBar!
+    @IBOutlet weak var energyBar: HealthBar! //granola = delicious
     
     // This is where our map starts during animation
     var originReturn:CGPoint? //* */
@@ -36,11 +38,27 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var forceActionMenu:[Command] = []
     
+    fileprivate func setHealthBars() {
+        hpBar._maxHealth = GameDatabase.shared.hero.maxHealth
+        hpBar._currentHealth = GameDatabase.shared.hero.currentHealth
+        hpBar.takeDamage(0)
+        
+        mpBar._maxHealth = GameDatabase.shared.hero.maxMana
+        mpBar._currentHealth = GameDatabase.shared.hero.currentMana
+        mpBar.takeDamage(0)
+        
+        energyBar._maxHealth = GameDatabase.shared.hero.maxEnergy
+        energyBar._currentHealth = GameDatabase.shared.hero.currentEnergy
+        energyBar.takeDamage(0)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCommandMenu()
-       
-      
+        
+        setHealthBars()
+
+        
         // Setting the Origin Return to happen after the view did load
         // this is important for screen animations while transiting
         roomView.frame = self.view.frame
@@ -49,8 +67,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         moveRoom(to: map.downtown5)
                 
         // for all the gesture recognizers
-        for tip in tappers {
-            tip.delegate = self
+        for swipe in gestures {
+            swipe.delegate = self
         }
         
         SoundController.shared.speak("Swipe to move.")
@@ -62,9 +80,10 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.view.bringSubviewToFront(commandMenu)
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//    }
-//
+    override func viewWillAppear(_ animated: Bool) {
+        setHealthBars()
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let clicked = sender as? UICollectionViewCell {
             if let next = segue.destination as? BattleViewController {

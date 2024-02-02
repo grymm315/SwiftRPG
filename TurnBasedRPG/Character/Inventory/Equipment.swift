@@ -10,11 +10,12 @@ import Foundation
 
 
 class Equipment {
-    var count: Int = 0
+    var count: Int = 1
     var level: UInt8?
     var weight: UInt8?
     var bulk: UInt8?
     var value: Int?
+    var imageNamed: String?
     
     var name: String = ""
     var description: String?
@@ -55,6 +56,14 @@ class Armor:Equipment {
 
 }
 
-class Usable:Equipment {
+class Consumable:Equipment {
+    var stack: Int = 10
+
+    public var action:() -> Void
+    
+    init(_ text:String, description: String, completionHandler:@escaping () -> Void){
+        action = completionHandler
+        super.init(name: text, description: description)
+    }
     
 }

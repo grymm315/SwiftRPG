@@ -16,6 +16,12 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var listView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var heroName: UILabel!
+    @IBOutlet weak var classLevel: UILabel!
+    @IBOutlet weak var healthIndicator: UILabel!
+    @IBOutlet weak var manaIndicator: UILabel!
+    @IBOutlet weak var xpBar: UIProgressView!
+    @IBOutlet weak var energyIndicator: UILabel!
     @IBOutlet weak var listPicker: UISegmentedControl!
     
     @IBAction func listChanged(_ sender: Any) {
@@ -56,15 +62,25 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     // and so we can throw in random extra stuff during a reload or to stop a reload
     func reload() {
         DispatchQueue.main.async {
+            self.setHeroView()
             self.tableView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setHeroView()
         tableView.delegate = self
         tableView.dataSource = self
         
+    }
+    
+    func setHeroView() {
+        heroName.text = GameDatabase.shared.hero.name
+        classLevel.text = "Lv.\(GameDatabase.shared.hero.level) \(GameDatabase.shared.hero.profession.description)"
+        healthIndicator.text = "HP: \(GameDatabase.shared.hero.currentHealth) / \(GameDatabase.shared.hero.maxHealth)"
+         manaIndicator.text = "MP: \(GameDatabase.shared.hero.currentMana) / \(GameDatabase.shared.hero.maxMana)"
+        energyIndicator.text = "EP: \(GameDatabase.shared.hero.currentMana) / \(GameDatabase.shared.hero.maxEnergy)"
     }
     
     override func viewDidLayoutSubviews() {

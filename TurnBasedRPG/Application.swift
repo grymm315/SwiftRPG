@@ -43,13 +43,19 @@ extension UIApplication {
 }
 
 extension UIScreen {
+    
+    func isPortrait() -> Bool{
+        return UIScreen.main.bounds.width < UIScreen.main.bounds.height
+    }
     func getRatio() -> CGFloat {
         var ratio = 0.6180340
         
-        if (UIScreen.main.bounds.width < UIScreen.main.bounds.height){
-            ratio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
+        //Portrait mode
+        if (isPortrait()){
+            ratio = UIScreen.main.bounds.width / (UIScreen.main.bounds.height - 44)
         } else {
-            ratio = UIScreen.main.bounds.height / UIScreen.main.bounds.width
+            //LandscapeMode
+            ratio = (UIScreen.main.bounds.height - 32) / UIScreen.main.bounds.width
         }
         print("CRP Ratio: \(ratio)")
         return ratio
@@ -58,23 +64,21 @@ extension UIScreen {
     // When constraints ain't cutting it we will forcefully set frames
     func goldenSmallTopFrame() -> CGRect{
         
-        var rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * getRatio())
+        var rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - 44) * getRatio())
         
         if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
-            rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * getRatio(), height: UIScreen.main.bounds.height)
+            rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * getRatio(), height: (UIScreen.main.bounds.height - 32))
         }
         return rect
     }
     func goldenLargeLowerFrame() -> CGRect{
-        let portraitRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
-        let landscapeRatio = UIScreen.main.bounds.height / UIScreen.main.bounds.width
+       
         //Portrait
-        var rect = CGRect(x: 0, y: UIScreen.main.bounds.height * getRatio(), width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * (1 - getRatio()))
+        var rect = CGRect(x: 0, y: (UIScreen.main.bounds.height - 44) * getRatio(), width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - 44) * (1 - getRatio()))
         //Landscape
         if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
-            rect = CGRect(x: UIScreen.main.bounds.width * getRatio(), y: 0, width: UIScreen.main.bounds.width * (1 - getRatio()), height: UIScreen.main.bounds.height)
+            rect = CGRect(x: UIScreen.main.bounds.width * getRatio(), y: 0, width: UIScreen.main.bounds.width * (1 - getRatio()), height: UIScreen.main.bounds.height - 32)
         }
-        
         return rect
     }
 }

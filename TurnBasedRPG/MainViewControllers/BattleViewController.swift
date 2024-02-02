@@ -59,8 +59,9 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         //  heroHP.frame.origin.y = (UIScreen.main.bounds.height / 2)
         heroHP._maxHealth = hero.maxHealth
         heroHP._currentHealth = hero.currentHealth
-        heroName.text = hero.race.rawValue
-        SoundController.shared.speak("You are attacked by a ferocious goblin.")
+        heroHP.takeDamage(0)//I'm being lazy here to force the health bar to refresh values
+        heroName.text = hero.name
+        SoundController.shared.speak("You are attacked by a ferocious \(enemy.race.rawValue).")
     }
     
     func popText(_ text:String){
@@ -107,7 +108,8 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
             isPaused = true
             popText("You have defeated \(enemy.name)!!")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-                self.popText("You have gained 10 XP!!")
+                self.popText("You have gained 100 XP!!")
+                GameDatabase.shared.hero.experience += 100
             })
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
                 self.dismiss(animated: true, completion: nil)
@@ -123,7 +125,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
             AIMove()
         } else {
             enemyPOS += Int(enemy.agility)
-            menu.menuItems = ["Attack", "Magic", "Item", "Escape"]
+            menu.menuItems = ["Attack", "Heal", "Item", "Escape"]
             self.view.addSubview(menu.view)
         }
     }
@@ -138,8 +140,9 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
             enemyImage.shake()
             popText("You deal \(hdmg) dmg to \(enemy.race)")
             sound.painNoise()
-        case "Magic":
+        case "Heal":
             heroHP.heal(15)
+            GameDatabase.shared.hero.currentHealth -= 15
             sound.magic()
             popText("You heal for 15 points")
         case "Item":
@@ -163,6 +166,8 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
         let edmg = Int.random(in: 1...Int(enemy.strength))
         enemyImage.nudgeVertical(-70)
         heroHP.takeDamage(edmg)
+        GameDatabase.shared.hero.currentHealth -= edmg
+        
         popText("\(enemy.race) attacks you for \(edmg) points")
         sound.painNoise()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {

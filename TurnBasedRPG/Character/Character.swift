@@ -25,10 +25,14 @@ class Character {
         
     }
     
-    var maxHealth: Int {
-        return Int(endurance * 10)
-    }
-    lazy var currentHealth: Int = Int(endurance * 10)
+    var maxHealth: Int {return Int((stats["endurance"] ?? 1) * 10)}
+    lazy var currentHealth: Int = maxHealth
+    
+    var maxMana: Int {return Int((stats["intelligence"] ?? 1) * 10)}
+    lazy var currentMana: Int = maxMana
+    var maxEnergy: Int {return Int((stats["endurance"] ?? 1) * 10)}
+    lazy var currentEnergy: Int = maxEnergy
+    
     
     // Is this too Fallout?
     var strength: UInt8
@@ -61,6 +65,9 @@ class Character {
     
    
 
+    func xpToNextLevel(){
+        
+    }
     func getItemFromRow(_ index:IndexPath) -> Equipment {
         return inventory[index.row]
     }
