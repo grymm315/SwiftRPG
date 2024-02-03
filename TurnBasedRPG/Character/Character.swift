@@ -19,9 +19,9 @@ class Character {
         self.agility = agility
         name = "Grymmenthald"
         
-        equippedSlot = Weapon.init(name: "Bare-Hands", description: "Ordinary hands. 10 fingers and 2 thumbs on each hand.")
-        chestEquipmentSlot = Armor.init(name: "Black T-Shirt", description: "100% Cotton. Machine wash cold.", type: .Chest)
-        legsEquipmentSlot = Armor.init(name: "Jeans", description: "Blue denim. Formal wear of the Candian Empire", type: .Legs)
+        equippedSlot = WeaponRack.bareFist.instance
+        chestEquipmentSlot = ArmorRack.shirt.instance
+        legsEquipmentSlot = ArmorRack.leatherPants.instance
         
     }
     
@@ -105,6 +105,11 @@ class Character {
         equippedSlot = inventory.remove(at: index) as! Weapon
     }
     
+    private func useItem(index:Int){
+        let item = inventory.remove(at: index) as! Consumable
+        item.action()
+    }
+    
     func equipItemFromRow(index: Int){
         let item = inventory[index]
         if item is Armor {
@@ -126,6 +131,8 @@ class Character {
             }
         } else if item is Weapon {
             equipWeapon(index: index)
+        } else if item is Consumable {
+            useItem(index: index)
         } else {
             print("I don't know what the fuck you're trying to equip")
         }

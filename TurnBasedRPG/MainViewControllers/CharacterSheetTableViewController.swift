@@ -80,7 +80,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
         classLevel.text = "Lv.\(GameDatabase.shared.hero.level) \(GameDatabase.shared.hero.profession.description)"
         healthIndicator.text = "HP: \(GameDatabase.shared.hero.currentHealth) / \(GameDatabase.shared.hero.maxHealth)"
          manaIndicator.text = "MP: \(GameDatabase.shared.hero.currentMana) / \(GameDatabase.shared.hero.maxMana)"
-        energyIndicator.text = "EP: \(GameDatabase.shared.hero.currentMana) / \(GameDatabase.shared.hero.maxEnergy)"
+        energyIndicator.text = "EP: \(GameDatabase.shared.hero.currentEnergy) / \(GameDatabase.shared.hero.maxEnergy)"
     }
     
     override func viewDidLayoutSubviews() {
@@ -158,7 +158,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
             }
         } else if (listPicker.selectedSegmentIndex == inventoryList){
             let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! NameDescriptionCell
-            if (indexPath.section == generalSection){
+            if (indexPath.section == generalSection && indexPath.row < GameDatabase.shared.hero.getInventory().count){
                 cell.configCell(item: GameDatabase.shared.hero.getInventory()[indexPath.row])
             } else if (indexPath.section == headSlot){
                 cell.configCell(item: GameDatabase.shared.hero.getHead())
@@ -200,7 +200,63 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
             return "Active"
         }
     }
-
+    
+    func getSwipeConfig(indexPath: IndexPath) -> UISwipeActionsConfiguration?{
+        print("Swipe detected")
+        var actionArray:[UIContextualAction] = []
+        if (indexPath.section == generalSection){
+            let drop = UIContextualAction(style: .destructive, title: "drop", handler: {_,_,_ in
+                GameDatabase.shared.hero.dropItemFromRow(indexPath.row)
+                DispatchQueue.main.async { self.reload() }
+            })
+            let useItem = UIContextualAction(style: .normal, title: "use", handler: {_,_,_ in
+                GameDatabase.shared.hero.equipItemFromRow(index: indexPath.row)
+                DispatchQueue.main.async { self.reload() }
+            })
+            actionArray.append(drop)
+            actionArray.append(useItem)
+        } else if (indexPath.section == headSlot){
+            let remove = UIContextualAction(style: .destructive, title: "remove", handler: {_,_,_ in
+                GameDatabase.shared.hero.removeHeadPiece()
+                DispatchQueue.main.async {self.reload()}
+            })
+            actionArray.append(remove)
+        } else if (indexPath.section == armorSlot){
+            let remove = UIContextualAction(style: .destructive, title: "remove", handler: {_,_,_ in
+                GameDatabase.shared.hero.removeChestPiece()
+                DispatchQueue.main.async {self.reload()}
+            })
+            actionArray.append(remove)
+        } else if (indexPath.section == legSlot){
+            let remove = UIContextualAction(style: .destructive, title: "remove", handler: {_,_,_ in
+                GameDatabase.shared.hero.removeLegPiece()
+                DispatchQueue.main.async {self.reload()}
+            })
+            actionArray.append(remove)
+        } else if (indexPath.section == equipedSlot){
+            let remove = UIContextualAction(style: .destructive, title: "remove", handler: {_,_,_ in
+                GameDatabase.shared.hero.removeEquipedItem()
+                DispatchQueue.main.async {self.reload()}
+            })
+            actionArray.append(remove)
+        }
+        let config = UISwipeActionsConfiguration(actions: actionArray)
+        return config
+    }
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if (listPicker.selectedSegmentIndex == inventoryList){
+            return getSwipeConfig(indexPath: indexPath)
+        } else {
+            return nil
+        }
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if (listPicker.selectedSegmentIndex == inventoryList){
+            return getSwipeConfig(indexPath: indexPath)
+        } else {
+            return nil
+        }
+    }
 }
 
 //Quick reference to the essentials info

@@ -47,7 +47,7 @@ class InventoryTableViewController: UITableViewController, ReloadProtocol {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if (section == generalSection){
-        return GameDatabase.shared.hero.getInventory().count
+        return GameDatabase.shared.hero.getInventory().count + 2
         } else {
             return 1
         }
@@ -56,7 +56,10 @@ class InventoryTableViewController: UITableViewController, ReloadProtocol {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "equipmentSlot", for: indexPath) as! NameDescriptionCell
-        if (indexPath.section == generalSection){
+        if (indexPath.row <= GameDatabase.shared.hero.getInventory().count){
+            
+        }
+        else if (indexPath.section == generalSection){
             cell.configCell(item: GameDatabase.shared.hero.getInventory()[indexPath.row])
         } else if (indexPath.section == headSlot){
             cell.configCell(item: GameDatabase.shared.hero.getHead())
@@ -70,7 +73,7 @@ class InventoryTableViewController: UITableViewController, ReloadProtocol {
         return cell
     }
         
-    func getSwipeConfig(indexPath: IndexPath) -> UISwipeActionsConfiguration?{
+    func getInventorySwipeConfig(indexPath: IndexPath) -> UISwipeActionsConfiguration?{
         print("Swipe detected")
         var actionArray:[UIContextualAction] = []
         if (indexPath.section == generalSection){
@@ -114,11 +117,11 @@ class InventoryTableViewController: UITableViewController, ReloadProtocol {
         
     }
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        return getSwipeConfig(indexPath: indexPath)
+        return getInventorySwipeConfig(indexPath: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        return getSwipeConfig(indexPath: indexPath)
+        return getInventorySwipeConfig(indexPath: indexPath)
     }
     
 }

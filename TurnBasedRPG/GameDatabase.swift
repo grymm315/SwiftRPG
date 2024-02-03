@@ -18,7 +18,7 @@ class GameDatabase {
     
     lazy var quests: [String : String] = [
         "New Beginings" : "Welcome to the world of Grymm. You have awakened in a town, try to get to the next one.",
-        "New Dawn" : "Welcome to the world of Grymm. You have awakened in a town, try to get to the next one.",
+        "New Dawn" : "It is the middle of night, can you last until day?",
     ]
     
     var canEditStats:Bool = true

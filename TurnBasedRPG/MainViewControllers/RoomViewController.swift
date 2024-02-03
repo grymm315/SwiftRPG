@@ -103,36 +103,41 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             Command("Speak", completionHandler: {self.showSneakMenu()}),
         ])
         
-        let gremlin:Command = Command("Encounter Gremlin", completionHandler: {
-            print("Encountered gremlin")
+        let gremlin:Command = Command("Encounter Goblin", completionHandler: {
             self.performSegue(withIdentifier: "BattleView", sender: self)
         })
         let bobaGirl:Command = Command("Talk to Boba Girl", completionHandler: {
             self.performSegue(withIdentifier: "NpcDialog", sender: self)
         })
         let mushroom:Command = Command("Find Mushrooms", completionHandler: {
-            print("Find Mushrooms")
-            GameDatabase.shared.hero.rewardItem(Equipment(name: "Mushroom", description: "A mouldy a mushroom"))
+            GameDatabase.shared.hero.rewardItem(ItemRack.mushroom.instance)
         })
         let nothing:Command = Command("Nothing happens", completionHandler: {
             SoundController.shared.speak("You spend some time exploring but you find nothing")
         })
-        let rock:Command = Command("Find Rock", completionHandler: {
-            print("Find Rock")
-            GameDatabase.shared.hero.rewardItem(Equipment(name: "Rock", description: "In an intelligence contest, this thing would have you beat"))
+        let rock:Command = Command("Find armor", completionHandler: {
+            GameDatabase.shared.hero.rewardItem(ArmorRack.chainChest.instance)
         })
         let crown:Command = Command("Steal Crown", completionHandler: {
-            print("Steal Crown")
-            GameDatabase.shared.hero.rewardItem(Armor(name: "Saphire Crown", description: "It glitters and sparkles", type: .Head))
+            GameDatabase.shared.hero.rewardItem(ArmorRack.crown.instance)
+        })
+        let xpPot:Command =  Command("Find XP Potion", completionHandler: {
+            GameDatabase.shared.hero.rewardItem(ItemRack.xpPotion.instance)
+        })
+        
+        let healthPot:Command =  Command("Find Health Potion", completionHandler: {
+            GameDatabase.shared.hero.rewardItem(ItemRack.healthPotion.instance)
         })
         
         
         patrolEventMenu.options.append(gremlin)
-        exploreEventMenu.options.append(crown)
         sneakEventMenu.options.append(bobaGirl)
 
+        exploreEventMenu.options.append(crown)
         exploreEventMenu.options.append(rock)
         exploreEventMenu.options.append(mushroom)
+        exploreEventMenu.options.append(xpPot)
+        exploreEventMenu.options.append(healthPot)
 
 
         exploreEventMenu.startFrame = commandMenu.frame
