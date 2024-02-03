@@ -183,6 +183,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
 
         dayNight.rotate()
+        GameDatabase.shared.hero.currentEnergy -= 1
+        energyBar.takeDamage(1)
         UIView.animate(withDuration: transitSpeed, animations: {
 //            self.view.frame.origin = self.originReturn!
             self.roomView.frame.origin = self.originReturn!

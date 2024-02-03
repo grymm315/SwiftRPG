@@ -78,6 +78,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     func setHeroView() {
         heroName.text = GameDatabase.shared.hero.name
         classLevel.text = "Lv.\(GameDatabase.shared.hero.level) \(GameDatabase.shared.hero.profession.description)"
+        xpBar.progress = Float(GameDatabase.shared.hero.experience) / 2000.0
         healthIndicator.text = "HP: \(GameDatabase.shared.hero.currentHealth) / \(GameDatabase.shared.hero.maxHealth)"
          manaIndicator.text = "MP: \(GameDatabase.shared.hero.currentMana) / \(GameDatabase.shared.hero.maxMana)"
         energyIndicator.text = "EP: \(GameDatabase.shared.hero.currentEnergy) / \(GameDatabase.shared.hero.maxEnergy)"

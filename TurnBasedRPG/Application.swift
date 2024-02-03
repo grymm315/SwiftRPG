@@ -30,11 +30,13 @@ extension UIApplication {
         UIApplication.topViewController?.present(activityViewController, animated: true, completion: nil)
     }
 
+    /** This will pop the iOS standard share screen*/
     class func share(_ data: Any...,
                      applicationActivities: [UIActivity]? = nil,
                      setupViewControllerCompletion: ((UIActivityViewController) -> Void)? = nil) {
         _share(data, applicationActivities: applicationActivities, setupViewControllerCompletion: setupViewControllerCompletion)
     }
+    /** This will pop the iOS standard share screen*/
     class func share(_ data: [Any],
                      applicationActivities: [UIActivity]? = nil,
                      setupViewControllerCompletion: ((UIActivityViewController) -> Void)? = nil) {
