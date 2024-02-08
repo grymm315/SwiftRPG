@@ -109,8 +109,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let bobaGirl:Command = Command("Talk to Boba Girl", completionHandler: {
             self.performSegue(withIdentifier: "NpcDialog", sender: self)
         })
-        let mushroom:Command = Command("Find Mushrooms", completionHandler: {
-            GameDatabase.shared.hero.rewardItem(ItemRack.mushroom.instance)
+        let mushroom:Command = Command("Find BuzzPop", completionHandler: {
+            GameDatabase.shared.hero.rewardItem(ItemRack.buzzPop.instance)
         })
         let nothing:Command = Command("Nothing happens", completionHandler: {
             SoundController.shared.speak("You spend some time exploring but you find nothing")
@@ -148,6 +148,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         commandMenu.layer.borderColor = UIColor.white.cgColor
         commandMenu.layer.borderWidth = 4.0
         commandMenu.layer.cornerRadius = 20
+        let showDevConsole = !UserDefaults.standard.bool(forKey: "DevConsole")
+        commandMenu.isHidden = showDevConsole
 
         
     }

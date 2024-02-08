@@ -75,7 +75,7 @@ extension UIScreen {
     func goldenLargeLowerFrame() -> CGRect{
        
         //Portrait
-        var rect = CGRect(x: 0, y: (UIScreen.main.bounds.height - 44) * getRatio(), width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height) * (1 - getRatio()))
+        var rect = CGRect(x: 0, y: (UIScreen.main.bounds.height - 44) * getRatio(), width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - ((UIScreen.main.bounds.height - 44) * getRatio())))
         //Landscape
         if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
             rect = CGRect(x: UIScreen.main.bounds.width * getRatio(), y: 0, width: UIScreen.main.bounds.width * (1 - getRatio()), height: UIScreen.main.bounds.height - 32)

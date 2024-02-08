@@ -143,7 +143,7 @@ enum ItemRack {
             })
         case .xpPotion:
             return Consumable("XP Potion", description: "Holy Shit! This is a cheat item", completionHandler: {
-                GameDatabase.shared.hero.experience += 1000
+                GameDatabase.shared.hero.rewardXp(1000)
             })
         }
     }

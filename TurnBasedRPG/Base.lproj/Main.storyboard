@@ -92,11 +92,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ob5-1E-Qzg">
-                                        <rect key="frame" x="196" y="0.0" width="218" height="188"/>
+                                        <rect key="frame" x="196" y="0.0" width="218" height="292"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="kSA-Pr-MvZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="186" height="174.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kSA-Pr-MvZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="186" height="224.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJV-Ki-DPC">
                                                         <rect key="frame" x="0.0" y="0.0" width="186" height="29"/>
@@ -105,7 +105,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="12S-1D-Hfr">
-                                                        <rect key="frame" x="0.0" y="45" width="186" height="20"/>
+                                                        <rect key="frame" x="0.0" y="33" width="186" height="20"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lv. 21 Adventurer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nS8-jF-wUJ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="186" height="16"/>
@@ -121,19 +121,43 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HP: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBF-Jg-Ynw">
-                                                        <rect key="frame" x="0.0" y="81" width="186" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="57" width="186" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MP: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-Sb-M7T">
-                                                        <rect key="frame" x="0.0" y="117.5" width="186" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="81.5" width="186" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Energy: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGb-Un-kU2">
-                                                        <rect key="frame" x="0.0" y="154" width="186" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="106" width="186" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perk Points: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSc-TQ-RfB">
+                                                        <rect key="frame" x="0.0" y="130.5" width="186" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atk: 1 Def: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAy-PB-cJb">
+                                                        <rect key="frame" x="0.0" y="155" width="186" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GP: 1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJd-EJ-fhu">
+                                                        <rect key="frame" x="0.0" y="179.5" width="186" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status Effects: None" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1A-Sp-hyp">
+                                                        <rect key="frame" x="0.0" y="204" width="186" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -153,25 +177,12 @@
                                 <rect key="frame" x="-1" y="307" width="414" height="496"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sd2-K6-93h">
-                                        <rect key="frame" x="6" y="0.0" width="398" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <segments>
-                                            <segment title="Stats"/>
-                                            <segment title="Inventory"/>
-                                            <segment title="Quests"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="listChanged:" destination="klr-4q-mw2" eventType="valueChanged" id="047-sL-lGY"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="12" estimatedSectionHeaderHeight="10" sectionFooterHeight="12" estimatedSectionFooterHeight="10" id="3ey-57-RoK">
-                                        <rect key="frame" x="0.0" y="36" width="414" height="419"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="12" estimatedSectionHeaderHeight="10" sectionFooterHeight="12" estimatedSectionFooterHeight="10" springLoaded="YES" id="3ey-57-RoK">
+                                        <rect key="frame" x="0.0" y="24" width="414" height="472"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
-                                        <inset key="scrollIndicatorInsets" minX="200" minY="200" maxX="200" maxY="400"/>
                                         <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="blurbCell" rowHeight="105" id="GOM-JN-Y4Y" customClass="BlurbCell" customModule="TurnBasedRPG" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="414" height="105"/>
@@ -409,6 +420,19 @@
                                         </prototypes>
                                         <sections/>
                                     </tableView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sd2-K6-93h">
+                                        <rect key="frame" x="6" y="4" width="398" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <segments>
+                                            <segment title="Stats"/>
+                                            <segment title="Inventory"/>
+                                            <segment title="Quests"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="listChanged:" destination="klr-4q-mw2" eventType="valueChanged" id="047-sL-lGY"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -418,21 +442,25 @@
                     </view>
                     <navigationItem key="navigationItem" id="Y7D-Mc-B7E"/>
                     <connections>
+                        <outlet property="battleStats" destination="dAy-PB-cJb" id="1S2-0Z-j9O"/>
                         <outlet property="classLevel" destination="nS8-jF-wUJ" id="cYw-zC-4Pg"/>
                         <outlet property="energyIndicator" destination="EGb-Un-kU2" id="c9x-jm-zcj"/>
+                        <outlet property="goldLabel" destination="RJd-EJ-fhu" id="g4b-uX-YLg"/>
                         <outlet property="healthIndicator" destination="vBF-Jg-Ynw" id="mHf-7G-8ek"/>
                         <outlet property="heroName" destination="EJV-Ki-DPC" id="tTy-zk-zUw"/>
                         <outlet property="heroView" destination="hqO-af-FEz" id="xYl-uw-hQm"/>
                         <outlet property="listPicker" destination="Sd2-K6-93h" id="maG-ZP-u5J"/>
                         <outlet property="listView" destination="eOh-sP-s9m" id="MLm-5F-Scn"/>
                         <outlet property="manaIndicator" destination="E3M-Sb-M7T" id="hqm-zS-95A"/>
+                        <outlet property="perkPoints" destination="HSc-TQ-RfB" id="A8X-Ne-ELX"/>
+                        <outlet property="statusEffects" destination="l1A-Sp-hyp" id="pyT-Ku-BQt"/>
                         <outlet property="tableView" destination="3ey-57-RoK" id="git-gg-qjZ"/>
                         <outlet property="xpBar" destination="Xcp-lI-X42" id="cEF-IJ-eo0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9w-aV-5Go" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2606" y="-642"/>
+            <point key="canvasLocation" x="2605.7971014492755" y="-642.1875"/>
         </scene>
         <!--Boba Girl-->
         <scene sceneID="t6d-ZM-neg">
@@ -780,10 +808,27 @@
                                         </userDefinedRuntimeAttributes>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Tce-gU-l9g">
-                                        <rect key="frame" x="136.5" y="146.5" width="125.5" height="52.5"/>
+                                        <rect key="frame" x="81.5" y="146.5" width="235.5" height="52.5"/>
                                         <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="FO7-yr-m3v">
+                                                <rect key="frame" x="0.0" y="0.0" width="92" height="52.5"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k9O-OV-efB" customClass="DefaultSwitch" customModule="TurnBasedRPG" customModuleProvider="target">
+                                                        <rect key="frame" x="21.5" y="0.0" width="51" height="31"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="keyRing" value="DevConsole"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DevConsole" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RT8-ew-vc7">
+                                                        <rect key="frame" x="0.0" y="32" width="92" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="U1r-6R-cwp">
-                                                <rect key="frame" x="0.0" y="0.0" width="58.5" height="52.5"/>
+                                                <rect key="frame" x="110" y="0.0" width="58.5" height="52.5"/>
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="omJ-GI-fqH" customClass="DefaultSwitch" customModule="TurnBasedRPG" customModuleProvider="target">
                                                         <rect key="frame" x="4.5" y="0.0" width="51" height="31"/>
@@ -800,7 +845,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="QGi-NE-cdk">
-                                                <rect key="frame" x="76.5" y="0.0" width="49" height="52.5"/>
+                                                <rect key="frame" x="186.5" y="0.0" width="49" height="52.5"/>
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I9s-Rw-gfe" customClass="DefaultSwitch" customModule="TurnBasedRPG" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>

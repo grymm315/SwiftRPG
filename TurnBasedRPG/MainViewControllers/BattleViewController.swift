@@ -109,7 +109,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate {
             popText("You have defeated \(enemy.name)!!")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
                 self.popText("You have gained 100 XP!!")
-                GameDatabase.shared.hero.experience += 100
+                GameDatabase.shared.hero.rewardXp(100)
             })
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
                 self.dismiss(animated: true, completion: nil)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// The Character sheet will be the primary view for examing stats
+/// The Character sheet will be the primary view for examing stats, looking at your inventory, or checking quests
 
 class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ReloadProtocol {
    
@@ -24,9 +24,10 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var energyIndicator: UILabel!
     @IBOutlet weak var listPicker: UISegmentedControl!
     
-    @IBAction func listChanged(_ sender: Any) {
-        reload()
-    }
+    @IBOutlet weak var perkPoints: UILabel!
+    @IBOutlet weak var battleStats: UILabel!
+    @IBOutlet weak var goldLabel: UILabel!
+    @IBOutlet weak var statusEffects: UILabel!
     //    let db: GameDatabase = GameDatabase.shared
     
     // The KeyRing uses a sorted Key Value pair.
@@ -75,15 +76,6 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
         
     }
     
-    func setHeroView() {
-        heroName.text = GameDatabase.shared.hero.name
-        classLevel.text = "Lv.\(GameDatabase.shared.hero.level) \(GameDatabase.shared.hero.profession.description)"
-        xpBar.progress = Float(GameDatabase.shared.hero.experience) / 2000.0
-        healthIndicator.text = "HP: \(GameDatabase.shared.hero.currentHealth) / \(GameDatabase.shared.hero.maxHealth)"
-         manaIndicator.text = "MP: \(GameDatabase.shared.hero.currentMana) / \(GameDatabase.shared.hero.maxMana)"
-        energyIndicator.text = "EP: \(GameDatabase.shared.hero.currentEnergy) / \(GameDatabase.shared.hero.maxEnergy)"
-    }
-    
     override func viewDidLayoutSubviews() {
         heroView.frame = UIScreen.main.goldenSmallTopFrame()
         listView.frame = UIScreen.main.goldenLargeLowerFrame()
@@ -91,8 +83,27 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("TableView: \(tableView.frame) VS ListView: \(listView.frame) VS TopView: \(heroView.frame) OnScreen: \(UIScreen.main.bounds)")
+        
         tableView.reloadData()
         SoundController.shared.speak("Wow. These stats don't look good. Maybe you should do something about that")
+    }
+    
+    @IBAction func listChanged(_ sender: Any) {
+        reload()
+    }
+    
+    func setHeroView() {
+        heroName.text = GameDatabase.shared.hero.name
+        classLevel.text = "Lv.\(GameDatabase.shared.hero.getLevel()) \(GameDatabase.shared.hero.profession.description)"
+        xpBar.setProgress(Float(GameDatabase.shared.hero.getExperience()) / Float(GameDatabase.shared.hero.getXpToLvl()), animated: true)
+        healthIndicator.text = "HP: \(GameDatabase.shared.hero.currentHealth) / \(GameDatabase.shared.hero.maxHealth)"
+         manaIndicator.text = "MP: \(GameDatabase.shared.hero.currentMana) / \(GameDatabase.shared.hero.maxMana)"
+        energyIndicator.text = "EP: \(GameDatabase.shared.hero.currentEnergy) / \(GameDatabase.shared.hero.maxEnergy)"
+        perkPoints.text = "Perk Points: \(GameDatabase.shared.hero.getLevelUpsAvailable())"
+        goldLabel.text = "GP: \(GameDatabase.shared.hero.getGold())"
+        battleStats.text = "Atk: \(GameDatabase.shared.hero.getAttack()) Def:\(GameDatabase.shared.hero.getDefense())"
+        statusEffects.text = "Status Effects: \(GameDatabase.shared.hero.getStatusEffects())"
     }
     
     // MARK: - Table view data source
@@ -180,16 +191,35 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 14
+        return 18
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        if (listPicker.selectedSegmentIndex == statsList && (section == traitsSection)){
+         return 100
+        } else if (listPicker.selectedSegmentIndex == inventoryList && (section == generalSection)) {
+            return 100
+        }
+        return 8
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if (listPicker.selectedSegmentIndex == statsList && (section == traitsSection)){
+         return 100
+        } else if (listPicker.selectedSegmentIndex == inventoryList && (section == generalSection)) {
+            return 100
+        }
+        return 8
+    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension//275.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let v = UIView()
+        v.backgroundColor = UIColor.clear
+        return v
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -202,7 +232,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
         }
     }
     
-    func getSwipeConfig(indexPath: IndexPath) -> UISwipeActionsConfiguration?{
+    func getInventorySwipeConfig(indexPath: IndexPath) -> UISwipeActionsConfiguration?{
         print("Swipe detected")
         var actionArray:[UIContextualAction] = []
         if (indexPath.section == generalSection){
@@ -246,14 +276,14 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     }
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if (listPicker.selectedSegmentIndex == inventoryList){
-            return getSwipeConfig(indexPath: indexPath)
+            return getInventorySwipeConfig(indexPath: indexPath)
         } else {
             return nil
         }
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if (listPicker.selectedSegmentIndex == inventoryList){
-            return getSwipeConfig(indexPath: indexPath)
+            return getInventorySwipeConfig(indexPath: indexPath)
         } else {
             return nil
         }
@@ -270,7 +300,7 @@ class BlurbCell: UITableViewCell {
     /// The Blurb Cell configures itself by looking at static hero values
     func configCell(){
         name.text = GameDatabase.shared.hero.name
-        level.text = "Lvl. \(GameDatabase.shared.hero.level)"
+        level.text = "Lvl. \(GameDatabase.shared.hero.getLevel())"
         ptsAvail.text = "\(GameDatabase.shared.hero.getLevelUpsAvailable()) PTS."
         xpBar.value = 0.1
     }

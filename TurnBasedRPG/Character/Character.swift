@@ -42,13 +42,72 @@ class Character {
     var intelligence:UInt8
     var luck:UInt8
     var agility:UInt8
+    var gold: Int = 0
     
     var name: String
-    var level = 1
-    var experience = 0
+    private var level = 1
+    private var experience = 0
     var race:raceTypes = .human
     var profession:classType = .warrior
     var sex:sexType = .male
+    
+    func getGold() -> Int {
+        return gold
+    }
+    
+    func getStatusEffects() -> String {
+        return "None"
+    }
+    
+    func getLevel() -> Int {
+        return level
+    }
+    
+    func getExperience() -> Int {
+        return experience
+    }
+    
+    func rewardXp(_ xp: Int) {
+        experience += xp
+        lvlUp()
+    }
+    
+    func getXpToLvl() -> Int {
+        var xp = 100
+        if (level == 1){
+            xp = 1000
+        } else if (level == 2){
+            xp = 1250
+        } else if (level == 3){
+            xp = 1550
+        } else if (level == 4){
+            xp = 1750
+        } else if (level == 5){
+            xp = 2250
+        } else if (level == 6){
+            xp = 3250
+        } else if (level == 7){
+            xp = 4250
+        } else if (level == 8){
+            xp = 5250
+        } else if (level == 9){
+            xp = 6250
+        } else if (level == 10){
+            xp = 7250
+        } else if (level > 10) {
+            xp = 10000
+        }
+            return xp
+    }
+    
+    func lvlUp() {
+        if (experience < getXpToLvl()) { return }
+        let diff = experience - getXpToLvl()
+        level += 1
+        experience = diff
+        lvlUp() // Recursive check for multiple levelups
+        
+    }
     
     private var inventory: [Equipment] = []
     
@@ -85,24 +144,31 @@ class Character {
 //        }
 //    }
     
+    func getAttack() -> Int {
+       return 1
+    }
+    
+    func getDefense() -> Int {
+        return 1
+    }
     private func equipToHead(index:Int){
         removeHeadPiece()
-        headEquipmentSlot = inventory.remove(at: index) as! Armor
+        headEquipmentSlot = (inventory.remove(at: index) as! Armor)
     }
     
     private func equipPants(index:Int){
         removeLegPiece()
-        legsEquipmentSlot = inventory.remove(at: index) as! Armor
+        legsEquipmentSlot = (inventory.remove(at: index) as! Armor)
     }
     
     private func equipShirt(index:Int){
         removeChestPiece()
-        chestEquipmentSlot = inventory.remove(at: index) as! Armor
+        chestEquipmentSlot = (inventory.remove(at: index) as! Armor)
     }
     
     private func equipWeapon(index:Int){
         removeEquipedItem()
-        equippedSlot = inventory.remove(at: index) as! Weapon
+        equippedSlot = (inventory.remove(at: index) as! Weapon)
     }
     
     private func useItem(index:Int){
@@ -190,7 +256,7 @@ class Character {
     ]
     
     func reward () {
-        let rewardPool:[Equipment] = [
+        let _:[Equipment] = [
             Armor(name: "Wool Hat", description: "Spun of yarn, this hat protects from cold", type: .Head),
             Armor(name: "Magic Sword", description: "This sword possess the magic of friendship", type: .Arm),
             Equipment(name: "A Gem", description: "A small blue gem. It might be a piece of glass")
@@ -216,7 +282,7 @@ class Character {
     }
     
     func getLevelUpsAvailable() -> Int {
-        return 36 - getAllStats()
+        return 7 + level - getAllStats()
     }
     
     func getAllStats() -> Int {
