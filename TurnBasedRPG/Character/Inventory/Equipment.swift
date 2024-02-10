@@ -119,7 +119,7 @@ enum ItemRack {
         switch self {
         case .healthPotion:
             return Consumable("Health Potion", description: "This will restore 20HP", completionHandler: {
-                GameDatabase.shared.hero.currentHealth += 20
+                GameDatabase.shared.hero.heal(20)
             })
         case .manaPotion:
             return Consumable("Mana Potion", description: "This will restore 20HP", completionHandler: {
@@ -127,19 +127,19 @@ enum ItemRack {
             })
         case .mushroom:
             return Consumable("Mushroom", description: "A moldy mushroom. You eat this for energy", completionHandler: {
-                GameDatabase.shared.hero.currentEnergy += 5
+                GameDatabase.shared.hero.adjustEnergyLevel(10)
             })
         case .bisquit:
             return Consumable("Bisquit", description: "This is bread. You eat it.", completionHandler: {
-                GameDatabase.shared.hero.currentHealth += 10
+                GameDatabase.shared.hero.heal(10)
             })
         case .soup:
             return Consumable("Bone Soup", description: "What a satisfying flavor", completionHandler: {
-                GameDatabase.shared.hero.currentHealth += 20
+                GameDatabase.shared.hero.heal(20)
             })
         case .buzzPop:
             return Consumable("Buzz Pop", description: "This will get you full of energy", completionHandler: {
-                GameDatabase.shared.hero.currentEnergy += 100
+                GameDatabase.shared.hero.adjustEnergyLevel(100)
             })
         case .xpPotion:
             return Consumable("XP Potion", description: "Holy Shit! This is a cheat item", completionHandler: {

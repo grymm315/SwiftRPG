@@ -21,6 +21,30 @@ extension UIApplication {
         if let presented = base?.presentedViewController { return getTopViewController(base: presented) }
         return base
     }
+    
+    class func systemMessage(_ text:String){
+        lazy var statusText: InfoBox = InfoBox()
+
+        statusText.bounds = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.82, height: 100)
+        statusText.center.x = (UIApplication.topViewController?.view.center.x)!
+        statusText.center.y = 200
+        statusText.text = text
+//        statusText.sizeToFit()
+        UIApplication.topViewController?.view.addSubview(statusText)
+        statusText.fromTop(0.1)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.50, execute: {
+            statusText.fadeOut(0.5)
+//            self.statusText.removeFromSuperview()
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+            statusText.removeFromSuperview()
+            
+        })
+        
+        
+    }
 
     private class func _share(_ data: [Any],
                               applicationActivities: [UIActivity]?,

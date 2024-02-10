@@ -123,7 +123,30 @@ class Character {
     func getWeapo() -> Weapon? { return equippedSlot}
     
    
-
+    func takeDamage(_ dmg: Int) {
+        let t = dmg - getDefense()
+        if t >= 0 {
+            currentHealth -= dmg
+        }
+    }
+    
+    func heal(_ amt: Int){
+    currentHealth += amt
+        if currentHealth > maxHealth {
+            currentHealth = maxHealth
+        }
+    }
+    
+    func adjustEnergyLevel(_ amt: Int) {
+        currentEnergy += amt
+        if (currentEnergy < 0){
+            currentEnergy = 0
+        }
+        if (currentEnergy > maxEnergy) {
+            currentEnergy = maxEnergy
+        }
+    }
+    
     func xpToNextLevel(){
         
     }

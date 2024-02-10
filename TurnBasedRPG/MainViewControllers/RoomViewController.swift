@@ -138,6 +138,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         exploreEventMenu.options.append(mushroom)
         exploreEventMenu.options.append(xpPot)
         exploreEventMenu.options.append(healthPot)
+        
+        exploreEventMenu.prompt = "Find a thing"
 
 
         exploreEventMenu.startFrame = commandMenu.frame
@@ -161,6 +163,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func showPatrolMenu() {
         SoundController.shared.menuOpen()
+        patrolEventMenu.updateViews()
             view.addSubview(patrolEventMenu.view)
     }
     
@@ -185,13 +188,42 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
 
         dayNight.rotate()
-        GameDatabase.shared.hero.currentEnergy -= 1
+        GameDatabase.shared.hero.adjustEnergyLevel(-1)
         energyBar.takeDamage(1)
         UIView.animate(withDuration: transitSpeed, animations: {
 //            self.view.frame.origin = self.originReturn!
             self.roomView.frame.origin = self.originReturn!
             
         })
+    }
+    
+    func randomChance(){
+        let chances = [
+            "Nothing", "Nothing", "Nothing", "Nothing", "Nothing",
+            "Fight Goblin", "Fight Goblin", "Find Mushrooms"
+        ]
+        let chosen = chances.randomElement()
+        
+        if (chosen == "Fight Goblin"){
+            print("Fight Goblin")
+            patrolEventMenu.options = ForestEncounters.Goblin.instance
+            self.showPatrolMenu()
+        } else if (chosen == "Find Mushrooms"){
+            print("Find Mushrooms")
+            patrolEventMenu.options = ForestEncounters.Mushrooms.instance
+            self.showPatrolMenu()
+        } else {
+            print("Nothing happened")
+        }
+    }
+    
+    @IBAction func wait(_ sender: Any) {
+        print("Waiting")
+        dayNight.rotate()
+        GameDatabase.shared.hero.adjustEnergyLevel(1)
+        energyBar._currentHealth = GameDatabase.shared.hero.currentEnergy
+        energyBar.heal(0)
+        randomChance()
     }
     
     func hideCommandMenu() {

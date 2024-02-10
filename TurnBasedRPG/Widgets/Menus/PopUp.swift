@@ -11,10 +11,32 @@ import UIKit
 class Command {
     public var name:String!
     public var action:() -> Void
+    public var isSelectable:Bool = true
     
     init(_ text:String, completionHandler:@escaping () -> Void){
         name = text
         action = completionHandler
+    }
+}
+
+class InfoBox: UILabel {
+    
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        self.layer.opacity = 1.0
+        self.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.textAlignment = .center
+        self.layer.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+        self.layer.cornerRadius = 12
+        self.layer.borderWidth = 6
+        self.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.numberOfLines = 0
+        self.lineBreakMode = .byWordWrapping
+        self.lineBreakStrategy = .pushOut
+    }
+    
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)))
     }
 }
 
@@ -23,6 +45,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var tableView:UITableView = UITableView()
     public var options:[Command] = []
     public var startFrame:CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
+    public var prompt:String?
     
     
     var tableFrame:CGRect{
@@ -60,14 +83,14 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cancel.layer.borderColor = UIColor.lightGray.cgColor
         
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.addTarget(self, action: #selector(reload(_:)), for: UIControl.Event.valueChanged)
         
         tableView.addSubview(refreshControl)
         
         self.view.addSubview(tableView)
 //        self.view.addSubview(cancel)
         cancel.addTarget(self, action: #selector(self.btn_Cancel(_:)), for: .touchUpInside)
-        tableView.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        tableView.refreshControl?.addTarget(self, action: #selector(reload(_:)), for: UIControl.Event.valueChanged)
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(connectionTimer), userInfo: nil, repeats: false)
     }
     
@@ -101,8 +124,10 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.view.removeFromSuperview()
         })
     }
-    
-    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    func updateViews(){
+        tableView.reloadData()
+    }
+    @objc func reload(_ refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
         // Fetch more objects from a web service, for example...
     print("Refreshing")
@@ -133,13 +158,27 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cellThis.backgroundColor = UIColor.blue
         cellThis.textLabel?.textColor = UIColor.white
         cellThis.textLabel?.text = options[indexPath.row].name
+        cellThis.textLabel?.numberOfLines = 0
+        cellThis.textLabel?.lineBreakMode = .byWordWrapping
+        cellThis.textLabel?.lineBreakStrategy = .pushOut
+        cellThis.textLabel?.sizeToFit()
+        if (options[indexPath.row].isSelectable){
+            cellThis.textLabel?.textAlignment = .right
+        } else {
+            cellThis.textLabel?.textAlignment = .left
+            cellThis.selectionStyle = .none
+        }
         
         return cellThis
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        options[indexPath.row].action()
-        btn_Cancel(self)
+        if (options[indexPath.row].isSelectable){
+            options[indexPath.row].action()
+            btn_Cancel(self)
+        } else {
+            print("This was not selectable")
+        }
 //        self.view.removeFromSuperview()
     }
     
