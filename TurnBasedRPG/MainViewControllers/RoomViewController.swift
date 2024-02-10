@@ -28,7 +28,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var transitSpeed:Double = 0.16 //** How fast the screen transitions
     
     //The map hold all our RoomNodes
-    var map: AreaGenerator = AreaGenerator(name: "adrift")
+//    var map: AreaGenerator = AreaGenerator(name: "adrift")
     //Where we currently are
     var currentRoom:RoomNode?
     
@@ -63,8 +63,12 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // this is important for screen animations while transiting
         roomView.frame = self.view.frame
         originReturn = CGPoint(x: 0, y: 0)//self.view.frame.origin
-        
-        moveRoom(to: map.downtown5)
+                
+        currentRoom = GameDatabase.shared.currentRoom // Moving our current room to the next room
+        if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
+            print("Entered room \(currentRoom?.title ?? "!ERROR!")")
+            roomView.image = tImage
+        }
                 
         // for all the gesture recognizers
         for swipe in gestures {
@@ -182,14 +186,16 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     /** This method allows the user to manually traverse the room Map Node Tree */
     func moveRoom(to: RoomNode){
         currentRoom = to // Moving our current room to the next room
+        GameDatabase.shared.currentRoom = to
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
             print("Entered room \(currentRoom?.title ?? "!ERROR!")")
             roomView.image = tImage
         }
 
-        dayNight.rotate()
-        GameDatabase.shared.hero.adjustEnergyLevel(-1)
-        energyBar.takeDamage(1)
+        
+        waitDayNight(self)
+        GameDatabase.shared.hero.adjustEnergyLevel(-2)
+        energyBar.takeDamage(2)
         UIView.animate(withDuration: transitSpeed, animations: {
 //            self.view.frame.origin = self.originReturn!
             self.roomView.frame.origin = self.originReturn!
@@ -217,7 +223,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    @IBAction func wait(_ sender: Any) {
+    @IBAction func waitDayNight(_ sender: Any) {
         print("Waiting")
         dayNight.rotate()
         GameDatabase.shared.hero.adjustEnergyLevel(1)
@@ -234,6 +240,17 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         })
     }
     
+    func exhausted() -> Bool {
+        if (GameDatabase.shared.hero.currentEnergy <= 0){
+            self.view.shake()
+            UIApplication.systemMessage("You are too tired.")
+            waitDayNight(self)
+            return true
+        } else {
+            return false
+        }
+    }
+    
 
     /// Swipe Actions
     @IBAction func moveNorth(_ sender: Any) {
@@ -242,6 +259,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.view.nudgeVertical(-10)
             return
         }
+        
+        if (exhausted()){return}
+        
         SoundController.shared.roomChangeSound()
         UIView.animate(withDuration: transitSpeed, animations: {
             self.roomView.frame.origin.y = UIScreen.main.bounds.height + self.view.frame.height
@@ -257,6 +277,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             SoundController.shared.noPassage()
             return
         }
+        if (exhausted()){return}
         SoundController.shared.roomChangeSound()
         UIView.animate(withDuration: transitSpeed, animations: {
             self.roomView.frame.origin.x = UIScreen.main.bounds.width + self.view.frame.width
@@ -272,7 +293,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.view.nudgeVertical()
             SoundController.shared.noPassage()
             return}
-        
+        if (exhausted()){return}
         SoundController.shared.roomChangeSound()
         UIView.animate(withDuration: transitSpeed, animations: {
             self.roomView.frame.origin.y =  -self.view.frame.height
@@ -287,7 +308,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             SoundController.shared.noPassage()
             self.view.nudgeHorizontal(-10)
             return}
-        
+        if (exhausted()){return}
         SoundController.shared.roomChangeSound()
         UIView.animate(withDuration: transitSpeed, animations: {
             self.roomView.frame.origin.x = -UIScreen.main.bounds.width

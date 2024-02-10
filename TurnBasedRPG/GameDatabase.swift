@@ -21,6 +21,9 @@ class GameDatabase {
         "New Dawn" : "It is the middle of night, can you last until day?",
     ]
     
+    var map: AreaGenerator = AreaGenerator.init(name: "Adrift")
+    lazy var currentRoom:RoomNode = map.downtown5
+    
     var canEditStats:Bool = true
     
     var musicOn = true
