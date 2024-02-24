@@ -22,7 +22,8 @@ enum ForestEncounters {
                 UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: self)
             })
             let waveGoblin = Command("Wave at Goblin", completionHandler: {
-                UIApplication.systemMessage("The goblin stares at you in confusion before running off.")
+                UIApplication.systemMessage("The goblin stares at you in confusion before running off. +40XP")
+                GameDatabase.shared.hero.rewardXp(40)
             })
             let fleeGoblin = Command("Flee", completionHandler: {
                 UIApplication.systemMessage("You manage to escape before the gobline sees you..")

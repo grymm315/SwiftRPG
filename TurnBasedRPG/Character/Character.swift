@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
-class Character {
+class Character: Codable  {
+    
     internal init(strength: UInt8, perception: UInt8, endurance: UInt8, charisma: UInt8, intelligence: UInt8, luck: UInt8, agility: UInt8) {
         self.strength = strength
         self.perception = perception
@@ -24,6 +26,8 @@ class Character {
         legsEquipmentSlot = ArmorRack.leatherPants.instance
         
     }
+    
+
     
     var maxHealth: Int {return Int((stats["endurance"] ?? 1) * 10)}
     lazy var currentHealth: Int = maxHealth
@@ -50,6 +54,116 @@ class Character {
     var race:raceTypes = .human
     var profession:classType = .warrior
     var sex:sexType = .male
+    
+    private var inventory: [Equipment] = []
+    
+    private var headEquipmentSlot: Armor?
+    private var chestEquipmentSlot: Armor?
+    private var legsEquipmentSlot: Armor?
+    private var equippedSlot: Weapon?
+    
+    func getInventory() -> [Equipment] { return inventory}
+    func getHead() -> Armor? { return headEquipmentSlot}
+    func getChest() -> Armor? { return chestEquipmentSlot}
+    func getLegs() -> Armor? { return legsEquipmentSlot}
+    func getWeapo() -> Weapon? { return equippedSlot}
+    
+    
+    
+   
+    func takeDamage(_ dmg: Int) {
+        let t = dmg - getDefense()
+        if t >= 0 {
+            currentHealth -= dmg
+        }
+    }
+    
+    enum characterKeys: String, CodingKey, CaseIterable {
+            case name, strength, perception, endurance, charisma, intelligence, luck,
+        agility, gold, level, experience, race, profession, sex, inventory, headEquipmentSlot, chestEquipmentSlot, legsEquipmentSlot, equippedSlot
+        }
+    enum equipmentKeys: CodingKey {
+        case type
+    }
+    
+    enum equipmentTypes: String, CodingKey {
+        case chest, legs, equiped, consumable, junk
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: characterKeys.self)
+        
+        self.name = try container.decode(String.self, forKey: .name)
+        self.strength = try container.decode(UInt8.self, forKey: .strength)
+        self.perception = try container.decode(UInt8.self, forKey: .perception)
+        self.endurance = try container.decode(UInt8.self, forKey: .endurance)
+        self.charisma = try container.decode(UInt8.self, forKey: .charisma)
+        self.intelligence = try container.decode(UInt8.self, forKey: .intelligence)
+        self.luck = try container.decode(UInt8.self, forKey: .luck)
+        self.agility = try container.decode(UInt8.self, forKey: .agility)
+        self.gold = try container.decode(Int.self, forKey: .gold)
+        self.level = try container.decode(Int.self, forKey: .level)
+        self.experience = try container.decode(Int.self, forKey: .experience)
+        self.race = try container.decode(raceTypes.self, forKey: .race)
+        self.sex = try container.decode(sexType.self, forKey: .sex)
+        self.headEquipmentSlot = try container.decode(Armor?.self, forKey: .headEquipmentSlot)
+        self.chestEquipmentSlot = try container.decode(Armor?.self, forKey: .chestEquipmentSlot)
+        self.legsEquipmentSlot = try container.decode(Armor?.self, forKey: .legsEquipmentSlot)
+        self.equippedSlot = try container.decode(Weapon?.self, forKey: .equippedSlot)
+        
+        var equipmentArrayForType = try container.nestedUnkeyedContainer(forKey: .inventory)
+        var myInventory = [Equipment]()
+        var equipArray = equipmentArrayForType
+
+        while (!equipmentArrayForType.isAtEnd){
+            let equipment = try equipmentArrayForType.nestedContainer(keyedBy: equipmentKeys.self)
+            let type = try equipment.decode(Equipment.EquipmentTypes.self, forKey: equipmentKeys.type)
+            print("Type: \(type)")
+            switch type {
+            case .Armor:
+                myInventory.append(try equipArray.decode(Armor.self))
+            case .Weapon:
+                myInventory.append(try equipArray.decode(Weapon.self))
+            case .Consumable:
+                myInventory.append(try equipArray.decode(Consumable.self))
+            case .Junk:
+                myInventory.append(try equipArray.decode(Equipment.self))
+            }
+        }
+
+        
+        self.inventory = myInventory
+        
+        print("Container: \(try container.decode([Equipment].self, forKey: .inventory))")
+        
+     
+
+    }
+    
+ 
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: characterKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(stats["strength"], forKey: .strength)
+        try container.encode(stats["perception"], forKey: .perception)
+        try container.encode(stats["endurance"], forKey: .endurance)
+        try container.encode(stats["charisma"], forKey: .charisma)
+        try container.encode(stats["intelligence"], forKey: .intelligence)
+        try container.encode(stats["luck"], forKey: .luck)
+        try container.encode(stats["agility"], forKey: .agility)
+        try container.encode(gold, forKey: .gold)
+        try container.encode(level, forKey: .level)
+        try container.encode(experience, forKey: .experience)
+        try container.encode(race, forKey: .race)
+        try container.encode(sex, forKey: .sex)
+        try container.encode(inventory, forKey: .inventory)
+        
+        try container.encode(headEquipmentSlot, forKey: .headEquipmentSlot)
+        try container.encode(chestEquipmentSlot, forKey: .chestEquipmentSlot)
+        try container.encode(legsEquipmentSlot, forKey: .legsEquipmentSlot)
+        try container.encode(equippedSlot, forKey: .equippedSlot)
+        }
     
     func getGold() -> Int {
         return gold
@@ -109,27 +223,6 @@ class Character {
         
     }
     
-    private var inventory: [Equipment] = []
-    
-    private var headEquipmentSlot: Armor?
-    private var chestEquipmentSlot: Armor?
-    private var legsEquipmentSlot: Armor?
-    private var equippedSlot: Weapon?
-    
-    func getInventory() -> [Equipment] { return inventory}
-    func getHead() -> Armor? { return headEquipmentSlot}
-    func getChest() -> Armor? { return chestEquipmentSlot}
-    func getLegs() -> Armor? { return legsEquipmentSlot}
-    func getWeapo() -> Weapon? { return equippedSlot}
-    
-   
-    func takeDamage(_ dmg: Int) {
-        let t = dmg - getDefense()
-        if t >= 0 {
-            currentHealth -= dmg
-        }
-    }
-    
     func heal(_ amt: Int){
     currentHealth += amt
         if currentHealth > maxHealth {
@@ -168,11 +261,13 @@ class Character {
 //    }
     
     func getAttack() -> Int {
-       return 1
+        let attk = 1 + Int8(strength) + (getWeapo()?.damage?.damageResist ?? 0)
+        return Int(attk)
     }
     
     func getDefense() -> Int {
-        return 1
+        let def = (getChest()?.damageResist?.damageResist ?? 0) + (getLegs()?.damageResist?.damageResist ?? 0)
+        return Int(def)
     }
     private func equipToHead(index:Int){
         removeHeadPiece()
@@ -203,7 +298,7 @@ class Character {
         let item = inventory[index]
         if item is Armor {
             if let thisArmor = item as? Armor{
-                switch (thisArmor.type) {
+                switch (thisArmor.equippedLocation) {
                 case .Arm:
                     equipToHead(index: index)
                 case .Head:
@@ -215,15 +310,20 @@ class Character {
                 case .Shoes:
                     equipToHead(index: index)
                 }
+                UIApplication.systemMessage("You equip \(item.name)")
+
             } else {
-                print("Armor isn't Armor")
+                UIApplication.systemMessage("\(item.name) isn't armor you can equip")
+
             }
         } else if item is Weapon {
+            UIApplication.systemMessage("You equip \(item.name)")
             equipWeapon(index: index)
         } else if item is Consumable {
+            UIApplication.systemMessage("You use \(item.name)")
             useItem(index: index)
         } else {
-            print("I don't know what the fuck you're trying to equip")
+            UIApplication.systemMessage("Don't know how to use \(item.name)")
         }
         
         
@@ -279,11 +379,7 @@ class Character {
     ]
     
     func reward () {
-        let _:[Equipment] = [
-            Armor(name: "Wool Hat", description: "Spun of yarn, this hat protects from cold", type: .Head),
-            Armor(name: "Magic Sword", description: "This sword possess the magic of friendship", type: .Arm),
-            Equipment(name: "A Gem", description: "A small blue gem. It might be a piece of glass")
-        ]
+      
     }
     
     func receives() {
@@ -314,7 +410,7 @@ class Character {
     }
     
     // MARK: Random Data... remove this from the class
-    enum raceTypes: String{
+    enum raceTypes: String, Codable{
         case human, elf, dwarf, halfling, pixie, halfogre, halforc,
         halftroll, halfelf, gith, drow, seaelf, vampire, demon,
         lizman, nome, angel,
@@ -344,18 +440,18 @@ class Character {
         Titan, Toad, Unicorn, Urchin, Vapor, Wemic, Whale, Xorn
     }
     
-    enum sexType: Int {
+    enum sexType: Int, Codable {
         case male, female, nueter
     }
     
-    let classDescription:[String] = [
-        "mage", "cleric", "thief", "warrior", "vampire", "druid", "ranger",
-        "augurer", "paladin", "nephandi", "savage", "phantomer", "archer", "demon",
-        "assassin", "angel", "werewolf", "licanthrope", "lich", "monger", "pirate",
-        "baker", "butcher", "blacksmith", "mayor", "king", "queen"
-    ]
+//    let classDescription:[String] = [
+//        "mage", "cleric", "thief", "warrior", "vampire", "druid", "ranger",
+//        "augurer", "paladin", "nephandi", "savage", "phantomer", "archer", "demon",
+//        "assassin", "angel", "werewolf", "licanthrope", "lich", "monger", "pirate",
+//        "baker", "butcher", "blacksmith", "mayor", "king", "queen"
+//    ]
     
-    enum classType:Int, CustomStringConvertible {
+    enum classType:Int, CustomStringConvertible, Codable {
         case mage, cleric, thief, warrior, vampire, druid, ranger,
         augurer, paladin, nephandi, savage, phantomer, archer, demon,
         assassin, angel, werewolf, licanthrope, lich, monger, pirate,

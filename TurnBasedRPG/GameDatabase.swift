@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class GameDatabase {
     
@@ -21,6 +22,7 @@ class GameDatabase {
         "New Dawn" : "It is the middle of night, can you last until day?",
     ]
     
+    
     var map: AreaGenerator = AreaGenerator.init(name: "Adrift")
     lazy var currentRoom:RoomNode = map.downtown5
     
@@ -33,5 +35,41 @@ class GameDatabase {
     var soundVolume = 1.0
     
     var gameSpped = 1.0
+    
+    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Save1")
+    
+    func saveGame() {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do {
+            let savedData =  try encoder.encode(GameDatabase.shared.hero)
+            print("Saved Data: \(String(data: savedData, encoding: .utf8) ?? "XXX")")
+            try savedData.write(to: documentsURL)
+
+        } catch {
+            print("Save Game Error: \(error)")
+        }
+    }
+    
+    func loadGame() {
+        
+            let decoder = JSONDecoder()
+        do {
+            let loadedData = try Data(contentsOf: documentsURL)
+            print("Loaded Data: \(String(data: loadedData, encoding: .utf8) ?? "XXX")")
+
+            let readingData = try decoder.decode(Character.self, from: loadedData)
+            GameDatabase.shared.hero = readingData
+        } catch {
+            UIApplication.systemMessage("Load Error: \(error)")
+        }
+    }
+                                                       
+//    func save<T: Encodable>(_ item: T, to url: URL) throws -> Data {
+//
+//}
+//    func load<T: Decodable>(from data:Data) throws -> T {
+//
+//                                                       }
     
 }

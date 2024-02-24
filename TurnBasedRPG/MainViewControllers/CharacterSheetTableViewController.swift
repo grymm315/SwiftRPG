@@ -30,6 +30,67 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var statusEffects: UILabel!
     //    let db: GameDatabase = GameDatabase.shared
     
+    let itemPopup:PopUp = PopUp()
+    
+    @IBOutlet weak var buttonWeapon: UIButtonGUI!
+    @IBOutlet weak var buttonShirt: UIButtonGUI!
+    @IBOutlet weak var buttonPants: UIButtonGUI!
+    
+    @IBOutlet weak var imagePants: UIImageView!
+    @IBOutlet weak var imageWeapon: UIImageView!
+    
+    @IBOutlet weak var imageChest: UIImageView!
+    @IBAction func touchChest(_ sender: Any) {
+        itemPopup.startFrame = imageChest.frame
+        let description = Command("\(GameDatabase.shared.hero.getChest()?.description ?? "Empty")", completionHandler: {})
+        description.isSelectable = false
+        let remove = Command("Remove chest", completionHandler: {
+            GameDatabase.shared.hero.removeChestPiece()
+            DispatchQueue.main.async {self.reload()}
+        })
+        
+        itemPopup.options = [description, remove]
+        showItemPopup()
+
+    }
+    
+    @IBAction func touchWeapon(_ sender: Any) {
+        
+        itemPopup.startFrame = imageWeapon.frame
+        
+        let description = Command("\(GameDatabase.shared.hero.getWeapo()?.description ?? "Empty")", completionHandler: {})
+        description.isSelectable = false
+        
+        let remove = Command("Remove Weapon", completionHandler: {
+            GameDatabase.shared.hero.removeEquipedItem()
+            DispatchQueue.main.async {self.reload()}
+        })
+        itemPopup.options = [description, remove]
+        showItemPopup()
+    }
+    
+    @IBAction func touchPants(_ sender: Any) {
+        
+        itemPopup.startFrame = imagePants.frame
+        
+        let description = Command("\(GameDatabase.shared.hero.getLegs()?.description ?? "Empty")", completionHandler: {})
+        description.isSelectable = false
+        
+        let remove = Command("Remove pants", completionHandler: {
+            GameDatabase.shared.hero.removeLegPiece()
+            DispatchQueue.main.async {self.reload()}
+        })
+        itemPopup.options = [description, remove]
+        showItemPopup()
+    }
+    
+    func showItemPopup(){
+        SoundController.shared.menuOpen()
+        itemPopup.updateViews()
+        view.addSubview(itemPopup.view)
+    }
+    
+    
     // The KeyRing uses a sorted Key Value pair.
     // But more simply "Strength" is the Key, 8 is the value
     // All the values are "sorted" so that it always appears in the same order
@@ -50,12 +111,12 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     private let inventoryList: Int = 1
     private let questList: Int = 2
     
-    private let inventorySectionTitles:[String] = ["Equipped", "Head", "Armor", "Legs", "General"]
-    private let equipedSlot: Int = 0
+    private let inventorySectionTitles:[String] = ["General", "Head", "Armor", "Legs", "Equipped"]
+    private let equipedSlot: Int = 4
     private let headSlot: Int = 1
     private let armorSlot: Int = 2
     private let legSlot:Int = 3
-    private let generalSection:Int = 4
+    private let generalSection:Int = 0
     
     
     
@@ -104,6 +165,11 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
         goldLabel.text = "GP: \(GameDatabase.shared.hero.getGold())"
         battleStats.text = "Atk: \(GameDatabase.shared.hero.getAttack()) Def:\(GameDatabase.shared.hero.getDefense())"
         statusEffects.text = "Status Effects: \(GameDatabase.shared.hero.getStatusEffects())"
+        imageWeapon.image = UIImage(named: GameDatabase.shared.hero.getWeapo()?.imageNamed ?? "")
+        imageChest.image = UIImage(named: GameDatabase.shared.hero.getChest()?.imageNamed ?? "")
+        imagePants.image = UIImage(named: GameDatabase.shared.hero.getLegs()?.imageNamed ?? "")
+       
+
     }
     
     // MARK: - Table view data source
@@ -112,7 +178,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
         if (listPicker.selectedSegmentIndex == statsList){
             return 2
         } else if (listPicker.selectedSegmentIndex == inventoryList) {
-                return 5
+                return 1
         } else {
             return 1
         }
@@ -231,6 +297,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
             return "Active"
         }
     }
+    
     
     func getInventorySwipeConfig(indexPath: IndexPath) -> UISwipeActionsConfiguration?{
         print("Swipe detected")

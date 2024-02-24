@@ -133,6 +133,14 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             GameDatabase.shared.hero.rewardItem(ItemRack.healthPotion.instance)
         })
         
+        let saveGame:Command =  Command("Save Game", completionHandler: {
+                GameDatabase.shared.saveGame()
+        })
+        
+        let loadGame:Command =  Command("Load Game", completionHandler: {
+                GameDatabase.shared.loadGame()
+        })
+        
         
         patrolEventMenu.options.append(gremlin)
         sneakEventMenu.options.append(bobaGirl)
@@ -142,6 +150,10 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         exploreEventMenu.options.append(mushroom)
         exploreEventMenu.options.append(xpPot)
         exploreEventMenu.options.append(healthPot)
+        exploreEventMenu.options.append(saveGame)
+        exploreEventMenu.options.append(loadGame)
+
+
         
         exploreEventMenu.prompt = "Find a thing"
 
@@ -194,6 +206,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
         
         waitDayNight(self)
+        GameDatabase.shared.hero.rewardXp(1)
         GameDatabase.shared.hero.adjustEnergyLevel(-2)
         energyBar.takeDamage(2)
         UIView.animate(withDuration: transitSpeed, animations: {

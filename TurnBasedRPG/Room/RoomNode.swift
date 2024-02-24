@@ -28,6 +28,10 @@ class RoomNode {
     var east:RoomNode?
     var west:RoomNode?
     
+    var dangerRating: Int = 0
+    var lootRating: Int = 0
+    var environment: String = ""
+    
     var mob_list:[Creature] = []
     
     init(name:String) {

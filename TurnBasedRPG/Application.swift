@@ -23,6 +23,7 @@ extension UIApplication {
     }
     
     class func systemMessage(_ text:String){
+        print("MESSAGE: \(text)")
         lazy var statusText: InfoBox = InfoBox()
 
         statusText.bounds = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.82, height: 100)
