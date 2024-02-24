@@ -132,6 +132,8 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         setHeroView()
+        heroView.layer.cornerRadius = 8
+        listView.layer.cornerRadius = 8
         tableView.delegate = self
         tableView.dataSource = self
         
