@@ -30,11 +30,7 @@ class Build{
         "bashed", "bashproof", "nomob", "window", "can_look", "isbolt", "bolted"
     ]
     
-    let sec_flags:[String] = [
-        "inside", "city", "field", "forest", "hills", "mountain", "water_swim",
-        "water_noswim", "underwater", "air", "desert", "dunno", "oceanfloor",
-        "underground", "lava", "swamp"
-    ]
+   
     
     let r_flags:[String] = [
         "dark", "death", "nomob", "indoors", "house", "neutral", "chaotic",

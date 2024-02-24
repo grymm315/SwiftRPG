@@ -30,11 +30,11 @@ class RoomNode {
     
     var dangerRating: Int = 0
     var lootRating: Int = 0
-    var environment: String = ""
+    var environment: RoomEnvironment = .field
     
     var mob_list:[Creature] = []
     
-    init(name:String) {
+    init(name:String, environment: RoomEnvironment = .field, treasure: Int = 0, danger: Int = 0) {
         title = name
     }
     
@@ -62,4 +62,19 @@ class RoomNode {
         }
     }
     
+    func oneWayRoom(_ loc: direction, room: RoomNode, wrongRoom: RoomNode){
+        self.east = wrongRoom
+        self.west = wrongRoom
+        self.north = wrongRoom
+        self.south = wrongRoom
+        
+        linkRoom(loc, room: room)
+        
+    }
+}
+
+enum RoomEnvironment {
+    case insideBuilding, city, field, forest, hills, mountain, water,
+        underwater, air, desert, dunno, oceanfloor,
+        underground, lava, swamp, highway, industrial
 }
