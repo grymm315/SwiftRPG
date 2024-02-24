@@ -212,30 +212,78 @@ class Consumable:Equipment {
             case stacksBy, effect
         }
     var stack: Int = 10
-    public var action:() -> Void
+    var effect: Effect?
     
-    init(_ text:String, description: String, completionHandler:@escaping () -> Void){
-        action = completionHandler
+    init(_ text:String, description: String, effect: Effect?){
+        self.effect = effect
         super.init(name: text, description: description)
         self.type = .Consumable
 
     }
     
     required init(from decoder: Decoder) throws {
-        self.action = {}
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.stack = try container.decode(Int.self, forKey: .stacksBy)
+        self.effect = try container.decode(Effect?.self, forKey: .effect)
         try super.init(from: decoder)
     }
     
     override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(stack, forKey: .stacksBy)
+        try container.encode(effect, forKey: .effect)
         try super.encode(to: encoder)
         }
     
 }
 
-enum Effects {
-    case adjustHealth, adjustMana, adjustExperience, poison, zombie, death, illuminate
+enum EffectType: Codable {
+    case heal, damage, gainMana, loseMana, gainExperience, poison, zombie, death, illuminate, gainEnergy, loseEnergy
+}
+
+class Effect: Codable {
+    var effectType: EffectType
+    var value: Int?
+    var turns: Int?
+    var target: Character?
+    
+    init (_ effect: EffectType, by value: Int? = 0, for turns: Int? = 0) {
+        effectType = effect
+        self.value = value
+        self.turns = turns
+    }
+    
+    func action() {
+        switch effectType {
+        case .heal:
+            print("Heal")
+            GameDatabase.shared.hero.heal(value ?? 0)
+        case .damage:
+            print("damage")
+            GameDatabase.shared.hero.takeDamage(value ?? 0)
+        case .gainMana:
+            print("gainMana")
+            GameDatabase.shared.hero.currentMana += value ?? 0
+        case .loseMana:
+            print("loseMana")
+            GameDatabase.shared.hero.currentMana -= value  ?? 0
+        case .gainExperience:
+            print("gainExperience")
+            GameDatabase.shared.hero.rewardXp(value ?? 0)
+        case .poison:
+            print("poison")
+        case .zombie:
+            print("zombie")
+        case .death:
+            print("death")
+        case .illuminate:
+            print("illuminate")
+        case .gainEnergy:
+            GameDatabase.shared.hero.adjustEnergyLevel(value ?? 0)
+        case .loseEnergy:
+            GameDatabase.shared.hero.adjustEnergyLevel(-(value ?? 0))
+        }
+    }
 }
 
 enum ItemRack {
@@ -245,33 +293,19 @@ enum ItemRack {
     var instance: Consumable {
         switch self {
         case .healthPotion:
-            return Consumable("Health Potion", description: "This will restore 20HP", completionHandler: {
-                GameDatabase.shared.hero.heal(20)
-            })
+            return Consumable("Health Potion", description: "This will restore 20HP", effect: Effect(.heal, by: 20))
         case .manaPotion:
-            return Consumable("Mana Potion", description: "This will restore 20HP", completionHandler: {
-                GameDatabase.shared.hero.currentMana += 20
-            })
+            return Consumable("Mana Potion", description: "This will restore 20HP", effect: Effect(.gainMana, by: 20))
         case .mushroom:
-            return Consumable("Mushroom", description: "A moldy mushroom. You eat this for energy", completionHandler: {
-                GameDatabase.shared.hero.adjustEnergyLevel(10)
-            })
+            return Consumable("Mushroom", description: "A moldy mushroom. You eat this for energy", effect: Effect(.gainEnergy, by: 20))
         case .bisquit:
-            return Consumable("Bisquit", description: "This is bread. You eat it.", completionHandler: {
-                GameDatabase.shared.hero.heal(10)
-            })
+            return Consumable("Bisquit", description: "This is bread. You eat it.", effect: Effect(.heal, by: 20))
         case .soup:
-            return Consumable("Bone Soup", description: "What a satisfying flavor", completionHandler: {
-                GameDatabase.shared.hero.heal(20)
-            })
+            return Consumable("Bone Soup", description: "What a satisfying flavor", effect: Effect(.heal, by: 20))
         case .buzzPop:
-            return Consumable("Buzz Pop", description: "This will get you full of energy", completionHandler: {
-                GameDatabase.shared.hero.adjustEnergyLevel(100)
-            })
+            return Consumable("Buzz Pop", description: "This will get you full of energy", effect: Effect(.gainEnergy, by: 100))
         case .xpPotion:
-            return Consumable("XP Potion", description: "Holy Shit! This is a cheat item", completionHandler: {
-                GameDatabase.shared.hero.rewardXp(1000)
-            })
+            return Consumable("XP Potion", description: "Holy Shit! This is a cheat item", effect: Effect(.gainExperience, by: 750))
         }
     }
     

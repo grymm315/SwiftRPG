@@ -291,7 +291,7 @@ class Character: Codable  {
     
     private func useItem(index:Int){
         let item = inventory.remove(at: index) as! Consumable
-        item.action()
+        item.effect?.action()
     }
     
     func equipItemFromRow(index: Int){
