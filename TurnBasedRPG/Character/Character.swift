@@ -80,7 +80,7 @@ class Character: Codable  {
     
     enum characterKeys: String, CodingKey, CaseIterable {
             case name, strength, perception, endurance, charisma, intelligence, luck,
-        agility, gold, level, experience, race, profession, sex, inventory, headEquipmentSlot, chestEquipmentSlot, legsEquipmentSlot, equippedSlot
+        agility, gold, level, experience, race, profession, sex, inventory, headEquipmentSlot, chestEquipmentSlot, legsEquipmentSlot, equippedSlot, hp, mana, energy
         }
     enum equipmentKeys: CodingKey {
         case type
@@ -110,6 +110,11 @@ class Character: Codable  {
         self.chestEquipmentSlot = try container.decode(Armor?.self, forKey: .chestEquipmentSlot)
         self.legsEquipmentSlot = try container.decode(Armor?.self, forKey: .legsEquipmentSlot)
         self.equippedSlot = try container.decode(Weapon?.self, forKey: .equippedSlot)
+        
+        self.currentHealth = try container.decode(Int.self, forKey: .hp)
+        self.currentMana = try container.decode(Int.self, forKey: .mana)
+        self.currentEnergy = try container.decode(Int.self, forKey: .energy)
+
         
         var equipmentArrayForType = try container.nestedUnkeyedContainer(forKey: .inventory)
         var myInventory = [Equipment]()
@@ -158,6 +163,9 @@ class Character: Codable  {
         try container.encode(race, forKey: .race)
         try container.encode(sex, forKey: .sex)
         try container.encode(inventory, forKey: .inventory)
+        try container.encode(currentHealth, forKey: .hp)
+        try container.encode(currentMana, forKey: .mana)
+        try container.encode(currentEnergy, forKey: .energy)
         
         try container.encode(headEquipmentSlot, forKey: .headEquipmentSlot)
         try container.encode(chestEquipmentSlot, forKey: .chestEquipmentSlot)
