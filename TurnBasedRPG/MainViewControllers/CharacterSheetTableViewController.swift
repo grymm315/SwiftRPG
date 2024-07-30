@@ -58,7 +58,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
         
         itemPopup.startFrame = imageWeapon.frame
         
-        let description = Command("\(GameDatabase.shared.hero.getWeapo()?.description ?? "Empty")", completionHandler: {})
+        let description = Command("\(GameDatabase.shared.hero.getWeapon()?.description ?? "Empty")", completionHandler: {})
         description.isSelectable = false
         
         let remove = Command("Remove Weapon", completionHandler: {
@@ -167,7 +167,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
         goldLabel.text = "GP: \(GameDatabase.shared.hero.getGold())"
         battleStats.text = "Atk: \(GameDatabase.shared.hero.getAttack()) Def:\(GameDatabase.shared.hero.getDefense())"
         statusEffects.text = "Status Effects: \(GameDatabase.shared.hero.getStatusEffects())"
-        imageWeapon.image = UIImage(named: GameDatabase.shared.hero.getWeapo()?.imageNamed ?? "")
+        imageWeapon.image = UIImage(named: GameDatabase.shared.hero.getWeapon()?.imageNamed ?? "")
         imageChest.image = UIImage(named: GameDatabase.shared.hero.getChest()?.imageNamed ?? "")
         imagePants.image = UIImage(named: GameDatabase.shared.hero.getLegs()?.imageNamed ?? "")
        
@@ -247,7 +247,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
             } else if (indexPath.section == legSlot){
                 cell.configCell(item: GameDatabase.shared.hero.getLegs())
             } else if (indexPath.section == equipedSlot){
-                cell.configCell(item: GameDatabase.shared.hero.getWeapo())
+                cell.configCell(item: GameDatabase.shared.hero.getWeapon())
             }
             return cell
         } else if (listPicker.selectedSegmentIndex == questList){

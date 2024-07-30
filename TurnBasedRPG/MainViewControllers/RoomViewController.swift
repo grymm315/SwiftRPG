@@ -217,23 +217,47 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func randomChance(){
-        let chances = [
-            "Nothing", "Nothing", "Nothing", "Nothing", "Nothing",
-            "Fight Goblin", "Fight Goblin", "Find Mushrooms"
-        ]
-        let chosen = chances.randomElement()
+//        let chances = [
+//            "Nothing", "Nothing", "Nothing", "Nothing", "Nothing",
+//            "Fight Goblin", "Fight Goblin", "Find Mushrooms"
+//        ]
+//        let chosen = chances.randomElement()
         
-        if (chosen == "Fight Goblin"){
-            print("Fight Goblin")
-            patrolEventMenu.options = ForestEncounters.Goblin.instance
-            self.showPatrolMenu()
-        } else if (chosen == "Find Mushrooms"){
-            print("Find Mushrooms")
-            patrolEventMenu.options = ForestEncounters.Mushrooms.instance
-            self.showPatrolMenu()
-        } else {
-            print("Nothing happened")
+        if (Bool.random()){
+            return
         }
+        switch self.currentRoom?.environment {
+        case .forest:
+            print("forest")
+            patrolEventMenu.options = ForestEncounters.allCases.randomElement()!.instance
+            self.showPatrolMenu()
+            return
+        case .city:
+            print("City")
+            patrolEventMenu.options = CityEncounters.allCases.randomElement()!.instance
+            self.showPatrolMenu()
+            return
+        case .city:
+            print("Highway")
+            patrolEventMenu.options = HighwayEncounters.allCases.randomElement()!.instance
+            self.showPatrolMenu()
+            return
+            
+        default:
+            print("This environment has no encounters")
+        }
+        
+//        if (chosen == "Fight Goblin"){
+//            print("Fight Goblin")
+//            patrolEventMenu.options = ForestEncounters.Goblin.instance
+//            self.showPatrolMenu()
+//        } else if (chosen == "Find Mushrooms"){
+//            print("Find Mushrooms")
+//            patrolEventMenu.options = ForestEncounters.Mushrooms.instance
+//            self.showPatrolMenu()
+//        } else {
+//            print("Nothing happened")
+//        }
     }
     
     @IBAction func waitDayNight(_ sender: Any) {

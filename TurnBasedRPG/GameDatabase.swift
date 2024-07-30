@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 class GameDatabase {
     
@@ -61,15 +60,7 @@ class GameDatabase {
             let readingData = try decoder.decode(Character.self, from: loadedData)
             GameDatabase.shared.hero = readingData
         } catch {
-            UIApplication.systemMessage("Load Error: \(error)")
+            print("Load Error: \(error)")
         }
     }
-                                                       
-//    func save<T: Encodable>(_ item: T, to url: URL) throws -> Data {
-//
-//}
-//    func load<T: Decodable>(from data:Data) throws -> T {
-//
-//                                                       }
-    
 }

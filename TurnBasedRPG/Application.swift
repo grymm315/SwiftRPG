@@ -33,18 +33,38 @@ extension UIApplication {
 //        statusText.sizeToFit()
         UIApplication.topViewController?.view.addSubview(statusText)
         statusText.fromTop(0.1)
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.50, execute: {
             statusText.fadeOut(0.5)
 //            self.statusText.removeFromSuperview()
         })
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
             statusText.removeFromSuperview()
-            
+        })
+    }
+    
+    class func battleNotification(_ text:String){
+        lazy var statusText: UILabel = UILabel()
+
+        statusText.text = text
+        statusText.layer.opacity = 1.0
+        statusText.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        statusText.textAlignment = .center
+        statusText.layer.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+        statusText.layer.cornerRadius = 12
+        statusText.layer.borderWidth = 2
+        statusText.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        statusText.frame = CGRect(x: 15, y: 120, width: UIScreen.main.bounds.width - 30, height: 50)
+        UIApplication.topViewController?.view.addSubview(statusText)
+        statusText.fromTop(0.1)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.50, execute: {
+            statusText.fadeOut(0.5)
         })
         
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            statusText.removeFromSuperview()
+        })
     }
 
     private class func _share(_ data: [Any],
@@ -74,6 +94,11 @@ extension UIScreen {
     func isPortrait() -> Bool{
         return UIScreen.main.bounds.width < UIScreen.main.bounds.height
     }
+    
+    func goldenPopupFrame() -> CGRect {
+            return CGRect(origin: CGPoint(x: 0, y: UIScreen.main.bounds.height *  goldenRatio), size: CGSize(width: (UIScreen.main.bounds.width * (1 - goldenRatio)), height: (UIScreen.main.bounds.height * (1.0 - goldenRatio))))
+    }
+    
     func getRatio() -> CGFloat {
         var ratio = (1 - 0.6180340)
         

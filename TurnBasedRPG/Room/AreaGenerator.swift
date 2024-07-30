@@ -13,8 +13,8 @@ class AreaGenerator{
     
     let startRoom:RoomNode = RoomNode(name: "ReactorRoom", environment: .industrial, treasure: 7, danger: 7)
     let reactorRoom:RoomNode = RoomNode(name: "ReactorRoom", environment: .industrial, treasure: 7, danger: 7)
-    let diningRoom:RoomNode = RoomNode(name: "DiningRoom", environment: .insideBuilding, treasure: 4, danger: 1)
-    let flightdeck:RoomNode = RoomNode(name: "Flightdeck", environment: .insideBuilding, treasure: 3, danger: 2)
+    let diningRoom:RoomNode = RoomNode(name: "DiningRoom", environment: .indoors, treasure: 4, danger: 1)
+    let flightdeck:RoomNode = RoomNode(name: "Flightdeck", environment: .indoors, treasure: 3, danger: 2)
     let furnaceInside:RoomNode = RoomNode(name: "FurnaceInside", environment: .industrial, treasure: 6, danger: 5)
     let furnaceOutside:RoomNode = RoomNode(name: "FurnaceOutside", environment: .industrial, treasure: 6, danger: 3)
     
@@ -32,7 +32,7 @@ class AreaGenerator{
     let toriiGate1:RoomNode = RoomNode(name: "TorriGate1", environment: .highway, treasure: 8, danger: 2)
     let roadToTower:RoomNode = RoomNode(name: "RoadToTower", environment: .highway, treasure: 3, danger: 4)
     
-    let town:RoomNode = RoomNode(name: "Town", environment: .forest, treasure: 3, danger: 3)
+    let town:RoomNode = RoomNode(name: "Town", environment: .city, treasure: 3, danger: 3)
     
     let woods:RoomNode = RoomNode(name: "woods", environment: .forest, treasure: 3, danger: 3)
     let woods2:RoomNode = RoomNode(name: "woods2", environment: .forest, treasure: 3, danger: 3)
@@ -73,9 +73,7 @@ class AreaGenerator{
         woods5.oneWayRoom(.north, room: cabinWoods, wrongRoom: woods)
         cabinWoods.linkRoom(.east, room: cabin1)
         cabinWoods.linkRoom(.west, room: cabin2)
-
-
-        
+        cabinWoods.linkRoom(.north, room: darkwoods)
         
         street3.linkRoom(.south, room: toriiGate2)
         //The new images are not rendering when linked together

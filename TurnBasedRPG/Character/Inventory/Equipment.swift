@@ -95,7 +95,7 @@ class Weapon: Equipment {
         self.weaponType = weaponType
         self.imageNamed = imageNamed
         let damage = Damage()
-        damage.damageResist = Int8(dmg)
+        damage.physical = Int8(dmg)
         self.damage = damage
         self.speed = speed
         self.type = .Weapon
@@ -162,13 +162,14 @@ enum ArmorRack {
 }
 
 class Damage: Codable {
-    var damageResist: Int8 = 0
-    var magicResist: Int8 = 0
-    var shockResist: Int8 = 0
-    var frostResist: Int8 = 0
-    var fireResist: Int8 = 0
-    var chemicalResist: Int8 = 0
+    var physical: Int8 = 0
+    var magic: Int8 = 0
+    var shock: Int8 = 0
+    var frost: Int8 = 0
+    var fire: Int8 = 0
+    var chemical: Int8 = 0
 }
+
 enum ArmorType: Codable  {case Arm, Head, Chest, Legs, Shoes}
 
 class Armor:Equipment {
@@ -183,7 +184,7 @@ class Armor:Equipment {
     init(name: String, description:String, type:ArmorType, image:String = "", defense:Int8) {
         self.equippedLocation = type
         let resist = Damage()
-        resist.damageResist = defense
+        resist.physical = defense
         self.damageResist = resist
         super.init(name: name, description: description)
         self.imageNamed = image
@@ -288,8 +289,6 @@ class Effect: Codable {
 
 enum ItemRack {
     case healthPotion, manaPotion, mushroom, bisquit, soup, buzzPop, xpPotion
-    
-    
     var instance: Consumable {
         switch self {
         case .healthPotion:

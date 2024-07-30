@@ -14,7 +14,9 @@ class HealthBar: UIView {
     let barFrame = CAShapeLayer()
     let barCurrent = CAShapeLayer()
     let backBar = CAShapeLayer()
-    private var currentHealth:CGFloat {
+    
+    // Like how full is the health bar 50%?
+    private var healthBarRatio:CGFloat {
         get {
             return CGFloat(_currentHealth) / CGFloat(_maxHealth)
         }
@@ -49,6 +51,19 @@ class HealthBar: UIView {
         //layer.cornerRadius = 12
     }
     
+    func alignHpTo(_ mob: Character) {
+        _maxHealth = mob.maxHealth
+        
+        if (mob.currentHealth <= _currentHealth  ) {
+            backBar.fillColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        } else {
+            backBar.fillColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        }
+        _currentHealth = mob.currentHealth
+        scale(path: barCurrent, duration: 0.2)
+        scale(path: backBar, duration: 0.9)
+    }
+    
     func takeDamage(_ dmg: Int){
         backBar.fillColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
         if (dmg < _currentHealth) {
@@ -73,7 +88,7 @@ class HealthBar: UIView {
     
     func scale(path: CAShapeLayer, duration: CGFloat){
         let animation = CABasicAnimation(keyPath: "transform.scale.x")
-        animation.toValue = currentHealth
+        animation.toValue = healthBarRatio
         animation.duration = CFTimeInterval(duration)
         animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = false
@@ -83,35 +98,14 @@ class HealthBar: UIView {
     func reAlign(path: CAShapeLayer){
         let animation = CABasicAnimation(keyPath: "path")
         animation.duration = 2
-        
         animation.toValue = currentPath()
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        
         path.add(animation, forKey: nil)
-        
     }
     
     func currentPath() -> UIBezierPath{
-        
-        let path = UIBezierPath(rect: CGRect(origin: barFrame.bounds.origin, size: CGSize(width: self.bounds.width * currentHealth, height: self.bounds.height)))
-        
-        return path
+        return UIBezierPath(rect: CGRect(origin: barFrame.bounds.origin, size: CGSize(width: self.bounds.width * healthBarRatio, height: self.bounds.height)))
     }
-    
-    //    override func draw(_ rect: CGRect) {
-    //
-    //        let maxHealth: UIBezierPath = UIBezierPath(rect: self.bounds)
-    //        UIColor.black.setFill()
-    //        UIColor.white.setStroke()
-    //        maxHealth.lineWidth = 2
-    //        maxHealth.fill()
-    //        maxHealth.stroke()
-    //
-    //        let hp:UIBezierPath = UIBezierPath(rect: CGRect(origin: maxHealth.bounds.origin, size: CGSize(width: self.bounds.width * currentHealth, height: self.bounds.height)))
-    //
-    //        UIColor.white.setFill()
-    //        hp.fill()
-    //    }
     
     
 }

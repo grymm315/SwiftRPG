@@ -80,6 +80,24 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         })
     }
     
+    func stateMachine(command: String){
+        
+        switch command {
+        case "Fight":
+            print(command)
+        case "Magic":
+            print(command)
+        case "Item":
+            print(command)
+        case "Escape":
+            print(command)
+        default:
+            print(command)
+        }
+        btn_Cancel(self)
+        delegate?.chose(action: command)
+    }
+    
     @objc func btn_Cancel(_ sender: Any?){
         closing = true
         UIView.animate(withDuration: 0.3, animations: {
@@ -123,21 +141,5 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         stateMachine(command: tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "Unknown")
     }
     
-    func stateMachine(command: String){
-        
-        switch command {
-        case "Fight":
-            print(command)
-        case "Magic":
-            print(command)
-        case "Item":
-            print(command)
-        case "Escape":
-            print(command)
-        default:
-            print(command)
-        }
-        btn_Cancel(self)
-        delegate?.chose(action: command)
-    }
+    
 }

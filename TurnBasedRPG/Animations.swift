@@ -5,6 +5,7 @@
 //  Created by Chris Phillips on 1/20/24.
 //  Copyright © 2024 Chris Phillips. All rights reserved.
 //
+//  This is an easy wrapper for using animations UIViews
 
 import Foundation
 import UIKit

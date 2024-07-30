@@ -11,23 +11,10 @@ import UIKit
 
 class Character: Codable  {
     
-    internal init(strength: UInt8, perception: UInt8, endurance: UInt8, charisma: UInt8, intelligence: UInt8, luck: UInt8, agility: UInt8) {
-        self.strength = strength
-        self.perception = perception
-        self.endurance = endurance
-        self.charisma = charisma
-        self.intelligence = intelligence
-        self.luck = luck
-        self.agility = agility
-        name = "Grymmenthald"
-        
-        equippedSlot = WeaponRack.bareFist.instance
-        chestEquipmentSlot = ArmorRack.shirt.instance
-        legsEquipmentSlot = ArmorRack.leatherPants.instance
-        
-    }
-    
-
+    enum characterKeys: String, CodingKey, CaseIterable {
+            case name, strength, perception, endurance, charisma, intelligence, luck,
+        agility, gold, level, experience, race, profession, sex, inventory, headEquipmentSlot, chestEquipmentSlot, legsEquipmentSlot, equippedSlot, hp, mana, energy
+        }
     
     var maxHealth: Int {return Int((stats["endurance"] ?? 1) * 10)}
     lazy var currentHealth: Int = maxHealth
@@ -66,33 +53,38 @@ class Character: Codable  {
     func getHead() -> Armor? { return headEquipmentSlot}
     func getChest() -> Armor? { return chestEquipmentSlot}
     func getLegs() -> Armor? { return legsEquipmentSlot}
-    func getWeapo() -> Weapon? { return equippedSlot}
+    func getWeapon() -> Weapon? { return equippedSlot}
     
+    lazy var stats: [String : UInt8] = [
+        "strength" : strength,
+        "perception" : perception,
+        "endurance" : endurance,
+        "charisma" : charisma,
+        "intelligence" : intelligence,
+        "luck" : luck,
+        "agility" : agility,
+    ]
     
-    
-   
-    func takeDamage(_ dmg: Int) {
-        let t = dmg - getDefense()
-        if t >= 0 {
-            currentHealth -= dmg
-        }
-    }
-    
-    enum characterKeys: String, CodingKey, CaseIterable {
-            case name, strength, perception, endurance, charisma, intelligence, luck,
-        agility, gold, level, experience, race, profession, sex, inventory, headEquipmentSlot, chestEquipmentSlot, legsEquipmentSlot, equippedSlot, hp, mana, energy
-        }
-    enum equipmentKeys: CodingKey {
-        case type
-    }
-    
-    enum equipmentTypes: String, CodingKey {
-        case chest, legs, equiped, consumable, junk
+    internal init(strength: UInt8, perception: UInt8, endurance: UInt8, charisma: UInt8, intelligence: UInt8, luck: UInt8, agility: UInt8) {
+        self.strength = strength
+        self.perception = perception
+        self.endurance = endurance
+        self.charisma = charisma
+        self.intelligence = intelligence
+        self.luck = luck
+        self.agility = agility
+        name = "Nameless"
     }
     
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: characterKeys.self)
+        enum equipmentKeys: CodingKey {
+            case type
+        }
         
+        enum equipmentTypes: String, CodingKey {
+            case chest, legs, equiped, consumable, junk
+        }
+        let container = try decoder.container(keyedBy: characterKeys.self)
         self.name = try container.decode(String.self, forKey: .name)
         self.strength = try container.decode(UInt8.self, forKey: .strength)
         self.perception = try container.decode(UInt8.self, forKey: .perception)
@@ -110,12 +102,9 @@ class Character: Codable  {
         self.chestEquipmentSlot = try container.decode(Armor?.self, forKey: .chestEquipmentSlot)
         self.legsEquipmentSlot = try container.decode(Armor?.self, forKey: .legsEquipmentSlot)
         self.equippedSlot = try container.decode(Weapon?.self, forKey: .equippedSlot)
-        
         self.currentHealth = try container.decode(Int.self, forKey: .hp)
         self.currentMana = try container.decode(Int.self, forKey: .mana)
         self.currentEnergy = try container.decode(Int.self, forKey: .energy)
-
-        
         var equipmentArrayForType = try container.nestedUnkeyedContainer(forKey: .inventory)
         var myInventory = [Equipment]()
         var equipArray = equipmentArrayForType
@@ -135,14 +124,7 @@ class Character: Codable  {
                 myInventory.append(try equipArray.decode(Equipment.self))
             }
         }
-
-        
         self.inventory = myInventory
-        
-        print("Container: \(try container.decode([Equipment].self, forKey: .inventory))")
-        
-     
-
     }
     
  
@@ -166,29 +148,16 @@ class Character: Codable  {
         try container.encode(currentHealth, forKey: .hp)
         try container.encode(currentMana, forKey: .mana)
         try container.encode(currentEnergy, forKey: .energy)
-        
         try container.encode(headEquipmentSlot, forKey: .headEquipmentSlot)
         try container.encode(chestEquipmentSlot, forKey: .chestEquipmentSlot)
         try container.encode(legsEquipmentSlot, forKey: .legsEquipmentSlot)
         try container.encode(equippedSlot, forKey: .equippedSlot)
         }
     
-    func getGold() -> Int {
-        return gold
-    }
-    
-    func getStatusEffects() -> String {
-        return "None"
-    }
-    
-    func getLevel() -> Int {
-        return level
-    }
-    
-    func getExperience() -> Int {
-        return experience
-    }
-    
+    func getGold() -> Int {return gold}
+    func getStatusEffects() -> String {return "None"}
+    func getLevel() -> Int {return level}
+    func getExperience() -> Int {return experience}
     func rewardXp(_ xp: Int) {
         experience += xp
         lvlUp()
@@ -222,6 +191,21 @@ class Character: Codable  {
             return xp
     }
     
+    func takeDamage(_ dmg: Int) {
+            currentHealth -= dmg
+    }
+    
+    func attack(enemy: Character) -> Int{
+        let injury = (getWeapon()?.damage?.physical ?? 1) * Int8(stats["strength"] ?? 1) - enemy.getDefense()
+        print("\(self.race) has done \(injury) dmg to \(enemy.race)")
+
+        if (injury <= 0){
+            return 0
+        }
+        enemy.currentHealth -= Int(injury)
+        return Int(injury)
+    }
+    
     func lvlUp() {
         if (experience < getXpToLvl()) { return }
         let diff = experience - getXpToLvl()
@@ -248,6 +232,29 @@ class Character: Codable  {
         }
     }
     
+    func raiseStat(_ name: String){
+        let initial = stats[name]
+        if (getLevelUpsAvailable() > 0){
+        stats[name] = initial! + 1
+        }
+    }
+    
+    func lowerStat(_ name: String){
+        let initial = stats[name]
+        if (initial! > 1){
+        stats[name] = initial! - 1
+        }
+    }
+    
+    func getLevelUpsAvailable() -> Int {
+        return 7 + level - getAllStats()
+    }
+    
+    func getAllStats() -> Int {
+        let total = stats.values.reduce(0, +)
+        return Int(total)
+    }
+    
     func xpToNextLevel(){
         
     }
@@ -260,22 +267,15 @@ class Character: Codable  {
     func dropItemFromRow(_ index:Int){
         inventory.remove(at: index)
     }
-//    func getItem(_ item: Equipment){
-//        if let index = inventory.firstIndex(where: {$0.name == item.name}) {
-//           //found item
-//        } else {
-//            //did not find item
-//        }
-//    }
     
     func getAttack() -> Int {
-        let attk = 1 + Int8(strength) + (getWeapo()?.damage?.damageResist ?? 0)
+        let attk = 1 + Int8(strength) + (getWeapon()?.damage?.physical ?? 0)
         return Int(attk)
     }
     
-    func getDefense() -> Int {
-        let def = (getChest()?.damageResist?.damageResist ?? 0) + (getLegs()?.damageResist?.damageResist ?? 0)
-        return Int(def)
+    func getDefense() -> Int8 {
+        let def = (getChest()?.damageResist?.physical ?? 0) + (getLegs()?.damageResist?.physical ?? 0)
+        return def
     }
     private func equipToHead(index:Int){
         removeHeadPiece()
@@ -337,16 +337,6 @@ class Character: Codable  {
         
     }
     
-//    func equip(_ item: Equipment){
-//        let swapping = item
-//
-//        if let index = inventory.firstIndex(where: {$0.name == item.name}) {
-//
-//        } else {
-//    print("Did not find item")
-//        }
-//    }
-    
     func removeHeadPiece(){
         if (headEquipmentSlot != nil){
             inventory.append(headEquipmentSlot!)
@@ -374,17 +364,6 @@ class Character: Codable  {
             equippedSlot = nil
         }
     }
-
-    
-    lazy var stats: [String : UInt8] = [
-        "strength" : strength,
-        "perception" : perception,
-        "endurance" : endurance,
-        "charisma" : charisma,
-        "intelligence" : intelligence,
-        "luck" : luck,
-        "agility" : agility,
-    ]
     
     func reward () {
       
@@ -394,92 +373,6 @@ class Character: Codable  {
         
     }
     
-    func raiseStat(_ name: String){
-        let initial = stats[name]
-        if (getLevelUpsAvailable() > 0){
-        stats[name] = initial! + 1
-        }
-    }
-    
-    func lowerStat(_ name: String){
-        let initial = stats[name]
-        if (initial! > 1){
-        stats[name] = initial! - 1
-        }
-    }
-    
-    func getLevelUpsAvailable() -> Int {
-        return 7 + level - getAllStats()
-    }
-    
-    func getAllStats() -> Int {
-        let total = stats.values.reduce(0, +)
-        return Int(total)
-    }
-    
-    // MARK: Random Data... remove this from the class
-    enum raceTypes: String, Codable{
-        case human, elf, dwarf, halfling, pixie, halfogre, halforc,
-        halftroll, halfelf, gith, drow, seaelf, vampire, demon,
-        lizman, nome, angel,
-        troll, ant, ape, baboon, bat, bear, bee,
-        beetle, boar, bugbear, cat, dog, dragon, ferret, fly,
-        gargoyle, gelatin, ghoul, gnoll, gnome, goblin, golem,
-        gorgon, harpy, hobgoblin, kobold, lizardman, locust,
-        lycanthrope, minotaur, mold, mule, neanderthal, ooze, orc,
-        rat, rustmonster, shadow, shapeshifter, shrew, shrieker,
-        skeleton, slime, snake, spider, stirge, thoul, troglodyte,
-        undead, wight, wolf, worm, zombie, bovine, canine, feline,
-        porcine, mammal, rodent, avis, reptile, amphibian, fish,
-        crustacean, insect, spirit, magical, horse, animal, humanoid,
-        monster, god, shrub, tree, flower, grass, fungus, weed,
-        Aarakocra, Aasimon, Angel, Antelope, Azer, Basilisk, Beholder,
-        Bird, Brownie, Camel, Celestial, Centaur, Chitine, Couatl,
-        Creeper, Dao, Deer, Demon, Deva, Devil, Dinosaur, Djinni,
-        Dolphin, Drake, Dryad, Duergar, Eel, Efreeti, Elemental,
-        Elephant, Ethereal, Ettin, Fairy, Firbolg, Genasi, Giant,
-        Goat, Gremlin, Griffon, Hydra, Illithid, Imp, Incarnate,
-        Janni, Kraken, Kuatoa, Lagomorph, Leech, Leprechaun, Lich,
-        Liquid, Magman, Manticore, Marid, Marsupial, Mephit, Mercane,
-        Mist, Mollusc, Mongrel, Myconoid, Nereid, Nymph, Octopus,
-        Ogre, Pech, Phantom, Primate, Rabbit, Rakshasa, Rock,
-        Sahaugin, Satyr, Selkie, Shark, Sirine, Slaad, Sprite,
-        Squid, Squirrel, Stone, Sylph, Tanarri, Thrikreen, Tiefling,
-        Titan, Toad, Unicorn, Urchin, Vapor, Wemic, Whale, Xorn
-    }
-    
-    enum sexType: Int, Codable {
-        case male, female, nueter
-    }
-    
-//    let classDescription:[String] = [
-//        "mage", "cleric", "thief", "warrior", "vampire", "druid", "ranger",
-//        "augurer", "paladin", "nephandi", "savage", "phantomer", "archer", "demon",
-//        "assassin", "angel", "werewolf", "licanthrope", "lich", "monger", "pirate",
-//        "baker", "butcher", "blacksmith", "mayor", "king", "queen"
-//    ]
-    
-    enum classType:Int, CustomStringConvertible, Codable {
-        case mage, cleric, thief, warrior, vampire, druid, ranger,
-        augurer, paladin, nephandi, savage, phantomer, archer, demon,
-        assassin, angel, werewolf, licanthrope, lich, monger, pirate,
-        baker, butcher, blacksmith, mayor, king, queen
-        
-        var description: String {
-            switch self {
-            case .mage:
-                return "mage"
-            case .angel:
-                return "Angel"
-            case .archer:
-                return "Archer"
-            case .assassin:
-                return "Assassin"
-            default:
-                return "Dude"
-            }
-        }
-    }
     
     
 }

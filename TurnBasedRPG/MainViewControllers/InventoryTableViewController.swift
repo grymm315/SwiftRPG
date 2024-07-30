@@ -68,7 +68,7 @@ class InventoryTableViewController: UITableViewController, ReloadProtocol {
         } else if (indexPath.section == legSlot){
             cell.configCell(item: GameDatabase.shared.hero.getLegs())
         } else if (indexPath.section == equipedSlot){
-            cell.configCell(item: GameDatabase.shared.hero.getWeapo())
+            cell.configCell(item: GameDatabase.shared.hero.getWeapon())
         }
         return cell
     }

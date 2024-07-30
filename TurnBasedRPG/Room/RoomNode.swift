@@ -36,6 +36,9 @@ class RoomNode {
     
     init(name:String, environment: RoomEnvironment = .field, treasure: Int = 0, danger: Int = 0) {
         title = name
+        self.environment = environment
+        self.dangerRating = danger
+        self.lootRating = treasure
     }
     
     /** Creates a 2 way link between rooms */
@@ -74,7 +77,5 @@ class RoomNode {
 }
 
 enum RoomEnvironment {
-    case insideBuilding, city, field, forest, hills, mountain, water,
-        underwater, air, desert, dunno, oceanfloor,
-        underground, lava, swamp, highway, industrial
+    case indoors, city, field, forest, highway, industrial
 }
