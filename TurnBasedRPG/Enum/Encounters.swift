@@ -18,7 +18,8 @@ enum ForestEncounters: CaseIterable {
             let description = Command("All of a sudden you spot a goblin in the distance. What do you do?", completionHandler: {})
             description.isSelectable = false
             let attkGoblin = Command("Attack Goblin", completionHandler: {
-                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: self)
+                
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.Goblin)
             })
             let waveGoblin = Command("Wave at Goblin", completionHandler: {
                 UIApplication.systemMessage("The goblin stares at you in confusion before running off. +40XP")
@@ -67,7 +68,7 @@ enum CityEncounters: CaseIterable {
             let description = Command("A fearless Rat approaches. What do you do?", completionHandler: {})
             description.isSelectable = false
             let attk = Command("Attack Rat", completionHandler: {
-                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: self)
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.rat)
             })
             let shoo = Command("Shoo Rat", completionHandler: {
                 UIApplication.systemMessage("The rat scurries off. +2XP")
@@ -81,7 +82,7 @@ enum CityEncounters: CaseIterable {
             let description = Command("You see a merchant peddling his wares", completionHandler: {})
             description.isSelectable = false
             let attk = Command("Rob Merchant", completionHandler: {
-                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: self)
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.merchant)
             })
             let buy = Command("Shop", completionHandler: {
                 UIApplication.systemMessage("Not implemented")
@@ -89,28 +90,46 @@ enum CityEncounters: CaseIterable {
             let flee = Command("Leave", completionHandler: {
                 UIApplication.systemMessage("Not seeing anything of interest you walk away.")
             })
-            return [description, attk, flee]
+            return [description, attk, buy, flee]
         case .Thief:
             let description = Command("You are confronted with a thief", completionHandler: {})
             description.isSelectable = false
+            let attk = Command("Attack Thief", completionHandler: {
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.thief)
+            })
+            let bribe = Command("Give money", completionHandler: {
+                UIApplication.systemMessage("You give the thief $20 and he lets you go on the way")
+            })
             let flee = Command("Flee", completionHandler: {
                 UIApplication.systemMessage("You bravely run away")
             })
-            return [description, flee]
+            return [description, attk, bribe, flee]
         case .CityGuard:
             let description = Command("You encounter a guardsman on patrol", completionHandler: {})
             description.isSelectable = false
+            let attk = Command("Attack Guard", completionHandler: {
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.townGuard)
+            })
+            let bribe = Command("Give money", completionHandler: {
+                UIApplication.systemMessage("You give the guard $20 and he lets you go on the way")
+            })
             let flee = Command("Leave", completionHandler: {
                 UIApplication.systemMessage("Not seeing anything of interest you walk away.")
             })
-            return [description, flee]
+            return [description, attk, bribe, flee]
         case .Dog:
-            let description = Command("You see a merchant peddling his wares", completionHandler: {})
+            let description = Command("You see a stray dog begging for scraps", completionHandler: {})
             description.isSelectable = false
+            let attk = Command("Attack Dog", completionHandler: {
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.thief)
+            })
+            let bribe = Command("Give food", completionHandler: {
+                UIApplication.systemMessage("You give the dog some of your food.")
+            })
             let flee = Command("Leave", completionHandler: {
                 UIApplication.systemMessage("Not seeing anything of interest you walk away.")
             })
-            return [description, flee]
+            return [description, attk, bribe, flee]
         }
     }
 }
@@ -123,7 +142,7 @@ enum HighwayEncounters: CaseIterable {
             let description = Command("A fearless Deer approaches. What do you do?", completionHandler: {})
             description.isSelectable = false
             let attk = Command("Attack Rat", completionHandler: {
-                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: self)
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.rat)
             })
             let shoo = Command("Shoo Rat", completionHandler: {
                 UIApplication.systemMessage("The rat scurries off. +2XP")
@@ -137,7 +156,7 @@ enum HighwayEncounters: CaseIterable {
             let description = Command("You see a travelling merchant", completionHandler: {})
             description.isSelectable = false
             let attk = Command("Rob Merchant", completionHandler: {
-                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: self)
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.merchant)
             })
             let buy = Command("Shop", completionHandler: {
                 UIApplication.systemMessage("Not implemented")
@@ -145,28 +164,44 @@ enum HighwayEncounters: CaseIterable {
             let flee = Command("Leave", completionHandler: {
                 UIApplication.systemMessage("Not seeing anything of interest you walk away.")
             })
-            return [description, attk, flee]
+            return [description, attk, buy, flee]
         case .Thief:
-            let description = Command("A man approaches demanding your money or your life", completionHandler: {})
+            let description = Command("You are confronted with a thief", completionHandler: {})
             description.isSelectable = false
+            let attk = Command("Attack Thief", completionHandler: {
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.thief)
+            })
+            let bribe = Command("Give money", completionHandler: {
+                UIApplication.systemMessage("You give the thief $20 and he lets you go on the way")
+            })
             let flee = Command("Flee", completionHandler: {
                 UIApplication.systemMessage("You bravely run away")
             })
-            return [description, flee]
+            return [description, attk, bribe, flee]
         case .CityGuard:
             let description = Command("You encounter a weary ranger.", completionHandler: {})
             description.isSelectable = false
+            let attk = Command("Attack Ranger", completionHandler: {
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.townGuard)
+            })
+            let bribe = Command("Give money", completionHandler: {
+                UIApplication.systemMessage("You give the guard $20 and he lets you go on the way")
+            })
             let flee = Command("Leave", completionHandler: {
                 UIApplication.systemMessage("Not seeing anything of interest you walk away.")
             })
-            return [description, flee]
+            return [description, attk, bribe, flee]
+
         case .Dog:
             let description = Command("A friendly dog approaches", completionHandler: {})
             description.isSelectable = false
+            let attk = Command("Attack Dog", completionHandler: {
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.dog)
+            })
             let flee = Command("Leave", completionHandler: {
                 UIApplication.systemMessage("Not seeing anything of interest you walk away.")
             })
-            return [description, flee]
+            return [description, attk, flee]
         }
     }
 }

@@ -41,6 +41,7 @@ class Character: Codable  {
     var race:raceTypes = .human
     var profession:classType = .warrior
     var sex:sexType = .male
+    var image:String?
     
     private var inventory: [Equipment] = []
     

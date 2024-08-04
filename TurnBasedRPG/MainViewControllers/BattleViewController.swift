@@ -61,6 +61,11 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         BattleController.shared.start(hero, enemy)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        enemyImage.image = UIImage(named: enemy.image ?? "Willy")
+        
+    }
+    
     func setBackgroundImage(){
         
     }
