@@ -538,6 +538,10 @@
                                         </prototypes>
                                         <sections/>
                                     </tableView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomframe" translatesAutoresizingMaskIntoConstraints="NO" id="qdr-CA-rdM">
+                                        <rect key="frame" x="0.0" y="444" width="414" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    </imageView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sd2-K6-93h">
                                         <rect key="frame" x="8" y="4" width="392" height="32"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -751,10 +755,10 @@
                                 <rect key="frame" x="253" y="463" width="136" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.88466043179999998" green="0.70424657810000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="34"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Start">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.48316493179999997" green="0.38463034810000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -792,10 +796,11 @@
                                 <rect key="frame" x="253" y="560" width="136" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.88466043179999998" green="0.70424657810000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="35"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Credits">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.3599375715" green="0.32514510720000001" blue="0.042145883090000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -829,21 +834,15 @@
                                     <segue destination="khA-HM-s1d" kind="show" id="6pl-73-nmF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1iI-6d-Rhs" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iI-6d-Rhs" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
                                 <rect key="frame" x="253" y="514" width="136" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.88466043179999998" green="0.70424657810000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Settings">
-                                            <attributes>
-                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <font key="NSFont" size="34" name="Impact"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" red="0.3599375715" green="0.32514510720000001" blue="0.042145883090000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -878,6 +877,10 @@
                                     <segue destination="mzZ-pF-ewO" kind="show" id="94v-fZ-2Jg"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topframe" translatesAutoresizingMaskIntoConstraints="NO" id="9hi-qk-U3i">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1185,11 +1188,15 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZnI-8W-1W0" customClass="UIButtonGUI" customModule="TurnBasedRPG" customModuleProvider="target">
-                                <rect key="frame" x="300" y="10" width="201" height="100"/>
+                                <rect key="frame" x="290" y="10" width="201" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="radialbutton" translatesAutoresizingMaskIntoConstraints="NO" id="9df-lC-5W8">
+                                        <rect key="frame" x="24" y="-74" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SunMoon" translatesAutoresizingMaskIntoConstraints="NO" id="nxI-rp-3Z8">
-                                        <rect key="frame" x="-3" y="-75" width="196" height="200"/>
+                                        <rect key="frame" x="25" y="-75" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -1206,12 +1213,8 @@
                                     <action selector="waitDayNight:" destination="d2K-j7-Qrn" eventType="touchUpInside" id="H6f-fO-bSi"/>
                                 </connections>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame" translatesAutoresizingMaskIntoConstraints="NO" id="CMn-d4-FNa">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" id="sik-d3-atN">
-                                <rect key="frame" x="8" y="39" width="240" height="75"/>
+                                <rect key="frame" x="4" y="10" width="240" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="c7M-RL-oyB" customClass="HealthBar" customModule="TurnBasedRPG" customModuleProvider="target">
@@ -1254,6 +1257,14 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topframe" translatesAutoresizingMaskIntoConstraints="NO" id="CMn-d4-FNa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomframe" translatesAutoresizingMaskIntoConstraints="NO" id="yBq-O2-3nz">
+                                <rect key="frame" x="0.0" y="746" width="414" height="54"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5gf-16-iim"/>
                         <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
@@ -1326,9 +1337,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="IBI-2f-Cbr">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.3842231035" green="0.37306582929999998" blue="0.31284812090000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.3842231035" green="0.37306582929999998" blue="0.31284812090000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textShadowColor" systemColor="systemRedColor"/>
@@ -1355,9 +1366,12 @@
         <image name="Goblin" width="513" height="510"/>
         <image name="SunMoon" width="800" height="800"/>
         <image name="Willy" width="1024" height="1024"/>
+        <image name="bottomframe" width="494" height="54"/>
         <image name="figure.hiking" catalog="system" width="98" height="128"/>
         <image name="frame" width="512" height="512"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="radialbutton" width="256" height="256"/>
+        <image name="topframe" width="494" height="54"/>
         <image name="volleyball.fill" catalog="system" width="128" height="123"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
