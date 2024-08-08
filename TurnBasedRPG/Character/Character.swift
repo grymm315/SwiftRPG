@@ -74,7 +74,7 @@ class Character: Codable  {
         self.intelligence = intelligence
         self.luck = luck
         self.agility = agility
-        name = "Nameless"
+        name = "Our Hero"
     }
     
     required init(from decoder: Decoder) throws {

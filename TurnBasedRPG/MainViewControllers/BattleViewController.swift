@@ -56,13 +56,15 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         
         heroHP.alignHpTo(hero)
         heroName.text = hero.name
-        SoundController.shared.speak("You are attacked by a ferocious \(enemy.race.rawValue).")
+        SoundController.shared.speak("You are attacked by a ferocious \(enemy.name).")
         BattleController.shared.battleDelegate = self
         BattleController.shared.start(hero, enemy)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         enemyImage.image = UIImage(named: enemy.image ?? "Willy")
+        enemyName.text = "\(enemy.name)"
+        
         
     }
     
@@ -179,6 +181,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
                 UIApplication.battleNotification("You have died!!")
             })
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+                GameDatabase.shared.hero.heal(100)
                 self.dismiss(animated: true, completion: nil)
             })
         case .youWin:

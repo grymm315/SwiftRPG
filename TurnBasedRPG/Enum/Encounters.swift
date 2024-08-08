@@ -52,10 +52,18 @@ enum ForestEncounters: CaseIterable {
             })
             return [description, drink, bath]
         case .LoneWolf:
-            let attkWolf = Command("Attack Wolf", completionHandler: {
-                
+            let description = Command("You see a stray dog begging for scraps", completionHandler: {})
+            description.isSelectable = false
+            let attk = Command("Attack Wolf", completionHandler: {
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.LoneWolf)
             })
-            return [attkWolf]
+            let bribe = Command("Give food", completionHandler: {
+                UIApplication.systemMessage("You give the dog some of your food.")
+            })
+            let flee = Command("Leave", completionHandler: {
+                UIApplication.systemMessage("Not seeing anything of interest you walk away.")
+            })
+            return [description, attk, bribe, flee]
         }
     }
 }
@@ -110,8 +118,8 @@ enum CityEncounters: CaseIterable {
             let attk = Command("Attack Guard", completionHandler: {
                 UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.townGuard)
             })
-            let bribe = Command("Give money", completionHandler: {
-                UIApplication.systemMessage("You give the guard $20 and he lets you go on the way")
+            let bribe = Command("Bribe Guard", completionHandler: {
+                UIApplication.systemMessage("You give the guard $20")
             })
             let flee = Command("Leave", completionHandler: {
                 UIApplication.systemMessage("Not seeing anything of interest you walk away.")
@@ -141,8 +149,8 @@ enum HighwayEncounters: CaseIterable {
         case .Rat:
             let description = Command("A fearless Deer approaches. What do you do?", completionHandler: {})
             description.isSelectable = false
-            let attk = Command("Attack Rat", completionHandler: {
-                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.rat)
+            let attk = Command("Attack Deer", completionHandler: {
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.dog)
             })
             let shoo = Command("Shoo Rat", completionHandler: {
                 UIApplication.systemMessage("The rat scurries off. +2XP")
