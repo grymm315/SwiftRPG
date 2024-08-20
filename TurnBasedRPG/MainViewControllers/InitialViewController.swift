@@ -14,7 +14,9 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var creditButton: UIButtonGUI!
     @IBOutlet weak var settingsButton: UIButtonGUI!
     @IBOutlet weak var shareButton: UIButtonGUI!
+    @IBOutlet weak var newGameButton: UIButtonGUI!
     
+    let popUp:PopUp = PopUp()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +24,14 @@ class InitialViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        newGameButton.fromBottom(newGameButton.animationSpeed)
         startButton.fromBottom(startButton.animationSpeed)
         settingsButton.fromBottom(settingsButton.animationSpeed)
         creditButton.fromBottom(creditButton.animationSpeed)
         shareButton.fromBottom(shareButton.animationSpeed)
         
+        popUp.startFrame = newGameButton.frame
+        newGameButton.fadeIn(newGameButton.animationSpeed)
         startButton.fadeIn(startButton.animationSpeed)
         settingsButton.fadeIn(settingsButton.animationSpeed)
         creditButton.fadeIn(creditButton.animationSpeed)
@@ -40,6 +45,13 @@ class InitialViewController: UIViewController {
     }
     @IBAction func creditAction(_ sender: Any) {
         print("Roll the credits")
+    }
+    
+    @IBAction func newGamePressed(_ sender: Any) {
+        popUp.options = NewGame.Quickstart.instance
+        SoundController.shared.menuOpen()
+        popUp.updateViews()
+            view.addSubview(popUp.view)
     }
     
     @IBAction func shareButton(_ sender: Any) {

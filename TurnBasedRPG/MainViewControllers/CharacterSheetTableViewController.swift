@@ -36,6 +36,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var buttonShirt: UIButtonGUI!
     @IBOutlet weak var buttonPants: UIButtonGUI!
     
+    @IBOutlet weak var characterPortrait: UIImageView!
     @IBOutlet weak var imagePants: UIImageView!
     @IBOutlet weak var imageWeapon: UIImageView!
     
@@ -160,16 +161,17 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
         heroName.text = GameDatabase.shared.hero.name
         classLevel.text = "Lv.\(GameDatabase.shared.hero.getLevel()) \(GameDatabase.shared.hero.profession.description)"
         xpBar.setProgress(Float(GameDatabase.shared.hero.getExperience()) / Float(GameDatabase.shared.hero.getXpToLvl()), animated: true)
-        healthIndicator.text = "HP: \(GameDatabase.shared.hero.currentHealth) / \(GameDatabase.shared.hero.maxHealth)"
-         manaIndicator.text = "MP: \(GameDatabase.shared.hero.currentMana) / \(GameDatabase.shared.hero.maxMana)"
-        energyIndicator.text = "EP: \(GameDatabase.shared.hero.currentEnergy) / \(GameDatabase.shared.hero.maxEnergy)"
+        healthIndicator.text = "HP:  \(GameDatabase.shared.hero.currentHealth) / \(GameDatabase.shared.hero.maxHealth)"
+         manaIndicator.text = "MP:  \(GameDatabase.shared.hero.currentMana) / \(GameDatabase.shared.hero.maxMana)"
+        energyIndicator.text = "EP:  \(GameDatabase.shared.hero.currentEnergy) / \(GameDatabase.shared.hero.maxEnergy)"
         perkPoints.text = "Perk Points: \(GameDatabase.shared.hero.getLevelUpsAvailable())"
         goldLabel.text = "GP: \(GameDatabase.shared.hero.getGold())"
-        battleStats.text = "Atk: \(GameDatabase.shared.hero.getAttack()) Def:\(GameDatabase.shared.hero.getDefense())"
-        statusEffects.text = "Status Effects: \(GameDatabase.shared.hero.getStatusEffects())"
+        battleStats.text = "ATK: \(GameDatabase.shared.hero.getAttack()) DEF: \(GameDatabase.shared.hero.getDefense())"
+        statusEffects.text = "STATUS: \(GameDatabase.shared.hero.getStatusEffects())"
         imageWeapon.image = UIImage(named: GameDatabase.shared.hero.getWeapon()?.imageNamed ?? "")
         imageChest.image = UIImage(named: GameDatabase.shared.hero.getChest()?.imageNamed ?? "")
         imagePants.image = UIImage(named: GameDatabase.shared.hero.getLegs()?.imageNamed ?? "")
+        characterPortrait.image = UIImage(named: GameDatabase.shared.hero.image ?? "willy")
        
 
     }

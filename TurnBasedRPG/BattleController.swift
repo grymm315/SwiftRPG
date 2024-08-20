@@ -60,7 +60,7 @@ class BattleController {
     }
     
     func statusReport() {
-        print("\(hero?.name): \(heroInitiative) vs \(enemy?.race): \(enemyInitiative)")
+        print("\(hero?.name ?? "Name not found"): \(heroInitiative) vs \(enemy?.race ?? raceTypes.Demon): \(enemyInitiative)")
     }
     
     func AIMove() {

@@ -132,6 +132,9 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cellThis = tableView.dequeueReusableCell(withIdentifier: "battle", for: indexPath as IndexPath)
         cellThis.backgroundColor = UIColor.blue
         cellThis.textLabel?.textColor = UIColor.white
+        cellThis.textLabel?.font = UIFont(name: "Courier New Bold", size: 14)
+        cellThis.textLabel?.shadowColor = UIColor.black
+        cellThis.textLabel?.shadowOffset = CGSize(width: 1, height: 1)
         cellThis.textLabel?.text = menuItems[indexPath.row]
         
         return cellThis

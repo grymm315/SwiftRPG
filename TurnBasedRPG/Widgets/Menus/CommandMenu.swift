@@ -37,8 +37,8 @@ class CommandCell: UICollectionViewCell {
     
        required init?(coder: NSCoder) {
            super.init(coder: coder)
-           self.backgroundColor = .blue
-           self.layer.cornerRadius = 20.0
+           self.backgroundColor = UIColor.systemGray
+           self.layer.cornerRadius = 8.0
            self.layer.borderWidth = 4
            self.layer.borderColor = UIColor.white.cgColor
            self.isUserInteractionEnabled = true
