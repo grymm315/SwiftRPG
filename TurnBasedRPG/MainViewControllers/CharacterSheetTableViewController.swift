@@ -39,8 +39,8 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var characterPortrait: UIImageView!
     @IBOutlet weak var imagePants: UIImageView!
     @IBOutlet weak var imageWeapon: UIImageView!
-    
     @IBOutlet weak var imageChest: UIImageView!
+    
     @IBAction func touchChest(_ sender: Any) {
         itemPopup.startFrame = imageChest.frame
         let description = Command("\(GameDatabase.shared.hero.getChest()?.description ?? "Empty")", completionHandler: {})

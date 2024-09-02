@@ -54,6 +54,7 @@
 		F09535322B8B170E00AF5E2F /* BattleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09535312B8B170E00AF5E2F /* BattleController.swift */; };
 		F0AE0CD52C55A494009B68FF /* Mobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE0CD42C55A494009B68FF /* Mobs.swift */; };
 		F0AE0CD72C6F012C009B68FF /* NewGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE0CD62C6F012C009B68FF /* NewGame.swift */; };
+		F0AE0CD92C86645D009B68FF /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE0CD82C86645D009B68FF /* ItemList.swift */; };
 		F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */; };
 		F0B090992B579BC6000ACCDC /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B090982B579BC6000ACCDC /* Haptics.swift */; };
 		F0D0C8C22B5B9A0100D00B23 /* CommandMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D0C8C12B5B9A0100D00B23 /* CommandMenu.swift */; };
@@ -132,6 +133,7 @@
 		F09535312B8B170E00AF5E2F /* BattleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleController.swift; sourceTree = "<group>"; };
 		F0AE0CD42C55A494009B68FF /* Mobs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobs.swift; sourceTree = "<group>"; };
 		F0AE0CD62C6F012C009B68FF /* NewGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGame.swift; sourceTree = "<group>"; };
+		F0AE0CD82C86645D009B68FF /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		F0B0907F2B563EE0000ACCDC /* EnumeratedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumeratedFile.swift; sourceTree = "<group>"; };
 		F0B090982B579BC6000ACCDC /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		F0D0C8C12B5B9A0100D00B23 /* CommandMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandMenu.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				9607315423CECC270070A869 /* Equipment.swift */,
+				F0AE0CD82C86645D009B68FF /* ItemList.swift */,
 			);
 			path = Inventory;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				820150A7213B3894006A4B80 /* HealthBar.swift in Sources */,
 				F0B090992B579BC6000ACCDC /* Haptics.swift in Sources */,
 				F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */,
+				F0AE0CD92C86645D009B68FF /* ItemList.swift in Sources */,
 				96CAE7CA23D3073F0017019E /* InventoryTableViewController.swift in Sources */,
 				F0D0C8C22B5B9A0100D00B23 /* CommandMenu.swift in Sources */,
 				96CAA1402340A87F009C6A3B /* Mouth.swift in Sources */,

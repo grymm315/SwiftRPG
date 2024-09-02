@@ -13,7 +13,7 @@ class Character: Codable  {
     
     enum characterKeys: String, CodingKey, CaseIterable {
             case name, strength, perception, endurance, charisma, intelligence, luck,
-        agility, gold, level, experience, race, profession, sex, inventory, headEquipmentSlot, chestEquipmentSlot, legsEquipmentSlot, equippedSlot, hp, mana, energy
+        agility, gold, level, experience, race, profession, sex, inventory, headEquipmentSlot, chestEquipmentSlot, legsEquipmentSlot, equippedSlot, hp, mana, energy, image
         }
     
     var maxHealth: Int {return Int((stats["endurance"] ?? 1) * 10)}
@@ -106,6 +106,7 @@ class Character: Codable  {
         self.currentHealth = try container.decode(Int.self, forKey: .hp)
         self.currentMana = try container.decode(Int.self, forKey: .mana)
         self.currentEnergy = try container.decode(Int.self, forKey: .energy)
+        self.image = try container.decode(String.self, forKey: .image)
         var equipmentArrayForType = try container.nestedUnkeyedContainer(forKey: .inventory)
         var myInventory = [Equipment]()
         var equipArray = equipmentArrayForType
@@ -133,6 +134,7 @@ class Character: Codable  {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: characterKeys.self)
         try container.encode(name, forKey: .name)
+        try container.encode(image, forKey: .image)
         try container.encode(stats["strength"], forKey: .strength)
         try container.encode(stats["perception"], forKey: .perception)
         try container.encode(stats["endurance"], forKey: .endurance)
@@ -220,6 +222,16 @@ class Character: Codable  {
     currentHealth += amt
         if currentHealth > maxHealth {
             currentHealth = maxHealth
+        }
+    }
+    
+    func adjustMana(_ amt: Int){
+        currentMana += amt
+        if (currentMana < 0){
+            currentMana = 0
+        }
+        if (currentMana > maxMana){
+            currentMana = maxMana
         }
     }
     
