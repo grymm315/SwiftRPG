@@ -26,10 +26,11 @@ class InfoBox: UILabel {
         self.layer.opacity = 1.0
         self.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.textAlignment = .center
-        self.layer.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+ 
+        self.layer.backgroundColor = UIColor.black.cgColor
         self.layer.cornerRadius = 12
         self.layer.borderWidth = 6
-        self.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         self.numberOfLines = 0
         self.lineBreakMode = .byWordWrapping
         self.lineBreakStrategy = .pushOut
@@ -44,15 +45,20 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView:UITableView = UITableView()
     public var options:[Command] = []
+    //This is the location/size of where the modal begins animation
+    //If we set this to the same frame as the button that activates it
+    // it will appear jump out from that button
     public var startFrame:CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
     public var prompt:String?
     
-    
+    //This is what the
     var tableFrame:CGRect{
         get {
-            return CGRect(origin: CGPoint(x: UIScreen.main.bounds.width * 0.2, y: UIScreen.main.bounds.height / 5), size: CGSize(width: (UIScreen.main.bounds.width * 0.6), height: (UIScreen.main.bounds.height / 2)))
+            return CGRect(origin: CGPoint(x: UIScreen.main.bounds.width * 0.2, y: UIScreen.main.bounds.height / 5), size: CGSize(width: (UIScreen.main.bounds.width * 0.63), height: (UIScreen.main.bounds.height / 2)))
         }
     }
+    
+    
     var cancel:UIButton = UIButton()
     var closing:Bool = false
     
@@ -66,9 +72,10 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.layer.masksToBounds = true
         
         tableView.layer.cornerRadius = 12
-        tableView.layer.borderWidth = 8
-        tableView.layer.borderColor = UIColor.white.cgColor
-        tableView.backgroundColor = UIColor.blue
+//        tableView.layer.borderWidth = 8
+//        tableView.layer.borderColor = UIColor.white.cgColor
+        tableView.backgroundColor = UIColor.clear
+
         
 
         //tableView.
@@ -77,7 +84,7 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cancel.setTitle("Cancel", for: UIControl.State.normal)
         cancel.setTitleColor(UIColor.white, for: .normal)
         cancel.isEnabled = true
-        cancel.backgroundColor = UIColor.blue
+        cancel.backgroundColor = UIColor.clear
         cancel.layer.cornerRadius = 12
         cancel.layer.borderWidth = 8
         cancel.layer.borderColor = UIColor.lightGray.cgColor
@@ -155,8 +162,9 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellThis = tableView.dequeueReusableCell(withIdentifier: "basic", for: indexPath as IndexPath)
-        cellThis.backgroundColor = UIColor.blue
-        cellThis.textLabel?.textColor = UIColor.white
+        cellThis.backgroundColor = UIColor(patternImage: UIImage(named: "gradient") ?? UIImage())
+        
+        cellThis.textLabel?.font = UIFont(name: "Courier New Bold", size: 14)
         cellThis.textLabel?.text = options[indexPath.row].name
         cellThis.textLabel?.numberOfLines = 0
         cellThis.textLabel?.lineBreakMode = .byWordWrapping
@@ -164,8 +172,12 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cellThis.textLabel?.sizeToFit()
         if (options[indexPath.row].isSelectable){
             cellThis.textLabel?.textAlignment = .right
+            cellThis.textLabel?.textColor = UIColor.white
+            cellThis.backgroundView = nil
         } else {
             cellThis.textLabel?.textAlignment = .left
+            cellThis.backgroundView = UIImageView(image: UIImage(named: "frame"))
+            cellThis.textLabel?.textColor = UIColor.systemGreen
             cellThis.selectionStyle = .none
         }
         

@@ -260,7 +260,7 @@ class Character: Codable  {
     }
     
     func getLevelUpsAvailable() -> Int {
-        return 7 + level - getAllStats()
+        return 17 + level - getAllStats()
     }
     
     func getAllStats() -> Int {
@@ -313,6 +313,17 @@ class Character: Codable  {
     private func useItem(index:Int){
         let item = inventory.remove(at: index) as! Consumable
         item.effect?.action()
+    }
+    
+    func equipItem(named: String){
+       
+        let count = inventory.firstIndex(where: {$0.name.contains(named)})
+        if (count != nil){
+            if (count! >= 0 && count! <= inventory.count){
+                print("Item \(named) found at index \(count ?? -1)")
+                equipItemFromRow(index: count!)
+            }
+        }
     }
     
     func equipItemFromRow(index: Int){

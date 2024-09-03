@@ -31,6 +31,7 @@ enum NewGame: CaseIterable {
                 hero.rewardItem(WeaponRack.club.instance)
                 
                 GameDatabase.shared.hero = hero
+                UIApplication.topViewController?.performSegue(withIdentifier: "enterGame", sender: nil)
             })
             let colby = Command("Colby- Warrior", completionHandler: {
                 UIApplication.systemMessage("You begin your journey as Colby- Road Warrior")
@@ -43,8 +44,8 @@ enum NewGame: CaseIterable {
                 hero.rewardItem(ArmorRack.chainChest.instance)
                 hero.rewardItem(ArmorRack.jeans.instance)
                 hero.rewardItem(WeaponRack.axe.instance)
-               
                GameDatabase.shared.hero = hero
+                UIApplication.topViewController?.performSegue(withIdentifier: "enterGame", sender: nil)
             })
             let wretch = Command("Durby- Wretch ", completionHandler: {
                 UIApplication.systemMessage("For some reason you chose the wretch Durby.")
@@ -59,6 +60,7 @@ enum NewGame: CaseIterable {
                hero.rewardItem(WeaponRack.bareFist.instance)
                
                GameDatabase.shared.hero = hero
+                UIApplication.topViewController?.performSegue(withIdentifier: "enterGame", sender: nil)
             })
             let custom = Command("Custom", completionHandler: {
 

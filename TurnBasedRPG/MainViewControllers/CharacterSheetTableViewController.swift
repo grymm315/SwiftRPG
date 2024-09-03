@@ -49,8 +49,23 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
             GameDatabase.shared.hero.removeChestPiece()
             DispatchQueue.main.async {self.reload()}
         })
-        
-        itemPopup.options = [description, remove]
+        itemPopup.options = [description]
+       
+        for item in GameDatabase.shared.hero.getInventory(){
+            if item.type == .Armor {
+                if let armor = item as? Armor{
+                    if (armor.equippedLocation == .Chest){
+                        let equipWeapon = Command("Equip \(item.name)", completionHandler: {
+                            GameDatabase.shared.hero.equipItem(named: item.name)
+                            DispatchQueue.main.async {self.reload()}
+                        })
+                        itemPopup.options.append(equipWeapon)
+                    }
+                }
+            }
+            
+        }
+        itemPopup.options.append(remove)
         showItemPopup()
 
     }
@@ -66,7 +81,20 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
             GameDatabase.shared.hero.removeEquipedItem()
             DispatchQueue.main.async {self.reload()}
         })
-        itemPopup.options = [description, remove]
+        itemPopup.options = [description]
+       
+        for item in GameDatabase.shared.hero.getInventory(){
+            if item.type == .Weapon {
+                
+                let equipWeapon = Command("Equip \(item.name)", completionHandler: {
+                    GameDatabase.shared.hero.equipItem(named: item.name)
+                    DispatchQueue.main.async {self.reload()}
+                })
+                itemPopup.options.append(equipWeapon)
+            }
+            
+        }
+        itemPopup.options.append(remove)
         showItemPopup()
     }
     
@@ -81,7 +109,23 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
             GameDatabase.shared.hero.removeLegPiece()
             DispatchQueue.main.async {self.reload()}
         })
-        itemPopup.options = [description, remove]
+        itemPopup.options = [description]
+       
+        for item in GameDatabase.shared.hero.getInventory(){
+            if item.type == .Armor {
+                if let armor = item as? Armor{
+                    if (armor.equippedLocation == .Legs){
+                        let equipWeapon = Command("Equip \(item.name)", completionHandler: {
+                            GameDatabase.shared.hero.equipItem(named: item.name)
+                            DispatchQueue.main.async {self.reload()}
+                        })
+                        itemPopup.options.append(equipWeapon)
+                    }
+                }
+            }
+            
+        }
+        itemPopup.options.append(remove)
         showItemPopup()
     }
     
