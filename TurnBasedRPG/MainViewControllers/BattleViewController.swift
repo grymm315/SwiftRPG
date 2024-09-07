@@ -52,7 +52,12 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
 
         menu.delegate = self
 //        self.view.addSubview(menu.view)
-        heroView.addSubview(FaceView(frame: heroView.bounds))
+        let heroImage = UIImageView(frame: heroView.bounds)
+        heroImage.image = UIImage(named: GameDatabase.shared.hero.image ?? "goblin")
+        heroImage.contentMode = .scaleToFill
+        
+        heroView.addSubview(heroImage)
+        
         
         heroHP.alignHpTo(hero)
         heroName.text = hero.name
