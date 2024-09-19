@@ -36,7 +36,7 @@ class Character: Codable  {
     var gold: Int = 0
     
     var name: String
-    private var level = 1
+    private var level = 0
     private var experience = 0
     var race:raceTypes = .human
     var profession:classType = .warrior

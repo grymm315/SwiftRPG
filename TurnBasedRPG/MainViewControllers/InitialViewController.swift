@@ -36,6 +36,7 @@ class InitialViewController: UIViewController {
         settingsButton.fadeIn(settingsButton.animationSpeed)
         creditButton.fadeIn(creditButton.animationSpeed)
         shareButton.fadeIn(shareButton.animationSpeed)
+        startButton.isHidden = GameDatabase.shared.hero.getLevel() < 1
     }
     
     

@@ -17,8 +17,7 @@ class GameDatabase {
     var hero:Character = Character(strength: 1, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 1)
     
     lazy var quests: [String : String] = [
-        "New Beginings" : "Welcome to the world of Grymm. You have awakened in a town, try to get to the next one.",
-        "New Dawn" : "It is the middle of night, can you last until day?",
+        "Free Roam" : "Explore Grymm World. Find meaning in your wanderings.",
     ]
     
     

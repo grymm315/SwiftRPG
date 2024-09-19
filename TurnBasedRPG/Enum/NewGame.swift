@@ -21,13 +21,14 @@ enum NewGame: CaseIterable {
                 UIApplication.systemMessage("You begin your journey as Rayven- Voodoo Priestess")
                  let hero = Character(strength: 1, perception: 3, endurance: 2, charisma: 3, intelligence: 4, luck: 3, agility: 2)
                 hero.name = "Rayven"
+                hero.rewardXp(1000)
                 hero.race = .human
                 hero.profession = .cleric
                 hero.image = "shadowqueen"
                 hero.rewardItem(ItemRack.manaPotion.instance)
                 hero.rewardItem(ItemRack.healthPotion.instance)
                 hero.rewardItem(ArmorRack.shirt.instance)
-                hero.rewardItem(ArmorRack.leatherPants.instance)
+//                hero.rewardItem(ArmorRack.leatherPants.instance)
                 hero.rewardItem(WeaponRack.club.instance)
                 
                 GameDatabase.shared.hero = hero
@@ -38,10 +39,12 @@ enum NewGame: CaseIterable {
                 let hero = Character(strength: 3, perception: 2, endurance: 3, charisma: 1, intelligence: 1, luck: 3, agility: 2)
                hero.name = "Colby"
                hero.race = .human
+                hero.rewardXp(1000)
+
                hero.profession = .warrior
                hero.image = "merchant"
                hero.rewardItem(ItemRack.healthPotion.instance)
-                hero.rewardItem(ArmorRack.chainChest.instance)
+//                hero.rewardItem(ArmorRack.chainChest.instance)
                 hero.rewardItem(ArmorRack.jeans.instance)
                 hero.rewardItem(WeaponRack.axe.instance)
                GameDatabase.shared.hero = hero
@@ -52,11 +55,13 @@ enum NewGame: CaseIterable {
                 let hero = Character(strength: 2, perception: 3, endurance: 2, charisma: 1, intelligence: 1, luck: 1, agility: 3)
                hero.name = "Durby"
                hero.race = .human
+                hero.rewardXp(1000)
+
                 hero.profession = .assassin
                hero.image = "thief"
                hero.rewardItem(ItemRack.healthPotion.instance)
                hero.rewardItem(ArmorRack.shirt.instance)
-               hero.rewardItem(ArmorRack.leatherPants.instance)
+//               hero.rewardItem(ArmorRack.leatherPants.instance)
                hero.rewardItem(WeaponRack.bareFist.instance)
                
                GameDatabase.shared.hero = hero
