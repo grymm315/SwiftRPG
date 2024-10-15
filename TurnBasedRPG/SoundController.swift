@@ -47,12 +47,12 @@ class SoundController {
     private func shake(){AudioServicesPlaySystemSound(1109)}
     private func whoosh(){AudioServicesPlaySystemSound(1055)}
 
+    let meep = AVPlayer()
+    let music = AVSpeechSynthesizer()
     
     let synth = AVSpeechSynthesizer()
-    let music = AVSpeechSynthesizer()
     let voice = AVSpeechSynthesisVoice(language: "en-IE")
     
-    let meep = AVPlayer()
     
     func speak(_ text: String){
                 let utterance = AVSpeechUtterance(string: text)
