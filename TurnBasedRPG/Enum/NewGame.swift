@@ -17,10 +17,10 @@ enum NewGame: CaseIterable {
         case .Quickstart:
             let description = Command("Select a hero", completionHandler: {})
             description.isSelectable = false
-            let rayven = Command("Rayven- Priestess", completionHandler: {
+            let rayven = Command("Little Red Riding Hood", completionHandler: {
                 UIApplication.systemMessage("You begin your journey as Rayven- Voodoo Priestess")
                  let hero = Character(strength: 1, perception: 3, endurance: 2, charisma: 3, intelligence: 4, luck: 3, agility: 2)
-                hero.name = "Rayven"
+                hero.name = "Red"
                 hero.rewardXp(1000)
                 hero.race = .human
                 hero.profession = .cleric

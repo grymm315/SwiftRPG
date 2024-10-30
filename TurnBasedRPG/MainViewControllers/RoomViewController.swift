@@ -23,6 +23,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var mpBar: HealthBar!
     @IBOutlet weak var energyBar: HealthBar! //granola = delicious
     
+    @IBOutlet weak var logView: UITextView!
+    @IBOutlet weak var exitParticles: ParticleView!
     // This is where our map starts during animation
     var originReturn:CGPoint? //* */
     var transitSpeed:Double = 0.16 //** How fast the screen transitions
@@ -57,7 +59,6 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         setCommandMenu()
         
         setHealthBars()
-
         
         // Setting the Origin Return to happen after the view did load
         // this is important for screen animations while transiting
@@ -210,7 +211,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print("Entered room \(currentRoom?.title ?? "!ERROR!")")
             roomView.image = tImage
         }
-
+//        exitParticles.indicateSwipe(forRoom: to)
         
         waitDayNight(self)
         GameDatabase.shared.hero.rewardXp(1)
