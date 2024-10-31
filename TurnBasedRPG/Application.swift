@@ -132,6 +132,27 @@ extension UIScreen {
         }
         return rect
     }
+    
+    // When constraints ain't cutting it we will forcefully set frames
+    func goldenSmallBottomFrame() -> CGRect{
+        
+        var rect = CGRect(x: 0, y: (UIScreen.main.bounds.height - ((UIScreen.main.bounds.height - 44) * (1 - getRatio()))), width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - 44) * (1 - getRatio()))
+        
+        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
+            rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * getRatio(), height: (UIScreen.main.bounds.height - 32))
+        }
+        return rect
+    }
+    func goldenLargeTopFrame() -> CGRect{
+       
+        //Portrait
+        var rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - ((UIScreen.main.bounds.height - 44) * (1 - getRatio()))))
+        //Landscape
+        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
+            rect = CGRect(x: UIScreen.main.bounds.width * getRatio(), y: 0, width: UIScreen.main.bounds.width * (1 - getRatio()), height: UIScreen.main.bounds.height - 32)
+        }
+        return rect
+    }
 }
 
 extension CGRect {
