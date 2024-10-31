@@ -25,7 +25,6 @@ extension UIApplication {
     class func systemMessage(_ text:String){
         print("MESSAGE: \(text)")
         lazy var statusText: InfoBox = InfoBox()
-
         statusText.bounds = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.82, height: 100)
         statusText.center.x = (UIApplication.topViewController?.view.center.x)!
         statusText.center.y = 200
@@ -33,13 +32,21 @@ extension UIApplication {
 //        statusText.sizeToFit()
         UIApplication.topViewController?.view.addSubview(statusText)
         statusText.fromTop(0.1)
+        displayLog(text)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.50, execute: {
             statusText.fadeOut(0.5)
 //            self.statusText.removeFromSuperview()
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
             statusText.removeFromSuperview()
+            
         })
+    }
+    
+    class func displayLog(_ text: String){
+        let attributedString = NSMutableAttributedString(string: text + "\n", attributes: [.foregroundColor: UIColor.red])
+        GameDatabase.shared.logFile.append(attributedString)
+        GameDatabase.shared.logDelegate?.text(text, color: UIColor.red)
     }
     
     class func battleNotification(_ text:String){

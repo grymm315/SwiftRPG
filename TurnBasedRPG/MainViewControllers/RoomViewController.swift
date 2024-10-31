@@ -11,7 +11,8 @@ import AVFoundation
 
 //** This is the main view controller for navigating the map*/
 
-class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
+class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate, LogDelegate {
+  
     
     @IBOutlet weak var consoleView: UIView!
     @IBOutlet weak var roomView: UIView!
@@ -68,6 +69,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //        roomImage.frame = roomView.frame
         originReturn = UIScreen.main.goldenLargeLowerFrame().origin//self.view.frame.origin
         roomImage.contentMode = .scaleAspectFill
+        logView.attributedText = GameDatabase.shared.logFile
+        GameDatabase.shared.logDelegate = self
                 
         currentRoom = GameDatabase.shared.currentRoom // Moving our current room to the next room
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
@@ -112,6 +115,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 print("... what is \(segue.destination.debugDescription)")
             }
         
+    }
+    
+    func text(_ text: String, color: UIColor) {
+        logView.attributedText = GameDatabase.shared.logFile
+        print("Log: \(GameDatabase.shared.logFile)")
     }
     
     //This Adds commands to the menu
