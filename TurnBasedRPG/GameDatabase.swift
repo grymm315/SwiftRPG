@@ -39,7 +39,7 @@ class GameDatabase {
     
     let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Save1")
     
-    var logFile: NSMutableAttributedString = NSMutableAttributedString(string: "Hello GrymmWorld\n", attributes: [.foregroundColor: UIColor.white])
+    var logFile: NSMutableAttributedString = NSMutableAttributedString(string: "Hello GrymmWorld\nSwipe to move\n", attributes: [.foregroundColor: UIColor.white])
     var logDelegate: LogDelegate?
     func saveGame() {
         let encoder = JSONEncoder()

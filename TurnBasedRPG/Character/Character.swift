@@ -166,6 +166,7 @@ class Character: Codable  {
     func rewardXp(_ xp: Int) {
         experience += xp
         lvlUp()
+        UIApplication.xpMessage("You have gained \(xp)xp.")
     }
     
     func getXpToLvl() -> Int {
@@ -215,6 +216,7 @@ class Character: Codable  {
         if (experience < getXpToLvl()) { return }
         let diff = experience - getXpToLvl()
         level += 1
+        UIApplication.xpMessage("LEVEL UP!!! Welcome to level \(level).")
         experience = diff
         lvlUp() // Recursive check for multiple levelups
         

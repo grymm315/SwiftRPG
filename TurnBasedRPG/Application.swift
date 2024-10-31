@@ -43,8 +43,16 @@ extension UIApplication {
         })
     }
     
-    class func displayLog(_ text: String){
-        let attributedString = NSMutableAttributedString(string: text + "\n", attributes: [.foregroundColor: UIColor.red])
+    class func xpMessage(_ text: String){
+        displayLog(text, color: UIColor.yellow)
+    }
+    
+    class func itemMessage(_ text: String){
+        displayLog(text, color: UIColor.green)
+    }
+    
+    class func displayLog(_ text: String, color: UIColor = UIColor.cyan){
+        let attributedString = NSMutableAttributedString(string: text + "\n", attributes: [.foregroundColor: color])
         GameDatabase.shared.logFile.append(attributedString)
         GameDatabase.shared.logDelegate?.text(text, color: UIColor.red)
     }
