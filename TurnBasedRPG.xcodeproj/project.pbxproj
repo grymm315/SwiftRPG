@@ -50,6 +50,24 @@
 		F04F8AFD2B5DDA9900B3727F /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */; };
 		F04F8AFF2B5F34CC00B3727F /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F8AFE2B5F34CC00B3727F /* Defaults.swift */; };
 		F06AE1DE2B539F5E0058F215 /* MegaMillions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */; };
+		F08BC7DC2CBE0DA300350796 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7DA2CBE0DA300350796 /* Settings.storyboard */; };
+		F08BC7DD2CBE0DA300350796 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7DA2CBE0DA300350796 /* Settings.storyboard */; };
+		F08BC7DE2CBE0DA300350796 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7DA2CBE0DA300350796 /* Settings.storyboard */; };
+		F08BC7E02CBE0E9800350796 /* Credits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7DF2CBE0E9800350796 /* Credits.storyboard */; };
+		F08BC7E12CBE0E9800350796 /* Credits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7DF2CBE0E9800350796 /* Credits.storyboard */; };
+		F08BC7E22CBE0E9800350796 /* Credits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7DF2CBE0E9800350796 /* Credits.storyboard */; };
+		F08BC7E52CBE0F0700350796 /* NPCDialog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7E32CBE0F0700350796 /* NPCDialog.storyboard */; };
+		F08BC7E62CBE0F0700350796 /* NPCDialog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7E32CBE0F0700350796 /* NPCDialog.storyboard */; };
+		F08BC7E72CBE0F0700350796 /* NPCDialog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7E32CBE0F0700350796 /* NPCDialog.storyboard */; };
+		F08BC7E92CBE0FA100350796 /* CharacterSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7E82CBE0FA100350796 /* CharacterSheet.storyboard */; };
+		F08BC7EA2CBE0FA100350796 /* CharacterSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7E82CBE0FA100350796 /* CharacterSheet.storyboard */; };
+		F08BC7EB2CBE0FA100350796 /* CharacterSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7E82CBE0FA100350796 /* CharacterSheet.storyboard */; };
+		F08BC7EE2CBE11CE00350796 /* BattleView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7EC2CBE11CE00350796 /* BattleView.storyboard */; };
+		F08BC7EF2CBE11CE00350796 /* BattleView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7EC2CBE11CE00350796 /* BattleView.storyboard */; };
+		F08BC7F02CBE11CE00350796 /* BattleView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08BC7EC2CBE11CE00350796 /* BattleView.storyboard */; };
+		F08BC7F22CC8B04F00350796 /* RightParticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BC7F12CC8B04F00350796 /* RightParticles.swift */; };
+		F08BC7F32CC8B04F00350796 /* RightParticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BC7F12CC8B04F00350796 /* RightParticles.swift */; };
+		F08BC7F42CC8B04F00350796 /* RightParticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BC7F12CC8B04F00350796 /* RightParticles.swift */; };
 		F095352A2B74888E00AF5E2F /* Encounters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09535292B74888E00AF5E2F /* Encounters.swift */; };
 		F09535322B8B170E00AF5E2F /* BattleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09535312B8B170E00AF5E2F /* BattleController.swift */; };
 		F09EC9A22C8686E2000B4814 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09EC9A12C8686E2000B4814 /* Gradient.swift */; };
@@ -130,6 +148,12 @@
 		F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		F04F8AFE2B5F34CC00B3727F /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		F06AE1DD2B539F5E0058F215 /* MegaMillions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MegaMillions.swift; sourceTree = "<group>"; };
+		F08BC7DB2CBE0DA300350796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TurnBasedRPG/Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		F08BC7DF2CBE0E9800350796 /* Credits.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Credits.storyboard; sourceTree = "<group>"; };
+		F08BC7E42CBE0F0700350796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TurnBasedRPG/Base.lproj/NPCDialog.storyboard; sourceTree = "<group>"; };
+		F08BC7E82CBE0FA100350796 /* CharacterSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CharacterSheet.storyboard; sourceTree = "<group>"; };
+		F08BC7ED2CBE11CE00350796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TurnBasedRPG/Base.lproj/BattleView.storyboard; sourceTree = "<group>"; };
+		F08BC7F12CC8B04F00350796 /* RightParticles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightParticles.swift; sourceTree = "<group>"; };
 		F09535292B74888E00AF5E2F /* Encounters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encounters.swift; sourceTree = "<group>"; };
 		F09535312B8B170E00AF5E2F /* BattleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleController.swift; sourceTree = "<group>"; };
 		F09EC9A12C8686E2000B4814 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
@@ -173,6 +197,7 @@
 				F02B57A72B637974003B53B5 /* Menus */,
 				F02B57A62B637949003B53B5 /* Storyboard */,
 				F09EC9A12C8686E2000B4814 /* Gradient.swift */,
+				F08BC7F12CC8B04F00350796 /* RightParticles.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -311,13 +336,18 @@
 		F04F8AFA2B5DD8F200B3727F /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				827C045521329228008998C0 /* InitialViewController.swift */,
-				F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */,
-				8201509921334097006A4B80 /* RoomViewController.swift */,
+				F08BC7EC2CBE11CE00350796 /* BattleView.storyboard */,
+				82D72A2A216060C60081709D /* BattleViewController.swift */,
+				F08BC7E82CBE0FA100350796 /* CharacterSheet.storyboard */,
 				96CAE7CD23D455E00017019E /* CharacterSheetTableViewController.swift */,
 				96CAE7C923D3073F0017019E /* InventoryTableViewController.swift */,
-				82D72A2A216060C60081709D /* BattleViewController.swift */,
+				F08BC7E32CBE0F0700350796 /* NPCDialog.storyboard */,
 				F02B57A22B61FDA0003B53B5 /* NpcDialogViewController.swift */,
+				F08BC7DF2CBE0E9800350796 /* Credits.storyboard */,
+				F04F8AFC2B5DDA9900B3727F /* CreditsViewController.swift */,
+				8201509921334097006A4B80 /* RoomViewController.swift */,
+				F08BC7DA2CBE0DA300350796 /* Settings.storyboard */,
+				827C045521329228008998C0 /* InitialViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -454,9 +484,14 @@
 			files = (
 				827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */,
 				827C045B2132922B008998C0 /* Assets.xcassets in Resources */,
+				F08BC7E02CBE0E9800350796 /* Credits.storyboard in Resources */,
 				9693FA3A2300DE0D00867915 /* Doodle.xib in Resources */,
+				F08BC7E52CBE0F0700350796 /* NPCDialog.storyboard in Resources */,
+				F08BC7DC2CBE0DA300350796 /* Settings.storyboard in Resources */,
 				F02B57A52B62482D003B53B5 /* NewGame.storyboard in Resources */,
+				F08BC7EE2CBE11CE00350796 /* BattleView.storyboard in Resources */,
 				827C045921329228008998C0 /* Main.storyboard in Resources */,
+				F08BC7E92CBE0FA100350796 /* CharacterSheet.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +499,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F08BC7DD2CBE0DA300350796 /* Settings.storyboard in Resources */,
+				F08BC7E62CBE0F0700350796 /* NPCDialog.storyboard in Resources */,
+				F08BC7EF2CBE11CE00350796 /* BattleView.storyboard in Resources */,
+				F08BC7EA2CBE0FA100350796 /* CharacterSheet.storyboard in Resources */,
+				F08BC7E12CBE0E9800350796 /* Credits.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +511,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F08BC7DE2CBE0DA300350796 /* Settings.storyboard in Resources */,
+				F08BC7E72CBE0F0700350796 /* NPCDialog.storyboard in Resources */,
+				F08BC7F02CBE11CE00350796 /* BattleView.storyboard in Resources */,
+				F08BC7EB2CBE0FA100350796 /* CharacterSheet.storyboard in Resources */,
+				F08BC7E22CBE0E9800350796 /* Credits.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +544,7 @@
 				F0B090992B579BC6000ACCDC /* Haptics.swift in Sources */,
 				F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */,
 				F0AE0CD92C86645D009B68FF /* ItemList.swift in Sources */,
+				F08BC7F22CC8B04F00350796 /* RightParticles.swift in Sources */,
 				96CAE7CA23D3073F0017019E /* InventoryTableViewController.swift in Sources */,
 				F0D0C8C22B5B9A0100D00B23 /* CommandMenu.swift in Sources */,
 				96CAA1402340A87F009C6A3B /* Mouth.swift in Sources */,
@@ -535,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				827C04692132922C008998C0 /* TurnBasedRPGTests.swift in Sources */,
+				F08BC7F32CC8B04F00350796 /* RightParticles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				827C04742132922C008998C0 /* TurnBasedRPGUITests.swift in Sources */,
+				F08BC7F42CC8B04F00350796 /* RightParticles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +624,30 @@
 				827C045D2132922B008998C0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F08BC7DA2CBE0DA300350796 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F08BC7DB2CBE0DA300350796 /* Base */,
+			);
+			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
+		F08BC7E32CBE0F0700350796 /* NPCDialog.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F08BC7E42CBE0F0700350796 /* Base */,
+			);
+			name = NPCDialog.storyboard;
+			sourceTree = "<group>";
+		};
+		F08BC7EC2CBE11CE00350796 /* BattleView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F08BC7ED2CBE11CE00350796 /* Base */,
+			);
+			name = BattleView.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -709,6 +781,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = DSS7K8FN49;
 				INFOPLIST_FILE = TurnBasedRPG/Info.plist;
@@ -735,6 +808,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = DSS7K8FN49;
 				INFOPLIST_FILE = TurnBasedRPG/Info.plist;

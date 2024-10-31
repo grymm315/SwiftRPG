@@ -25,7 +25,6 @@ extension UIApplication {
     class func systemMessage(_ text:String){
         print("MESSAGE: \(text)")
         lazy var statusText: InfoBox = InfoBox()
-
         statusText.bounds = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.82, height: 100)
         statusText.center.x = (UIApplication.topViewController?.view.center.x)!
         statusText.center.y = 200
@@ -33,13 +32,29 @@ extension UIApplication {
 //        statusText.sizeToFit()
         UIApplication.topViewController?.view.addSubview(statusText)
         statusText.fromTop(0.1)
+        displayLog(text)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.50, execute: {
             statusText.fadeOut(0.5)
 //            self.statusText.removeFromSuperview()
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
             statusText.removeFromSuperview()
+            
         })
+    }
+    
+    class func xpMessage(_ text: String){
+        displayLog(text, color: UIColor.yellow)
+    }
+    
+    class func itemMessage(_ text: String){
+        displayLog(text, color: UIColor.green)
+    }
+    
+    class func displayLog(_ text: String, color: UIColor = UIColor.cyan){
+        let attributedString = NSMutableAttributedString(string: text + "\n", attributes: [.foregroundColor: color])
+        GameDatabase.shared.logFile.append(attributedString)
+        GameDatabase.shared.logDelegate?.text(text, color: UIColor.red)
     }
     
     class func battleNotification(_ text:String){
@@ -126,6 +141,27 @@ extension UIScreen {
        
         //Portrait
         var rect = CGRect(x: 0, y: (UIScreen.main.bounds.height - 44) * getRatio(), width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - ((UIScreen.main.bounds.height - 44) * getRatio())))
+        //Landscape
+        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
+            rect = CGRect(x: UIScreen.main.bounds.width * getRatio(), y: 0, width: UIScreen.main.bounds.width * (1 - getRatio()), height: UIScreen.main.bounds.height - 32)
+        }
+        return rect
+    }
+    
+    // When constraints ain't cutting it we will forcefully set frames
+    func goldenSmallBottomFrame() -> CGRect{
+        
+        var rect = CGRect(x: 0, y: (UIScreen.main.bounds.height - ((UIScreen.main.bounds.height - 44) * (1 - getRatio()))), width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - 44) * (1 - getRatio()))
+        
+        if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
+            rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * getRatio(), height: (UIScreen.main.bounds.height - 32))
+        }
+        return rect
+    }
+    func goldenLargeTopFrame() -> CGRect{
+       
+        //Portrait
+        var rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - ((UIScreen.main.bounds.height - 44) * (1 - getRatio()))))
         //Landscape
         if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
             rect = CGRect(x: UIScreen.main.bounds.width * getRatio(), y: 0, width: UIScreen.main.bounds.width * (1 - getRatio()), height: UIScreen.main.bounds.height - 32)

@@ -11,9 +11,13 @@ import AVFoundation
 
 //** This is the main view controller for navigating the map*/
 
-class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
+class RoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate, LogDelegate {
+  
     
-    @IBOutlet weak var roomView: UIImageView!
+    @IBOutlet weak var consoleView: UIView!
+    @IBOutlet weak var roomView: UIView!
+    
+    @IBOutlet weak var roomImage: UIImageView!
     @IBOutlet weak var commandMenu: UICollectionView!
         
     @IBOutlet weak var dayNight: UIImageView!
@@ -23,6 +27,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var mpBar: HealthBar!
     @IBOutlet weak var energyBar: HealthBar! //granola = delicious
     
+    @IBOutlet weak var logView: UITextView!
+    @IBOutlet weak var exitParticles: ParticleView!
     // This is where our map starts during animation
     var originReturn:CGPoint? //* */
     var transitSpeed:Double = 0.16 //** How fast the screen transitions
@@ -57,17 +63,19 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         setCommandMenu()
         
         setHealthBars()
-
         
         // Setting the Origin Return to happen after the view did load
         // this is important for screen animations while transiting
-        roomView.frame = self.view.frame
-        originReturn = CGPoint(x: 0, y: 0)//self.view.frame.origin
+//        roomImage.frame = roomView.frame
+        originReturn = UIScreen.main.goldenLargeLowerFrame().origin//self.view.frame.origin
+        roomImage.contentMode = .scaleAspectFill
+        logView.attributedText = GameDatabase.shared.logFile
+        GameDatabase.shared.logDelegate = self
                 
         currentRoom = GameDatabase.shared.currentRoom // Moving our current room to the next room
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
             print("Entered room \(currentRoom?.title ?? "!ERROR!")")
-            roomView.image = tImage
+            roomImage.image = tImage
         }
                 
         // for all the gesture recognizers
@@ -82,6 +90,12 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //For some reason this is causing the Cell not to register
 //        commandMenu.register(CommandCell.self, forCellWithReuseIdentifier: "collectionCommand")
         self.view.bringSubviewToFront(commandMenu)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        consoleView.frame = UIScreen.main.goldenLargeTopFrame()
+        roomView.frame = UIScreen.main.goldenSmallBottomFrame()
+        originReturn = UIScreen.main.goldenLargeLowerFrame().origin
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,6 +115,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 print("... what is \(segue.destination.debugDescription)")
             }
         
+    }
+    
+    func text(_ text: String, color: UIColor) {
+        logView.attributedText = GameDatabase.shared.logFile
+        print("Log: \(GameDatabase.shared.logFile)")
     }
     
     //This Adds commands to the menu
@@ -208,9 +227,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         GameDatabase.shared.currentRoom = to
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
             print("Entered room \(currentRoom?.title ?? "!ERROR!")")
-            roomView.image = tImage
+            roomImage.image = tImage
         }
-
+        exitParticles.indicateSwipe(forRoom: to)
         
         waitDayNight(self)
         GameDatabase.shared.hero.rewardXp(1)
