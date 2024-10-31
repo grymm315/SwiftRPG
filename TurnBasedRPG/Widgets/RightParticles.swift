@@ -30,24 +30,29 @@ class ParticleView: UIView {
     }
     
     public func stopAll(){
-        eastExit?.stop()
-        westExit?.stop()
-        northExit?.stop()
-        southExit?.stop()
+        northExit?.removeFromSuperlayer()
+        southExit?.removeFromSuperlayer()
+        eastExit?.removeFromSuperlayer()
+        westExit?.removeFromSuperlayer()
     }
     
     public func indicateSwipe(forRoom: RoomNode){
+        stopAll()
         if (forRoom.north != nil){
-            northExit?.start()
+            layer.addSublayer(northExit!)
+        } else {
         }
         if (forRoom.south != nil){
-            southExit?.start()
+            layer.addSublayer(southExit!)
+        } else {
         }
         if (forRoom.east != nil){
-           eastExit?.start()
+            layer.addSublayer(eastExit!)
+        } else {
         }
         if (forRoom.west != nil){
-            westExit?.start()
+            layer.addSublayer(westExit!)
+        } else {
         }
     }
 }

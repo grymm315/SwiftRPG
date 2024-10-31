@@ -229,7 +229,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print("Entered room \(currentRoom?.title ?? "!ERROR!")")
             roomImage.image = tImage
         }
-//        exitParticles.indicateSwipe(forRoom: to)
+        exitParticles.indicateSwipe(forRoom: to)
         
         waitDayNight(self)
         GameDatabase.shared.hero.rewardXp(1)
