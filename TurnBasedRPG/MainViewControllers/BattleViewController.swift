@@ -51,7 +51,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     
     
     override func viewDidLoad() {
-        enemy.race = .goblin
         enemyHP.alignHpTo(enemy)
 
         menu.delegate = self
@@ -71,10 +70,8 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        enemyImage.image = UIImage(named: enemy.image ?? "Willy")
+        enemyImage.image = UIImage(named: enemy.image ?? "goblin")
         enemyName.text = "\(enemy.name)"
-        
-        
     }
     
     func setBackgroundImage(){
@@ -124,7 +121,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             let hdmg = Int.random(in: 1...Int(hero.strength))
             enemyHP.takeDamage(hdmg)
             enemyImage.shake()
-            displayLog("You deal \(hdmg) dmg to \(enemy.race)", color: UIColor.white)
+            displayLog("You deal \(hdmg) dmg to \(enemy.name)", color: UIColor.white)
             sound.painNoise()
         case "Heal":
             heroHP.heal(15)
@@ -150,7 +147,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         case .heroAttacksMob:
             enemyHP.alignHpTo(enemy)
             enemyImage.shake()
-            displayLog("You deal \(value) damage to \(enemy.race)", color: UIColor.white)
+            displayLog("You deal \(value) damage to \(enemy.name)", color: UIColor.white)
             sound.painNoise()
             
         case .heroAttacksHero:
@@ -159,7 +156,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             enemyImage.nudgeVertical(-70)
             heroHP.alignHpTo(hero)
             GameDatabase.shared.hero.currentHealth -= value
-            displayLog("\(enemy.race) attacks you for \(value) points", color: UIColor.red)
+            displayLog("\(enemy.name) attacks you for \(value) points", color: UIColor.red)
             sound.painNoise()
             
         case .heroHealsMob:
@@ -170,7 +167,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             heroHP.heal(value)
             GameDatabase.shared.hero.currentHealth -= value
             sound.magic()
-            displayLog("\(enemy.race) heals you for 15 points", color: UIColor.green)
+            displayLog("\(enemy.name) heals you for 15 points", color: UIColor.green)
             heroHP.alignHpTo(hero)
 
         case .heroHealsHero:
