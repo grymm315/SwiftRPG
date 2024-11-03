@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="klr-4q-mw2">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,7 +14,7 @@
             <objects>
                 <viewController id="klr-4q-mw2" customClass="CharacterSheetTableViewController" customModule="TurnBasedRPG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ASE-IX-LvO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hqO-af-FEz">
@@ -24,76 +26,76 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kSA-Pr-MvZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="204.5" height="233"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="204.66666666666666" height="231.66666666666666"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJV-Ki-DPC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="204.5" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="204.66666666666666" height="34"/>
                                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="29"/>
                                                         <color key="textColor" red="0.3582741022" green="0.30687654019999999" blue="0.2114580274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="12S-1D-Hfr">
-                                                        <rect key="frame" x="0.0" y="38" width="204.5" height="23.5"/>
+                                                        <rect key="frame" x="0.0" y="38" width="204.66666666666666" height="23.333333333333329"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lv. 21 Adventurer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nS8-jF-wUJ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="204.5" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="204.66666666666666" height="19.333333333333332"/>
                                                                 <fontDescription key="fontDescription" name="CourierNewPS-ItalicMT" family="Courier New" pointSize="16"/>
                                                                 <color key="textColor" red="0.3582741022" green="0.30687654019999999" blue="0.2114580274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <color key="shadowColor" red="0.2054548004" green="0.167930036" blue="0.1210958989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </label>
                                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Xcp-lI-X42">
-                                                                <rect key="frame" x="0.0" y="19.5" width="204.5" height="4"/>
+                                                                <rect key="frame" x="0.0" y="19.333333333333329" width="204.66666666666666" height="4"/>
                                                                 <color key="progressTintColor" systemColor="systemGreenColor"/>
                                                                 <color key="trackTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </progressView>
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HP: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBF-Jg-Ynw">
-                                                        <rect key="frame" x="0.0" y="65.5" width="204.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="65.333333333333329" width="204.66666666666666" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                                         <color key="textColor" red="0.3582741022" green="0.30687654019999999" blue="0.2114580274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <color key="shadowColor" red="0.2054548004" green="0.167930036" blue="0.1210958989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MP: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-Sb-M7T">
-                                                        <rect key="frame" x="0.0" y="90" width="204.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="89.666666666666671" width="204.66666666666666" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                                         <color key="textColor" red="0.3582741022" green="0.30687654019999999" blue="0.2114580274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <color key="shadowColor" red="0.2054548004" green="0.167930036" blue="0.1210958989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Energy: 100 / 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGb-Un-kU2">
-                                                        <rect key="frame" x="0.0" y="114.5" width="204.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="114" width="204.66666666666666" height="20.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                                         <color key="textColor" red="0.3582741022" green="0.30687654019999999" blue="0.2114580274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <color key="shadowColor" red="0.2054548004" green="0.167930036" blue="0.1210958989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atk: 1 Def: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAy-PB-cJb">
-                                                        <rect key="frame" x="0.0" y="139" width="204.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="138.33333333333334" width="204.66666666666666" height="20.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                                         <color key="textColor" red="0.3582741022" green="0.30687654019999999" blue="0.2114580274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <color key="shadowColor" red="0.2054548004" green="0.167930036" blue="0.1210958989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GP: 1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJd-EJ-fhu">
-                                                        <rect key="frame" x="0.0" y="163.5" width="204.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="162.66666666666666" width="204.66666666666666" height="20.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                                         <color key="textColor" red="0.3582741022" green="0.30687654019999999" blue="0.2114580274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <color key="shadowColor" red="0.2054548004" green="0.167930036" blue="0.1210958989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perk Points: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSc-TQ-RfB">
-                                                        <rect key="frame" x="0.0" y="188" width="204.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="187" width="204.66666666666666" height="20.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                                         <color key="textColor" red="0.3582741022" green="0.30687654019999999" blue="0.2114580274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <color key="shadowColor" red="0.2054548004" green="0.167930036" blue="0.1210958989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status Effects: None" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1A-Sp-hyp">
-                                                        <rect key="frame" x="0.0" y="212.5" width="204.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="211.33333333333334" width="204.66666666666666" height="20.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                                         <color key="textColor" red="0.3582741022" green="0.30687654019999999" blue="0.2114580274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -111,7 +113,7 @@
                                         <rect key="frame" x="12" y="196" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t3n-na-XTP">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="acorn" translatesAutoresizingMaskIntoConstraints="NO" id="t3n-na-XTP">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -145,7 +147,7 @@
                                         <rect key="frame" x="70" y="196" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M2y-c6-4Ag">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="acorn" translatesAutoresizingMaskIntoConstraints="NO" id="M2y-c6-4Ag">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -179,7 +181,7 @@
                                         <rect key="frame" x="128" y="196" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1od-5F-Xdn">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="acorn" translatesAutoresizingMaskIntoConstraints="NO" id="1od-5F-Xdn">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -217,11 +219,11 @@
                                 <color key="backgroundColor" red="0.75806140899999996" green="0.70103263849999997" blue="0.58085006480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eOh-sP-s9m">
-                                <rect key="frame" x="180" y="98" width="410" height="496"/>
+                                <rect key="frame" x="-31" y="346" width="410" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="12" estimatedSectionHeaderHeight="10" sectionFooterHeight="12" estimatedSectionFooterHeight="10" springLoaded="YES" id="3ey-57-RoK">
-                                        <rect key="frame" x="0.0" y="15" width="410" height="453"/>
+                                        <rect key="frame" x="0.0" y="15" width="410" height="456"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                                         <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -254,7 +256,7 @@
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </slider>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PTS." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms0-18-adQ">
-                                                            <rect key="frame" x="269" y="84" width="121" height="20.5"/>
+                                                            <rect key="frame" x="269" y="84" width="121" height="20.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="121" id="ZBn-6w-CaZ"/>
                                                             </constraints>
@@ -434,13 +436,13 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Big Boned" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elE-he-Iu5">
-                                                            <rect key="frame" x="16" y="8" width="386" height="28.5"/>
+                                                            <rect key="frame" x="16" y="7.9999999999999982" width="386" height="28.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="25"/>
                                                             <color key="textColor" systemColor="systemGreenColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" text="You are more durable, but you are also fat." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqI-py-9Bn">
-                                                            <rect key="frame" x="16" y="44.5" width="386" height="57.5"/>
+                                                            <rect key="frame" x="16" y="44.333333333333343" width="386" height="57.666666666666657"/>
                                                             <fontDescription key="fontDescription" name="CourierNewPS-ItalicMT" family="Courier New" pointSize="20"/>
                                                             <color key="textColor" systemColor="systemGreenColor"/>
                                                             <nil key="highlightedColor"/>
@@ -467,11 +469,11 @@
                                         <sections/>
                                     </tableView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomframe" translatesAutoresizingMaskIntoConstraints="NO" id="qdr-CA-rdM">
-                                        <rect key="frame" x="0.0" y="443" width="413" height="56"/>
+                                        <rect key="frame" x="0.0" y="446" width="410" height="54"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     </imageView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sd2-K6-93h">
-                                        <rect key="frame" x="3" y="4" width="395" height="32"/>
+                                        <rect key="frame" x="0.0" y="4" width="398" height="32"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <segments>
@@ -501,7 +503,7 @@
                         <outlet property="healthIndicator" destination="vBF-Jg-Ynw" id="mHf-7G-8ek"/>
                         <outlet property="heroName" destination="EJV-Ki-DPC" id="tTy-zk-zUw"/>
                         <outlet property="heroView" destination="hqO-af-FEz" id="xYl-uw-hQm"/>
-                        <outlet property="imageChest" destination="M2y-c6-4Ag" id="cNb-mw-eHy"/>
+                        <outlet property="imageChest" destination="M2y-c6-4Ag" id="SFK-fY-hRY"/>
                         <outlet property="imagePants" destination="1od-5F-Xdn" id="Ya4-A0-ndr"/>
                         <outlet property="imageWeapon" destination="t3n-na-XTP" id="Byo-2D-Mbs"/>
                         <outlet property="listPicker" destination="Sd2-K6-93h" id="maG-ZP-u5J"/>
@@ -520,6 +522,7 @@
     </scenes>
     <resources>
         <image name="Willy" width="1024" height="1024"/>
+        <image name="acorn" width="400" height="400"/>
         <image name="bottomframe" width="494" height="54"/>
         <image name="frame" width="512" height="512"/>
         <systemColor name="darkTextColor">

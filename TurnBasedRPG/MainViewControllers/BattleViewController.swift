@@ -32,6 +32,9 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     
     @IBOutlet weak var attkButton: UIButtonGUI!
     
+    @IBOutlet weak var lowerConsoleView: UIView!
+    @IBOutlet weak var topEnemyView: UIView!
+    var consoleText: NSMutableAttributedString =  NSMutableAttributedString(string: "", attributes: [.foregroundColor: UIColor.white])
     var isPaused:Bool = false
     var gameOver:Bool = false
         
@@ -40,6 +43,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     var enemyPOS = 0
     
     let counter = 0
+    @IBOutlet weak var consoleLog: UITextView!
     
     var hero:Character = GameDatabase.shared.hero
     var enemy:Character = Character(strength: 1, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 1 )
@@ -47,7 +51,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     
     
     override func viewDidLoad() {
-        enemy.race = .goblin
         enemyHP.alignHpTo(enemy)
 
         menu.delegate = self
@@ -67,10 +70,8 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        enemyImage.image = UIImage(named: enemy.image ?? "Willy")
+        enemyImage.image = UIImage(named: enemy.image ?? "goblin")
         enemyName.text = "\(enemy.name)"
-        
-        
     }
     
     func setBackgroundImage(){
@@ -120,13 +121,13 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             let hdmg = Int.random(in: 1...Int(hero.strength))
             enemyHP.takeDamage(hdmg)
             enemyImage.shake()
-            UIApplication.battleNotification("You deal \(hdmg) dmg to \(enemy.race)")
+            displayLog("You deal \(hdmg) dmg to \(enemy.name)", color: UIColor.white)
             sound.painNoise()
         case "Heal":
             heroHP.heal(15)
             GameDatabase.shared.hero.currentHealth -= 15
             sound.magic()
-            UIApplication.battleNotification("You heal for 15 points")
+            displayLog("You heal for 15 points", color: UIColor.green)
         case "Item":
             print("Yet")
         case "Escape":
@@ -146,43 +147,43 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         case .heroAttacksMob:
             enemyHP.alignHpTo(enemy)
             enemyImage.shake()
-            UIApplication.battleNotification("You deal \(value) dmg to \(enemy.race)")
+            displayLog("You deal \(value) damage to \(enemy.name)", color: UIColor.white)
             sound.painNoise()
             
         case .heroAttacksHero:
-            UIApplication.battleNotification("Stop hitting yourself for \(value) dmg")
-
+            displayLog("Stop hitting yourself for \(value) dmg", color: UIColor.red)
         case .mobAttacksHero:
             enemyImage.nudgeVertical(-70)
             heroHP.alignHpTo(hero)
             GameDatabase.shared.hero.currentHealth -= value
-            UIApplication.battleNotification("\(enemy.race) attacks you for \(value) points")
+            displayLog("\(enemy.name) attacks you for \(value) points", color: UIColor.red)
             sound.painNoise()
-
+            
         case .heroHealsMob:
-            UIApplication.battleNotification("Why are you healing the enemy for \(value) dmg")
+            displayLog("Why are you healing the enemy for \(value) dmg", color: UIColor.green)
             enemyHP.alignHpTo(enemy)
-
-
+            
         case .mobHealsHero:
             heroHP.heal(value)
             GameDatabase.shared.hero.currentHealth -= value
             sound.magic()
-            UIApplication.battleNotification("\(enemy.race) heals you for 15 points")
+            displayLog("\(enemy.name) heals you for 15 points", color: UIColor.green)
             heroHP.alignHpTo(hero)
-
 
         case .heroHealsHero:
             heroHP.heal(value)
             GameDatabase.shared.hero.currentHealth -= value
             sound.magic()
             heroHP.alignHpTo(hero)
-            UIApplication.battleNotification("You heal for \(value) points")
+            displayLog("You heal for \(value) points", color: UIColor.green)
+
         case .mobHealMob:
             enemyHP.alignHpTo(enemy)
 
         case .youDied:
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+                self.displayLog("You have died!!", color: UIColor.red)
+
                 UIApplication.battleNotification("You have died!!")
             })
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
@@ -195,17 +196,35 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             AudioServicesPlaySystemSound(fanfare)
             gameOver = true
             isPaused = true
+            displayLog("You have defeated \(enemy.name)!!", color: UIColor.yellow)
+
             UIApplication.battleNotification("You have defeated \(enemy.name)!!")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-                UIApplication.battleNotification("You have gained \(value) XP!!")
                 GameDatabase.shared.hero.rewardXp(value)
             })
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
                 self.dismiss(animated: true, completion: nil)
             })
         case .flee:
-            SoundController.shared.speak("You ran away like a cow-word!")
+            displayLog("They who flee and run away live to fight another day", color: UIColor.red)
+            UIApplication.displayLog("They who flee and run away live to fight another day")
+            SoundController.shared.speak("They who flee and run away live to fight another day")
             self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        topEnemyView.frame = UIScreen.main.goldenSmallTopFrame()
+        lowerConsoleView.frame = UIScreen.main.goldenLargeLowerFrame()
+    }
+    
+    func displayLog(_ text: String, color: UIColor = UIColor.cyan){
+        let attributedString = NSMutableAttributedString(string: text + "\n", attributes: [.foregroundColor: color])
+        consoleText.append(attributedString)
+        consoleLog.attributedText = consoleText
+        if (self.consoleLog.contentSize.height > self.consoleLog.bounds.size.height){
+            let bottom = self.consoleLog.contentSize.height - self.consoleLog.bounds.size.height
+            self.consoleLog.setContentOffset(CGPoint(x: 0, y: bottom), animated: true)
         }
     }
     

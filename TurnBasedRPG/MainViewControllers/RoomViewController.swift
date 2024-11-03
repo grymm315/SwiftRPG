@@ -119,7 +119,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func text(_ text: String, color: UIColor) {
         logView.attributedText = GameDatabase.shared.logFile
-        print("Log: \(GameDatabase.shared.logFile)")
+        let bottom = self.logView.contentSize.height - self.logView.bounds.size.height
+        self.logView.setContentOffset(CGPoint(x: 0, y: bottom), animated: true)
     }
     
     //This Adds commands to the menu
