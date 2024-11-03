@@ -219,11 +219,11 @@
                                 <color key="backgroundColor" red="0.75806140899999996" green="0.70103263849999997" blue="0.58085006480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eOh-sP-s9m">
-                                <rect key="frame" x="-29" y="348" width="410" height="498"/>
+                                <rect key="frame" x="-31" y="346" width="410" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="12" estimatedSectionHeaderHeight="10" sectionFooterHeight="12" estimatedSectionFooterHeight="10" springLoaded="YES" id="3ey-57-RoK">
-                                        <rect key="frame" x="0.0" y="15" width="410" height="454"/>
+                                        <rect key="frame" x="0.0" y="15" width="410" height="456"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                                         <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -469,11 +469,11 @@
                                         <sections/>
                                     </tableView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomframe" translatesAutoresizingMaskIntoConstraints="NO" id="qdr-CA-rdM">
-                                        <rect key="frame" x="0.0" y="444" width="412" height="56"/>
+                                        <rect key="frame" x="0.0" y="446" width="410" height="54"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     </imageView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sd2-K6-93h">
-                                        <rect key="frame" x="2" y="4" width="396" height="32"/>
+                                        <rect key="frame" x="0.0" y="4" width="398" height="32"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <segments>
@@ -503,7 +503,7 @@
                         <outlet property="healthIndicator" destination="vBF-Jg-Ynw" id="mHf-7G-8ek"/>
                         <outlet property="heroName" destination="EJV-Ki-DPC" id="tTy-zk-zUw"/>
                         <outlet property="heroView" destination="hqO-af-FEz" id="xYl-uw-hQm"/>
-                        <outlet property="imageChest" destination="M2y-c6-4Ag" id="cNb-mw-eHy"/>
+                        <outlet property="imageChest" destination="M2y-c6-4Ag" id="SFK-fY-hRY"/>
                         <outlet property="imagePants" destination="1od-5F-Xdn" id="Ya4-A0-ndr"/>
                         <outlet property="imageWeapon" destination="t3n-na-XTP" id="Byo-2D-Mbs"/>
                         <outlet property="listPicker" destination="Sd2-K6-93h" id="maG-ZP-u5J"/>
