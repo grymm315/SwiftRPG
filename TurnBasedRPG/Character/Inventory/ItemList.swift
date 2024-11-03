@@ -55,11 +55,11 @@ enum ArmorRack {
         case .jeans:
             return Armor(name: "Jeans", description: "Denim Jeans", type: .Legs, image: "Jeans", defense: 1)
         case .shirt:
-            return Armor(name: "Shirt", description: "Just a normal shirt that doesn't provide much protection", type: .Chest, image: "chest", defense: 1)
+            return Armor(name: "Shirt", description: "Just a normal shirt that doesn't provide much protection", type: .Chest, image: "Shirt", defense: 1)
         case .crown:
             return Armor(name: "Saphire Crown", description: "A jeweled saphire crown that seems to glow", type: .Head, image: "Jeans", defense: 1)
         case .chainChest:
-            return Armor(name: "Chainmail", description: "Lots of tiny metal rings woven together to forma  shirt", type: .Chest, image: "chainChest", defense: 2)
+            return Armor(name: "Chain Mail", description: "Lots of tiny metal rings woven together to forma  shirt", type: .Chest, image: "chainChest", defense: 2)
         case .plateChest:
             return Armor(name: "Platemail", description: "A turtle would be jealous", type: .Chest, image: "PlateChest", defense: 3)
         case .leatherPants:

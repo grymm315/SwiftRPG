@@ -18,8 +18,8 @@ enum NewGame: CaseIterable {
             let description = Command("Select a hero", completionHandler: {})
             description.isSelectable = false
             let rayven = Command("Little Red Riding Hood", completionHandler: {
-                UIApplication.systemMessage("You begin your journey as Rayven- Voodoo Priestess")
-                 let hero = Character(strength: 1, perception: 3, endurance: 2, charisma: 3, intelligence: 4, luck: 3, agility: 2)
+                UIApplication.systemMessage("Once upon a time there was a young girl named Little Red Riding Hood.........")
+                 let hero = Character(strength: 1, perception: 3, endurance: 2, charisma: 3, intelligence: 1, luck: 3, agility: 2)
                 hero.name = "Red"
                 hero.rewardXp(1000)
                 hero.race = .human
@@ -28,16 +28,20 @@ enum NewGame: CaseIterable {
                 hero.rewardItem(ItemRack.manaPotion.instance)
                 hero.rewardItem(ItemRack.healthPotion.instance)
                 hero.rewardItem(ArmorRack.shirt.instance)
+                hero.rewardItem(ArmorRack.plateChest.instance)
+                hero.rewardItem(ArmorRack.chainChest.instance)
+
+
 //                hero.rewardItem(ArmorRack.leatherPants.instance)
                 hero.rewardItem(WeaponRack.club.instance)
                 
                 GameDatabase.shared.hero = hero
                 UIApplication.topViewController?.performSegue(withIdentifier: "enterGame", sender: nil)
             })
-            let colby = Command("Colby- Warrior", completionHandler: {
-                UIApplication.systemMessage("You begin your journey as Colby- Road Warrior")
+            let colby = Command("Little Boy Blue", completionHandler: {
+                UIApplication.systemMessage("Once upon a time there was Little Boy Blue. A sleepy little boy without a clue..........")
                 let hero = Character(strength: 3, perception: 2, endurance: 3, charisma: 1, intelligence: 1, luck: 3, agility: 2)
-               hero.name = "Colby"
+               hero.name = "Blue"
                hero.race = .human
                 hero.rewardXp(1000)
 
@@ -50,10 +54,10 @@ enum NewGame: CaseIterable {
                GameDatabase.shared.hero = hero
                 UIApplication.topViewController?.performSegue(withIdentifier: "enterGame", sender: nil)
             })
-            let wretch = Command("Durby- Wretch ", completionHandler: {
-                UIApplication.systemMessage("For some reason you chose the wretch Durby.")
+            let wretch = Command("Hansel", completionHandler: {
+                UIApplication.systemMessage("Once upon a time there  was a young man Hansel........")
                 let hero = Character(strength: 2, perception: 3, endurance: 2, charisma: 1, intelligence: 1, luck: 1, agility: 3)
-               hero.name = "Durby"
+               hero.name = "Hansel"
                hero.race = .human
                 hero.rewardXp(1000)
 
