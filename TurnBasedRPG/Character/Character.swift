@@ -21,7 +21,7 @@ class Character: Codable  {
     
     var maxMana: Int {return Int((stats["intelligence"] ?? 1) * 10)}
     lazy var currentMana: Int = maxMana
-    var maxEnergy: Int {return Int((stats["endurance"] ?? 1) * 10)}
+    var maxEnergy: Int {return Int(80 + (stats["endurance"] ?? 1) * 10)}
     lazy var currentEnergy: Int = maxEnergy
     
     

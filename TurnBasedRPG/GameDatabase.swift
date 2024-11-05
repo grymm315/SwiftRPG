@@ -25,7 +25,7 @@ class GameDatabase {
     
     
     var map: AreaGenerator = AreaGenerator.init(name: "Adrift")
-    lazy var currentRoom:RoomNode = map.downtown5
+    lazy var currentRoom:RoomNode = map.bedroom3
     
     var canEditStats:Bool = true
     

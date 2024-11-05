@@ -49,7 +49,26 @@ class AreaGenerator{
 
     let cabinWoods:RoomNode = RoomNode(name: "woodscabin", environment: .forest, treasure: 3, danger: 3)
 
+    //new
+    let forest1:RoomNode = RoomNode(name: "forest1", environment: .forest, treasure: 3, danger: 3)
+    let forest2:RoomNode = RoomNode(name: "forest2", environment: .forest, treasure: 3, danger: 3)
+    let forest3:RoomNode = RoomNode(name: "forest3", environment: .forest, treasure: 3, danger: 3)
+    let forest4:RoomNode = RoomNode(name: "forest4", environment: .forest, treasure: 3, danger: 3)
+    let forest5:RoomNode = RoomNode(name: "forest5", environment: .forest, treasure: 3, danger: 3)
+    let forest6:RoomNode = RoomNode(name: "forest6", environment: .forest, treasure: 3, danger: 3)
+    let forest7:RoomNode = RoomNode(name: "forest7", environment: .forest, treasure: 3, danger: 3)
+    let forest8:RoomNode = RoomNode(name: "forest8", environment: .forest, treasure: 3, danger: 3)
     
+    let bedroom1:RoomNode = RoomNode(name: "bedroom1", environment: .city, treasure: 6, danger: 2)
+    let bedroom2:RoomNode = RoomNode(name: "bedroom2", environment: .city, treasure: 3, danger: 2)
+    let bedroom3:RoomNode = RoomNode(name: "bedroom3", environment: .city, treasure: 3, danger: 2)
+    let house1:RoomNode = RoomNode(name: "house1", environment: .city, treasure: 6, danger: 2)
+    let house2:RoomNode = RoomNode(name: "house2", environment: .city, treasure: 3, danger: 2)
+    let house3:RoomNode = RoomNode(name: "house3", environment: .city, treasure: 3, danger: 2)
+    
+    let street3way:RoomNode = RoomNode(name: "street3way", environment: .city, treasure: 6, danger: 2)
+    let narrowstreet:RoomNode = RoomNode(name: "narrowstreet", environment: .city, treasure: 3, danger: 2)
+    let minimart:RoomNode = RoomNode(name: "minimart", environment: .city, treasure: 3, danger: 2)
     
     
     let PossibleExits = [ "n", "s", "e", "w", "ns", "ne", "nw", "nse", "nsw", "new", "sew", "ew"] //12d
@@ -58,6 +77,28 @@ class AreaGenerator{
     
     // For something not random
     init(name: String){
+        
+        bedroom3.linkRoom(.east, room: house3)
+        house3.linkRoom(.east, room: street3way)
+        street3way.linkRoom(.east, room: narrowstreet)
+        narrowstreet.linkRoom(.east, room: minimart)
+        street3way.linkRoom(.south, room: house1)
+        house1.linkRoom(.east, room: house2)
+        house2.linkRoom(.east, room: bedroom2)
+        house1.linkRoom(.west, room: bedroom1)
+        house1.linkRoom(.south, room: forest5)
+        
+        forest5.linkRoom(.east, room: forest5)
+        forest5.linkRoom(.south, room: forest7)
+        forest7.linkRoom(.south, room: forest1)
+        forest7.linkRoom(.east, room: forest2)
+        
+        forest1.linkRoom(.south, room: forest6)
+        forest6.linkRoom(.south, room: forest4)
+        forest6.linkRoom(.east, room: forest3)
+        forest6.linkRoom(.west, room: forest8)
+
+        
         flightdeck.linkRoom(.east, room: diningRoom)
         flightdeck.linkRoom(.west, room: furnaceOutside)
         flightdeck.linkRoom(.north, room: startRoom)
