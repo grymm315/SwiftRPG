@@ -11,7 +11,7 @@ import AVFoundation
 
 
 enum BattleActions {
-    case heroAttacksMob,  heroHealsMob, heroAttacksHero, heroHealsHero, mobAttacksHero, mobHealsHero,  mobHealMob, youDied, youWin, flee
+    case heroAttacksMob,  heroHealsMob, heroAttacksHero, heroHealsHero, mobAttacksHero, mobHealsHero,  mobHealMob, youDied, youWin, flee, playerInput
 }
 
 protocol BattleViewActions {
@@ -113,6 +113,13 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
 //    }
 //
 //
+    func getBattleChoices() -> [String] {
+        return ["Attack", "Heal", "Item", "Escape"]
+    }
+    func showBattleMenu() {
+        menu.menuItems = getBattleChoices()
+        self.view.addSubview(menu.view)
+    }
     func chose(action: String) {
             //print("Chose: \(action)")
         SoundController.shared.tapSound()
@@ -210,12 +217,15 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             UIApplication.displayLog("They who flee and run away live to fight another day")
             SoundController.shared.speak("They who flee and run away live to fight another day")
             self.dismiss(animated: true, completion: nil)
+        case .playerInput:
+            displayLog("Player Input here", color: UIColor.yellow)
+            showBattleMenu()
         }
     }
     
     override func viewDidLayoutSubviews() {
-        topEnemyView.frame = UIScreen.main.goldenSmallTopFrame()
-        lowerConsoleView.frame = UIScreen.main.goldenLargeLowerFrame()
+        topEnemyView.frame = UIScreen.main.getUpperFrame(ratio: 0.5)
+        lowerConsoleView.frame = UIScreen.main.getLowerFrame(ratio: 0.5)
     }
     
     func displayLog(_ text: String, color: UIColor = UIColor.cyan){

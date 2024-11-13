@@ -76,7 +76,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
             print("Entered room \(currentRoom?.title ?? "!ERROR!")")
             roomImage.image = tImage
+            exitParticles.indicateSwipe(forRoom: currentRoom!)
         }
+
                 
         // for all the gesture recognizers
         for swipe in gestures {
@@ -93,9 +95,10 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     override func viewDidLayoutSubviews() {
-        consoleView.frame = UIScreen.main.goldenLargeTopFrame()
-        roomView.frame = UIScreen.main.goldenSmallBottomFrame()
-        originReturn = UIScreen.main.goldenLargeLowerFrame().origin
+        consoleView.frame = UIScreen.main.getUpperFrame(ratio: 0.30)
+        consoleView.layer.masksToBounds = true
+        roomView.frame = UIScreen.main.getLowerFrame(ratio: 0.30)
+        originReturn = UIScreen.main.getLowerFrame(ratio: 0.30).origin
     }
     
     override func viewWillAppear(_ animated: Bool) {
