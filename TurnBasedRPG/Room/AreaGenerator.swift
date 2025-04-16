@@ -79,6 +79,7 @@ class AreaGenerator{
     init(name: String){
         
         bedroom3.linkRoom(.east, room: house3)
+        bedroom3.mob_list.append(Monster.merchant)
         house3.linkRoom(.east, room: street3way)
         street3way.linkRoom(.east, room: narrowstreet)
         narrowstreet.linkRoom(.east, room: minimart)
@@ -91,6 +92,7 @@ class AreaGenerator{
         forest5.linkRoom(.east, room: forest5)
         forest5.linkRoom(.south, room: forest7)
         forest7.linkRoom(.south, room: forest1)
+        forest7.linkRoom(.west, room: woods)
         forest7.linkRoom(.east, room: forest2)
         
         forest1.linkRoom(.south, room: forest6)
@@ -139,11 +141,11 @@ class AreaGenerator{
             let ra = Int.random(in: 0...10)
             switch (ra){
             case 3:
-                newRoom.mob_list.append(Creature())
+                newRoom.mob_list.append(Monster.Goblin)
             case 1:
-                newRoom.mob_list.append(Creature())
+                newRoom.mob_list.append(Monster.LoneWolf)
             case 5:
-                newRoom.mob_list.append(Creature())
+                newRoom.mob_list.append(Monster.dog)
             default:
                 break
             }
@@ -189,7 +191,7 @@ class AreaGenerator{
             let newRoom = RoomNode(name: "Room# \(rrr)")
             let ra = Int.random(in: 0...2)
             for _ in 0...ra {
-                newRoom.mob_list.append(Creature())
+                newRoom.mob_list.append(Monster.ghost)
             }
             
             let selectedExit = Int.random(in: 1..<5)

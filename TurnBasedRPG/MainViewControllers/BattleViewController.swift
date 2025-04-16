@@ -218,7 +218,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             SoundController.shared.speak("They who flee and run away live to fight another day")
             self.dismiss(animated: true, completion: nil)
         case .playerInput:
-            displayLog("Player Input here", color: UIColor.yellow)
+            displayLog("*", color: UIColor.yellow)
             showBattleMenu()
         }
     }

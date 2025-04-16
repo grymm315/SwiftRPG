@@ -32,7 +32,7 @@ class RoomNode {
     var lootRating: Int = 0
     var environment: RoomEnvironment = .field
     
-    var mob_list:[Creature] = []
+    var mob_list:[Monster] = []
     
     init(name:String, environment: RoomEnvironment = .field, treasure: Int = 0, danger: Int = 0) {
         title = name
