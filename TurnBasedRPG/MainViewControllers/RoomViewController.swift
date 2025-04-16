@@ -99,6 +99,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         consoleView.layer.masksToBounds = true
         roomView.frame = UIScreen.main.getLowerFrame(ratio: 0.30)
         originReturn = UIScreen.main.getLowerFrame(ratio: 0.30).origin
+        text("", color: UIColor.white)
     }
     
     override func viewWillAppear(_ animated: Bool) {
