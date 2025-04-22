@@ -161,8 +161,8 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             displayLog("Stop hitting yourself for \(value) dmg", color: UIColor.red)
         case .mobAttacksHero:
             enemyImage.nudgeVertical(-70)
-            heroHP.alignHpTo(hero)
             GameDatabase.shared.hero.currentHealth -= value
+            heroHP.alignHpTo(GameDatabase.shared.hero)
             displayLog("\(enemy.name) attacks you for \(value) points", color: UIColor.red)
             sound.painNoise()
             

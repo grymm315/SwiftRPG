@@ -129,7 +129,7 @@ enum CityEncounters: CaseIterable {
             let description = Command("You see a stray dog begging for scraps", completionHandler: {})
             description.isSelectable = false
             let attk = Command("Attack Dog", completionHandler: {
-                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.thief)
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.dog)
             })
             let bribe = Command("Give food", completionHandler: {
                 UIApplication.systemMessage("You give the dog some of your food.")
