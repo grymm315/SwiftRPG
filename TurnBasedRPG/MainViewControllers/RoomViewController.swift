@@ -68,7 +68,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // this is important for screen animations while transiting
 //        roomImage.frame = roomView.frame
         originReturn = UIScreen.main.goldenLargeLowerFrame().origin//self.view.frame.origin
-        roomImage.contentMode = .scaleAspectFill
+        roomImage.contentMode = .scaleAspectFit
         logView.attributedText = GameDatabase.shared.logFile
         GameDatabase.shared.logDelegate = self
                 
@@ -233,6 +233,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
             print("Entered room \(currentRoom?.title ?? "!ERROR!")")
             roomImage.image = tImage
+        } else {
+            print("Image didn't load\(currentRoom?.title) ")
         }
         exitParticles.indicateSwipe(forRoom: to)
         

@@ -361,16 +361,16 @@
                                 <rect key="frame" x="-1" y="398" width="413" height="401"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cockpit" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-yK-3kp">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cockpit" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-yK-3kp">
                                         <rect key="frame" x="0.0" y="0.0" width="413" height="401"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sk4-t4-4PS" customClass="ParticleView" customModule="TurnBasedRPG" customModuleProvider="target">
+                                    <view userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sk4-t4-4PS" customClass="ParticleView" customModule="TurnBasedRPG" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="413" height="401"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" red="0.112176992" green="0.1079309806" blue="0.17079094049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3X-yC-YnC">
                                 <rect key="frame" x="-3" y="-1" width="415" height="389"/>
@@ -613,9 +613,6 @@
         <image name="volleyball.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
