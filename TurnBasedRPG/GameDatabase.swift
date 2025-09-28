@@ -39,7 +39,7 @@ class GameDatabase {
     
     let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Save1")
     
-    var logFile: NSMutableAttributedString = NSMutableAttributedString(string: "\n\n\n\n\n\n\n\n\n\n\n\nHello GrymmWorld\nSwipe to move\n", attributes: [.foregroundColor: UIColor.white]
+    var logFile: NSMutableAttributedString = NSMutableAttributedString(string: "\n\n\n\n\n\n\n\n\n\n\n\nHello GrymmWorld\n", attributes: [.foregroundColor: UIColor.white]
     
     )
     var logDelegate: LogDelegate?

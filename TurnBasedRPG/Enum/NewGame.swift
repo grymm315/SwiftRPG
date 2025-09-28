@@ -15,12 +15,12 @@ enum NewGame: CaseIterable {
         switch self {
       
         case .Quickstart:
-            let description = Command("Select a hero", completionHandler: {})
+            let description = Command("\n[Dungeon Initiated] \n\nDarkness swallows everything, then torches flare to life, casting jagged shadows across stone walls slick with age. The air is damp, metallic—like blood that’s been waiting centuries. No way out but forward.\n\n[Choose your Hero]\n\n", completionHandler: {})
             description.isSelectable = false
-            let rayven = Command("Little Red Riding Hood", completionHandler: {
-                UIApplication.systemMessage("Once upon a time there was a young girl named Little Red Riding Hood.........")
+            let rayven = Command("Rayven", completionHandler: {
+                UIApplication.systemMessage("The dungeon isn’t a prison—it’s a crucible. Every novice must walk its halls, not to escape, but to prove they deserve to rise higher. The elders call it a trial by fire: survive the traps, outwit the monsters, and claim the core’s blessing… or fall, and let the dungeon claim you as fuel. Your name is already etched into the roster. There’s no turning back—the gates grind open, and the darkness waits.")
                  let hero = Character(strength: 1, perception: 3, endurance: 2, charisma: 3, intelligence: 1, luck: 3, agility: 2)
-                hero.name = "Red"
+                hero.name = "Rayven"
                 hero.rewardXp(1000)
                 hero.race = .human
                 hero.profession = .cleric
@@ -35,13 +35,14 @@ enum NewGame: CaseIterable {
 //                hero.rewardItem(ArmorRack.leatherPants.instance)
                 hero.rewardItem(WeaponRack.club.instance)
                 
+                UIApplication.systemMessage("Swipe in any direction to shift rooms—left, right, up, or down")
                 GameDatabase.shared.hero = hero
                 UIApplication.topViewController?.performSegue(withIdentifier: "enterGame", sender: nil)
             })
-            let colby = Command("Little Boy Blue", completionHandler: {
-                UIApplication.systemMessage("Once upon a time there was Little Boy Blue. A sleepy little boy without a clue..........")
+            let colby = Command("Colby", completionHandler: {
+                UIApplication.systemMessage("The dungeon isn’t a prison—it’s a crucible. Every novice must walk its halls, not to escape, but to prove they deserve to rise higher. The elders call it a trial by fire: survive the traps, outwit the monsters, and claim the core’s blessing… or fall, and let the dungeon claim you as fuel. Your name is already etched into the roster. There’s no turning back—the gates grind open, and the darkness waits.")
                 let hero = Character(strength: 3, perception: 2, endurance: 3, charisma: 1, intelligence: 1, luck: 3, agility: 2)
-               hero.name = "Blue"
+               hero.name = "Colby"
                hero.race = .human
                 hero.rewardXp(1000)
 
@@ -52,6 +53,7 @@ enum NewGame: CaseIterable {
                 hero.rewardItem(ArmorRack.jeans.instance)
                 hero.rewardItem(WeaponRack.axe.instance)
                GameDatabase.shared.hero = hero
+                UIApplication.systemMessage("Swipe in any direction to shift rooms—left, right, up, or down")
                 UIApplication.topViewController?.performSegue(withIdentifier: "enterGame", sender: nil)
             })
             let wretch = Command("Hansel", completionHandler: {
@@ -74,7 +76,7 @@ enum NewGame: CaseIterable {
             let custom = Command("Custom", completionHandler: {
 
             })
-            return [description, rayven, colby, wretch]
+            return [description, rayven, colby]
         case .Gender:
             let description = Command("Select Gender", completionHandler: {})
             description.isSelectable = false
