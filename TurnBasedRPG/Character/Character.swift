@@ -35,6 +35,11 @@ class Character: Codable  {
     var agility:UInt8
     var gold: Int = 0
     
+    //asleep
+    //confused
+    //enraged
+    //
+    
     var name: String
     private var level = 0
     private var experience = 0

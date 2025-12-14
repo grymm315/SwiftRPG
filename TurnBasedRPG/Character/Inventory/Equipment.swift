@@ -8,7 +8,18 @@
 
 import Foundation
 
+class MyEquipment {
+    var name: String?
+    var weight: UInt8?
+}
 
+class Tools: MyEquipment {
+    var type: String?
+}
+
+class Clothing: MyEquipment {
+    var type: String?
+}
 
 class Equipment: Codable {
     enum codingKey: CodingKey {

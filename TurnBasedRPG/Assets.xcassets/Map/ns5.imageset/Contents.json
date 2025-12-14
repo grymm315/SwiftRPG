@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ns5.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

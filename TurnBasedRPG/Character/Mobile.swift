@@ -39,10 +39,10 @@ class Creature {
     }
     
     func move(from: RoomNode, to: RoomNode) {
-        if let removing = from.mob_list.firstIndex(where: {$0 === Creature.self}){
-            from.mob_list.remove(at: removing)
-            to.mob_list.append(self)
-        }
+//        if let removing = from.mob_list.firstIndex(where: {$0 === Creature.self}){
+//            from.mob_list.remove(at: removing)
+//            to.mob_list.append(self)
+//        }
     }
 }
 

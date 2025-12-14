@@ -30,6 +30,8 @@
 		827C0484213292B7008998C0 /* UIButtonGUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827C0483213292B7008998C0 /* UIButtonGUI.swift */; };
 		82D72A2B216060C60081709D /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2A216060C60081709D /* BattleViewController.swift */; };
 		82D72A2D2161FC9E0081709D /* AreaGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2C2161FC9E0081709D /* AreaGenerator.swift */; };
+		886CFF472D3B16C9006F85D0 /* Fire.metal in Sources */ = {isa = PBXBuildFile; fileRef = 886CFF462D3B16C9006F85D0 /* Fire.metal */; };
+		886CFF492D3C456A006F85D0 /* FireMTKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CFF482D3C456A006F85D0 /* FireMTKView.swift */; };
 		9607315523CECC270070A869 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607315423CECC270070A869 /* Equipment.swift */; };
 		965644E0231DDF6800403EA9 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965644DF231DDF6800403EA9 /* FaceView.swift */; };
 		9672DE8A22E413FA0080984F /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672DE8922E413FA0080984F /* RoomView.swift */; };
@@ -127,6 +129,8 @@
 		827C0483213292B7008998C0 /* UIButtonGUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonGUI.swift; sourceTree = "<group>"; };
 		82D72A2A216060C60081709D /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		82D72A2C2161FC9E0081709D /* AreaGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaGenerator.swift; sourceTree = "<group>"; };
+		886CFF462D3B16C9006F85D0 /* Fire.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Fire.metal; sourceTree = "<group>"; };
+		886CFF482D3C456A006F85D0 /* FireMTKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireMTKView.swift; sourceTree = "<group>"; };
 		9607315423CECC270070A869 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		963DFDE723E028EA00485974 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		965644DF231DDF6800403EA9 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
@@ -283,6 +287,15 @@
 			path = TurnBasedRPGUITests;
 			sourceTree = "<group>";
 		};
+		886CFF452D3B16A5006F85D0 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				886CFF482D3C456A006F85D0 /* FireMTKView.swift */,
+				886CFF462D3B16C9006F85D0 /* Fire.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 		963DFDE623DC182700485974 /* Room */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +368,7 @@
 		F04F8AFB2B5DD94D00B3727F /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				886CFF452D3B16A5006F85D0 /* Shaders */,
 				820150932132CC2B006A4B80 /* SmaugData.swift */,
 				823F4F02214463FB00A3573B /* Doodles */,
 				9693FA40230FB3B600867915 /* FaceViewController.swift */,
@@ -543,6 +557,7 @@
 				820150A7213B3894006A4B80 /* HealthBar.swift in Sources */,
 				F0B090992B579BC6000ACCDC /* Haptics.swift in Sources */,
 				F0B090802B563EE0000ACCDC /* EnumeratedFile.swift in Sources */,
+				886CFF472D3B16C9006F85D0 /* Fire.metal in Sources */,
 				F0AE0CD92C86645D009B68FF /* ItemList.swift in Sources */,
 				F08BC7F22CC8B04F00350796 /* RightParticles.swift in Sources */,
 				96CAE7CA23D3073F0017019E /* InventoryTableViewController.swift in Sources */,
@@ -555,6 +570,7 @@
 				827C045421329228008998C0 /* AppDelegate.swift in Sources */,
 				96799E8323E557CA0036E794 /* Model.xcdatamodeld in Sources */,
 				F04F8AFD2B5DDA9900B3727F /* CreditsViewController.swift in Sources */,
+				886CFF492D3C456A006F85D0 /* FireMTKView.swift in Sources */,
 				F04F8AFF2B5F34CC00B3727F /* Defaults.swift in Sources */,
 				820150A5213B308C006A4B80 /* Magic.swift in Sources */,
 				F0AE0CD72C6F012C009B68FF /* NewGame.swift in Sources */,

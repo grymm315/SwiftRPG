@@ -11,64 +11,64 @@ import Foundation
 //Playing with some ways to randomly generate a map
 class AreaGenerator{
     
-    let startRoom:RoomNode = RoomNode(name: "ReactorRoom", environment: .industrial, treasure: 7, danger: 7)
-    let reactorRoom:RoomNode = RoomNode(name: "ReactorRoom", environment: .industrial, treasure: 7, danger: 7)
-    let diningRoom:RoomNode = RoomNode(name: "DiningRoom", environment: .indoors, treasure: 4, danger: 1)
-    let flightdeck:RoomNode = RoomNode(name: "Flightdeck", environment: .indoors, treasure: 3, danger: 2)
+    let startRoom:RoomNode = RoomNode(name: "s2", environment: .industrial, treasure: 7, danger: 7)
+    let reactorRoom:RoomNode = RoomNode(name: "s3", environment: .industrial, treasure: 7, danger: 7)
+    let diningRoom:RoomNode = RoomNode(name: "ew4", environment: .indoors, treasure: 4, danger: 1)
+    let flightdeck:RoomNode = RoomNode(name: "nwe2", environment: .indoors, treasure: 3, danger: 2)
     let furnaceInside:RoomNode = RoomNode(name: "FurnaceInside", environment: .industrial, treasure: 6, danger: 5)
-    let furnaceOutside:RoomNode = RoomNode(name: "FurnaceOutside", environment: .industrial, treasure: 6, danger: 3)
+    let furnaceOutside:RoomNode = RoomNode(name: "ew6", environment: .industrial, treasure: 6, danger: 3)
     
     let gateOpening:RoomNode = RoomNode(name: "GateOpening", environment: .highway, treasure: 3, danger: 2)
     
     let cityRoad1:RoomNode = RoomNode(name: "CityRoad1", environment: .highway, treasure: 3, danger: 2)
-    let downtown4:RoomNode = RoomNode(name: "Downtown4", environment: .city, treasure: 6, danger: 2)
-    let downtown5:RoomNode = RoomNode(name: "Downtown5", environment: .city, treasure: 3, danger: 2)
-    let downtownSheriff:RoomNode = RoomNode(name: "DowntownSheriff", environment: .city, treasure: 3, danger: 0)
+    let downtown4:RoomNode = RoomNode(name: "nw", environment: .city, treasure: 6, danger: 2)
+    let downtown5:RoomNode = RoomNode(name: "ns5", environment: .city, treasure: 3, danger: 2)
+    let downtownSheriff:RoomNode = RoomNode(name: "ns", environment: .city, treasure: 3, danger: 0)
     
-    let street1:RoomNode = RoomNode(name: "Street1", environment: .highway, treasure: 3, danger: 2)
-    let street2:RoomNode = RoomNode(name: "Street2", environment: .highway, treasure: 3, danger: 2)
-    let street3:RoomNode = RoomNode(name: "Street3", environment: .highway, treasure: 3, danger: 2)
+    let street1:RoomNode = RoomNode(name: "ns1", environment: .highway, treasure: 3, danger: 2)
+    let street2:RoomNode = RoomNode(name: "se2", environment: .highway, treasure: 3, danger: 2)
+    let street3:RoomNode = RoomNode(name: "nsw", environment: .highway, treasure: 3, danger: 2)
     let toriiGate2:RoomNode = RoomNode(name: "ToriiGate2", environment: .highway, treasure: 8, danger: 2)
-    let toriiGate1:RoomNode = RoomNode(name: "TorriGate1", environment: .highway, treasure: 8, danger: 2)
-    let roadToTower:RoomNode = RoomNode(name: "RoadToTower", environment: .highway, treasure: 3, danger: 4)
+    let toriiGate1:RoomNode = RoomNode(name: "ne1", environment: .highway, treasure: 8, danger: 2)
+    let roadToTower:RoomNode = RoomNode(name: "nse", environment: .highway, treasure: 3, danger: 4)
     
-    let town:RoomNode = RoomNode(name: "Town", environment: .city, treasure: 3, danger: 3)
+    let town:RoomNode = RoomNode(name: "ns3", environment: .city, treasure: 3, danger: 3)
     
-    let woods:RoomNode = RoomNode(name: "woods", environment: .forest, treasure: 3, danger: 3)
-    let woods2:RoomNode = RoomNode(name: "woods2", environment: .forest, treasure: 3, danger: 3)
-    let woods3:RoomNode = RoomNode(name: "woods3", environment: .forest, treasure: 3, danger: 3)
-    let woods4:RoomNode = RoomNode(name: "woods4", environment: .forest, treasure: 3, danger: 3)
-    let woods5:RoomNode = RoomNode(name: "woods5", environment: .forest, treasure: 3, danger: 3)
-    let darkwoods:RoomNode = RoomNode(name: "darkwoods", environment: .forest, treasure: 3, danger: 10)
+    let woods:RoomNode = RoomNode(name: "nse1", environment: .forest, treasure: 3, danger: 3)
+    let woods2:RoomNode = RoomNode(name: "se1", environment: .forest, treasure: 3, danger: 3)
+    let woods3:RoomNode = RoomNode(name: "nw", environment: .forest, treasure: 3, danger: 3)
+    let woods4:RoomNode = RoomNode(name: "sw2", environment: .forest, treasure: 3, danger: 3)
+    let woods5:RoomNode = RoomNode(name: "ne1", environment: .forest, treasure: 3, danger: 3)
+    let darkwoods:RoomNode = RoomNode(name: "ds", environment: .forest, treasure: 3, danger: 10)
     let lightwoods:RoomNode = RoomNode(name: "lightwoods", environment: .forest, treasure: 3, danger: 10)
     
-    let cabin1:RoomNode = RoomNode(name: "cabin1", environment: .forest, treasure: 3, danger: 3)
-    let cabin2:RoomNode = RoomNode(name: "cabin2", environment: .forest, treasure: 3, danger: 3)
+    let cabin1:RoomNode = RoomNode(name: "w1", environment: .forest, treasure: 3, danger: 3)
+    let cabin2:RoomNode = RoomNode(name: "e4", environment: .forest, treasure: 3, danger: 3)
 
     let cabindoor:RoomNode = RoomNode(name: "cabindoor", environment: .forest, treasure: 3, danger: 3)
 
-    let cabinWoods:RoomNode = RoomNode(name: "woodscabin", environment: .forest, treasure: 3, danger: 3)
+    let cabinWoods:RoomNode = RoomNode(name: "nsew", environment: .forest, treasure: 3, danger: 3)
 
     //new
-    let forest1:RoomNode = RoomNode(name: "forest1", environment: .forest, treasure: 3, danger: 3)
-    let forest2:RoomNode = RoomNode(name: "forest2", environment: .forest, treasure: 3, danger: 3)
-    let forest3:RoomNode = RoomNode(name: "forest3", environment: .forest, treasure: 3, danger: 3)
-    let forest4:RoomNode = RoomNode(name: "forest4", environment: .forest, treasure: 3, danger: 3)
-    let forest5:RoomNode = RoomNode(name: "forest5", environment: .forest, treasure: 3, danger: 3)
-    let forest6:RoomNode = RoomNode(name: "forest6", environment: .forest, treasure: 3, danger: 3)
-    let forest7:RoomNode = RoomNode(name: "forest7", environment: .forest, treasure: 3, danger: 3)
-    let forest8:RoomNode = RoomNode(name: "forest8", environment: .forest, treasure: 3, danger: 3)
+    let forest1:RoomNode = RoomNode(name: "ns2", environment: .forest, treasure: 3, danger: 3)
+    let forest2:RoomNode = RoomNode(name: "w2", environment: .forest, treasure: 3, danger: 3)
+    let forest3:RoomNode = RoomNode(name: "w3", environment: .forest, treasure: 3, danger: 3)
+    let forest4:RoomNode = RoomNode(name: "n", environment: .forest, treasure: 3, danger: 3)
+    let forest5:RoomNode = RoomNode(name: "nsew3", environment: .forest, treasure: 3, danger: 3)
+    let forest6:RoomNode = RoomNode(name: "nsew", environment: .forest, treasure: 3, danger: 3)
+    let forest7:RoomNode = RoomNode(name: "nsew2", environment: .forest, treasure: 3, danger: 3)
+    let forest8:RoomNode = RoomNode(name: "e3", environment: .forest, treasure: 3, danger: 3)
     
-    let bedroom1:RoomNode = RoomNode(name: "bedroom1", environment: .city, treasure: 6, danger: 2)
-    let bedroom2:RoomNode = RoomNode(name: "bedroom2", environment: .city, treasure: 3, danger: 2)
-    let bedroom3:RoomNode = RoomNode(name: "bedroom3", environment: .city, treasure: 3, danger: 2)
-    let house1:RoomNode = RoomNode(name: "house1", environment: .city, treasure: 6, danger: 2)
-    let house2:RoomNode = RoomNode(name: "house2", environment: .city, treasure: 3, danger: 2)
-    let house3:RoomNode = RoomNode(name: "house3", environment: .city, treasure: 3, danger: 2)
+    let bedroom1:RoomNode = RoomNode(name: "e", environment: .city, treasure: 6, danger: 2)
+    let bedroom2:RoomNode = RoomNode(name: "w1", environment: .city, treasure: 3, danger: 2)
+    let bedroom3:RoomNode = RoomNode(name: "e1", environment: .city, treasure: 3, danger: 2)
+    let house1:RoomNode = RoomNode(name: "nsew5", environment: .city, treasure: 6, danger: 2)
+    let house2:RoomNode = RoomNode(name: "ew2", environment: .city, treasure: 3, danger: 2)
+    let house3:RoomNode = RoomNode(name: "ew", environment: .city, treasure: 3, danger: 2)
     
-    let street3way:RoomNode = RoomNode(name: "street3way", environment: .city, treasure: 6, danger: 2)
-    let narrowstreet:RoomNode = RoomNode(name: "narrowstreet", environment: .city, treasure: 3, danger: 2)
-    let minimart:RoomNode = RoomNode(name: "minimart", environment: .city, treasure: 3, danger: 2)
+    let street3way:RoomNode = RoomNode(name: "swe1", environment: .city, treasure: 6, danger: 2)
+    let narrowstreet:RoomNode = RoomNode(name: "ew2", environment: .city, treasure: 3, danger: 2)
+    let minimart:RoomNode = RoomNode(name: "w1", environment: .city, treasure: 3, danger: 2)
     
     
     let PossibleExits = [ "n", "s", "e", "w", "ns", "ne", "nw", "nse", "nsw", "new", "sew", "ew"] //12d
@@ -79,6 +79,7 @@ class AreaGenerator{
     init(name: String){
         
         bedroom3.linkRoom(.east, room: house3)
+        bedroom3.mob_list.append(Monster.merchant)
         house3.linkRoom(.east, room: street3way)
         street3way.linkRoom(.east, room: narrowstreet)
         narrowstreet.linkRoom(.east, room: minimart)
@@ -91,6 +92,7 @@ class AreaGenerator{
         forest5.linkRoom(.east, room: forest5)
         forest5.linkRoom(.south, room: forest7)
         forest7.linkRoom(.south, room: forest1)
+        forest7.linkRoom(.west, room: woods)
         forest7.linkRoom(.east, room: forest2)
         
         forest1.linkRoom(.south, room: forest6)
@@ -108,10 +110,11 @@ class AreaGenerator{
         downtown5.linkRoom(.north, room: town)
         town.linkRoom(.north, room: woods)
         woods.linkRoom(.north, room: woods2)
-        woods2.oneWayRoom(.east, room: woods3, wrongRoom: woods)
-        woods3.oneWayRoom(.north, room: woods4, wrongRoom: woods)
-        woods4.oneWayRoom(.west, room: woods5, wrongRoom: woods)
-        woods5.oneWayRoom(.north, room: cabinWoods, wrongRoom: woods)
+        woods2.linkRoom(.east, room: woods3)
+        
+        woods3.linkRoom(.north, room: woods4)
+        woods4.linkRoom(.west, room: woods5)
+        woods5.linkRoom(.north, room: cabinWoods)
         cabinWoods.linkRoom(.east, room: cabin1)
         cabinWoods.linkRoom(.west, room: cabin2)
         cabinWoods.linkRoom(.north, room: darkwoods)
@@ -139,11 +142,11 @@ class AreaGenerator{
             let ra = Int.random(in: 0...10)
             switch (ra){
             case 3:
-                newRoom.mob_list.append(Creature())
+                newRoom.mob_list.append(Monster.Goblin)
             case 1:
-                newRoom.mob_list.append(Creature())
+                newRoom.mob_list.append(Monster.LoneWolf)
             case 5:
-                newRoom.mob_list.append(Creature())
+                newRoom.mob_list.append(Monster.dog)
             default:
                 break
             }
@@ -189,7 +192,7 @@ class AreaGenerator{
             let newRoom = RoomNode(name: "Room# \(rrr)")
             let ra = Int.random(in: 0...2)
             for _ in 0...ra {
-                newRoom.mob_list.append(Creature())
+                newRoom.mob_list.append(Monster.ghost)
             }
             
             let selectedExit = Int.random(in: 1..<5)

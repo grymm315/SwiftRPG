@@ -68,7 +68,7 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // this is important for screen animations while transiting
 //        roomImage.frame = roomView.frame
         originReturn = UIScreen.main.goldenLargeLowerFrame().origin//self.view.frame.origin
-        roomImage.contentMode = .scaleAspectFill
+        roomImage.contentMode = .scaleAspectFit
         logView.attributedText = GameDatabase.shared.logFile
         GameDatabase.shared.logDelegate = self
                 
@@ -76,7 +76,9 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
             print("Entered room \(currentRoom?.title ?? "!ERROR!")")
             roomImage.image = tImage
+            exitParticles.indicateSwipe(forRoom: currentRoom!)
         }
+
                 
         // for all the gesture recognizers
         for swipe in gestures {
@@ -93,9 +95,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     override func viewDidLayoutSubviews() {
-        consoleView.frame = UIScreen.main.goldenLargeTopFrame()
-        roomView.frame = UIScreen.main.goldenSmallBottomFrame()
-        originReturn = UIScreen.main.goldenLargeLowerFrame().origin
+        consoleView.frame = UIScreen.main.getUpperFrame(ratio: 0.30)
+        consoleView.layer.masksToBounds = true
+        roomView.frame = UIScreen.main.getLowerFrame(ratio: 0.30)
+        originReturn = UIScreen.main.getLowerFrame(ratio: 0.30).origin
+        text("", color: UIColor.white)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -229,6 +233,8 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let tImage =  UIImage.init(named: currentRoom?.title ?? ""){
             print("Entered room \(currentRoom?.title ?? "!ERROR!")")
             roomImage.image = tImage
+        } else {
+            print("Image didn't load\(currentRoom?.title) ")
         }
         exitParticles.indicateSwipe(forRoom: to)
         

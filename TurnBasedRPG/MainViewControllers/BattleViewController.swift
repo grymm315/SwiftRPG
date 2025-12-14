@@ -11,7 +11,7 @@ import AVFoundation
 
 
 enum BattleActions {
-    case heroAttacksMob,  heroHealsMob, heroAttacksHero, heroHealsHero, mobAttacksHero, mobHealsHero,  mobHealMob, youDied, youWin, flee
+    case heroAttacksMob,  heroHealsMob, heroAttacksHero, heroHealsHero, mobAttacksHero, mobHealsHero,  mobHealMob, youDied, youWin, flee, playerInput
 }
 
 protocol BattleViewActions {
@@ -113,6 +113,21 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
 //    }
 //
 //
+    func getBattleOptions() {
+        //What weapon is equipped? Weapon should have skills
+        let weapon = GameDatabase.shared.hero.getWeapon()
+        
+        //what items in inventory can be used in battle?
+        
+    }
+    
+    func getBattleChoices() -> [String] {
+        return ["Attack", "Heal", "Item", "Escape"]
+    }
+    func showBattleMenu() {
+        menu.menuItems = getBattleChoices()
+        self.view.addSubview(menu.view)
+    }
     func chose(action: String) {
             //print("Chose: \(action)")
         SoundController.shared.tapSound()
@@ -125,7 +140,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             sound.painNoise()
         case "Heal":
             heroHP.heal(15)
-            GameDatabase.shared.hero.currentHealth -= 15
+            GameDatabase.shared.hero.currentHealth += 15
             sound.magic()
             displayLog("You heal for 15 points", color: UIColor.green)
         case "Item":
@@ -152,10 +167,11 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             
         case .heroAttacksHero:
             displayLog("Stop hitting yourself for \(value) dmg", color: UIColor.red)
+            
         case .mobAttacksHero:
             enemyImage.nudgeVertical(-70)
-            heroHP.alignHpTo(hero)
             GameDatabase.shared.hero.currentHealth -= value
+            heroHP.alignHpTo(GameDatabase.shared.hero)
             displayLog("\(enemy.name) attacks you for \(value) points", color: UIColor.red)
             sound.painNoise()
             
@@ -172,7 +188,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
 
         case .heroHealsHero:
             heroHP.heal(value)
-            GameDatabase.shared.hero.currentHealth -= value
+            GameDatabase.shared.hero.currentHealth += value
             sound.magic()
             heroHP.alignHpTo(hero)
             displayLog("You heal for \(value) points", color: UIColor.green)
@@ -187,7 +203,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
                 UIApplication.battleNotification("You have died!!")
             })
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-                GameDatabase.shared.hero.heal(100)
+//                GameDatabase.shared.hero.heal(100)
                 self.dismiss(animated: true, completion: nil)
             })
         case .youWin:
@@ -210,12 +226,15 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             UIApplication.displayLog("They who flee and run away live to fight another day")
             SoundController.shared.speak("They who flee and run away live to fight another day")
             self.dismiss(animated: true, completion: nil)
+        case .playerInput:
+            displayLog("*", color: UIColor.yellow)
+            showBattleMenu()
         }
     }
     
     override func viewDidLayoutSubviews() {
-        topEnemyView.frame = UIScreen.main.goldenSmallTopFrame()
-        lowerConsoleView.frame = UIScreen.main.goldenLargeLowerFrame()
+        topEnemyView.frame = UIScreen.main.getUpperFrame(ratio: 0.5)
+        lowerConsoleView.frame = UIScreen.main.getLowerFrame(ratio: 0.5)
     }
     
     func displayLog(_ text: String, color: UIColor = UIColor.cyan){

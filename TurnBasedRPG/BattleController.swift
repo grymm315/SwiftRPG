@@ -17,7 +17,7 @@ class BattleController {
     
     var battleDelegate: BattleViewActions?
     
-    private var timeDelay = 0.5
+    private var timeDelay = 2.5
     var heroInitiative = 0
     var enemyInitiative = 1
     
@@ -29,6 +29,66 @@ class BattleController {
         self.enemy = enemy
         determineNextMove()
     }
+    
+    func stop(){
+        gameOver = true
+        
+    }
+    
+    
+    
+    func statusReport() {
+        print("\(hero?.name ?? "Name not found"): \(heroInitiative) vs \(enemy?.race ?? raceTypes.Demon): \(enemyInitiative)")
+    }
+    
+    func AIMove() {
+        if (gameOver){return}
+        let dmg = enemy?.attack(enemy: GameDatabase.shared.hero)
+        battleDelegate?.battleAction(action: .mobAttacksHero, value: dmg ?? 0)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDelay, execute: {
+            self.determineNextMove()
+        })
+        enemyInitiative += 1
+    }
+    
+    func playerMove() {
+        if (gameOver){return}
+        let dmg = hero?.attack(enemy: enemy!)
+        //battleDelegate?.battleAction(action: .heroAttacksMob, value: dmg ?? 0)
+        battleDelegate?.battleAction(action: .playerInput, value: 0)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDelay, execute: {
+            self.determineNextMove()
+        })
+        heroInitiative += 1
+    }
+    
+    func determineEvade() -> Bool {
+        
+        let chance = Int.random(in: 0..<100)
+        return chance <= 50
+    }
+    
+    func determineParry() -> Bool {
+        // Does character have something to parry with
+        // Successful parry allows a repost
+        let chance = Int.random(in: 0..<100)
+        return chance <= 50
+    }
+    
+    func determineBlock() -> Bool {
+        // does character have something to block with
+        let chance = Int.random(in: 0..<100)
+        return chance <= 50
+    }
+    
+    func determineDodge() -> Bool {
+        // if the character is faster than the enemy dodge chance is increased
+        // dodge consumes more stam than evade
+        let chance = Int.random(in: 0..<100)
+        return chance <= 50
+    }
+    
+    
     
     func determineNextMove() {
         //lose condition
@@ -45,7 +105,7 @@ class BattleController {
             return
         }
         
-        if (hero?.currentHealth ?? 0 <= 0) {
+        if (GameDatabase.shared.hero.currentHealth ?? 0 <= 0) {
             print ("You have died!!")
             gameOver = true
             battleDelegate?.battleAction(action: .youDied, value: 0)
@@ -59,26 +119,6 @@ class BattleController {
         }
     }
     
-    func statusReport() {
-        print("\(hero?.name ?? "Name not found"): \(heroInitiative) vs \(enemy?.race ?? raceTypes.Demon): \(enemyInitiative)")
-    }
+   
     
-    func AIMove() {
-        let dmg = enemy?.attack(enemy: hero!)
-        battleDelegate?.battleAction(action: .mobAttacksHero, value: dmg ?? 0)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDelay, execute: {
-            self.determineNextMove()
-        })
-        enemyInitiative += 1
-    }
-    
-    func playerMove() {
-        let dmg = hero?.attack(enemy: enemy!)
-        battleDelegate?.battleAction(action: .heroAttacksMob, value: dmg ?? 0)
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDelay, execute: {
-            self.determineNextMove()
-        })
-        heroInitiative += 1
-    }
 }
