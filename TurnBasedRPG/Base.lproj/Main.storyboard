@@ -603,7 +603,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cockpit" width="1024" height="1024"/>
+        <image name="Cockpit" width="512" height="512"/>
         <image name="SunMoon" width="1024" height="1024"/>
         <image name="bottomframe" width="494" height="54"/>
         <image name="figure.hiking" catalog="system" width="96" height="128"/>

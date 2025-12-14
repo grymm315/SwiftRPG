@@ -30,6 +30,11 @@ class BattleController {
         determineNextMove()
     }
     
+    func stop(){
+        gameOver = true
+        
+    }
+    
     
     
     func statusReport() {
@@ -37,7 +42,8 @@ class BattleController {
     }
     
     func AIMove() {
-        let dmg = enemy?.attack(enemy: hero!)
+        if (gameOver){return}
+        let dmg = enemy?.attack(enemy: GameDatabase.shared.hero)
         battleDelegate?.battleAction(action: .mobAttacksHero, value: dmg ?? 0)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDelay, execute: {
             self.determineNextMove()
@@ -46,6 +52,7 @@ class BattleController {
     }
     
     func playerMove() {
+        if (gameOver){return}
         let dmg = hero?.attack(enemy: enemy!)
         //battleDelegate?.battleAction(action: .heroAttacksMob, value: dmg ?? 0)
         battleDelegate?.battleAction(action: .playerInput, value: 0)
@@ -98,7 +105,7 @@ class BattleController {
             return
         }
         
-        if (hero?.currentHealth ?? 0 <= 0) {
+        if (GameDatabase.shared.hero.currentHealth ?? 0 <= 0) {
             print ("You have died!!")
             gameOver = true
             battleDelegate?.battleAction(action: .youDied, value: 0)
