@@ -216,8 +216,13 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
         imageChest.image = UIImage(named: GameDatabase.shared.hero.getChest()?.imageNamed ?? "")
         imagePants.image = UIImage(named: GameDatabase.shared.hero.getLegs()?.imageNamed ?? "")
         characterPortrait.image = UIImage(named: GameDatabase.shared.hero.image ?? "willy")
-       
-
+        let font = UIFont(name: "Courier-Bold", size: 14)
+        let selectedAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: font
+            
+        ]
+        listPicker.setTitleTextAttributes(selectedAttributes, for: .normal)
     }
     
     // MARK: - Table view data source
