@@ -41,6 +41,7 @@ class Character: Codable  {
     //
     
     var name: String
+    var skills: [Skill] = []
     private var level = 0
     private var experience = 0
     var race:raceTypes = .human

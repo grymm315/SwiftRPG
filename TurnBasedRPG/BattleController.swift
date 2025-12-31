@@ -8,6 +8,17 @@
 
 import Foundation
 
+enum CombatEvent {
+    case battleStarted
+    case turnStart(unit: Character)
+    case turnEnd(unit: Character)
+    case attack(attacker: Character, defender: Character)
+    case damageDealt(attacker: Character, defender: Character, damage: Int)
+    case damageTaken(victim: Character, damage: Int)
+    case unitDead(unit: Character)
+    
+}
+
 class BattleController {
     static var shared = BattleController()
     
@@ -35,6 +46,49 @@ class BattleController {
         
     }
     
+    func getOptions(){
+        let weapon = hero?.getWeapon()
+        var options : [String] = []
+        switch weapon?.weaponType {
+        case .Sword:
+            options.append("Stab")
+            options.append("Swing")
+            options.append("Thrust")
+        case .Club:
+            options.append("Swing")
+
+        case .Claw:
+            options.append("Swipe")
+
+        case .Unarmed:
+            options.append("Punch")
+            options.append("Kick")
+
+        case .Gun:
+            options.append("Shoot")
+
+        case .FireWand:
+            options.append("Fireball")
+            options.append("Swing")
+            options.append("Thrust")
+
+        case .IceWand:
+            options.append("Stab")
+            options.append("Swing")
+            options.append("Thrust")
+
+        case .GreenWand:
+            options.append("Stab")
+            options.append("Swing")
+            options.append("Thrust")
+
+        case nil:
+            options.append("Run")
+            options.append("Dodge")
+            options.append("Roll")
+
+        }
+    }
     
     
     func statusReport() {

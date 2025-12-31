@@ -19,8 +19,7 @@ protocol BattleViewActions {
 }
 // TODO: This needs refactored
 class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActions {
-    
-    
+  
     
     @IBOutlet weak var enemyView: UIView!
     @IBOutlet weak var heroView: UIView!
@@ -113,19 +112,23 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
 //    }
 //
 //
-    func getBattleOptions() {
-        //What weapon is equipped? Weapon should have skills
-        let weapon = GameDatabase.shared.hero.getWeapon()
+    func getBattleOptions() -> [Skill] {
+        //Lets make a function to do this logic in the character- pull direct from character class
+        var skills: [Skill] = [Punch(),Fireball(), FirstAid(), Run()]
         
-        //what items in inventory can be used in battle?
-        
+        return skills
+    }
+    
+    func chose(action: any Skill) {
+        let viewActions = action.handle(event: .attack(attacker: hero, defender: enemy), owner: hero)
+        battleAction(action: viewActions.action, value: viewActions.value)
     }
     
     func getBattleChoices() -> [String] {
         return ["Attack", "Heal", "Item", "Escape"]
     }
     func showBattleMenu() {
-        menu.menuItems = getBattleChoices()
+        menu.menuItems = getBattleOptions()
         self.view.addSubview(menu.view)
     }
     func chose(action: String) {
@@ -246,31 +249,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             self.consoleLog.setContentOffset(CGPoint(x: 0, y: bottom), animated: true)
         }
     }
-    
-//    func attacks(_ who:Character, attacks victim:Character){
-//    }
-//
-//    func AIMove(){
-//        let edmg = Int.random(in: 1...Int(enemy.strength))
-//        enemyImage.nudgeVertical(-70)
-//        heroHP.takeDamage(edmg)
-//        GameDatabase.shared.hero.currentHealth -= edmg
-//
-//        UIApplication.battleNotification("\(enemy.race) attacks you for \(edmg) points")
-//        sound.painNoise()
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
-//            self.tick()
-//        })
-//    }
-//
-//    //hero attacks enemy
-//    @IBAction func attack(_ sender: Any) {
-//        enemyHP._currentHealth -= Int.random(in: 1...10)
-//        enemyHP.setNeedsDisplay()
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
-//            self.tick()
-//        })
-//    }
 }
 
 
