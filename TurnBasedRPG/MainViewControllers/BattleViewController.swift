@@ -32,8 +32,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     @IBOutlet weak var energyBar: HealthBar!
     @IBOutlet weak var manaBar: HealthBar!
     
-    @IBOutlet weak var attkButton: UIButtonGUI!
-    
     @IBOutlet weak var lowerConsoleView: UIView!
     @IBOutlet weak var topEnemyView: UIView!
     var consoleText: NSMutableAttributedString =  NSMutableAttributedString(string: "", attributes: [.foregroundColor: UIColor.white])
@@ -95,44 +93,10 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         energyBar.takeDamage(0)
         
     }
-//    func tick() {
-//        //lose condition
-//        if (gameOver) {
-//            print("The Battle is over")
-//            return
-//        }
-//        //win condition
-//        if (enemyHP._currentHealth <= 0) {
-//            print ("You won")
-//            let fanfare: SystemSoundID = 1025
-//            AudioServicesPlaySystemSound(fanfare)
-//            gameOver = true
-//            isPaused = true
-//            UIApplication.battleNotification("You have defeated \(enemy.name)!!")
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-//                UIApplication.battleNotification("You have gained 100 XP!!")
-//                GameDatabase.shared.hero.rewardXp(100)
-//            })
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-//                self.dismiss(animated: true, completion: nil)
-//            })
-//        }
-//
-//        if (heroPOS < enemyPOS) {
-//            heroPOS += Int(hero.agility)
-//            // sound.randomInsults()
-//            AIMove()
-//        } else {
-//            enemyPOS += Int(enemy.agility)
-//            menu.menuItems = ["Attack", "Heal", "Item", "Escape"]
-//            self.view.addSubview(menu.view)
-//        }
-//    }
-//
-//
+
     func getBattleOptions() -> [Skill] {
         //Lets make a function to do this logic in the character- pull direct from character class
-        var skills: [Skill] = [Punch(),Fireball(), FirstAid(), Run()]
+        var skills: [Skill] = GameDatabase.shared.hero.skills
         
         return skills
     }
@@ -149,34 +113,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         menu.menuItems = getBattleOptions()
         self.view.addSubview(menu.view)
     }
-//    func chose(action: String) {
-//            //print("Chose: \(action)")
-//        SoundController.shared.tapSound()
-//        switch action {
-//        case "Attack":
-//            let hdmg = Int.random(in: 1...Int(hero.strength))
-//            enemyHP.takeDamage(hdmg)
-//            enemyImage.shake()
-//            displayLog("You deal \(hdmg) dmg to \(enemy.name)", color: UIColor.white)
-//            sound.painNoise()
-//        case "Heal":
-//            heroHP.heal(15)
-//            GameDatabase.shared.hero.currentHealth += 15
-//            sound.magic()
-//            displayLog("You heal for 15 points", color: UIColor.green)
-//        case "Item":
-//            print("Yet")
-//        case "Escape":
-//            SoundController.shared.speak("You ran away like a cow-word!")
-//            self.dismiss(animated: true, completion: nil)
-//        default:
-//            print("Default")
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
-////            self.tick()
-//        })
-//    }
     
     func battleAction(action: BattleActions, value: Int) {
         switch action {
@@ -247,10 +183,14 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
                 self.dismiss(animated: true, completion: nil)
             })
         case .flee:
-            displayLog("They who flee and run away live to fight another day", color: UIColor.red)
-            UIApplication.displayLog("They who flee and run away live to fight another day")
-            SoundController.shared.speak("They who flee and run away live to fight another day")
-            self.dismiss(animated: true, completion: nil)
+            if (value == 0){
+                displayLog("They who flee and run away live to fight another day", color: UIColor.red)
+                UIApplication.displayLog("They who flee and run away live to fight another day")
+                SoundController.shared.speak("They who flee and run away live to fight another day")
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                displayLog("You try to flee but the \(enemy.name) won't let you")
+            }
         case .playerInput:
             displayLog("*", color: UIColor.yellow)
             showBattleMenu()

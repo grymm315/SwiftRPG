@@ -192,7 +192,9 @@ final class Run: Skill {
             print("You get away!!")
             return (BattleActions.flee, 0)
         } else {
-            return (BattleActions.mobAttacksHero, 0)
+            print("You did not get away...")
+            return (BattleActions.flee, 2)
+           
         }
     }
 }
