@@ -24,9 +24,9 @@ enum NewGame: CaseIterable {
                 hero.rewardXp(1000)
                 hero.race = .human
                 hero.profession = .cleric
-                hero.skills.append(Punch())
-                hero.skills.append(FirstAid())
-                hero.skills.append(Fireball())
+                hero.skills.append(Skill.punch)
+                hero.skills.append(Skill.FireBall)
+                hero.skills.append(Skill.firstaid)
                 hero.image = "shadowqueen"
                 hero.rewardItem(ItemRack.manaPotion.instance)
                 hero.rewardItem(ItemRack.healthPotion.instance)
@@ -50,8 +50,8 @@ enum NewGame: CaseIterable {
                hero.name = "Colby"
                hero.race = .human
                 hero.rewardXp(1000)
-                hero.skills.append(Punch())
-                hero.skills.append(Kick())
+                hero.skills.append(Skill.punch)
+                hero.skills.append(Skill.kick)
                hero.profession = .warrior
                hero.image = "merchant"
                hero.rewardItem(ItemRack.healthPotion.instance)

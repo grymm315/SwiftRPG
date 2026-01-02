@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 protocol BattleMenuDelegate {
-    func chose(action:Skill)
+    func chose(action:ActiveSkill)
 }
 
 
@@ -36,7 +36,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     var delegate:BattleMenuDelegate?
-    var menuItems:[Skill] = [Fireball(), Punch()]
+    var menuItems:[ActiveSkill] = [Fireball(), Punch()]
     
     //    var cancel:UIButton = UIButton()
     var closing:Bool = false

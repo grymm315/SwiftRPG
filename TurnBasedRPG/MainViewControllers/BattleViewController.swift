@@ -94,14 +94,18 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         
     }
 
-    func getBattleOptions() -> [Skill] {
+    func getBattleOptions() -> [ActiveSkill] {
         //Lets make a function to do this logic in the character- pull direct from character class
-        var skills: [Skill] = GameDatabase.shared.hero.skills
+        var skills: [ActiveSkill] = []
+        
+        for each in GameDatabase.shared.hero.skills {
+            skills.append(each.cast)
+        }
         
         return skills
     }
     
-    func chose(action: any Skill) {
+    func chose(action: any ActiveSkill) {
         let viewActions = action.handle(event: .attack(attacker: hero, defender: enemy), owner: hero)
         battleAction(action: viewActions.action, value: viewActions.value)
     }

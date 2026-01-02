@@ -16,9 +16,11 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButtonGUI!
     @IBOutlet weak var newGameButton: UIButtonGUI!
     
+    let data = GameDatabase.shared
     let popUp:PopUp = PopUp()
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
     }
     
@@ -36,7 +38,7 @@ class InitialViewController: UIViewController {
         settingsButton.fadeIn(settingsButton.animationSpeed)
         creditButton.fadeIn(creditButton.animationSpeed)
         shareButton.fadeIn(shareButton.animationSpeed)
-        startButton.isHidden = GameDatabase.shared.hero.getLevel() < 1
+        startButton.isHidden = data.hero.getLevel() < 1
     }
     
     

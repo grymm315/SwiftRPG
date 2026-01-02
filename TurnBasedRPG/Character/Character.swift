@@ -13,7 +13,7 @@ class Character: Codable  {
     
     enum characterKeys: String, CodingKey, CaseIterable {
             case name, strength, perception, endurance, charisma, intelligence, luck,
-        agility, gold, level, experience, race, profession, sex, inventory, headEquipmentSlot, chestEquipmentSlot, legsEquipmentSlot, equippedSlot, hp, mana, energy, image
+        agility, gold, level, experience, race, profession, sex, inventory, headEquipmentSlot, chestEquipmentSlot, legsEquipmentSlot, equippedSlot, hp, mana, energy, image, skills
         }
     
     var maxHealth: Int {return Int((stats["endurance"] ?? 1) * 10)}
@@ -41,7 +41,7 @@ class Character: Codable  {
     //
     
     var name: String
-    var skills: [Skill] = [Run()]
+    var skills: [Skill] = [Skill.run]
     private var level = 0
     private var experience = 0
     var race:raceTypes = .human
@@ -114,6 +114,7 @@ class Character: Codable  {
         self.currentMana = try container.decode(Int.self, forKey: .mana)
         self.currentEnergy = try container.decode(Int.self, forKey: .energy)
         self.image = try container.decode(String.self, forKey: .image)
+        self.skills = try container.decode([Skill].self, forKey: .skills)
         var equipmentArrayForType = try container.nestedUnkeyedContainer(forKey: .inventory)
         var myInventory = [Equipment]()
         var equipArray = equipmentArrayForType
@@ -163,6 +164,7 @@ class Character: Codable  {
         try container.encode(chestEquipmentSlot, forKey: .chestEquipmentSlot)
         try container.encode(legsEquipmentSlot, forKey: .legsEquipmentSlot)
         try container.encode(equippedSlot, forKey: .equippedSlot)
+        try container.encode(skills, forKey: .skills)
         }
     
     func getGold() -> Int {return gold}

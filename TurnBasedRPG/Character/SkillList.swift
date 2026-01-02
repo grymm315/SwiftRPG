@@ -8,29 +8,7 @@
 
 import Foundation
 
-enum SkillRack {
-    case healthPotion, manaPotion, mushroom, bisquit, soup, buzzPop, xpPotion
-    var instance: Consumable {
-        switch self {
-        case .healthPotion:
-            return Consumable("Health Potion", description: "This will restore 20HP", effect: Effect(.heal, by: 20))
-        case .manaPotion:
-            return Consumable("Mana Potion", description: "This will restore 20MP", effect: Effect(.gainMana, by: 20))
-        case .mushroom:
-            return Consumable("Mushroom", description: "A moldy mushroom. You eat this for energy", effect: Effect(.gainEnergy, by: 20))
-        case .bisquit:
-            return Consumable("Bisquit", description: "This is bread. You eat it.", effect: Effect(.heal, by: 20))
-        case .soup:
-            return Consumable("Bone Soup", description: "What a satisfying flavor", effect: Effect(.heal, by: 20))
-        case .buzzPop:
-            return Consumable("Buzz Pop", description: "This will get you full of energy", effect: Effect(.gainEnergy, by: 100))
-        case .xpPotion:
-            return Consumable("XP Potion", description: "Holy Shit! This is a cheat item", effect: Effect(.gainExperience, by: 750))
-        }
-    }
-}
-
-protocol Skill{
+protocol ActiveSkill{
     var name: String { get }
     var energyCost: Int { get }
     var manaCost: Int { get }
@@ -41,7 +19,29 @@ protocol Skill{
  
 }
 
-final class Fireball: Skill {
+enum Skill: Codable{
+    case FireBall, LightningBolt, firstaid, punch, kick, grapple, run
+    var cast: ActiveSkill {
+        switch self {
+        case .FireBall:
+            return Fireball()
+        case .LightningBolt:
+            return LightingBolt()
+        case .firstaid:
+            return FirstAid()
+        case .punch:
+            return Punch()
+        case .kick:
+            return Kick()
+        case .grapple:
+            return Grapple()
+        case .run:
+            return Run()
+        }
+    }
+}
+
+final class Fireball: ActiveSkill {
     var name: String = "Fireball"
     var description: String = "A fiery orb that explodes in damage"
     var isPassive: Bool = false
@@ -61,7 +61,7 @@ final class Fireball: Skill {
     }
 }
 
-final class LightingBolt: Skill {
+final class LightingBolt: ActiveSkill {
     var energyCost: Int = 5
     
     var manaCost: Int = 7
@@ -84,7 +84,7 @@ final class LightingBolt: Skill {
     }
 }
 
-final class Punch: Skill {
+final class Punch: ActiveSkill {
     var energyCost: Int = 3
     var manaCost: Int = 0
     var name: String = "Punch"
@@ -109,7 +109,7 @@ final class Punch: Skill {
     }
 }
 
-final class Kick: Skill {
+final class Kick: ActiveSkill {
     
     var name: String = "Kick"
     var description: String = "Introduce your foot to the enemy"
@@ -131,7 +131,7 @@ final class Kick: Skill {
     }
 }
 
-final class Grapple: Skill {
+final class Grapple: ActiveSkill {
         
     var name: String = "Grapple"
     var description: String = "Attempt to grab the enemy"
@@ -154,7 +154,7 @@ final class Grapple: Skill {
     }
 }
 
-final class FirstAid: Skill {
+final class FirstAid: ActiveSkill {
     var name: String = "First Aid"
     var description: String = "Heal yourself for a small ammount"
     var isPassive: Bool = false
@@ -177,7 +177,7 @@ final class FirstAid: Skill {
     
 }
 
-final class Run: Skill {
+final class Run: ActiveSkill {
     var name: String = "Run"
     var description: String = "Move your feet swiftly away from the enemy"
     var isPassive: Bool = false
