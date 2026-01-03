@@ -11,6 +11,25 @@ import UIKit
 
 let goldenRatio:CGFloat = 0.6180340
 
+extension UIView {
+    func setBackgroundImage(_ image: UIImage, contentMode: UIView.ContentMode = .scaleAspectFill) {
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = contentMode
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+
+        addSubview(imageView)
+        sendSubviewToBack(imageView)
+
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+}
+
 extension UIApplication {
     class var topViewController: UIViewController? { return getTopViewController() }
     private class func getTopViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {

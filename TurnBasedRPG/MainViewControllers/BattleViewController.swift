@@ -61,6 +61,10 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         
         heroView.addSubview(heroImage)
         
+        if let tImage =  UIImage.init(named: GameDatabase.shared.currentRoom.title){
+            topEnemyView.setBackgroundImage(tImage)
+//            roomImage.image = tImage
+        }
         
         heroHP.alignHpTo(hero)
         heroName.text = hero.name
