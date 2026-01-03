@@ -74,6 +74,81 @@ enum DungeonEncounters: CaseIterable {
         }
     }
 }
+enum SearchEncounters: CaseIterable {
+    case barrel, door, alcove2, treasure
+    var instance: [Command] {
+        switch self {
+            case .barrel:
+            let description = Command("This room contains various barrels.", completionHandler: {})
+            description.isSelectable = false
+            let search = Command("Search barrel", completionHandler: {
+                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+
+            })
+           
+            let ignore = Command("Ignore", completionHandler: {
+                UIApplication.systemMessage("")
+            })
+            return [description, search, ignore]
+        case .door:
+            let description = Command("This the final door of the dungeon.", completionHandler: {})
+            description.isSelectable = false
+            let openDoor = Command("Open door", completionHandler: {
+                UIApplication.systemMessage("This door is locked. You need a key to open it.")
+
+            })
+           
+            let ignore = Command("Ignore", completionHandler: {
+                
+            })
+            return [description, openDoor, ignore]
+        case .alcove2:
+            let description = Command("This room contains two different alcoves", completionHandler: {})
+            description.isSelectable = false
+            let search = Command("Search left alcove", completionHandler: {
+                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+
+            })
+            let search2 = Command("Search right alcove", completionHandler: {
+                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+
+            })
+           
+            let ignore = Command("Ignore", completionHandler: {
+                UIApplication.systemMessage("")
+            })
+            return [description, search, search2, ignore]
+        case .treasure:
+            let description = Command("This seems to be a storage room of some kind", completionHandler: {})
+            description.isSelectable = false
+            let search = Command("Search left alcove", completionHandler: {
+                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+
+            })
+            let search2 = Command("Search right alcove", completionHandler: {
+                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+
+            })
+            let search3 = Command("Search right box", completionHandler: {
+                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+
+            })
+            let search4 = Command("Search left box", completionHandler: {
+                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+
+            })
+            let search5 = Command("Search barrel", completionHandler: {
+                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+
+            })
+           
+            let ignore = Command("Ignore", completionHandler: {
+                UIApplication.systemMessage("")
+            })
+            return [description, search, search2, search3, search4, search5, ignore]
+        }
+    }
+}
 
 
 enum ForestEncounters: CaseIterable {

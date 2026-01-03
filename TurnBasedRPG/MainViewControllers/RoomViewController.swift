@@ -250,6 +250,12 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func randomChance(){
+        if (GameDatabase.shared.currentRoom.event_list.count > 0) {
+            patrolEventMenu.options = GameDatabase.shared.currentRoom.event_list
+            self.showPatrolMenu()
+            return
+        }
+        
         if (Bool.random()){
             //randomly we ain't doin shit- exit logic
             return

@@ -25,7 +25,7 @@ class AreaGenerator{
     let downtown5:RoomNode = RoomNode(name: "ns5", environment: .city, treasure: 3, danger: 2)
     let downtownSheriff:RoomNode = RoomNode(name: "ns", environment: .city, treasure: 3, danger: 0)
     
-    let street1:RoomNode = RoomNode(name: "ns1", environment: .highway, treasure: 3, danger: 2)
+    let street1:RoomNode = RoomNode(name: "ns", environment: .highway, treasure: 3, danger: 2)
     let street2:RoomNode = RoomNode(name: "se2", environment: .highway, treasure: 3, danger: 2)
     let street3:RoomNode = RoomNode(name: "nsw", environment: .highway, treasure: 3, danger: 2)
     let toriiGate2:RoomNode = RoomNode(name: "ToriiGate2", environment: .highway, treasure: 8, danger: 2)
@@ -84,15 +84,18 @@ class AreaGenerator{
         street3way.linkRoom(.east, room: narrowstreet)
         narrowstreet.linkRoom(.east, room: minimart)
         street3way.linkRoom(.south, room: house1)
+        street3way.event_list = SearchEncounters.barrel.instance
         house1.linkRoom(.east, room: house2)
         house2.linkRoom(.east, room: bedroom2)
         house1.linkRoom(.west, room: bedroom1)
         house1.linkRoom(.south, room: forest5)
+        house1.event_list = SearchEncounters.alcove2.instance
         
         forest5.linkRoom(.east, room: forest5)
         forest5.linkRoom(.south, room: forest7)
         forest7.linkRoom(.south, room: forest1)
         forest7.linkRoom(.west, room: woods)
+        woods.event_list = SearchEncounters.alcove2.instance
         forest7.linkRoom(.east, room: forest2)
         
         forest1.linkRoom(.south, room: forest6)
@@ -106,6 +109,7 @@ class AreaGenerator{
         flightdeck.linkRoom(.north, room: startRoom)
         
         diningRoom.linkRoom(.east, room: street3)
+        street3.event_list = SearchEncounters.barrel.instance
         street3.linkRoom(.north, room: downtown5)
         downtown5.linkRoom(.north, room: town)
         town.linkRoom(.north, room: woods)
@@ -116,8 +120,10 @@ class AreaGenerator{
         woods4.linkRoom(.west, room: woods5)
         woods5.linkRoom(.north, room: cabinWoods)
         cabinWoods.linkRoom(.east, room: cabin1)
+        cabin1.event_list = SearchEncounters.alcove2.instance
         cabinWoods.linkRoom(.west, room: cabin2)
         cabinWoods.linkRoom(.north, room: darkwoods)
+        darkwoods.event_list = SearchEncounters.door.instance
         
         street3.linkRoom(.south, room: toriiGate2)
         //The new images are not rendering when linked together
@@ -128,6 +134,7 @@ class AreaGenerator{
         street1.linkRoom(.south, room: roadToTower)
         roadToTower.linkRoom(.south, room: toriiGate1)
         roadToTower.linkRoom(.east, room: toriiGate2)
+        roadToTower.event_list = SearchEncounters.barrel.instance
         toriiGate1.linkRoom(.east, room: downtown4)
         downtown4.linkRoom(.north, room: downtownSheriff)
         toriiGate2.linkRoom(.south, room: downtownSheriff)
