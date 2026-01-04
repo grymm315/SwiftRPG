@@ -121,6 +121,10 @@ class AreaGenerator{
         woods5.linkRoom(.north, room: cabinWoods)
         cabinWoods.linkRoom(.east, room: cabin1)
         cabin1.event_list = SearchEncounters.alcove2.instance
+        bedroom2.event_list = SearchEncounters.alcove2.instance
+        minimart.event_list = SearchEncounters.alcove2.instance
+
+
         cabinWoods.linkRoom(.west, room: cabin2)
         cabinWoods.linkRoom(.north, room: darkwoods)
         darkwoods.event_list = SearchEncounters.door.instance

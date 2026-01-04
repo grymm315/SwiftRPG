@@ -59,7 +59,11 @@ class HealthBar: UIView {
         } else {
             backBar.fillColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         }
-        _currentHealth = mob.currentHealth
+        if (mob.currentHealth < 0){
+            _currentHealth = 0
+        } else {
+            _currentHealth = mob.currentHealth
+        }
         scale(path: barCurrent, duration: 0.2)
         scale(path: backBar, duration: 0.9)
     }

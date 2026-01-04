@@ -33,7 +33,7 @@ enum Monster {
             c.image = "wolf"
             return c
         case .rat:
-            let c = Character(strength: 1, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
+            let c = Character(strength: 2, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
             c.name = "Rat"
             c.image = "rat"
             return c
@@ -68,17 +68,17 @@ enum Monster {
             c.image = "merchant"
             return c
         case .beetle:
-            let c = Character(strength: 1, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
+            let c = Character(strength: 3, perception: 1, endurance: 3, charisma: 1, intelligence: 1, luck: 1, agility: 2)
             c.name = "Beetle"
             c.image = "beetle"
             return c
         case .spider:
-            let c = Character(strength: 1, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
+            let c = Character(strength: 4, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
             c.name = "Spider"
             c.image = "spider"
             return c
         case .slime:
-            let c = Character(strength: 1, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
+            let c = Character(strength: 3, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
             c.name = "Slime"
             c.image = "blob"
             return c

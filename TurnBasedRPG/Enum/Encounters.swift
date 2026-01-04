@@ -76,14 +76,29 @@ enum DungeonEncounters: CaseIterable {
 }
 enum SearchEncounters: CaseIterable {
     case barrel, door, alcove2, treasure
+    
+    func searchCrate(){
+        if (Bool.random()){
+            UIApplication.systemMessage("After searching you find nothing of interest.")
+        } else {
+            if (Bool.random()){
+                    UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.spider)
+            } else {
+                UIApplication.systemMessage("You find a mushroom and put it in your bag.")
+                GameDatabase.shared.hero.rewardItem(ItemRack.mushroom.instance)
+            }
+        }
+    }
+    
     var instance: [Command] {
+        
+        
         switch self {
             case .barrel:
             let description = Command("This room contains various barrels.", completionHandler: {})
             description.isSelectable = false
             let search = Command("Search barrel", completionHandler: {
-                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
-
+                searchCrate()
             })
            
             let ignore = Command("Ignore", completionHandler: {
@@ -106,11 +121,10 @@ enum SearchEncounters: CaseIterable {
             let description = Command("This room contains two different alcoves", completionHandler: {})
             description.isSelectable = false
             let search = Command("Search left alcove", completionHandler: {
-                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
-
+                searchCrate()
             })
             let search2 = Command("Search right alcove", completionHandler: {
-                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+                searchCrate()
 
             })
            
@@ -122,23 +136,23 @@ enum SearchEncounters: CaseIterable {
             let description = Command("This seems to be a storage room of some kind", completionHandler: {})
             description.isSelectable = false
             let search = Command("Search left alcove", completionHandler: {
-                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+                searchCrate()
 
             })
             let search2 = Command("Search right alcove", completionHandler: {
-                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+                searchCrate()
 
             })
             let search3 = Command("Search right box", completionHandler: {
-                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+                searchCrate()
 
             })
             let search4 = Command("Search left box", completionHandler: {
-                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+                searchCrate()
 
             })
             let search5 = Command("Search barrel", completionHandler: {
-                UIApplication.systemMessage("After searching the barrel you find nothing of interest.")
+                searchCrate()
 
             })
            
