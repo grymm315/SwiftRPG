@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 protocol BattleMenuDelegate {
-    func chose(action:String)
+    func chose(action:ActiveSkill)
 }
 
 
@@ -36,7 +36,7 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     var delegate:BattleMenuDelegate?
-    var menuItems = ["Attack", "Magic", "Item", "Escape"]
+    var menuItems:[ActiveSkill] = [Fireball(), Punch()]
     
     //    var cancel:UIButton = UIButton()
     var closing:Bool = false
@@ -80,23 +80,23 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         })
     }
     
-    func stateMachine(command: String){
-        
-        switch command {
-        case "Fight":
-            print(command)
-        case "Magic":
-            print(command)
-        case "Item":
-            print(command)
-        case "Escape":
-            print(command)
-        default:
-            print(command)
-        }
-        btn_Cancel(self)
-        delegate?.chose(action: command)
-    }
+//    func stateMachine(command: String){
+//        
+//        switch command {
+//        case "Fight":
+//            print(command)
+//        case "Magic":
+//            print(command)
+//        case "Item":
+//            print(command)
+//        case "Escape":
+//            print(command)
+//        default:
+//            print(command)
+//        }
+//        btn_Cancel(self)
+//        delegate?.chose(action: command)
+//    }
     
     @objc func btn_Cancel(_ sender: Any?){
         closing = true
@@ -135,13 +135,15 @@ class BattleMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cellThis.textLabel?.font = UIFont(name: "Courier New Bold", size: 14)
         cellThis.textLabel?.shadowColor = UIColor.black
         cellThis.textLabel?.shadowOffset = CGSize(width: 1, height: 1)
-        cellThis.textLabel?.text = menuItems[indexPath.row]
+        cellThis.textLabel?.text = menuItems[indexPath.row].name
         
         return cellThis
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        stateMachine(command: tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "Unknown")
+//        stateMachine(command: tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "Unknown")
+        delegate?.chose(action: menuItems[indexPath.row])
+        btn_Cancel(self)
     }
     
     

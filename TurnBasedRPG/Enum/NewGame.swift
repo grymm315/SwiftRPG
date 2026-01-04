@@ -19,17 +19,22 @@ enum NewGame: CaseIterable {
             description.isSelectable = false
             let rayven = Command("Rayven", completionHandler: {
                 UIApplication.systemMessage("The dungeon isn’t a prison—it’s a crucible. Every novice must walk its halls, not to escape, but to prove they deserve to rise higher. The elders call it a trial by fire: survive the traps, outwit the monsters, and claim the core’s blessing… or fall, and let the dungeon claim you as fuel. Your name is already etched into the roster. There’s no turning back—the gates grind open, and the darkness waits.")
-                 let hero = Character(strength: 1, perception: 3, endurance: 2, charisma: 3, intelligence: 1, luck: 3, agility: 2)
+                 let hero = Character(strength: 1, perception: 2, endurance: 2, charisma: 3, intelligence: 3, luck: 3, agility: 2)
                 hero.name = "Rayven"
                 hero.rewardXp(1000)
                 hero.race = .human
                 hero.profession = .cleric
+                hero.skills.append(Skill.punch)
+                hero.skills.append(Skill.FireBall)
+                hero.skills.append(Skill.firstaid)
                 hero.image = "shadowqueen"
                 hero.rewardItem(ItemRack.manaPotion.instance)
                 hero.rewardItem(ItemRack.healthPotion.instance)
                 hero.rewardItem(ArmorRack.shirt.instance)
-                hero.rewardItem(ArmorRack.plateChest.instance)
-                hero.rewardItem(ArmorRack.chainChest.instance)
+                hero.rewardItem(ArmorRack.jeans.instance)
+                hero.equipItem(named: ArmorRack.jeans.instance.name)
+                hero.equipItem(named: ArmorRack.shirt.instance.name)
+
 
 
 //                hero.rewardItem(ArmorRack.leatherPants.instance)
@@ -41,17 +46,23 @@ enum NewGame: CaseIterable {
             })
             let colby = Command("Colby", completionHandler: {
                 UIApplication.systemMessage("The dungeon isn’t a prison—it’s a crucible. Every novice must walk its halls, not to escape, but to prove they deserve to rise higher. The elders call it a trial by fire: survive the traps, outwit the monsters, and claim the core’s blessing… or fall, and let the dungeon claim you as fuel. Your name is already etched into the roster. There’s no turning back—the gates grind open, and the darkness waits.")
-                let hero = Character(strength: 3, perception: 2, endurance: 3, charisma: 1, intelligence: 1, luck: 3, agility: 2)
+                let hero = Character(strength: 3, perception: 2, endurance: 3, charisma: 1, intelligence: 1, luck: 3, agility: 3)
                hero.name = "Colby"
                hero.race = .human
                 hero.rewardXp(1000)
-
+                hero.skills.append(Skill.punch)
+                hero.skills.append(Skill.kick)
                hero.profession = .warrior
                hero.image = "merchant"
                hero.rewardItem(ItemRack.healthPotion.instance)
 //                hero.rewardItem(ArmorRack.chainChest.instance)
                 hero.rewardItem(ArmorRack.jeans.instance)
                 hero.rewardItem(WeaponRack.axe.instance)
+                
+                hero.equipItem(named: WeaponRack.axe.instance.name)
+                hero.equipItem(named: ArmorRack.jeans.instance.name)
+
+
                GameDatabase.shared.hero = hero
                 UIApplication.systemMessage("Swipe in any direction to shift rooms—left, right, up, or down")
                 UIApplication.topViewController?.performSegue(withIdentifier: "enterGame", sender: nil)

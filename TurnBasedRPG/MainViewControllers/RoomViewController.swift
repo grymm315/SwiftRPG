@@ -250,30 +250,43 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func randomChance(){
+        if (GameDatabase.shared.currentRoom.event_list.count > 0) {
+            patrolEventMenu.options = GameDatabase.shared.currentRoom.event_list
+            self.showPatrolMenu()
+            return
+        }
+        
         if (Bool.random()){
             //randomly we ain't doin shit- exit logic
             return
         }
-        switch self.currentRoom?.environment {
-        case .forest:
-            print("forest")
-            patrolEventMenu.options = ForestEncounters.allCases.randomElement()!.instance
-            self.showPatrolMenu()
-            return
-        case .city:
-            print("City")
-            patrolEventMenu.options = CityEncounters.allCases.randomElement()!.instance
-            self.showPatrolMenu()
-            return
-        case .highway:
-            print("Highway")
-            patrolEventMenu.options = HighwayEncounters.allCases.randomElement()!.instance
-            self.showPatrolMenu()
-            return
-            
-        default:
-            print("This environment has no encounters")
-        }
+        
+  
+        patrolEventMenu.options = DungeonEncounters.allCases.randomElement()!.instance
+        self.showPatrolMenu()
+        return
+        
+        // For now--- everything is being treated as a dungeon
+//        switch self.currentRoom?.environment {
+//        case .forest:
+//            print("forest")
+//            patrolEventMenu.options = ForestEncounters.allCases.randomElement()!.instance
+//            self.showPatrolMenu()
+//            return
+//        case .city:
+//            print("City")
+//            patrolEventMenu.options = CityEncounters.allCases.randomElement()!.instance
+//            self.showPatrolMenu()
+//            return
+//        case .highway:
+//            print("Highway")
+//            patrolEventMenu.options = HighwayEncounters.allCases.randomElement()!.instance
+//            self.showPatrolMenu()
+//            return
+//            
+//        default:
+//            print("This environment has no encounters")
+//        }
     }
     
     @IBAction func waitDayNight(_ sender: Any) {

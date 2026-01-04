@@ -9,6 +9,162 @@
 import Foundation
 import UIKit
 
+enum DungeonEncounters: CaseIterable {
+    case slime, beetle, rat, spider
+    
+    var instance: [Command]{
+        switch self {
+            
+        case .slime:
+            let description = Command("You see a pool of slime oozing from the ground.", completionHandler: {})
+            description.isSelectable = false
+            let attkGoblin = Command("Stomp slime puddle", completionHandler: {
+                
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.slime)
+            })
+            
+            let fleeGoblin = Command("Avoid slime puddle", completionHandler: {
+                UIApplication.systemMessage("You walk around the slime puddle." )
+            })
+            return [description, attkGoblin, fleeGoblin]
+            
+        case .beetle:
+            let description = Command("An angry beetle crawls out from under a rock.", completionHandler: {})
+            description.isSelectable = false
+            let attkGoblin = Command("Attack beetle", completionHandler: {
+                
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.beetle)
+            })
+            let waveGoblin = Command("Shoo beetle", completionHandler: {
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.beetle)
+            })
+            let fleeGoblin = Command("Flee", completionHandler: {
+                UIApplication.systemMessage("You manage to escape before the beetle sees you..")
+            })
+            return [description, attkGoblin, waveGoblin, fleeGoblin]
+        case .rat:
+            let description = Command("A hungry rat scampers out from under a rock.", completionHandler: {})
+            description.isSelectable = false
+            let attkGoblin = Command("Attack Rat", completionHandler: {
+                
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.rat)
+            })
+            let waveGoblin = Command("Shoo rat", completionHandler: {
+                UIApplication.systemMessage("The rat stares at you in confusion before running off. +40XP")
+                GameDatabase.shared.hero.rewardXp(40)
+            })
+            let fleeGoblin = Command("Flee", completionHandler: {
+                UIApplication.systemMessage("You manage to escape before the goblin sees you..")
+            })
+            return [description, attkGoblin, waveGoblin, fleeGoblin]
+        case .spider:
+            let description = Command("You see a spider hanging from a web", completionHandler: {})
+            description.isSelectable = false
+            let attkGoblin = Command("Attack Spider", completionHandler: {
+                
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.spider)
+            })
+            let waveGoblin = Command("Shoo spider", completionHandler: {
+                UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.spider)
+            })
+            let fleeGoblin = Command("Flee", completionHandler: {
+                UIApplication.systemMessage("You manage to escape before the spider sees you..")
+            })
+            return [description, attkGoblin, waveGoblin, fleeGoblin]
+        }
+    }
+}
+enum SearchEncounters: CaseIterable {
+    case barrel, door, alcove2, treasure
+    
+    func searchCrate(){
+        if (Bool.random()){
+            UIApplication.systemMessage("After searching you find nothing of interest.")
+        } else {
+            if (Bool.random()){
+                    UIApplication.topViewController?.performSegue(withIdentifier: "BattleView", sender: Monster.spider)
+            } else {
+                UIApplication.systemMessage("You find a mushroom and put it in your bag.")
+                GameDatabase.shared.hero.rewardItem(ItemRack.mushroom.instance)
+            }
+        }
+    }
+    
+    var instance: [Command] {
+        
+        
+        switch self {
+            case .barrel:
+            let description = Command("This room contains various barrels.", completionHandler: {})
+            description.isSelectable = false
+            let search = Command("Search barrel", completionHandler: {
+                searchCrate()
+            })
+           
+            let ignore = Command("Ignore", completionHandler: {
+                UIApplication.systemMessage("")
+            })
+            return [description, search, ignore]
+        case .door:
+            let description = Command("This the final door of the dungeon.", completionHandler: {})
+            description.isSelectable = false
+            let openDoor = Command("Open door", completionHandler: {
+                UIApplication.systemMessage("This door is locked. You need a key to open it.")
+
+            })
+           
+            let ignore = Command("Ignore", completionHandler: {
+                
+            })
+            return [description, openDoor, ignore]
+        case .alcove2:
+            let description = Command("This room contains two different alcoves", completionHandler: {})
+            description.isSelectable = false
+            let search = Command("Search left alcove", completionHandler: {
+                searchCrate()
+            })
+            let search2 = Command("Search right alcove", completionHandler: {
+                searchCrate()
+
+            })
+           
+            let ignore = Command("Ignore", completionHandler: {
+                UIApplication.systemMessage("")
+            })
+            return [description, search, search2, ignore]
+        case .treasure:
+            let description = Command("This seems to be a storage room of some kind", completionHandler: {})
+            description.isSelectable = false
+            let search = Command("Search left alcove", completionHandler: {
+                searchCrate()
+
+            })
+            let search2 = Command("Search right alcove", completionHandler: {
+                searchCrate()
+
+            })
+            let search3 = Command("Search right box", completionHandler: {
+                searchCrate()
+
+            })
+            let search4 = Command("Search left box", completionHandler: {
+                searchCrate()
+
+            })
+            let search5 = Command("Search barrel", completionHandler: {
+                searchCrate()
+
+            })
+           
+            let ignore = Command("Ignore", completionHandler: {
+                UIApplication.systemMessage("")
+            })
+            return [description, search, search2, search3, search4, search5, ignore]
+        }
+    }
+}
+
+
 enum ForestEncounters: CaseIterable {
     case Goblin, Mushrooms, RestfulSpring, LoneWolf
     var instance: [Command] {

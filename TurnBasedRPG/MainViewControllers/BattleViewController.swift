@@ -19,8 +19,7 @@ protocol BattleViewActions {
 }
 // TODO: This needs refactored
 class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActions {
-    
-    
+  
     
     @IBOutlet weak var enemyView: UIView!
     @IBOutlet weak var heroView: UIView!
@@ -28,9 +27,10 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     @IBOutlet weak var heroName: UILabel!
     @IBOutlet weak var enemyName: UILabel!
     @IBOutlet weak var enemyHP: HealthBar!
-    @IBOutlet weak var heroHP: HealthBar!
     
-    @IBOutlet weak var attkButton: UIButtonGUI!
+    @IBOutlet weak var heroHP: HealthBar!
+    @IBOutlet weak var energyBar: HealthBar!
+    @IBOutlet weak var manaBar: HealthBar!
     
     @IBOutlet weak var lowerConsoleView: UIView!
     @IBOutlet weak var topEnemyView: UIView!
@@ -61,6 +61,10 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         
         heroView.addSubview(heroImage)
         
+        if let tImage =  UIImage.init(named: GameDatabase.shared.currentRoom.title){
+            topEnemyView.setBackgroundImage(tImage)
+//            roomImage.image = tImage
+        }
         
         heroHP.alignHpTo(hero)
         heroName.text = hero.name
@@ -77,90 +81,52 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     func setBackgroundImage(){
         
     }
+       
+    func alignHealthBars(){
+       
+        heroHP._maxHealth = GameDatabase.shared.hero.maxHealth
+        heroHP._currentHealth = GameDatabase.shared.hero.currentHealth
+        heroHP.takeDamage(0)
+            
+        manaBar._maxHealth = GameDatabase.shared.hero.maxMana
+        manaBar._currentHealth = GameDatabase.shared.hero.currentMana
+        manaBar.takeDamage(0)
+            
+        energyBar._maxHealth = GameDatabase.shared.hero.maxEnergy
+        energyBar._currentHealth = GameDatabase.shared.hero.currentEnergy
+        energyBar.takeDamage(0)
         
-//    func tick() {
-//        //lose condition
-//        if (gameOver) {
-//            print("The Battle is over")
-//            return
-//        }
-//        //win condition
-//        if (enemyHP._currentHealth <= 0) {
-//            print ("You won")
-//            let fanfare: SystemSoundID = 1025
-//            AudioServicesPlaySystemSound(fanfare)
-//            gameOver = true
-//            isPaused = true
-//            UIApplication.battleNotification("You have defeated \(enemy.name)!!")
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-//                UIApplication.battleNotification("You have gained 100 XP!!")
-//                GameDatabase.shared.hero.rewardXp(100)
-//            })
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-//                self.dismiss(animated: true, completion: nil)
-//            })
-//        }
-//
-//        if (heroPOS < enemyPOS) {
-//            heroPOS += Int(hero.agility)
-//            // sound.randomInsults()
-//            AIMove()
-//        } else {
-//            enemyPOS += Int(enemy.agility)
-//            menu.menuItems = ["Attack", "Heal", "Item", "Escape"]
-//            self.view.addSubview(menu.view)
-//        }
-//    }
-//
-//
-    func getBattleOptions() {
-        //What weapon is equipped? Weapon should have skills
-        let weapon = GameDatabase.shared.hero.getWeapon()
+    }
+
+    func getBattleOptions() -> [ActiveSkill] {
+        //Lets make a function to do this logic in the character- pull direct from character class
+        var skills: [ActiveSkill] = []
         
-        //what items in inventory can be used in battle?
+        for each in GameDatabase.shared.hero.skills {
+            skills.append(each.cast)
+        }
         
+        return skills
+    }
+    
+    func chose(action: any ActiveSkill) {
+        let viewActions = action.handle(event: .attack(attacker: hero, defender: enemy), owner: hero)
+        battleAction(action: viewActions.action, value: viewActions.value)
     }
     
     func getBattleChoices() -> [String] {
         return ["Attack", "Heal", "Item", "Escape"]
     }
     func showBattleMenu() {
-        menu.menuItems = getBattleChoices()
+        menu.menuItems = getBattleOptions()
         self.view.addSubview(menu.view)
-    }
-    func chose(action: String) {
-            //print("Chose: \(action)")
-        SoundController.shared.tapSound()
-        switch action {
-        case "Attack":
-            let hdmg = Int.random(in: 1...Int(hero.strength))
-            enemyHP.takeDamage(hdmg)
-            enemyImage.shake()
-            displayLog("You deal \(hdmg) dmg to \(enemy.name)", color: UIColor.white)
-            sound.painNoise()
-        case "Heal":
-            heroHP.heal(15)
-            GameDatabase.shared.hero.currentHealth += 15
-            sound.magic()
-            displayLog("You heal for 15 points", color: UIColor.green)
-        case "Item":
-            print("Yet")
-        case "Escape":
-            SoundController.shared.speak("You ran away like a cow-word!")
-            self.dismiss(animated: true, completion: nil)
-        default:
-            print("Default")
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
-//            self.tick()
-        })
     }
     
     func battleAction(action: BattleActions, value: Int) {
         switch action {
         case .heroAttacksMob:
             enemyHP.alignHpTo(enemy)
+            alignHealthBars()
             enemyImage.shake()
             displayLog("You deal \(value) damage to \(enemy.name)", color: UIColor.white)
             sound.painNoise()
@@ -172,6 +138,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             enemyImage.nudgeVertical(-70)
             GameDatabase.shared.hero.currentHealth -= value
             heroHP.alignHpTo(GameDatabase.shared.hero)
+            alignHealthBars()
             displayLog("\(enemy.name) attacks you for \(value) points", color: UIColor.red)
             sound.painNoise()
             
@@ -185,6 +152,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             sound.magic()
             displayLog("\(enemy.name) heals you for 15 points", color: UIColor.green)
             heroHP.alignHpTo(hero)
+            alignHealthBars()
 
         case .heroHealsHero:
             heroHP.heal(value)
@@ -192,6 +160,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             sound.magic()
             heroHP.alignHpTo(hero)
             displayLog("You heal for \(value) points", color: UIColor.green)
+            alignHealthBars()
 
         case .mobHealMob:
             enemyHP.alignHpTo(enemy)
@@ -222,10 +191,14 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
                 self.dismiss(animated: true, completion: nil)
             })
         case .flee:
-            displayLog("They who flee and run away live to fight another day", color: UIColor.red)
-            UIApplication.displayLog("They who flee and run away live to fight another day")
-            SoundController.shared.speak("They who flee and run away live to fight another day")
-            self.dismiss(animated: true, completion: nil)
+            if (value == 0){
+                displayLog("They who flee and run away live to fight another day", color: UIColor.red)
+                UIApplication.displayLog("They who flee and run away live to fight another day")
+                SoundController.shared.speak("They who flee and run away live to fight another day")
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                displayLog("You try to flee but the \(enemy.name) won't let you")
+            }
         case .playerInput:
             displayLog("*", color: UIColor.yellow)
             showBattleMenu()
@@ -246,31 +219,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             self.consoleLog.setContentOffset(CGPoint(x: 0, y: bottom), animated: true)
         }
     }
-    
-//    func attacks(_ who:Character, attacks victim:Character){
-//    }
-//
-//    func AIMove(){
-//        let edmg = Int.random(in: 1...Int(enemy.strength))
-//        enemyImage.nudgeVertical(-70)
-//        heroHP.takeDamage(edmg)
-//        GameDatabase.shared.hero.currentHealth -= edmg
-//
-//        UIApplication.battleNotification("\(enemy.race) attacks you for \(edmg) points")
-//        sound.painNoise()
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
-//            self.tick()
-//        })
-//    }
-//
-//    //hero attacks enemy
-//    @IBAction func attack(_ sender: Any) {
-//        enemyHP._currentHealth -= Int.random(in: 1...10)
-//        enemyHP.setNeedsDisplay()
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
-//            self.tick()
-//        })
-//    }
 }
 
 

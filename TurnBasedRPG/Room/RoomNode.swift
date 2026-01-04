@@ -33,6 +33,7 @@ class RoomNode {
     var environment: RoomEnvironment = .field
     
     var mob_list:[Monster] = []
+    var event_list:[Command] = []
     
     init(name:String, environment: RoomEnvironment = .field, treasure: Int = 0, danger: Int = 0) {
         title = name

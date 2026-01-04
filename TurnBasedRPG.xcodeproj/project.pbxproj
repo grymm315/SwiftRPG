@@ -31,6 +31,7 @@
 		82D72A2B216060C60081709D /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2A216060C60081709D /* BattleViewController.swift */; };
 		82D72A2D2161FC9E0081709D /* AreaGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2C2161FC9E0081709D /* AreaGenerator.swift */; };
 		886CFF492D3C456A006F85D0 /* FireMTKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CFF482D3C456A006F85D0 /* FireMTKView.swift */; };
+		88C142562EFE5323002C3F93 /* SkillList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C142552EFE5323002C3F93 /* SkillList.swift */; };
 		9607315523CECC270070A869 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607315423CECC270070A869 /* Equipment.swift */; };
 		965644E0231DDF6800403EA9 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965644DF231DDF6800403EA9 /* FaceView.swift */; };
 		9672DE8A22E413FA0080984F /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672DE8922E413FA0080984F /* RoomView.swift */; };
@@ -129,6 +130,7 @@
 		82D72A2A216060C60081709D /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		82D72A2C2161FC9E0081709D /* AreaGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaGenerator.swift; sourceTree = "<group>"; };
 		886CFF482D3C456A006F85D0 /* FireMTKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireMTKView.swift; sourceTree = "<group>"; };
+		88C142552EFE5323002C3F93 /* SkillList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillList.swift; sourceTree = "<group>"; };
 		9607315423CECC270070A869 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		963DFDE723E028EA00485974 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		965644DF231DDF6800403EA9 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 		96CAE7C823D301160017019E /* Character */ = {
 			isa = PBXGroup;
 			children = (
+				88C142552EFE5323002C3F93 /* SkillList.swift */,
 				820150A4213B308C006A4B80 /* Magic.swift */,
 				8201509721332FEA006A4B80 /* Mobile.swift */,
 				820150912132C0FD006A4B80 /* Character.swift */,
@@ -547,6 +550,7 @@
 				F09EC9A22C8686E2000B4814 /* Gradient.swift in Sources */,
 				822C323A221E9FDC00ECFA9E /* WawaViewViewController.swift in Sources */,
 				820150942132CC2B006A4B80 /* SmaugData.swift in Sources */,
+				88C142562EFE5323002C3F93 /* SkillList.swift in Sources */,
 				F02B57A32B61FDA0003B53B5 /* NpcDialogViewController.swift in Sources */,
 				9607315523CECC270070A869 /* Equipment.swift in Sources */,
 				F02B57A12B61B54B003B53B5 /* Application.swift in Sources */,
@@ -802,7 +806,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.grymm.SwiftRPG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -829,7 +833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.grymm.SwiftRPG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
