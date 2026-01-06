@@ -96,7 +96,11 @@ class RoomViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLayoutSubviews() {
         consoleView.frame = UIScreen.main.getUpperFrame(ratio: 0.30)
-        consoleView.layer.masksToBounds = true
+        consoleView.layer.masksToBounds = false
+        consoleView.layer.shadowOffset = CGSize(width: 2, height: 8)
+        consoleView.layer.shadowRadius = 5
+        consoleView.layer.shadowColor = UIColor.black.cgColor
+        consoleView.layer.shadowOpacity = 1
         roomView.frame = UIScreen.main.getLowerFrame(ratio: 0.30)
         originReturn = UIScreen.main.getLowerFrame(ratio: 0.30).origin
         text("", color: UIColor.white)

@@ -147,10 +147,10 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     // Defining these variables for readability,
     // Notice they are set to private because other classes don't need to modify this convenience code
     // Changing order of sections is done here as well
-    private let statsSectionTitles:[String] = ["Stats", "Traits"]
+    private let statsSectionTitles:[String] = ["Stats", "Skills"]
     private var headingSection: Int = 20
     private let statSection: Int = 0
-    private let traitsSection: Int = 1
+    private let skillSection: Int = 1
     
     private let statsList: Int = 0
     private let inventoryList: Int = 1
@@ -245,8 +245,9 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
             } else if (section == statSection) {
                     // We are showing all the stats in the keyring
                     return statKeyring.count
-            } else if (section == traitsSection) {
+            } else if (section == skillSection) {
                     // Just 1 trait for now as it is mocked up
+                return GameDatabase.shared.hero.skills.count
                     return 1
             } else {
                     return 0
@@ -280,10 +281,11 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
                 cell.configCell(type: statKeyring[indexPath.row])
                 cell.tableView = self
                 return cell
-            } else if (indexPath.section == traitsSection){
+            } else if (indexPath.section == skillSection){
                 //This cell takes 2 parameters
                 let cell = tableView.dequeueReusableCell(withIdentifier: "traitCell", for: indexPath) as! TraitCell
-                cell.configCell(title: "Toast", subtitle: "Slightly crunchy and bland as fuck. You need somebody to butter your bread.")
+                let skill = GameDatabase.shared.hero.skills[indexPath.row].cast
+                cell.configCell(title: skill.name, subtitle: skill.description)
                 cell.tableView = self
                 return cell
             }
@@ -314,7 +316,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        if (listPicker.selectedSegmentIndex == statsList && (section == traitsSection)){
+        if (listPicker.selectedSegmentIndex == statsList && (section == skillSection)){
          return 100
         } else if (listPicker.selectedSegmentIndex == inventoryList && (section == generalSection)) {
             return 100
@@ -323,7 +325,7 @@ class CharacterSheetTableViewController: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if (listPicker.selectedSegmentIndex == statsList && (section == traitsSection)){
+        if (listPicker.selectedSegmentIndex == statsList && (section == skillSection)){
          return 100
         } else if (listPicker.selectedSegmentIndex == inventoryList && (section == generalSection)) {
             return 100
