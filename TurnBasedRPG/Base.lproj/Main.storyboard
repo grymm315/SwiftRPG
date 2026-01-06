@@ -429,10 +429,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="114" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomframe" translatesAutoresizingMaskIntoConstraints="NO" id="yBq-O2-3nz">
-                                        <rect key="frame" x="0.0" y="332" width="420" height="57"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" id="c7M-RL-oyB" customClass="HealthBar" customModule="TurnBasedRPG" customModuleProvider="target">
                                         <rect key="frame" x="10" y="0.0" width="145" height="4"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -465,6 +461,18 @@
                                         <rect key="frame" x="3" y="9" width="8" height="6"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="0.75130208333333337" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RightLowerCorner" translatesAutoresizingMaskIntoConstraints="NO" id="dON-2a-Pro">
+                                        <rect key="frame" x="304" y="344" width="114" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LeftLowerCorner" translatesAutoresizingMaskIntoConstraints="NO" id="Wrk-4D-Wbg">
+                                        <rect key="frame" x="0.0" y="344" width="114" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomframe" translatesAutoresizingMaskIntoConstraints="NO" id="yBq-O2-3nz">
+                                        <rect key="frame" x="0.0" y="344" width="420" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -612,10 +620,12 @@
     </scenes>
     <resources>
         <image name="Cockpit" width="512" height="512"/>
+        <image name="LeftLowerCorner" width="154" height="54"/>
         <image name="LeftUpperCorner" width="154" height="54"/>
+        <image name="RightLowerCorner" width="150" height="54"/>
         <image name="RightUpperCorner" width="150" height="54"/>
         <image name="SunMoon" width="1024" height="1024"/>
-        <image name="bottomframe" width="494" height="54"/>
+        <image name="bottomframe" width="173" height="54"/>
         <image name="figure.hiking" catalog="system" width="96" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="radialbutton" width="256" height="256"/>

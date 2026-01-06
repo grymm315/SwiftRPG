@@ -46,51 +46,6 @@ class BattleController {
         
     }
     
-    func getOptions(){
-        let weapon = hero?.getWeapon()
-        var options : [String] = []
-        switch weapon?.weaponType {
-        case .Sword:
-            options.append("Stab")
-            options.append("Swing")
-            options.append("Thrust")
-        case .Club:
-            options.append("Swing")
-
-        case .Claw:
-            options.append("Swipe")
-
-        case .Unarmed:
-            options.append("Punch")
-            options.append("Kick")
-
-        case .Gun:
-            options.append("Shoot")
-
-        case .FireWand:
-            options.append("Fireball")
-            options.append("Swing")
-            options.append("Thrust")
-
-        case .IceWand:
-            options.append("Stab")
-            options.append("Swing")
-            options.append("Thrust")
-
-        case .GreenWand:
-            options.append("Stab")
-            options.append("Swing")
-            options.append("Thrust")
-
-        case nil:
-            options.append("Run")
-            options.append("Dodge")
-            options.append("Roll")
-
-        }
-    }
-    
-    
     func statusReport() {
         print("\(hero?.name ?? "Name not found"): \(heroInitiative) vs \(enemy?.race ?? raceTypes.Demon): \(enemyInitiative)")
     }
@@ -159,7 +114,7 @@ class BattleController {
             return
         }
         
-        if (GameDatabase.shared.hero.currentHealth ?? 0 <= 0) {
+        if (GameDatabase.shared.hero.currentHealth <= 0) {
             print ("You have died!!")
             gameOver = true
             battleDelegate?.battleAction(action: .youDied, value: 0)
