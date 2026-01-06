@@ -52,6 +52,8 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     
     override func viewDidLoad() {
         enemyHP.alignHpTo(enemy)
+        energyBar.alignHpTo(enemy)
+        manaBar.alignHpTo(enemy)
 
         menu.delegate = self
 //        self.view.addSubview(menu.view)
@@ -68,7 +70,9 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         
         heroHP.alignHpTo(hero)
         heroName.text = hero.name
-        SoundController.shared.speak("You are attacked by a ferocious \(enemy.name).")
+        let attkMsg = "You are attacked by a ferocious \(enemy.name)."
+        SoundController.shared.speak(attkMsg)
+        displayLog(attkMsg, color: UIColor.white)
         BattleController.shared.battleDelegate = self
         BattleController.shared.start(hero, enemy)
     }
@@ -156,7 +160,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
 
         case .heroHealsHero:
             heroHP.heal(value)
-            GameDatabase.shared.hero.currentHealth += value
+            GameDatabase.shared.hero.heal(value)
             sound.magic()
             heroHP.alignHpTo(hero)
             displayLog("You heal for \(value) points", color: UIColor.green)

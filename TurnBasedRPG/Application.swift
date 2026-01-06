@@ -170,10 +170,11 @@ extension UIScreen {
     }
     
     func getUpperFrame(ratio: CGFloat) -> CGRect{
+        //portrait
         var rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - 44) * ratio)
-        
+        //landscape
         if (UIScreen.main.bounds.width > UIScreen.main.bounds.height){
-            rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * ratio, height: (UIScreen.main.bounds.height - 32))
+            rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * (ratio + 0.1), height: (UIScreen.main.bounds.height - 32))
         }
         return rect
     }
