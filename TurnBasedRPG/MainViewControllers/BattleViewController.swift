@@ -208,6 +208,12 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     override func viewDidLayoutSubviews() {
         topEnemyView.frame = UIScreen.main.getUpperFrame(ratio: 0.5)
         lowerConsoleView.frame = UIScreen.main.getLowerFrame(ratio: 0.5)
+        
+        lowerConsoleView.layer.masksToBounds = false
+        lowerConsoleView.layer.shadowOffset = CGSize(width: -2, height: -8)
+        lowerConsoleView.layer.shadowRadius = 5
+        lowerConsoleView.layer.shadowColor = UIColor.black.cgColor
+        lowerConsoleView.layer.shadowOpacity = 1
     }
     
     func displayLog(_ text: String, color: UIColor = UIColor.cyan){

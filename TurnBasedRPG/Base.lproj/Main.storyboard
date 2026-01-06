@@ -417,10 +417,6 @@
                                             <action selector="waitDayNight:" destination="d2K-j7-Qrn" eventType="touchUpInside" id="H6f-fO-bSi"/>
                                         </connections>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topframe" translatesAutoresizingMaskIntoConstraints="NO" id="CMn-d4-FNa">
-                                        <rect key="frame" x="0.0" y="0.0" width="420" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RightUpperCorner" translatesAutoresizingMaskIntoConstraints="NO" id="bEY-CP-mzz">
                                         <rect key="frame" x="306" y="0.0" width="114" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -428,6 +424,10 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LeftUpperCorner" translatesAutoresizingMaskIntoConstraints="NO" id="gMI-1h-Zoa">
                                         <rect key="frame" x="0.0" y="0.0" width="114" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topframe" translatesAutoresizingMaskIntoConstraints="NO" id="CMn-d4-FNa">
+                                        <rect key="frame" x="0.0" y="0.0" width="420" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" id="c7M-RL-oyB" customClass="HealthBar" customModule="TurnBasedRPG" customModuleProvider="target">
                                         <rect key="frame" x="10" y="0.0" width="145" height="4"/>
