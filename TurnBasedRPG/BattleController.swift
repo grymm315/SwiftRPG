@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum CombatEvent {
     case battleStarted
@@ -52,8 +53,13 @@ class BattleController {
     
     func AIMove() {
         if (gameOver){return}
-        let dmg = enemy?.attack(enemy: GameDatabase.shared.hero)
-        battleDelegate?.battleAction(action: .mobAttacksHero, value: dmg ?? 0)
+//        let dmg = enemy?.attack(enemy: GameDatabase.shared.hero)
+            let choice = enemy?.skills.randomElement()
+        battleDelegate?.displayLog("\(enemy?.name ?? "unknown??") uses \(choice?.cast.name ?? "unknown??")", color: UIColor.white)
+        let viewActions = choice?.cast.handle(event: .attack(attacker: enemy!, defender: hero!), owner: enemy!)
+        battleDelegate?.battleAction(action: viewActions!.action, value: viewActions!.value)
+        
+//        battleDelegate?.battleAction(action: .mobAttacksHero, value: dmg ?? 0)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDelay, execute: {
             self.determineNextMove()
         })

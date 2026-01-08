@@ -16,6 +16,7 @@ enum BattleActions {
 
 protocol BattleViewActions {
     func battleAction(action: BattleActions, value: Int)
+    func displayLog(_ text: String, color: UIColor)
 }
 // TODO: This needs refactored
 class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActions {
@@ -115,6 +116,11 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     
     func chose(action: any ActiveSkill) {
         let viewActions = action.handle(event: .attack(attacker: hero, defender: enemy), owner: hero)
+        battleAction(action: viewActions.action, value: viewActions.value)
+    }
+    
+    func monsterMoves(action: any ActiveSkill) {
+        let viewActions = action.handle(event: .attack(attacker: enemy, defender: hero), owner: hero)
         battleAction(action: viewActions.action, value: viewActions.value)
     }
     

@@ -41,6 +41,22 @@ enum Skill: Codable{
     }
 }
 
+enum MonsterSkill: Codable{
+    case bite, venom, tailswipe, flee
+    var cast: ActiveSkill{
+        switch self {
+        case .bite:
+            return Bite()
+        case .venom:
+            return Venom()
+        case .tailswipe:
+            return TailSwipe()
+        case .flee:
+            return MonsterRun()
+        }
+    }
+}
+
 final class Fireball: ActiveSkill {
     var name: String = "Fireball"
     var description: String = "A fiery orb that explodes in damage"
@@ -57,7 +73,12 @@ final class Fireball: ActiveSkill {
         }
         attacker.currentMana -= manaCost
         defender.currentHealth -= 10
-        return (BattleActions.heroAttacksMob, 10)
+        
+        if attacker.name == GameDatabase.shared.hero.name {
+            return (BattleActions.heroAttacksMob, 10)
+        } else {
+            return (BattleActions.mobAttacksHero, 10)
+        }
     }
 }
 
@@ -80,7 +101,12 @@ final class LightingBolt: ActiveSkill {
         }
         attacker.currentMana -= manaCost
         defender.currentHealth -= 10
-        return (BattleActions.heroAttacksMob, 10)
+        
+        if attacker.name == GameDatabase.shared.hero.name {
+            return (BattleActions.heroAttacksMob, 10)
+        } else {
+            return (BattleActions.mobAttacksHero, 10)
+        }
     }
 }
 
@@ -101,7 +127,11 @@ final class Punch: ActiveSkill {
         }
         attacker.currentEnergy -= manaCost
         defender.currentHealth -= 3
-        return (BattleActions.heroAttacksMob, 3)
+        if attacker.name == GameDatabase.shared.hero.name {
+            return (BattleActions.heroAttacksMob, 3)
+        } else {
+            return (BattleActions.mobAttacksHero, 3)
+        }
     }
     
     func use(owner: Character, victim: Character) {
@@ -127,7 +157,11 @@ final class Kick: ActiveSkill {
         }
         attacker.currentEnergy -= energyCost
         defender.currentHealth -= 4
-        return (BattleActions.heroAttacksMob, 4)
+        if attacker.name == GameDatabase.shared.hero.name {
+            return (BattleActions.heroAttacksMob, 4)
+        } else {
+            return (BattleActions.mobAttacksHero, 4)
+        }
     }
 }
 
@@ -150,7 +184,12 @@ final class Grapple: ActiveSkill {
         }
         attacker.currentMana -= manaCost
         defender.currentHealth -= 10
-        return (BattleActions.heroAttacksMob, 10)
+        
+        if attacker.name == GameDatabase.shared.hero.name {
+            return (BattleActions.heroAttacksMob, 10)
+        } else {
+            return (BattleActions.mobAttacksHero, 10)
+        }
     }
 }
 
@@ -199,4 +238,102 @@ final class Run: ActiveSkill {
     }
 }
 
+final class MonsterRun: ActiveSkill {
+    var name: String = "MonsterRun"
+    var description: String = "The monster runs away!!"
+    var isPassive: Bool = false
+    var energyCost: Int = 5
+    var manaCost: Int = 0
+    
+    func handle(event: CombatEvent, owner: Character) -> (action: BattleActions, value: Int) {
+        guard case .attack(_, let defender) = event else { return (BattleActions.playerInput, 0) }
+        _ = 5
+        
+        if owner.agility > defender.agility {
+            print("The monster gets away!!")
+            return (BattleActions.flee, 3)
+        } else {
+            print("The monster did not get away...")
+            return (BattleActions.flee, 4)
+           
+        }
+    }
+}
 
+final class Bite: ActiveSkill {
+    var energyCost: Int = 3
+    var manaCost: Int = 0
+    var name: String = "Bite"
+    var description: String = "A mouth full of teeth meet a mouthful of flesh!"
+    var isPassive: Bool = false
+    
+    func handle(event: CombatEvent, owner: Character) -> (action: BattleActions, value: Int) {
+        guard case .attack(let attacker, let defender) = event else { return (BattleActions.playerInput, 0) }
+        let manaCost = 0
+        
+        if (owner.currentMana < manaCost || owner.currentEnergy < energyCost) {
+            print("Not enough mana/energy to cast this!")
+            return (BattleActions.playerInput, 0)
+        }
+        attacker.currentEnergy -= manaCost
+        defender.currentHealth -= 3
+        
+        if attacker.name == GameDatabase.shared.hero.name {
+            return (BattleActions.heroAttacksMob, 3)
+        } else {
+            return (BattleActions.mobAttacksHero, 3)
+        }
+    }
+}
+
+final class TailSwipe: ActiveSkill {
+    var energyCost: Int = 3
+    var manaCost: Int = 0
+    var name: String = "TailSwipe"
+    var description: String = "A mouth full of teeth meet a mouthful of flesh!"
+    var isPassive: Bool = false
+    
+    func handle(event: CombatEvent, owner: Character) -> (action: BattleActions, value: Int) {
+        guard case .attack(let attacker, let defender) = event else { return (BattleActions.playerInput, 0) }
+        let manaCost = 0
+        
+        if (owner.currentMana < manaCost || owner.currentEnergy < energyCost) {
+            print("Not enough mana/energy to cast this!")
+            return (BattleActions.playerInput, 0)
+        }
+        attacker.currentEnergy -= manaCost
+        defender.currentHealth -= 3
+        
+        if attacker.name == GameDatabase.shared.hero.name {
+            return (BattleActions.heroAttacksMob, 3)
+        } else {
+            return (BattleActions.mobAttacksHero, 3)
+        }
+    }
+}
+
+final class Venom: ActiveSkill {
+    var energyCost: Int = 3
+    var manaCost: Int = 0
+    var name: String = "Venom"
+    var description: String = "Venom is when it bites you, poison is when you bite it"
+    var isPassive: Bool = false
+    
+    func handle(event: CombatEvent, owner: Character) -> (action: BattleActions, value: Int) {
+        guard case .attack(let attacker, let defender) = event else { return (BattleActions.playerInput, 0) }
+        let manaCost = 0
+        
+        if (owner.currentMana < manaCost || owner.currentEnergy < energyCost) {
+            print("Not enough mana/energy to cast this!")
+            return (BattleActions.playerInput, 0)
+        }
+        attacker.currentEnergy -= manaCost
+        defender.currentHealth -= 3
+        
+        if attacker.name == GameDatabase.shared.hero.name {
+            return (BattleActions.heroAttacksMob, 3)
+        } else {
+            return (BattleActions.mobAttacksHero, 3)
+        }
+    }
+}

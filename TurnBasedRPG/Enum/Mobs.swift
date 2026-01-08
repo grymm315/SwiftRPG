@@ -32,11 +32,6 @@ enum Monster {
             c.name = "Stray Dog"
             c.image = "wolf"
             return c
-        case .rat:
-            let c = Character(strength: 2, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
-            c.name = "Rat"
-            c.image = "rat"
-            return c
         case .possum:
             let c = Character(strength: 1, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 1)
             c.name = "Possum"
@@ -67,20 +62,31 @@ enum Monster {
             c.name = "Town Guard"
             c.image = "merchant"
             return c
+            
+            //v 1.2.1 Mobs
         case .beetle:
             let c = Character(strength: 3, perception: 1, endurance: 3, charisma: 1, intelligence: 1, luck: 1, agility: 2)
-            c.name = "Beetle"
+            c.name = "Giant Dungeon Beetle"
             c.image = "beetle"
+            c.skills = [Skill.punch, Skill.grapple]
             return c
         case .spider:
             let c = Character(strength: 4, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
-            c.name = "Spider"
+            c.name = "Venomous Spider"
             c.image = "spider"
+            c.skills = [Skill.punch, Skill.grapple]
             return c
         case .slime:
             let c = Character(strength: 3, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
-            c.name = "Slime"
+            c.name = "Green Slime"
             c.image = "blob"
+            c.skills = [Skill.punch, Skill.firstaid]
+            return c
+        case .rat:
+            let c = Character(strength: 2, perception: 1, endurance: 1, charisma: 1, intelligence: 1, luck: 1, agility: 2)
+            c.name = "Rat"
+            c.image = "rat"
+            c.skills = [Skill.punch, Skill.run]
             return c
         }
     }
