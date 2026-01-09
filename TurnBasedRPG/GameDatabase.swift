@@ -46,6 +46,9 @@ class GameDatabase {
     func saveGame() {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
+        
+        UserDefaults.standard.setValue(currentRoom.title, forKey: "currentRoomImg")
+        print("CP saving room \(currentRoom.title) \(currentRoom)")
         do {
             let savedData =  try encoder.encode(GameDatabase.shared.hero)
             print("Saved Data: \(String(data: savedData, encoding: .utf8) ?? "XXX")")
@@ -61,6 +64,9 @@ class GameDatabase {
             let decoder = JSONDecoder()
         do {
             let loadedData = try Data(contentsOf: documentsURL)
+            let room = UserDefaults.standard.string(forKey: "currentRoomImg")
+            print("CP finding room \(room ?? "raw")")
+            currentRoom = map.bedroom3.find{ $0.title == room } ?? map.bedroom3
             print("Loaded Data: \(String(data: loadedData, encoding: .utf8) ?? "XXX")")
 
             let readingData = try decoder.decode(Character.self, from: loadedData)

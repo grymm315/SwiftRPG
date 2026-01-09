@@ -75,6 +75,32 @@ class RoomNode {
         linkRoom(loc, room: room)
         
     }
+    
+    func find(where predicate: (RoomNode) -> Bool) -> RoomNode? {
+            var queue: [RoomNode] = [self]
+            var visited = Set<ObjectIdentifier>()
+            
+            while !queue.isEmpty {
+                let current = queue.removeFirst()
+                let id = ObjectIdentifier(current)
+                
+                if visited.contains(id) { continue }
+                visited.insert(id)
+                
+                if predicate(current) {
+                    return current
+                }
+                
+                let neighbors = [current.north, current.south, current.east, current.west]
+                for neighbor in neighbors {
+                    if let room = neighbor {
+                        queue.append(room)
+                    }
+                }
+            }
+            print("CP Found nothing returning nil")
+            return nil
+        }
 }
 
 enum RoomEnvironment {

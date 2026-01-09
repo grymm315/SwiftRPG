@@ -76,7 +76,11 @@ class PopUp: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //        tableView.layer.borderColor = UIColor.white.cgColor
         tableView.backgroundColor = UIColor.clear
 
-        
+        self.view.layer.masksToBounds = false
+        self.view.layer.shadowOffset = CGSize(width: 2, height: 8)
+        self.view.layer.shadowRadius = 5
+        self.view.layer.shadowColor = UIColor.black.cgColor
+        self.view.layer.shadowOpacity = 1
 
         //tableView.
         

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum CombatEvent {
     case battleStarted
@@ -46,59 +47,25 @@ class BattleController {
         
     }
     
-    func getOptions(){
-        let weapon = hero?.getWeapon()
-        var options : [String] = []
-        switch weapon?.weaponType {
-        case .Sword:
-            options.append("Stab")
-            options.append("Swing")
-            options.append("Thrust")
-        case .Club:
-            options.append("Swing")
-
-        case .Claw:
-            options.append("Swipe")
-
-        case .Unarmed:
-            options.append("Punch")
-            options.append("Kick")
-
-        case .Gun:
-            options.append("Shoot")
-
-        case .FireWand:
-            options.append("Fireball")
-            options.append("Swing")
-            options.append("Thrust")
-
-        case .IceWand:
-            options.append("Stab")
-            options.append("Swing")
-            options.append("Thrust")
-
-        case .GreenWand:
-            options.append("Stab")
-            options.append("Swing")
-            options.append("Thrust")
-
-        case nil:
-            options.append("Run")
-            options.append("Dodge")
-            options.append("Roll")
-
-        }
-    }
-    
-    
     func statusReport() {
         print("\(hero?.name ?? "Name not found"): \(heroInitiative) vs \(enemy?.race ?? raceTypes.Demon): \(enemyInitiative)")
     }
     
     func AIMove() {
         if (gameOver){return}
-        let dmg = enemy?.attack(enemy: GameDatabase.shared.hero)
-        battleDelegate?.battleAction(action: .mobAttacksHero, value: dmg ?? 0)
+//        let dmg = enemy?.attack(enemy: GameDatabase.shared.hero)
+            let choice = enemy?.skills.randomElement()
+        
+        if (enemy!.currentMana - (choice?.cast.manaCost)! < 0 || enemy!.currentEnergy - (choice?.cast.energyCost)! < 0) {
+            //not enough mana
+            battleDelegate?.displayLog("\(enemy?.name ?? "unknown??") doesn't have the resources to use \(choice?.cast.name ?? "unknown??")", color: UIColor.white)
+        } else {
+            battleDelegate?.displayLog("\(enemy?.name ?? "unknown??") uses \(choice?.cast.name ?? "unknown??")", color: UIColor.white)
+            let viewActions = choice?.cast.handle(event: .attack(attacker: enemy!, defender: hero!), owner: enemy!)
+            battleDelegate?.battleAction(action: viewActions!.action, value: viewActions!.value)
+        }
+        
+//        battleDelegate?.battleAction(action: .mobAttacksHero, value: dmg ?? 0)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDelay, execute: {
             self.determineNextMove()
         })
@@ -159,7 +126,7 @@ class BattleController {
             return
         }
         
-        if (GameDatabase.shared.hero.currentHealth ?? 0 <= 0) {
+        if (GameDatabase.shared.hero.currentHealth <= 0) {
             print ("You have died!!")
             gameOver = true
             battleDelegate?.battleAction(action: .youDied, value: 0)

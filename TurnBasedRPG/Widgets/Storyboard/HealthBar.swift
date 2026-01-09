@@ -28,8 +28,8 @@ class HealthBar: UIView {
         super.didMoveToSuperview()
         barFrame.path = UIBezierPath(rect: self.bounds).cgPath
         barFrame.fillColor = self.backgroundColor?.cgColor
-        barFrame.strokeColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        barFrame.lineWidth = 2
+        barFrame.strokeColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4018122874)
+        barFrame.lineWidth = 1.2
         barFrame.fillRule = .nonZero
         barFrame.cornerRadius = 20
         
@@ -37,7 +37,7 @@ class HealthBar: UIView {
         //   barCurrent.masksToBounds = true
         layer.addSublayer(barFrame)
         
-//        backBar.path = barFrame.path
+        backBar.path = barFrame.path
         //        backBar.fillColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
         layer.addSublayer(backBar)
         barCurrent.cornerRadius = 20

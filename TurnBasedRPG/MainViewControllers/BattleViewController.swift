@@ -16,6 +16,7 @@ enum BattleActions {
 
 protocol BattleViewActions {
     func battleAction(action: BattleActions, value: Int)
+    func displayLog(_ text: String, color: UIColor)
 }
 // TODO: This needs refactored
 class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActions {
@@ -52,6 +53,8 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     
     override func viewDidLoad() {
         enemyHP.alignHpTo(enemy)
+        energyBar.alignHpTo(enemy)
+        manaBar.alignHpTo(enemy)
 
         menu.delegate = self
 //        self.view.addSubview(menu.view)
@@ -68,7 +71,9 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         
         heroHP.alignHpTo(hero)
         heroName.text = hero.name
-        SoundController.shared.speak("You are attacked by a ferocious \(enemy.name).")
+        let attkMsg = "You are attacked by a \(enemy.name)."
+        SoundController.shared.speak(attkMsg)
+        displayLog(attkMsg, color: UIColor.white)
         BattleController.shared.battleDelegate = self
         BattleController.shared.start(hero, enemy)
     }
@@ -114,6 +119,11 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         battleAction(action: viewActions.action, value: viewActions.value)
     }
     
+    func monsterMoves(action: any ActiveSkill) {
+        let viewActions = action.handle(event: .attack(attacker: enemy, defender: hero), owner: hero)
+        battleAction(action: viewActions.action, value: viewActions.value)
+    }
+    
     func getBattleChoices() -> [String] {
         return ["Attack", "Heal", "Item", "Escape"]
     }
@@ -156,7 +166,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
 
         case .heroHealsHero:
             heroHP.heal(value)
-            GameDatabase.shared.hero.currentHealth += value
             sound.magic()
             heroHP.alignHpTo(hero)
             displayLog("You heal for \(value) points", color: UIColor.green)
@@ -173,6 +182,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             })
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
 //                GameDatabase.shared.hero.heal(100)
+                GameDatabase.shared.hero.image = "undead"
                 self.dismiss(animated: true, completion: nil)
             })
         case .youWin:
@@ -208,6 +218,12 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     override func viewDidLayoutSubviews() {
         topEnemyView.frame = UIScreen.main.getUpperFrame(ratio: 0.5)
         lowerConsoleView.frame = UIScreen.main.getLowerFrame(ratio: 0.5)
+        
+        lowerConsoleView.layer.masksToBounds = false
+        lowerConsoleView.layer.shadowOffset = CGSize(width: -2, height: -8)
+        lowerConsoleView.layer.shadowRadius = 5
+        lowerConsoleView.layer.shadowColor = UIColor.black.cgColor
+        lowerConsoleView.layer.shadowOpacity = 1
     }
     
     func displayLog(_ text: String, color: UIColor = UIColor.cyan){
