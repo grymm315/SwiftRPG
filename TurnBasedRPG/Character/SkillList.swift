@@ -20,7 +20,7 @@ protocol ActiveSkill{
 }
 
 enum Skill: Codable{
-    case FireBall, LightningBolt, firstaid, punch, kick, grapple, run
+    case FireBall, LightningBolt, firstaid, punch, kick, grapple, run, bite, venom, tailswipe, flee
     var cast: ActiveSkill {
         switch self {
         case .FireBall:
@@ -37,14 +37,6 @@ enum Skill: Codable{
             return Grapple()
         case .run:
             return Run()
-        }
-    }
-}
-
-enum MonsterSkill: Codable{
-    case bite, venom, tailswipe, flee
-    var cast: ActiveSkill{
-        switch self {
         case .bite:
             return Bite()
         case .venom:
@@ -176,19 +168,19 @@ final class Grapple: ActiveSkill {
     
     func handle(event: CombatEvent, owner: Character) -> (action: BattleActions, value: Int) {
         guard case .attack(let attacker, let defender) = event else { return (BattleActions.playerInput, 0) }
-        let manaCost = 10
+        let manaCost = energyCost
         
         if owner.currentMana < manaCost {
             print("Not enough mana!")
             return (BattleActions.playerInput, 0)
         }
-        attacker.currentMana -= manaCost
-        defender.currentHealth -= 10
+        attacker.currentMana -= energyCost
+        defender.takeDamage(energyCost)
         
         if attacker.name == GameDatabase.shared.hero.name {
-            return (BattleActions.heroAttacksMob, 10)
+            return (BattleActions.heroAttacksMob, energyCost)
         } else {
-            return (BattleActions.mobAttacksHero, 10)
+            return (BattleActions.mobAttacksHero, energyCost)
         }
     }
 }
@@ -211,7 +203,11 @@ final class FirstAid: ActiveSkill {
         // The attacker is the caster in need of healing
         attacker.currentMana -= manaCost
         attacker.heal(10)
-        return (BattleActions.heroHealsHero, 10)
+        if attacker.name == GameDatabase.shared.hero.name {
+            return (BattleActions.heroHealsHero, 10)
+        } else {
+            return (BattleActions.mobHealMob, 10)
+        }
     }
     
 }
@@ -232,8 +228,11 @@ final class Run: ActiveSkill {
             return (BattleActions.flee, 0)
         } else {
             print("You did not get away...")
-            return (BattleActions.flee, 2)
-           
+            if (Bool.random()){
+                return (BattleActions.flee, 2)
+            } else {
+                return (BattleActions.flee, 0)
+            }
         }
     }
 }

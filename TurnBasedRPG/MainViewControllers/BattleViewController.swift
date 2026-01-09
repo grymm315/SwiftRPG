@@ -71,7 +71,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
         
         heroHP.alignHpTo(hero)
         heroName.text = hero.name
-        let attkMsg = "You are attacked by a ferocious \(enemy.name)."
+        let attkMsg = "You are attacked by a \(enemy.name)."
         SoundController.shared.speak(attkMsg)
         displayLog(attkMsg, color: UIColor.white)
         BattleController.shared.battleDelegate = self
@@ -166,7 +166,6 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
 
         case .heroHealsHero:
             heroHP.heal(value)
-            GameDatabase.shared.hero.heal(value)
             sound.magic()
             heroHP.alignHpTo(hero)
             displayLog("You heal for \(value) points", color: UIColor.green)
@@ -183,6 +182,7 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
             })
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
 //                GameDatabase.shared.hero.heal(100)
+                GameDatabase.shared.hero.image = "undead"
                 self.dismiss(animated: true, completion: nil)
             })
         case .youWin:

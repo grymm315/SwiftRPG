@@ -55,9 +55,15 @@ class BattleController {
         if (gameOver){return}
 //        let dmg = enemy?.attack(enemy: GameDatabase.shared.hero)
             let choice = enemy?.skills.randomElement()
-        battleDelegate?.displayLog("\(enemy?.name ?? "unknown??") uses \(choice?.cast.name ?? "unknown??")", color: UIColor.white)
-        let viewActions = choice?.cast.handle(event: .attack(attacker: enemy!, defender: hero!), owner: enemy!)
-        battleDelegate?.battleAction(action: viewActions!.action, value: viewActions!.value)
+        
+        if (enemy!.currentMana - (choice?.cast.manaCost)! < 0 || enemy!.currentEnergy - (choice?.cast.energyCost)! < 0) {
+            //not enough mana
+            battleDelegate?.displayLog("\(enemy?.name ?? "unknown??") doesn't have the resources to use \(choice?.cast.name ?? "unknown??")", color: UIColor.white)
+        } else {
+            battleDelegate?.displayLog("\(enemy?.name ?? "unknown??") uses \(choice?.cast.name ?? "unknown??")", color: UIColor.white)
+            let viewActions = choice?.cast.handle(event: .attack(attacker: enemy!, defender: hero!), owner: enemy!)
+            battleDelegate?.battleAction(action: viewActions!.action, value: viewActions!.value)
+        }
         
 //        battleDelegate?.battleAction(action: .mobAttacksHero, value: dmg ?? 0)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDelay, execute: {
