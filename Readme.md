@@ -12,23 +12,27 @@ I started this project to further my understanding of good programming concepts 
 - License
 
 ## Features
-Interactive Storytelling: Dive into the world of Grymm and interact with various NPCs through the NPC Dialog system.
-Battle System: Engage in battles using the BattleViewController to challenge enemies and progress through the game.
-Character Management: Use the CharacterSheetTableViewController to manage your character's stats and equipment.
-Exploration: Navigate through different rooms and environments using the RoomViewController.
-Credits: A dedicated CreditsViewController to showcase the creators and contributors of Grymm World.
-Screenshots
-Include some screenshots of the different views here to showcase the UI and features of Grymm World.
+- ~~Interactive Storytelling: Dive into the world of Grymm and interact with various NPCs through the NPC Dialog system.~~
+- Battle System: Engage in battles using the BattleViewController to challenge enemies and progress through the game.
+- Character Management: Use the CharacterSheetTableViewController to manage your character's stats and equipment.
+- Exploration: Navigate through different rooms and environments using the RoomViewController.
+- Credits: A dedicated CreditsViewController to showcase the creators and contributors of Grymm World.
 
+## Screenshots
 
-### -=ViewControllers=-
+### Initial View
 
-- Initial View: Upon launching the game, users are greeted with the InitialViewController, which serves as the main menu of the game. Buttons for New Game, Load Game, Goto Credits, Facebook share 
-- CreditsViewController: See the list of contributors and game credits. Just credits that scroll.
+<img src="https://github.com/grymm315/SwiftRPG/blob/master/TurnBasedRPG/Misc/GrymmWorldTitleScreen.png" width="15%">
+- Initial View: Upon launching the game, users are greeted with the InitialViewController, which serves as the main menu of the game. Buttons for New Game, Load Game, Goto Credits, Facebook share
+- <img src="https://github.com/grymm315/SwiftRPG/blob/master/TurnBasedRPG/Misc/GrymmWorldRoomScreen.png" width="15%">
 - RoomViewController: Use Swipe controls to move through a maze of "Rooms". Respond to different events that occur in these rooms.
+- <img src="https://github.com/grymm315/SwiftRPG/blob/master/TurnBasedRPG/Misc/GrymmWorldStatusScreen.png" width="15%">
 - CharacterSheetTableViewController: Manage the character's attributes, inventory, skills, quests, etc.
+- <img src="https://github.com/grymm315/SwiftRPG/blob/master/TurnBasedRPG/Misc/GrymmWorldBattleScreen.png" width="15%">
 - BattleViewController: allows players to engage in combat, using a turn-based system to defeat enemies.
-- NPCDialogViewController: to receive quests, learn about the story, and gain valuable information.
+
+- CreditsViewController: See the list of contributors and game credits. Just credits that scroll.
+- ~~NPCDialogViewController: to receive quests, learn about the story, and gain valuable information.~~
 
 
 ## Contributing
@@ -66,4 +70,4 @@ UI Widgets - Reusable UI widgets, like health bars and popup menus
 
 ## To do:
 
-*  Rid the project of segues! Adopt a coordinator pattern. Yes...wonderful!
+*  Get more contributers
