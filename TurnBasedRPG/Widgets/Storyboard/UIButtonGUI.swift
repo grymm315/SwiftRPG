@@ -9,6 +9,7 @@
 import UIKit
 
 //@IBDesignable
+///This class just exposes certain variables on the storyboard widget
 class UIButtonGUI:UIButton{
     
     @IBInspectable public var cornerRadius: CGFloat = 2.0 {didSet {
