@@ -254,7 +254,6 @@
 				8201509F213A8DF7006A4B80 /* Widgets */,
 				827C045F2132922B008998C0 /* Info.plist */,
 				827C045A2132922B008998C0 /* Assets.xcassets */,
-				827C045C2132922B008998C0 /* LaunchScreen.storyboard */,
 				827C045321329228008998C0 /* AppDelegate.swift */,
 				F02B57A02B61B54B003B53B5 /* Application.swift */,
 				96CAE7CB23D452250017019E /* GameDatabase.swift */,
@@ -262,8 +261,6 @@
 				96CAA1412340C0DB009C6A3B /* SoundController.swift */,
 				F0D0C8C32B5C754F00D00B23 /* Animations.swift */,
 				F0B090982B579BC6000ACCDC /* Haptics.swift */,
-				827C045721329228008998C0 /* Main.storyboard */,
-				F02B57A42B62482D003B53B5 /* NewGame.storyboard */,
 				96799E8123E557CA0036E794 /* Model.xcdatamodeld */,
 			);
 			path = TurnBasedRPG;
@@ -349,6 +346,7 @@
 		F04F8AFA2B5DD8F200B3727F /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				827C045C2132922B008998C0 /* LaunchScreen.storyboard */,
 				F08BC7EC2CBE11CE00350796 /* BattleView.storyboard */,
 				82D72A2A216060C60081709D /* BattleViewController.swift */,
 				F08BC7E82CBE0FA100350796 /* CharacterSheet.storyboard */,
@@ -361,6 +359,8 @@
 				8201509921334097006A4B80 /* RoomViewController.swift */,
 				F08BC7DA2CBE0DA300350796 /* Settings.storyboard */,
 				827C045521329228008998C0 /* InitialViewController.swift */,
+				F02B57A42B62482D003B53B5 /* NewGame.storyboard */,
+				827C045721329228008998C0 /* Main.storyboard */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
