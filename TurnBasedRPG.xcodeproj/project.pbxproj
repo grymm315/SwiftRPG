@@ -30,6 +30,8 @@
 		82D72A2D2161FC9E0081709D /* AreaGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D72A2C2161FC9E0081709D /* AreaGenerator.swift */; };
 		886CFF492D3C456A006F85D0 /* FireMTKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CFF482D3C456A006F85D0 /* FireMTKView.swift */; };
 		88C142562EFE5323002C3F93 /* SkillList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C142552EFE5323002C3F93 /* SkillList.swift */; };
+		88D568D52F21B123001301B8 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 88D568D42F21B123001301B8 /* Readme.md */; };
+		88D568D72F21B49A001301B8 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 88D568D62F21B49A001301B8 /* Readme.md */; };
 		9607315523CECC270070A869 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607315423CECC270070A869 /* Equipment.swift */; };
 		965644E0231DDF6800403EA9 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965644DF231DDF6800403EA9 /* FaceView.swift */; };
 		9672DE8A22E413FA0080984F /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672DE8922E413FA0080984F /* RoomView.swift */; };
@@ -127,6 +129,8 @@
 		82D72A2C2161FC9E0081709D /* AreaGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaGenerator.swift; sourceTree = "<group>"; };
 		886CFF482D3C456A006F85D0 /* FireMTKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireMTKView.swift; sourceTree = "<group>"; };
 		88C142552EFE5323002C3F93 /* SkillList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillList.swift; sourceTree = "<group>"; };
+		88D568D42F21B123001301B8 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		88D568D62F21B49A001301B8 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		9607315423CECC270070A869 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		963DFDE723E028EA00485974 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		965644DF231DDF6800403EA9 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 				F0D0C8C32B5C754F00D00B23 /* Animations.swift */,
 				F0B090982B579BC6000ACCDC /* Haptics.swift */,
 				96799E8123E557CA0036E794 /* Model.xcdatamodeld */,
+				88D568D42F21B123001301B8 /* Readme.md */,
 			);
 			path = TurnBasedRPG;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				F08BC7DA2CBE0DA300350796 /* Settings.storyboard */,
 				827C045521329228008998C0 /* InitialViewController.swift */,
 				F02B57A42B62482D003B53B5 /* NewGame.storyboard */,
+				88D568D62F21B49A001301B8 /* Readme.md */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -476,6 +482,8 @@
 			files = (
 				827C045E2132922B008998C0 /* LaunchScreen.storyboard in Resources */,
 				827C045B2132922B008998C0 /* ArtAssets.xcassets in Resources */,
+				88D568D72F21B49A001301B8 /* Readme.md in Resources */,
+				88D568D52F21B123001301B8 /* Readme.md in Resources */,
 				F08BC7E02CBE0E9800350796 /* Credits.storyboard in Resources */,
 				9693FA3A2300DE0D00867915 /* Doodle.xib in Resources */,
 				F08BC7E52CBE0F0700350796 /* NPCDialog.storyboard in Resources */,
