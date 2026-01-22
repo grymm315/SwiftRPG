@@ -216,9 +216,11 @@ class BattleViewController: UIViewController, BattleMenuDelegate, BattleViewActi
     }
     
     override func viewDidLayoutSubviews() {
+        //Moving the frame
         topEnemyView.frame = UIScreen.main.getUpperFrame(ratio: 0.5)
         lowerConsoleView.frame = UIScreen.main.getLowerFrame(ratio: 0.5)
         
+        //this could be moved to the storyboard
         lowerConsoleView.layer.masksToBounds = false
         lowerConsoleView.layer.shadowOffset = CGSize(width: -2, height: -8)
         lowerConsoleView.layer.shadowRadius = 5
