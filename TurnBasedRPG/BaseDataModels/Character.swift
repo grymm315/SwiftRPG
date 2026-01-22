@@ -358,7 +358,6 @@ class Character: Codable  {
 
             } else {
                 UIApplication.systemMessage("\(item.name) isn't armor you can equip")
-
             }
         } else if item is Weapon {
             UIApplication.systemMessage("You equip \(item.name)")
